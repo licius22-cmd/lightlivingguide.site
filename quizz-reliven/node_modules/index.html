@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Creating your plan</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#eef2f4;
+    --ink:#1f2a35;
+    --ink-soft:#5b6b78;
+    --accent:#4a8b2c;
+    --bar-track:#d9dcde;
+    --bar-from:#2f6a1e;
+    --bar-to:#7cb342;
+    --card:#ffffff;
+    --btn:#eef2f4;
+    --btn-hover:#e0e8ed;
+    --star:#00b67a;
+    --radius-card:24px;
+    --radius-bar:999px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    background:var(--bg);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .shell{
+    min-height:100dvh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:24px 20px 32px;
+  }
+
+  .logo{
+    font-size:26px;
+    font-weight:700;
+    font-style:italic;
+    color:#b6c2c9;
+    letter-spacing:-.5px;
+    margin-bottom:44px;
+  }
+
+  .stage-wrap{
+    width:100%;
+    max-width:620px;
+    display:flex;
+    flex-direction:column;
+    flex:1;
+    transition:filter .25s ease;
+  }
+  .stage-wrap.is-blurred{filter:blur(6px)}
+
+  h1{
+    text-align:center;
+    font-size:clamp(28px,5vw,40px);
+    font-weight:800;
+    line-height:1.18;
+    letter-spacing:-.8px;
+    margin-bottom:38px;
+  }
+  h1 .accent{color:var(--accent)}
+
+  .bars{display:flex;flex-direction:column;gap:14px}
+
+  .bar{
+    position:relative;
+    height:36px;
+    border-radius:var(--radius-bar);
+    background:var(--bar-track);
+    overflow:hidden;
+  }
+  .bar__fill{
+    position:absolute;
+    inset:0 auto 0 0;
+    border-radius:var(--radius-bar);
+    background:linear-gradient(90deg,var(--bar-from) 0%,var(--bar-to) 100%);
+    background-size:620px 100%;
+    background-repeat:no-repeat;
+  }
+  .bar__label{
+    position:absolute;
+    left:18px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:15px;
+    font-weight:600;
+    color:#fff;
+    white-space:nowrap;
+    z-index:2;
+  }
+  .bar__pct{
+    position:absolute;
+    right:20px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:15px;
+    font-weight:600;
+    color:rgba(255,255,255,.72);
+    z-index:2;
+  }
+  .bar__check{
+    position:absolute;
+    right:8px;
+    top:50%;
+    transform:translateY(-50%) scale(0);
+    width:22px;height:22px;
+    border-radius:50%;
+    background:#2f6a1e;
+    display:grid;place-items:center;
+    z-index:2;
+    transition:transform .28s cubic-bezier(.2,1.4,.4,1);
+  }
+  .bar__check.is-in{transform:translateY(-50%) scale(1)}
+  .bar__check svg{width:12px;height:12px;stroke:#fff;stroke-width:3;fill:none}
+
+  .review{
+    margin-top:40px;
+    background:var(--card);
+    border-radius:var(--radius-card);
+    padding:26px 28px 30px;
+    box-shadow:0 1px 2px rgba(31,42,53,.04);
+  }
+  .review__stars{display:flex;gap:3px;margin-bottom:20px}
+  .review__stars i{
+    width:29px;height:29px;
+    background:var(--star);
+    display:grid;place-items:center;
+  }
+  .review__stars svg{width:17px;height:17px;fill:#fff}
+  .review__head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:16px;
+    margin-bottom:14px;
+  }
+  .review__title{font-size:19px;font-weight:700}
+  .review__author{font-size:15px;color:#8b979f;white-space:nowrap}
+  .review__body{font-size:19px;line-height:1.55;color:var(--ink-soft)}
+
+  .fade-enter-active,.fade-leave-active{transition:opacity .3s ease}
+  .fade-enter-from,.fade-leave-to{opacity:0}
+
+  .cta{
+    width:100%;
+    max-width:620px;
+    margin-top:auto;
+    padding-top:40px;
+  }
+  .cta button{
+    width:100%;
+    height:72px;
+    border:0;
+    border-radius:var(--radius-bar);
+    background:linear-gradient(90deg,#5aa02e 0%,#7cb342 100%);
+    color:#fff;
+    font-family:inherit;
+    font-size:20px;
+    font-weight:700;
+    cursor:pointer;
+    transition:filter .15s ease,transform .12s ease;
+  }
+  .cta button:hover{filter:brightness(1.05)}
+  .cta button:active{transform:scale(.99)}
+
+  /* modal */
+  .overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(72,84,90,.55);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:50;
+  }
+  .modal{
+    width:100%;
+    max-width:520px;
+    background:var(--card);
+    border-radius:var(--radius-card);
+    padding:30px 28px 32px;
+    text-align:center;
+    box-shadow:0 18px 50px rgba(20,30,38,.18);
+  }
+  .modal__eyebrow{
+    font-size:16px;
+    color:var(--ink-soft);
+    margin-bottom:10px;
+  }
+  .modal__q{
+    font-size:clamp(21px,3.4vw,27px);
+    font-weight:800;
+    line-height:1.28;
+    letter-spacing:-.4px;
+    margin-bottom:26px;
+  }
+  .modal__answers{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .modal__answers button{
+    height:64px;
+    border:0;
+    border-radius:18px;
+    background:var(--btn);
+    color:#4b5c68;
+    font-family:inherit;
+    font-size:20px;
+    font-weight:700;
+    cursor:pointer;
+    transition:background .15s ease,transform .12s ease;
+  }
+  .modal__answers button:hover{background:var(--btn-hover)}
+  .modal__answers button:active{transform:scale(.98)}
+  button:focus-visible{outline:3px solid #2f6a1e;outline-offset:3px}
+
+  .pop-enter-active{transition:opacity .22s ease}
+  .pop-enter-active .modal{transition:transform .28s cubic-bezier(.2,1.2,.35,1)}
+  .pop-enter-from{opacity:0}
+  .pop-enter-from .modal{transform:translateY(14px) scale(.97)}
+  .pop-leave-active{transition:opacity .18s ease}
+  .pop-leave-to{opacity:0}
+
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{transition-duration:.01ms !important}
+  }
+  @media (max-width:520px){
+    .review{padding:22px 22px 26px}
+    .review__body,.review__title{font-size:17px}
+    .bar{height:34px}
+  }
+</style>
+</head>
+<body>
+
+<div id="app">
+  <div class="shell">
+    <div class="logo">yourbrand</div>
+
+    <div class="stage-wrap" :class="{'is-blurred': !!activeQuestion}">
+      <h1>Creating your<br><span class="accent">{{ PLAN_NAME }}</span></h1>
+
+      <div class="bars">
+        <div class="bar" v-for="(s,i) in stages" :key="s.id" v-show="i <= current">
+          <div class="bar__fill" :style="{ width: s.pct + '%' }"></div>
+          <span class="bar__label">{{ s.done ? s.doneLabel : s.runLabel }}</span>
+          <span class="bar__pct" v-if="!s.done">{{ Math.round(s.pct) }}%</span>
+          <span class="bar__check" :class="{'is-in': s.done}" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><polyline points="4,13 9,18 20,6"/></svg>
+          </span>
+        </div>
+      </div>
+
+      <transition name="fade" mode="out-in">
+        <div class="review" v-if="!allDone && currentReview" :key="current">
+          <div class="review__stars" aria-label="5 out of 5">
+            <i v-for="n in 5" :key="n">
+              <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9.5 16.5,14 18.5,21 12,17 5.5,21 7.5,14 2,9.5 9,9"/></svg>
+            </i>
+          </div>
+          <div class="review__head">
+            <div class="review__title">{{ currentReview.title }}</div>
+            <div class="review__author">{{ currentReview.author }}</div>
+          </div>
+          <p class="review__body">{{ currentReview.body }}</p>
+        </div>
+      </transition>
+
+      <div class="cta" v-if="allDone">
+        <button type="button" @click="goNext">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <transition name="pop">
+    <div class="overlay" v-if="activeQuestion" role="dialog" aria-modal="true">
+      <div class="modal">
+        <div class="modal__eyebrow">To move forward, specify</div>
+        <div class="modal__q">{{ activeQuestion.text }}</div>
+        <div class="modal__answers">
+          <button type="button" @click="answer('no')">No</button>
+          <button type="button" @click="answer('yes')">Yes</button>
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
+
+<script data-cfasync="false" src="https://cdn.jsdelivr.net/npm/vue@3.5.13/dist/vue.global.prod.js"></script>
+<script data-cfasync="false">
+/* ============================================================
+   CONFIG — edit only this block
+   ============================================================ */
+const PLAN_NAME = 'Neurobalance Plan';
+
+// Where Continue sends the user (UTMs / clickids are carried over automatically)
+const NEXT_URL  = '/results';
+
+const STAGES = [
+  {
+    id: 'goals',
+    runLabel: 'Setting goals',
+    doneLabel: 'Goals',
+    question: 'Are you inclined to finish what you start?',
+    review: {
+      title:  'Placeholder review title',
+      author: 'Name',
+      body:   'Replace with your own social proof. Keep it two or three lines so the card height stays stable between stages.'
+    }
+  },
+  {
+    id: 'growth',
+    runLabel: 'Adapting growth areas',
+    doneLabel: 'Growth areas',
+    question: 'Are you familiar with nervous system regulation techniques?',
+    review: {
+      title:  'Placeholder review title',
+      author: 'Name',
+      body:   'Second placeholder. Different voice, different objection handled — this is where you pre-empt the "will it work for me" doubt.'
+    }
+  },
+  {
+    id: 'content',
+    runLabel: 'Picking content',
+    doneLabel: 'Content',
+    question: 'Are you open to additional support?',
+    review: {
+      title:  'Placeholder review title',
+      author: 'Name',
+      body:   'Third placeholder. This one runs right before the offer, so it should speak to speed or ease of getting started.'
+    }
+  }
+];
+
+const PAUSE_AT = 50;   // every bar stops here and opens the modal
+
+const SPEED = {
+  firstHalfMs: 5000,  // 0% → 50%
+  secondHalfMs:5000,  // 50% → 100%
+  beforeModal:  350,  // pause after hitting 50%, before the modal opens
+  afterAnswer:  250,  // pause after answering, before the bar resumes
+  betweenBars:  450   // pause after a bar completes, before the next starts
+};
+
+/* ============================================================
+   ENGINE — no edits needed below
+   ============================================================ */
+const { createApp, ref, reactive, computed } = Vue;
+
+const track = (event, payload = {}) => {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event, ...payload });
+};
+
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+createApp({
+  setup() {
+    const stages = reactive(STAGES.map(s => ({ ...s, pct: 0, done: false })));
+    const current = ref(0);
+    const activeQuestion = ref(null);
+    const allDone = ref(false);
+    const answers = reactive({});
+    let resolveAnswer = null;
+
+    const currentReview = computed(() => stages[current.value]?.review);
+
+    // animate a bar from its current pct to `to`, over exactly `dur` ms
+    function animateTo(stage, to, dur) {
+      return new Promise(resolve => {
+        if (reduced) { stage.pct = to; return resolve(); }
+        const from = stage.pct;
+        const t0 = performance.now();
+        const step = now => {
+          const t = Math.min(1, (now - t0) / dur);   // linear: steady, reads as real computation
+          stage.pct = from + (to - from) * t;
+          if (t < 1) requestAnimationFrame(step);
+          else { stage.pct = to; resolve(); }
+        };
+        requestAnimationFrame(step);
+      });
+    }
+
+    function ask(stage) {
+      activeQuestion.value = { text: stage.question, id: stage.id };
+      track('quiz_question_view', { step: stage.id, question: stage.question });
+      return new Promise(r => { resolveAnswer = r; });
+    }
+
+    function answer(value) {
+      const id = activeQuestion.value.id;
+      answers[id] = value;
+      try { sessionStorage.setItem('quiz_answers', JSON.stringify(answers)); } catch (e) {}
+      track('quiz_answer', { step: id, answer: value });
+      activeQuestion.value = null;
+      resolveAnswer && resolveAnswer(value);
+    }
+
+    async function run() {
+      for (let i = 0; i < stages.length; i++) {
+        current.value = i;
+        const s = stages[i];
+        track('quiz_step_view', { step: s.id, index: i + 1 });
+
+        await animateTo(s, PAUSE_AT, SPEED.firstHalfMs);
+        await sleep(SPEED.beforeModal);
+        await ask(s);
+        await sleep(SPEED.afterAnswer);
+        await animateTo(s, 100, SPEED.secondHalfMs);
+
+        s.done = true;
+        await sleep(SPEED.betweenBars);
+      }
+      allDone.value = true;
+      track('quiz_complete', { answers: { ...answers } });
+    }
+
+    function goNext() {
+      track('quiz_continue');
+      const qs = window.location.search;               // UTM / rtkclickid / clicksub5 passthrough
+      const sep = NEXT_URL.includes('?') ? '&' : '?';
+      window.location.href = NEXT_URL + (qs ? sep + qs.slice(1) : '');
+    }
+
+    run();
+    return { PLAN_NAME, stages, current, currentReview, activeQuestion, allDone, answer, goNext };
+  }
+}).mount('#app');
+</script>
+</body>
+</html>
