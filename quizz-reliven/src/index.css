@@ -1330,6 +1330,16 @@ body {
   background-color: rgba(13, 148, 136, 0.1);
 }
 
+.checkout-plan-original-price {
+  font-family: var(--font-secondary);
+  font-weight: 600;
+  font-size: 11px;
+  color: #9CA3AF;
+  text-decoration: line-through;
+  line-height: 1.1;
+  margin-bottom: 2px;
+}
+
 .checkout-plan-price {
   font-family: var(--font-secondary);
   font-weight: 800;

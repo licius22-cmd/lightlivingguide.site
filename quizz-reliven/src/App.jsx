@@ -597,19 +597,11 @@ export default function App() {
                   className={`gender-card ${answers[currentStep.id] === opt.value ? 'selected' : ''}`}
                   onClick={() => handleSelectOption(currentStep.id, opt.value)}
                 >
-                  <div className="gender-avatar-wrapper">
+                  <div className="gender-avatar-wrapper" style={{ width: '80px', height: '80px', borderRadius: '50%', overflow: 'hidden' }}>
                     {opt.icon === 'male' ? (
-                      <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="32" cy="32" r="32" fill="#E2E8F0" />
-                        <circle cx="32" cy="22" r="10" fill="#475569" />
-                        <path d="M14 48C14 39.1634 22.0589 32 32 32C41.9411 32 50 39.1634 50 48V52H14V48Z" fill="#475569" />
-                      </svg>
+                      <img src="/images/gender_masculino.png" alt="Masculino" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     ) : (
-                      <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="32" cy="32" r="32" fill="#FCE7F3" />
-                        <circle cx="32" cy="22" r="9" fill="#DB2777" />
-                        <path d="M16 46C16 38.268 23.1634 32 32 32C40.8366 32 48 38.268 48 46V52H16V46Z" fill="#DB2777" />
-                      </svg>
+                      <img src="/images/gender_feminino.png" alt="Feminino" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     )}
                   </div>
                   <span className="gender-card-label">{opt.label}</span>
@@ -648,10 +640,8 @@ export default function App() {
       case 'welcome':
         return (
           <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', height: '100%', flexGrow: 1 }}>
-            <div className="welcome-illustration">
-              <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" />
-              </svg>
+            <div className="welcome-illustration" style={{ width: '100%', height: 'auto', maxHeight: '220px', overflow: 'hidden', display: 'flex', justifyContent: 'center' }}>
+              <img src="/images/welcome_illustration.png" alt="Welcome" style={{ width: '100%', maxWidth: '320px', height: 'auto', borderRadius: '16px', objectFit: 'cover' }} />
             </div>
             <h1 className="title" style={{ fontSize: '26px' }}>{currentStep.title}</h1>
             <p className="welcome-text">{currentStep.text}</p>
@@ -805,10 +795,8 @@ export default function App() {
         if (currentStep.theme === 'evidence') {
           return (
             <div className="animate-fade-in transition-layout" style={{ display: 'flex', flexDirection: 'column', height: '100%', flexGrow: 1 }}>
-              <div className="evidence-logos">
-                <div className="evidence-logo-item">Harvard</div>
-                <div className="evidence-logo-item">Oxford</div>
-                <div className="evidence-logo-item">Cambridge</div>
+              <div className="evidence-logos" style={{ display: 'flex', justifyContent: 'center', marginBottom: '24px' }}>
+                <img src="/images/universidades.avif" alt="Universidades" style={{ width: '100%', maxWidth: '280px', height: 'auto', objectFit: 'contain' }} />
               </div>
               <h1 className="title" style={{ fontSize: '26px', marginBottom: '16px' }}>{currentStep.title}</h1>
               <p className="welcome-text" style={{ color: 'var(--color-text-muted)', marginBottom: '40px' }}>{currentStep.subtitle}</p>
@@ -825,34 +813,16 @@ export default function App() {
             <div className="animate-fade-in transition-layout" style={{ display: 'flex', flexDirection: 'column', height: '100%', flexGrow: 1 }}>
               <div className="specialist-badge">Revisado por Especialista</div>
               
-              <div className="transition-graphic">
-                {/* SVG diagram representing Thoughts -> Feelings -> Behaviors (CBT Model) */}
-                <svg width="220" height="150" viewBox="0 0 220 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="10" y="55" width="200" height="40" rx="10" fill="var(--color-primary-light)" stroke="var(--color-primary)" strokeWidth="1.5" />
-                  <text x="110" y="80" fill="var(--color-primary)" fontWeight="700" fontSize="13" textAnchor="middle">Sentimentos</text>
-                  
-                  <rect x="65" y="5" width="90" height="30" rx="8" fill="#F3F4F6" stroke="#D1D5DB" strokeWidth="1.5" />
-                  <text x="110" y="24" fill="#374151" fontWeight="700" fontSize="12" textAnchor="middle">Pensamentos</text>
-
-                  <rect x="65" y="115" width="90" height="30" rx="8" fill="#F3F4F6" stroke="#D1D5DB" strokeWidth="1.5" />
-                  <text x="110" y="134" fill="#374151" fontWeight="700" fontSize="12" textAnchor="middle">Comportamentos</text>
-                  
-                  {/* Connective arrows */}
-                  <path d="M110 35 V55" stroke="#9CA3AF" strokeWidth="1.5" strokeDasharray="3 3" />
-                  <path d="M110 95 V115" stroke="#9CA3AF" strokeWidth="1.5" strokeDasharray="3 3" />
-                </svg>
+              <div className="transition-graphic" style={{ width: '100%', height: 'auto', maxHeight: '160px', overflow: 'hidden', display: 'flex', justifyContent: 'center', marginBottom: '24px' }}>
+                <img src="/images/pensamentos.avif" alt="Pensamentos, Sentimentos e Comportamentos" style={{ width: 'auto', height: '150px', objectFit: 'contain' }} />
               </div>
 
               <h2 className="title" style={{ fontSize: '22px', marginBottom: '16px' }}>{currentStep.title}</h2>
               <blockquote className="specialist-quote">
                 {currentStep.subtitle}
                 <div className="specialist-author">
-                  <div className="specialist-photo">
-                    <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-                      <circle cx="22" cy="22" r="22" fill="#D1D5DB" />
-                      <path d="M12 36C12 28 17 24 22 24C27 24 32 28 32 36" stroke="white" strokeWidth="3" />
-                      <circle cx="22" cy="15" r="6" fill="white" />
-                    </svg>
+                  <div className="specialist-photo" style={{ width: '44px', height: '44px', borderRadius: '50%', overflow: 'hidden', flexShrink: 0 }}>
+                    <img src="/images/tara.avif" alt="Tara Passaretti" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   </div>
                   <div>
                     <div className="specialist-name">Tara Passaretti</div>
@@ -1025,15 +995,7 @@ export default function App() {
             
             <div className="results-profile-card">
               <div className="results-avatar">
-                {/* SVG avatar representing a stressed but friendly user profile */}
-                <svg width="110" height="110" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="55" cy="55" r="55" fill="#FFE4E6" />
-                  <path d="M25 88C25 72 38.4315 62 55 62C71.5685 62 85 72 85 88V95H25V88Z" fill="#F43F5E" />
-                  <circle cx="55" cy="40" r="15" fill="#F43F5E" />
-                  {/* Subtle steam/anxiety ripples */}
-                  <path d="M32 25C32 25 35 22 35 25C35 28 32 28 32 25Z" fill="#E11D48" />
-                  <path d="M78 25C78 25 75 22 75 25C75 28 78 28 78 25Z" fill="#E11D48" />
-                </svg>
+                <img src="/images/homem-triste.avif" alt="Resumo do perfil" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
 
               <span className="results-badge-red">Nível de Efeitos Negativos: Alto</span>
@@ -1179,9 +1141,9 @@ export default function App() {
         ];
 
         const currentPlanDetails = {
-          '7_days': { title: 'Teste de 7 Dias', price: 'R$ 39,20', hotmartUrl: 'https://pay.hotmart.com/V106642514I?off=ekp41bit' },
-          '4_weeks': { title: 'Plano de 4 Semanas', price: 'R$ 97,03', hotmartUrl: 'https://pay.hotmart.com/V106642514I?off=41i7spqr' },
-          '12_weeks': { title: 'Plano de 12 Semanas', price: 'R$ 195,99', hotmartUrl: 'https://pay.hotmart.com/V106642514I?off=z7szf7sx' }
+          '7_days': { title: 'Teste de 7 Dias', price: 'R$ 19,00', originalPrice: 'R$ 39,00', daily: 'R$ 2,71/dia', hotmartUrl: 'https://pay.hotmart.com/V106642514I?off=ekp41bit' },
+          '4_weeks': { title: 'Plano de 4 Semanas', price: 'R$ 39,00', originalPrice: 'R$ 97,00', daily: 'R$ 1,39/dia', hotmartUrl: 'https://pay.hotmart.com/V106642514I?off=41i7spqr' },
+          '12_weeks': { title: 'Plano de 12 Semanas', price: 'R$ 97,00', originalPrice: 'R$ 195,00', daily: 'R$ 1,15/dia', hotmartUrl: 'https://pay.hotmart.com/V106642514I?off=z7szf7sx' }
         };
 
         return (
@@ -1192,13 +1154,7 @@ export default function App() {
               <div className="checkout-compare-card now">
                 <div className="compare-image-header">
                   {/* Stressed Avatar */}
-                  <svg width="100%" height="100%" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="110" height="110" fill="#FFE4E6" />
-                    <path d="M25 95C25 79 38.4 69 55 69C71.6 69 85 79 85 95V102H25V95Z" fill="#F43F5E" />
-                    <circle cx="55" cy="47" r="15" fill="#F43F5E" />
-                    {/* Stress sweat droplet */}
-                    <path d="M72 32C72 32 74 29 74 32C74 35 72 35 72 32Z" fill="#E11D48" />
-                  </svg>
+                  <img src="/images/avatar_stressed.png" alt="Agora" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   <div className="compare-image-label">Agora</div>
                 </div>
                 <div className="compare-metrics">
@@ -1236,13 +1192,7 @@ export default function App() {
               <div className="checkout-compare-card goal">
                 <div className="compare-image-header">
                   {/* Smiling Avatar */}
-                  <svg width="100%" height="100%" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="110" height="110" fill="#CCFBF1" />
-                    <path d="M25 95C25 79 38.4 69 55 69C71.6 69 85 79 85 95V102H25V95Z" fill="#0D9488" />
-                    <circle cx="55" cy="47" r="15" fill="#0D9488" />
-                    {/* Sparkles of health */}
-                    <path d="M72 30L74 34L78 35L74 36L72 40L70 36L66 35L70 34L72 30Z" fill="#2DD4BF" />
-                  </svg>
+                  <img src="/images/avatar_smiling.png" alt="Seu objetivo" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   <div className="compare-image-label">Seu objetivo</div>
                 </div>
                 <div className="compare-metrics">
@@ -1283,11 +1233,8 @@ export default function App() {
             {/* Badges */}
             <div className="checkout-badges-container">
               <div className="checkout-badge-item">
-                <div className="checkout-badge-item-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M12 8v4l3 3" />
-                  </svg>
+                <div className="checkout-badge-item-icon" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <img src="/images/cerebro.svg" alt="Cérebro" style={{ width: '24px', height: '24px', objectFit: 'contain' }} />
                 </div>
                 <div className="checkout-badge-item-texts">
                   <span className="checkout-badge-item-label">Dificuldade</span>
@@ -1296,10 +1243,8 @@ export default function App() {
               </div>
 
               <div className="checkout-badge-item">
-                <div className="checkout-badge-item-icon" style={{ color: 'var(--color-primary)' }}>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                  </svg>
+                <div className="checkout-badge-item-icon" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <img src="/images/icon_target.png" alt="Objetivo" style={{ width: '24px', height: '24px', objectFit: 'contain' }} />
                 </div>
                 <div className="checkout-badge-item-texts">
                   <span className="checkout-badge-item-label">Objetivo</span>
@@ -1320,13 +1265,14 @@ export default function App() {
                     <div className="radio-indicator-dot" style={{ transform: selectedPlan === '7_days' ? 'scale(1)' : 'scale(0)' }}></div>
                   </div>
                   <div className="checkout-plan-details">
-                    <span className="checkout-plan-title">Teste de 7 Dias</span>
+                    <span className="checkout-plan-title">{currentPlanDetails['7_days'].title}</span>
                     <span className="checkout-plan-sub">Avaliação inicial rápida</span>
                   </div>
                 </div>
                 <div className="checkout-plan-price-box">
-                  <span className="checkout-plan-price">R$ 39,20</span>
-                  <span className="checkout-plan-daily">R$ 5,60/dia</span>
+                  <span className="checkout-plan-original-price">{currentPlanDetails['7_days'].originalPrice}</span>
+                  <span className="checkout-plan-price">{currentPlanDetails['7_days'].price}</span>
+                  <span className="checkout-plan-daily">{currentPlanDetails['7_days'].daily}</span>
                 </div>
               </div>
 
@@ -1342,13 +1288,14 @@ export default function App() {
                       <div className="radio-indicator-dot" style={{ transform: selectedPlan === '4_weeks' ? 'scale(1)' : 'scale(0)' }}></div>
                     </div>
                     <div className="checkout-plan-details">
-                      <span className="checkout-plan-title">Plano de 4 Semanas</span>
+                      <span className="checkout-plan-title">{currentPlanDetails['4_weeks'].title}</span>
                       <span className="checkout-plan-sub">Ideal para fixar hábitos</span>
                     </div>
                   </div>
                   <div className="checkout-plan-price-box">
-                     <span className="checkout-plan-price">R$ 97,03</span>
-                     <span className="checkout-plan-daily">R$ 3,23/dia</span>
+                     <span className="checkout-plan-original-price">{currentPlanDetails['4_weeks'].originalPrice}</span>
+                     <span className="checkout-plan-price">{currentPlanDetails['4_weeks'].price}</span>
+                     <span className="checkout-plan-daily">{currentPlanDetails['4_weeks'].daily}</span>
                   </div>
                 </div>
               </div>
@@ -1363,13 +1310,14 @@ export default function App() {
                     <div className="radio-indicator-dot" style={{ transform: selectedPlan === '12_weeks' ? 'scale(1)' : 'scale(0)' }}></div>
                   </div>
                   <div className="checkout-plan-details">
-                    <span className="checkout-plan-title">Plano de 12 Semanas</span>
+                    <span className="checkout-plan-title">{currentPlanDetails['12_weeks'].title}</span>
                     <span className="checkout-plan-sub">Transformação de longo prazo</span>
                   </div>
                 </div>
                 <div className="checkout-plan-price-box">
-                  <span className="checkout-plan-price">R$ 195,99</span>
-                  <span className="checkout-plan-daily">R$ 2,17/dia</span>
+                  <span className="checkout-plan-original-price">{currentPlanDetails['12_weeks'].originalPrice}</span>
+                  <span className="checkout-plan-price">{currentPlanDetails['12_weeks'].price}</span>
+                  <span className="checkout-plan-daily">{currentPlanDetails['12_weeks'].daily}</span>
                 </div>
               </div>
             </div>
@@ -1447,17 +1395,17 @@ export default function App() {
             {/* 3. Methodology / Publications Section */}
             <h3 className="checkout-section-title">Nosso programa tem base metodológica</h3>
             <div className="checkout-publications-grid">
-              <div className="checkout-pub-card">HELLO!</div>
-              <div className="checkout-pub-card">TECH TIMES</div>
-              <div className="checkout-pub-card">Woman's World</div>
-              <div className="checkout-pub-card">THE EVERYGIRL</div>
-              <div className="checkout-pub-card">OK!</div>
-              <div className="checkout-pub-card">MORNING BREW</div>
+              <div className="checkout-pub-card" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '8px' }}><img src="/images/hello.svg" alt="Hello!" style={{ height: '24px', maxWidth: '100%', objectFit: 'contain' }} /></div>
+              <div className="checkout-pub-card" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '8px' }}><img src="/images/techtimes.svg" alt="Tech Times" style={{ height: '24px', maxWidth: '100%', objectFit: 'contain' }} /></div>
+              <div className="checkout-pub-card" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '8px' }}><img src="/images/womansworld.svg" alt="Woman's World" style={{ height: '24px', maxWidth: '100%', objectFit: 'contain' }} /></div>
+              <div className="checkout-pub-card" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '8px' }}><img src="/images/theeverygirl.svg" alt="The Everygirl" style={{ height: '24px', maxWidth: '100%', objectFit: 'contain' }} /></div>
+              <div className="checkout-pub-card" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '8px' }}><img src="/images/ok.svg" alt="OK!" style={{ height: '24px', maxWidth: '100%', objectFit: 'contain' }} /></div>
+              <div className="checkout-pub-card" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '8px' }}><img src="/images/morningbrew.svg" alt="Morning Brew" style={{ height: '24px', maxWidth: '100%', objectFit: 'contain' }} /></div>
             </div>
 
-            <div className="checkout-award-card">
-              <span className="checkout-award-icon">🏆</span>
-              <p className="checkout-award-text">
+            <div className="checkout-award-card" style={{ display: 'flex', alignItems: 'center' }}>
+              <img src="/images/logo_silver_winner.png" alt="Silver Winner App Award" style={{ width: '48px', height: '48px', marginRight: '16px', objectFit: 'contain' }} />
+              <p className="checkout-award-text" style={{ margin: 0 }}>
                 A Reliven é a vencedora oficial do prestigiado <strong>Best Mobile App Award de 2025</strong> na categoria de Saúde Mental e Desenvolvimento Pessoal.
               </p>
             </div>
@@ -1494,12 +1442,8 @@ export default function App() {
             <div className="checkout-testimonials-list">
               {/* Testimonial 1 */}
               <div className="checkout-testimonial-card">
-                <div className="checkout-testimonial-photo">
-                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                    <circle cx="24" cy="24" r="24" fill="#E2E8F0" />
-                    <path d="M14 38C14 31 19 28 24 28C29 28 34 31 34 38" stroke="#475569" strokeWidth="2.5" />
-                    <circle cx="24" cy="18" r="5" fill="#475569" />
-                  </svg>
+                <div className="checkout-testimonial-photo" style={{ borderRadius: '50%', overflow: 'hidden', width: '48px', height: '48px', flexShrink: 0 }}>
+                  <img src="/images/testimonial_user1.png" alt="Brian Ross" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
                 <div className="checkout-testimonial-content">
                   <span className="checkout-testimonial-name">Brian Ross</span>
@@ -1518,12 +1462,8 @@ export default function App() {
 
               {/* Testimonial 2 */}
               <div className="checkout-testimonial-card">
-                <div className="checkout-testimonial-photo">
-                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                    <circle cx="24" cy="24" r="24" fill="#FCE7F3" />
-                    <path d="M14 38C14 31 19 28 24 28C29 28 34 31 34 38" stroke="#DB2777" strokeWidth="2.5" />
-                    <circle cx="24" cy="18" r="5" fill="#DB2777" />
-                  </svg>
+                <div className="checkout-testimonial-photo" style={{ borderRadius: '50%', overflow: 'hidden', width: '48px', height: '48px', flexShrink: 0 }}>
+                  <img src="/images/testimonial_user2.png" alt="Selactive" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
                 <div className="checkout-testimonial-content">
                   <span className="checkout-testimonial-name">Selactive</span>
@@ -1535,19 +1475,15 @@ export default function App() {
                     <span className="checkout-testimonial-star">★</span>
                   </div>
                   <p className="checkout-testimonial-quote">
-                    "A Reliven é uma ótima ferramenta de autodesenvolvimento... A Reliven me ajuda a entender por que eu procrastino nas tarefas e como posso superar isso. A Reliven faz isso muito bem. Sou muito grato(a) por ter uma ferramenta como a Reliven."
+                    "A Reliven é a maior conquista no meu autodesenvolvimento... Ela me ajudou a entender por que eu procrastino e como superar isso. Super recomendo."
                   </p>
                 </div>
               </div>
 
               {/* Testimonial 3 */}
               <div className="checkout-testimonial-card">
-                <div className="checkout-testimonial-photo">
-                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                    <circle cx="24" cy="24" r="24" fill="#DBEAFE" />
-                    <path d="M14 38C14 31 19 28 24 28C29 28 34 31 34 38" stroke="#2563EB" strokeWidth="2.5" />
-                    <circle cx="24" cy="18" r="5" fill="#2563EB" />
-                  </svg>
+                <div className="checkout-testimonial-photo" style={{ borderRadius: '50%', overflow: 'hidden', width: '48px', height: '48px', flexShrink: 0 }}>
+                  <img src="/images/testimonial_user3.png" alt="Patrick Naughton" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
                 <div className="checkout-testimonial-content">
                   <span className="checkout-testimonial-name">Patrick Naughton</span>
