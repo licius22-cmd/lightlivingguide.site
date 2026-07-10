@@ -1141,9 +1141,9 @@ export default function App() {
         ];
 
         const currentPlanDetails = {
-          '7_days': { title: 'Teste de 7 Dias', price: 'R$ 19,00', originalPrice: 'R$ 39,00', daily: 'R$ 2,71/dia', hotmartUrl: 'https://pay.hotmart.com/V106642514I?off=ekp41bit' },
-          '4_weeks': { title: 'Plano de 4 Semanas', price: 'R$ 39,00', originalPrice: 'R$ 97,00', daily: 'R$ 1,39/dia', hotmartUrl: 'https://pay.hotmart.com/V106642514I?off=41i7spqr' },
-          '12_weeks': { title: 'Plano de 12 Semanas', price: 'R$ 97,00', originalPrice: 'R$ 195,00', daily: 'R$ 1,15/dia', hotmartUrl: 'https://pay.hotmart.com/V106642514I?off=z7szf7sx' }
+          '7_days': { title: 'Teste de 7 Dias', price: 'R$ 19,00', originalPrice: 'R$ 39,00', daily: 'R$ 2,71/dia', hotmartUrl: 'https://pay.hotmart.com/V106642514I?off=ekp41bit', renewalText: 'depois renova por R$ 97,00 por mês' },
+          '4_weeks': { title: 'Plano de 4 Semanas', price: 'R$ 39,00', originalPrice: 'R$ 97,00', daily: 'R$ 1,39/dia', hotmartUrl: 'https://pay.hotmart.com/V106642514I?off=41i7spqr', renewalText: 'depois renova por R$ 97,00 por mês' },
+          '12_weeks': { title: 'Plano de 12 Semanas', price: 'R$ 97,00', originalPrice: 'R$ 195,00', daily: 'R$ 1,15/dia', hotmartUrl: 'https://pay.hotmart.com/V106642514I?off=z7szf7sx', renewalText: 'depois renova por R$ 195,00 por trimestre' }
         };
 
         return (
@@ -1244,7 +1244,7 @@ export default function App() {
 
               <div className="checkout-badge-item">
                 <div className="checkout-badge-item-icon" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <img src="/images/icon_target.png" alt="Objetivo" style={{ width: '24px', height: '24px', objectFit: 'contain' }} />
+                  <img src="/images/orange.svg" alt="Objetivo" style={{ width: '24px', height: '24px', objectFit: 'contain' }} />
                 </div>
                 <div className="checkout-badge-item-texts">
                   <span className="checkout-badge-item-label">Objetivo</span>
@@ -1334,7 +1334,7 @@ export default function App() {
 
             {/* Disclaimer */}
             <p className="checkout-disclaimer">
-              Ao clicar em "OBTER MEU PLANO", você concorda com a renovação automática da assinatura. O primeiro ciclo é {currentPlanDetails[selectedPlan].price}, depois renova pelo mesmo valor. Cancele quando quiser pelo app ou por e-mail: <a href="mailto:support@reliven.com">support@reliven.com</a>.
+              Ao clicar em "OBTER MEU PLANO", você concorda com a renovação automática da assinatura. O primeiro ciclo é {currentPlanDetails[selectedPlan].price}, {currentPlanDetails[selectedPlan].renewalText}. Cancele quando quiser pelo app ou por e-mail: <a href="mailto:support@reliven.com">support@reliven.com</a>.
             </p>
 
             {/* Trust Badges */}
