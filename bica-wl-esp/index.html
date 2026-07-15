@@ -5,20 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Salud Y Bienestar</title>
 <meta name="description" content="Salud Y Bienestar - Noticias de última hora y descubrimientos.">
+<link rel="canonical" href="https://gelsaludable.com/inggel/">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Salud Y Bienestar">
+<meta property="og:title" content="Salud Y Bienestar">
+<meta property="og:description" content="Salud Y Bienestar - Noticias de última hora y descubrimientos.">
+<meta property="og:url" content="https://gelsaludable.com/inggel/">
+<meta property="og:image" content="https://gelsaludable.com/inggel/images/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Salud Y Bienestar">
 <meta name="twitter:description" content="Salud Y Bienestar - Noticias de última hora y descubrimientos.">
 <meta name="twitter:image" content="https://gelsaludable.com/inggel/images/og-cover.jpg">
-
-
-  <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
-<link rel="preload" href="https://scripts.converteai.net/6e3ae2f6-ad64-483b-9bc5-bafc50ec8005/players/6a56f14a669b07247636132e/v4/player.js" as="script">
-<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
-<link rel="preload" href="https://cdn.converteai.net/6e3ae2f6-ad64-483b-9bc5-bafc50ec8005/6a56f13e9d2077ac33608dda/main.m3u8" as="fetch">
-<link rel="dns-prefetch" href="https://cdn.converteai.net">
-<link rel="dns-prefetch" href="https://scripts.converteai.net">
-<link rel="dns-prefetch" href="https://images.converteai.net">
-<link rel="dns-prefetch" href="https://license.vturb.com">
+<meta name="theme-color" content="#990000">
+<meta name="format-detection" content="telephone=no">
+<meta name="referrer" content="no-referrer-when-downgrade">
 
 <style>
   *, *::before, *::after { box-sizing: border-box; }
@@ -309,6 +310,75 @@
     .header h1 { font-size: 24px; }
     .bubble .text { font-size: 13px; }
   }
+
+  /* ============ TABLET ============ */
+  @media (min-width: 560px) {
+    .page { max-width: 720px; }
+    .header { padding: 20px 16px 0; }
+    .header h1 { font-size: 34px; }
+    .ticker-wrap { margin: 0 -16px; padding: 8px 0 10px; }
+    .ticker { font-size: 14px; }
+    .player-wrap { padding: 0; }
+    .player-wrap vturb-smartplayer { max-width: 480px; }
+    .comments-wrap { padding: 18px 16px 36px; }
+    .comments-card { padding: 18px 16px 12px; }
+    .comments-title { font-size: 19px; }
+  }
+
+  /* ============ DESKTOP: duas colunas ============ */
+  @media (min-width: 900px) {
+    body { padding: 0; }
+
+    .page {
+      max-width: 1180px;
+      min-height: 100vh;
+    }
+
+    .header { padding: 26px 32px 0; }
+    .header h1 { font-size: 42px; margin-bottom: 14px; }
+    .ticker-wrap { margin: 0 -32px; }
+
+    .content {
+      display: grid;
+      grid-template-columns: minmax(380px, 460px) 1fr;
+      align-items: start;
+      gap: 28px;
+      padding: 28px 32px 40px;
+      background: #e9ebee;
+    }
+
+    /* Video acompanha o scroll dos comentarios */
+    .player-wrap {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 24px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 14px rgba(0,0,0,.14);
+    }
+
+    .player-wrap vturb-smartplayer { max-width: 100%; }
+
+    .comments-wrap { padding: 0; background: transparent; }
+    .comments-card { padding: 18px 18px 12px; }
+    .comments-title { font-size: 20px; margin-bottom: 18px; }
+
+    .avatar { width: 40px; height: 40px; min-width: 40px; }
+    .bubble { max-width: 92%; }
+    .bubble .name { font-size: 14px; }
+    .bubble .text { font-size: 15px; line-height: 1.4; }
+    .meta-left button,
+    .meta-left .time,
+    .meta-left,
+    .likes { font-size: 13px; }
+    .comment { margin-bottom: 18px; }
+  }
+
+  /* ============ DESKTOP GRANDE ============ */
+  @media (min-width: 1400px) {
+    .page { max-width: 1320px; }
+    .content { grid-template-columns: minmax(420px, 520px) 1fr; gap: 36px; }
+  }
 </style>
 </head>
 <body>
@@ -323,8 +393,17 @@
     </div>
   </header>
 
+  <div class="content">
   <div class="player-wrap">
-    <vturb-smartplayer id="vid-6a56f14a669b07247636132e" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 133.33333333333331% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/6e3ae2f6-ad64-483b-9bc5-bafc50ec8005/players/6a56f14a669b07247636132e/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
+    <vturb-smartplayer id="vid-6a4e61b8a6248d7f2f2fe37a" style="display:block;margin:0 auto;width:100%;">
+      <div class="vturb-player-placeholder" style="position:relative;width:100%;padding:133.3333% 0 0;z-index:0;background-color:#000;"></div>
+    </vturb-smartplayer>
+    <script>
+      var s = document.createElement("script");
+      s.src = "https://scripts.converteai.net/a2ae83d4-0ddb-4a90-978d-54ce53bf37ea/players/6a4e61b8a6248d7f2f2fe37a/v4/player.js";
+      s.async = true;
+      document.head.appendChild(s);
+    </script>
   </div>
 
   <section class="comments-wrap">
@@ -772,6 +851,7 @@
       </div>
     </div>
   </section>
+  </div>
 </div>
 
   <script>
