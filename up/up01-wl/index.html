@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¡ALERTA! Tu proceso de pérdida de peso está incompleto</title>
+
+    <script src="https://upsell.mundpay.com/script-v2.js" defer async></script>
+
+    
     <style>
         :root {
             --primary-color: #ff0000; /* Rojo sangre de alta alerta */
@@ -255,8 +259,56 @@
             </p>
         </div>
 
+        <!-- 🔥 BOTÃO FLUTUANTE YES / NO -->
+   <style>
+
+/* 1. Colocamos o CSS no topo para carregar IMEDIATAMENTE */
+    .upsell-wrapper {
+        position: relative;
+        display: block; 
+        margin: 0 auto;
+        width: 100%;
+        max-width: 500px;
+        /* Define um espaço reservado para o conteúdo não "pular" */
+        min-height: 250px; 
+        background-color: #ffffff; /* Fundo branco preventivo */
+    }
+
+    .mask {
+        position: absolute;
+        left: 0;
+        right: 0;
+        background-color: #ffffff !important; /* !important garante a cor */
+        z-index: 9999; /* Valor altíssimo para cobrir qualquer coisa */
+        pointer-events: auto;
+    }
+
+    /* Estilo Geral das Máscaras */
+    .mask {
+        position: absolute;
+        left: 0;
+        right: 0;
+        background-color: #ffffff; /* Cor branca */
+        z-index: 10; /* Garante que fique por cima do botão da Mundpay */
+    }
+
+    /* Ajuste de altura da caixa de cima */
+    .mask-top {
+        top: 0;
+        height: 32%; /* Aumente ou diminua conforme necessário para cobrir o topo */
+    }
+
+    /* Ajuste de altura da caixa de baixo */
+    .mask-bottom {
+        bottom: 0;
+        height: 41%; /* Aumente ou diminua conforme necessário para cobrir o botão */
+    }
+</style>
+        
+        <div data-mndpay-render="019f63df-e53b-7223-983f-908d7686c2f2"></div>
+
         <p class="strong-message">
-            El <strong>Acelerador de Metabolismo Extremo</strong> es la única forma de forzar a tu cuerpo a quemar grasa de manera ininterrumpida, las 24 horas del día.
+            El <strong>Acelerador de Resultados</strong> es la única forma de forzar a tu cuerpo a quemar grasa de manera ininterrumpida, las 24 horas del día.
         </p>
 
         <!-- Beneficios brutales -->
@@ -266,25 +318,7 @@
             <li><strong>Aniquilación de la Ansiedad:</strong> Apaga por completo los ataques de hambre nerviosa y el deseo incontrolable por los carbohidratos y dulces.</li>
         </ul>
 
-        <!-- Caja de Precio Final -->
-        <div class="price-box">
-            <div class="old-price">Precio regular: $97 USD</div>
-            <div class="new-price">Solo hoy por esta ventana única: $27 USD</div>
-            <div class="price-info">Un único pago. Sin trucos ni suscripciones mensuales.</div>
-        </div>
-
-        <!-- Botones de Acción -->
-        <div class="btn-container">
-            <!-- Reemplaza el '#' con tu enlace de pago del Acelerador -->
-            <a href="#" class="btn-accept">
-                SÍ, QUIERO ACTIVAR EL ACELERADOR Y EVITAR EL ESTANCAMIENTO
-            </a>
-            
-            <!-- Reemplaza el '#' con el link al Upsell 2 o la página de gracias directa -->
-            <a href="#" class="btn-decline">
-                No, prefiero arriesgarme a estancarme en una semana y perder mi dinero.
-            </a>
-        </div>
+       
 
     </div>
 
