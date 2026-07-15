@@ -313,71 +313,68 @@
 
   /* ============ TABLET ============ */
   @media (min-width: 560px) {
-    .page { max-width: 720px; }
+    .page { max-width: 100%; }
     .header { padding: 20px 16px 0; }
     .header h1 { font-size: 34px; }
     .ticker-wrap { margin: 0 -16px; padding: 8px 0 10px; }
     .ticker { font-size: 14px; }
-    .player-wrap { padding: 0; }
-    .player-wrap vturb-smartplayer { max-width: 480px; }
+    .player-wrap vturb-smartplayer { max-width: 460px; }
     .comments-wrap { padding: 18px 16px 36px; }
     .comments-card { padding: 18px 16px 12px; }
     .comments-title { font-size: 19px; }
   }
 
-  /* ============ DESKTOP: duas colunas ============ */
+  /* ============ DESKTOP: VSL em cima, comentarios embaixo, largura total ============ */
   @media (min-width: 900px) {
-    body { padding: 0; }
-
     .page {
-      max-width: 1180px;
-      min-height: 100vh;
+      max-width: 100%;
+      width: 100%;
+      box-shadow: none;
     }
 
-    .header { padding: 26px 32px 0; }
+    .header { padding: 26px 40px 0; }
     .header h1 { font-size: 42px; margin-bottom: 14px; }
-    .ticker-wrap { margin: 0 -32px; }
+    .ticker-wrap { margin: 0 -40px; }
 
     .content {
-      display: grid;
-      grid-template-columns: minmax(380px, 460px) 1fr;
-      align-items: start;
-      gap: 28px;
-      padding: 28px 32px 40px;
+      display: block;
       background: #e9ebee;
     }
 
-    /* Video acompanha o scroll dos comentarios */
+    /* Faixa preta ocupa a tela toda, video centralizado */
     .player-wrap {
-      position: -webkit-sticky;
-      position: sticky;
-      top: 24px;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 2px 14px rgba(0,0,0,.14);
+      width: 100%;
+      background: #000;
+      padding: 24px 0;
     }
 
-    .player-wrap vturb-smartplayer { max-width: 100%; }
+    .player-wrap vturb-smartplayer { max-width: 440px; }
 
-    .comments-wrap { padding: 0; background: transparent; }
-    .comments-card { padding: 18px 18px 12px; }
+    .comments-wrap { padding: 24px 40px 48px; }
+    .comments-card { padding: 22px 28px 16px; }
     .comments-title { font-size: 20px; margin-bottom: 18px; }
 
     .avatar { width: 40px; height: 40px; min-width: 40px; }
-    .bubble { max-width: 92%; }
+    .bubble { max-width: 760px; }
     .bubble .name { font-size: 14px; }
     .bubble .text { font-size: 15px; line-height: 1.4; }
+    .meta,
     .meta-left button,
     .meta-left .time,
     .meta-left,
     .likes { font-size: 13px; }
+    .meta { justify-content: flex-start; gap: 16px; }
     .comment { margin-bottom: 18px; }
+    .reply-box input { font-size: 14px; }
   }
 
   /* ============ DESKTOP GRANDE ============ */
   @media (min-width: 1400px) {
-    .page { max-width: 1320px; }
-    .content { grid-template-columns: minmax(420px, 520px) 1fr; gap: 36px; }
+    .header { padding: 32px 64px 0; }
+    .ticker-wrap { margin: 0 -64px; }
+    .player-wrap { padding: 32px 0; }
+    .player-wrap vturb-smartplayer { max-width: 480px; }
+    .comments-wrap { padding: 32px 64px 64px; }
   }
 </style>
 </head>
