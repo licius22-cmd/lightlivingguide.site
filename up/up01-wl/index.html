@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡ALERTA! Tu proceso de pérdida de peso está incompleto</title>
+    <style>
+        :root {
+            --primary-color: #ff0000; /* Rojo sangre de alta alerta */
+            --primary-hover: #cc0000;
+            --text-color: #0d0d11;
+            --bg-color: #0a0a0c; /* Fondo oscuro para máxima tensión visual */
+            --card-bg: #14141c;
+            --border-color: #2b1111;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: #e3e3e8;
+            line-height: 1.6;
+            padding: 25px 10px;
+        }
+
+        .container {
+            max-width: 620px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px 25px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.15);
+            border: 2px solid var(--border-color);
+        }
+
+        .urgency-bar {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            text-align: center;
+            padding: 12px;
+            font-weight: 900;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.85; }
+            100% { opacity: 1; }
+        }
+
+        h1 {
+            font-size: 1.9rem;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ffffff;
+            line-height: 1.3;
+            font-weight: 800;
+        }
+
+        .highlight {
+            color: var(--primary-color);
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #d1d1db;
+        }
+
+        .warning-box {
+            background-color: rgba(255, 0, 0, 0.08);
+            border-left: 5px solid var(--primary-color);
+            padding: 22px;
+            margin-bottom: 30px;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .warning-box h3 {
+            color: #ff4d4d;
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .warning-box p {
+            color: #f1f1f5;
+            font-size: 1rem;
+        }
+
+        p.strong-message {
+            font-size: 1.15rem;
+            margin-bottom: 25px;
+            color: #ffffff;
+            border-bottom: 1px dashed #3a3a4a;
+            padding-bottom: 20px;
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+            margin-bottom: 35px;
+        }
+
+        li {
+            position: relative;
+            padding-left: 32px;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            color: #e2e2e8;
+        }
+
+        li strong {
+            color: #ffffff;
+        }
+
+        li::before {
+            content: "➔";
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .price-box {
+            text-align: center;
+            background: rgba(255, 0, 0, 0.03);
+            padding: 30px 20px;
+            border-radius: 12px;
+            margin-bottom: 35px;
+            border: 2px dashed var(--primary-color);
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #8f8f9e;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .new-price {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #2ed573;
+            text-shadow: 0 0 15px rgba(46, 213, 115, 0.2);
+            margin: 8px 0;
+        }
+
+        .price-info {
+            font-size: 0.9rem;
+            color: #a4a4b5;
+            font-weight: bold;
+        }
+
+        .btn-container {
+            text-align: center;
+        }
+
+        .btn-accept {
+            display: block;
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #b30000 100%);
+            color: #ffffff;
+            border: none;
+            padding: 20px 30px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-accept:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255, 0, 0, 0.6);
+            background: linear-gradient(135deg, #ff3333 0%, var(--primary-hover) 100%);
+        }
+
+        .btn-accept:active {
+            transform: translateY(-1px);
+        }
+
+        .btn-decline {
+            display: inline-block;
+            margin-top: 25px;
+            color: #8f8f9e;
+            text-decoration: underline;
+            font-size: 0.85rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .btn-decline:hover {
+            color: #ff3333;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 15px;
+            }
+            h1 {
+                font-size: 1.55rem;
+            }
+            .new-price {
+                font-size: 2rem;
+            }
+            .btn-accept {
+                font-size: 1.1rem;
+                padding: 18px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Barra de urgencia extrema -->
+        <div class="urgency-bar">
+            ⚠️ ATENCIÓN: Tu compra actual tiene un 83% de riesgo de estancamiento rápido
+        </div>
+
+        <!-- Encabezado hiper-agresivo -->
+        <h1>¿Vas a perder el tiempo bajando unos pocos gramos... o vas a <span class="highlight">obligar a tu cuerpo</span> a derretir grasa desde mañana mismo?</h1>
+
+        <p class="intro-text">
+            Lo que acabas de comprar funciona, pero a paso de tortuga. Si tu metabolismo es lento, tu cuerpo se adaptará en 7 días y dejarás de perder peso por completo.
+        </p>
+
+        <!-- Caja de Impacto/Dolor del Estancamiento -->
+        <div class="warning-box">
+            <h3>La cruda realidad que nadie te dice</h3>
+            <p>
+                El 92% de las personas que intentan adelgazar fracasan en la segunda semana porque su metabolismo entra en "modo supervivencia" y bloquea la quema de grasa. Si no hackeas ese mecanismo de defensa ahora, <strong>habrás tirado tu dinero a la basura</strong> y volverás a recuperar cada gramo perdido.
+            </p>
+        </div>
+
+        <p class="strong-message">
+            El <strong>Acelerador de Metabolismo Extremo</strong> es la única forma de forzar a tu cuerpo a quemar grasa de manera ininterrumpida, las 24 horas del día.
+        </p>
+
+        <!-- Beneficios brutales -->
+        <ul>
+            <li><strong>Quema Forzada 24/7:</strong> Mantén tu cuerpo destruyendo tejido graso incluso mientras duermes profundamente o estás sentada trabajando.</li>
+            <li><strong>Destrucción del Bloqueo Genético:</strong> Desactiva la hormona que almacena grasa en el abdomen y los muslos para evitar el efecto rebote.</li>
+            <li><strong>Aniquilación de la Ansiedad:</strong> Apaga por completo los ataques de hambre nerviosa y el deseo incontrolable por los carbohidratos y dulces.</li>
+        </ul>
+
+        <!-- Caja de Precio Final -->
+        <div class="price-box">
+            <div class="old-price">Precio regular: $97 USD</div>
+            <div class="new-price">Solo hoy por esta ventana única: $27 USD</div>
+            <div class="price-info">Un único pago. Sin trucos ni suscripciones mensuales.</div>
+        </div>
+
+        <!-- Botones de Acción -->
+        <div class="btn-container">
+            <!-- Reemplaza el '#' con tu enlace de pago del Acelerador -->
+            <a href="#" class="btn-accept">
+                SÍ, QUIERO ACTIVAR EL ACELERADOR Y EVITAR EL ESTANCAMIENTO
+            </a>
+            
+            <!-- Reemplaza el '#' con el link al Upsell 2 o la página de gracias directa -->
+            <a href="#" class="btn-decline">
+                No, prefiero arriesgarme a estancarme en una semana y perder mi dinero.
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>

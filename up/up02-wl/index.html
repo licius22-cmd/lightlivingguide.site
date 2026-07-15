@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡ALERTA IMPORTANTE! No cometas este error</title>
+    <style>
+        :root {
+            --primary-color: #ff007f; /* Rosa choque / Magenta agressivo */
+            --primary-hover: #d9006b;
+            --text-color: #0f0f14;
+            --bg-color: #08080c; /* Tema escuro para dar tom de alerta/urgência e drama */
+            --card-bg: #121218;
+            --border-color: #2a142a;
+            --accent-red: #ff3333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: #e2e2e8;
+            line-height: 1.6;
+            padding: 25px 10px;
+        }
+
+        .container {
+            max-width: 620px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px 25px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(255, 0, 127, 0.15);
+            border: 2px solid var(--border-color);
+        }
+
+        .step-bar {
+            background-color: #ff3333;
+            color: #ffffff;
+            text-align: center;
+            padding: 12px;
+            font-weight: 900;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+
+        h1 {
+            font-size: 1.9rem;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ffffff;
+            line-height: 1.3;
+            font-weight: 800;
+        }
+
+        .highlight-accent {
+            color: var(--primary-color);
+            text-shadow: 0 0 10px rgba(255, 0, 127, 0.3);
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #d1d1db;
+            font-weight: 500;
+        }
+
+        .danger-box {
+            background-color: rgba(255, 51, 51, 0.1);
+            border-left: 5px solid var(--accent-red);
+            padding: 22px;
+            margin-bottom: 30px;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .danger-box h3 {
+            color: #ff5555;
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .danger-box p {
+            color: #f1f1f5;
+            font-size: 1rem;
+        }
+
+        p.strong-message {
+            font-size: 1.15rem;
+            margin-bottom: 25px;
+            color: #ffffff;
+            border-bottom: 1px dashed #3a3a4a;
+            padding-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            margin-bottom: 35px;
+        }
+
+        li {
+            position: relative;
+            padding-left: 32px;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            color: #e2e2e8;
+        }
+
+        li strong {
+            color: #ffffff;
+        }
+
+        li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .price-box {
+            text-align: center;
+            background: rgba(255, 0, 127, 0.05);
+            padding: 30px 20px;
+            border-radius: 12px;
+            margin-bottom: 35px;
+            border: 2px dashed var(--primary-color);
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #8f8f9e;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .new-price {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #2ed573;
+            text-shadow: 0 0 15px rgba(46, 213, 115, 0.2);
+            margin: 8px 0;
+        }
+
+        .price-info {
+            font-size: 0.9rem;
+            color: #a4a4b5;
+            font-weight: bold;
+        }
+
+        .btn-container {
+            text-align: center;
+        }
+
+        .btn-accept {
+            display: block;
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #c1005f 100%);
+            color: #ffffff;
+            border: none;
+            padding: 20px 30px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255, 0, 127, 0.4);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-accept:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255, 0, 127, 0.6);
+            background: linear-gradient(135deg, #ff1a8c 0%, var(--primary-hover) 100%);
+        }
+
+        .btn-accept:active {
+            transform: translateY(-1px);
+        }
+
+        .btn-decline {
+            display: inline-block;
+            margin-top: 25px;
+            color: #8f8f9e;
+            text-decoration: underline;
+            font-size: 0.85rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .btn-decline:hover {
+            color: #ff5555;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 15px;
+            }
+            h1 {
+                font-size: 1.55rem;
+            }
+            .new-price {
+                font-size: 2rem;
+            }
+            .btn-accept {
+                font-size: 1.1rem;
+                padding: 18px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Barra de progresso ultra urgente -->
+        <div class="step-bar">
+            ¡ALERTA CRÍTICO! Tu pedido está en riesgo si ignoras esto
+        </div>
+
+        <!-- Encabezado hiper-agresivo -->
+        <h1>¿De qué sirve tener un cuerpo delgado si tu piel va a quedar <span class="highlight-accent">colgada, arrugada y flácida como un "globo desinflado"</span>?</h1>
+
+        <p class="intro-text">
+            Vas a perder peso extremadamente rápido con el Acelerador. Pero cuidado: la grasa desaparecerá, dejando un vacío gigante debajo de tu piel...
+        </p>
+
+        <!-- Caja de Impacto/Dolor -->
+        <div class="danger-box">
+            <h3>El "Efecto Maracuyá Murcho"</h3>
+            <p>
+                Si no actúas HOY, la piel de tu abdomen, de tus brazos (las famosas alas de murciélago) y de tu rostro se caerá por completo por la falta de soporte. Terminarás con un cuerpo delgado, pero tan flácido y arrugado que <strong>te dará vergüenza desvestirte ante tu pareja o mirarte al espejo con la luz encendida</strong>. ¡Parecerás 15 años mayor!
+            </p>
+        </div>
+
+        <p class="strong-message">
+            No permitas que tu victoria contra la báscula se convierta en una pesadilla estética. Necesitas rellenar ese espacio con <strong>colágeno puro y elastina activa</strong> mientras la grasa se quema.
+        </p>
+
+        <!-- Beneficios en deseos profundos de la mujer -->
+        <ul>
+            <li><strong>Efecto Corsé Invisible:</strong> Pega tu piel firmemente al músculo a medida que la grasa se evapora, logrando un abdomen plano y ultra tenso.</li>
+            <li><strong>Brazos y Rostro de 20 Años:</strong> Elimina para siempre la piel flácida que cuelga al saludar y redefine el contorno de tu cuello y mandíbula.</li>
+            <li><strong>Borrador de Estrías y Celulitis:</strong> Tensa y alisa las capas profundas de la piel, haciendo desaparecer la textura de piel de naranja en glúteos y piernas.</li>
+        </ul>
+
+        <!-- Caja de Precio Destructivo -->
+        <div class="price-box">
+            <div class="old-price">Precio regular en clínicas: $120 USD</div>
+            <div class="new-price">Solo por esta única vez: $19 USD</div>
+            <div class="price-info">Pago único. No se te volverá a cobrar jamás.</div>
+        </div>
+
+        <!-- Botones de Acción -->
+        <div class="btn-container">
+            <!-- Link de pago del Upsell 2 -->
+            <a href="#" class="btn-accept">
+                SÍ, QUIERO UN CUERPO DELGADO, FIRME Y REJUVENECIDO
+            </a>
+            
+            <!-- Link de rechazo que lleva a la página de gracias o checkout final -->
+            <a href="#" class="btn-decline">
+                No, prefiero quedarme con la piel colgada, flácida y arriesgarme a lucir un cuerpo envejecido.
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>
