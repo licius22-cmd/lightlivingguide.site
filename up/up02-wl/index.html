@@ -267,14 +267,14 @@
         max-width: 500px;
         /* Defines a placeholder space so the content doesn't "jump" */
         min-height: 250px; 
-        background-color: #f8f8f8; /* Preventive white background */
+        background-color: #0b0c10; /* Preventive white background */
     }
 
     .mask {
         position: absolute;
         left: 0;
         right: 0;
-        background-color: #f8f8f8 !important; /* !important guarantees the color */
+        background-color: #0b0c10 !important; /* !important guarantees the color */
         z-index: 9999; /* Very high value to cover anything */
         pointer-events: auto;
     }
@@ -284,7 +284,7 @@
         position: absolute;
         left: 0;
         right: 0;
-        background-color: #f8f8f8; /* White color */
+        background-color: #0b0c10; /* White color */
         z-index: 10; /* Ensures it stays on top of the Mundpay button */
     }
 
@@ -347,6 +347,62 @@
         <div class="testimonial-author">Marta Elena Rodríguez</div>
         <div class="testimonial-age">52 años — Medellín, Colombia</div>
     </div>
+
+     <style>
+
+/* 1. We place the CSS at the top to load IMMEDIATELY */
+    .upsell-wrapper {
+        position: relative;
+        display: block; 
+        margin: 0 auto;
+        width: 100%;
+        max-width: 500px;
+        /* Defines a placeholder space so the content doesn't "jump" */
+        min-height: 250px; 
+        background-color: #0b0c10; /* Preventive white background */
+    }
+
+    .mask {
+        position: absolute;
+        left: 0;
+        right: 0;
+        background-color: #0b0c10 !important; /* !important guarantees the color */
+        z-index: 9999; /* Very high value to cover anything */
+        pointer-events: auto;
+    }
+
+    /* General Mask Style */
+    .mask {
+        position: absolute;
+        left: 0;
+        right: 0;
+        background-color: #0b0c10; /* White color */
+        z-index: 10; /* Ensures it stays on top of the Mundpay button */
+    }
+
+    /* Height adjustment for the top box */
+    .mask-top {
+        top: 0;
+        height: 32%; /* Increase or decrease as needed to cover the top */
+    }
+
+    /* Height adjustment for the bottom box */
+    .mask-bottom {
+        bottom: 0;
+        height: 41%; /* Increase or decrease as needed to cover the button */
+    }
+</style>
+
+
+ <div class="upsell-wrapper">
+    
+    <div class="mask mask-top"></div>
+
+    <div data-mndpay-render="019f72fc-2af9-73a4-be46-28d82a2dc58f"></div>
+
+    <div class="mask mask-bottom"></div>
+
+</div>
 
     <!-- EXCLUSIVE BONUSES -->
     <div class="section-title">Si aseguras tu blindaje hoy, te llevas estos 3 Bonos Gratis:</div>
