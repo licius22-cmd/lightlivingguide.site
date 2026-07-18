@@ -3,291 +3,318 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡ALERTA IMPORTANTE! No cometas este error</title>
+    <title>¡ALERTA MÁXIMA! Bloquea el Efecto Rebote</title>
     <style>
-        :root {
-            --primary-color: #ff007f; /* Rosa choque / Magenta agressivo */
-            --primary-hover: #d9006b;
-            --text-color: #0f0f14;
-            --bg-color: #08080c; /* Tema escuro para dar tom de alerta/urgência e drama */
-            --card-bg: #121218;
-            --border-color: #2a142a;
-            --accent-red: #ff3333;
-        }
-
-        * {
-            box-sizing: border-box;
+        *, *::before, *::after { box-sizing: border-box; }
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #0b0c10;
+            color: #e5e7eb;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: #e2e2e8;
             line-height: 1.6;
-            padding: 25px 10px;
         }
-
-        .container {
-            max-width: 620px;
-            margin: 0 auto;
-            background: var(--card-bg);
-            padding: 40px 25px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(255, 0, 127, 0.15);
-            border: 2px solid var(--border-color);
-        }
-
-        .step-bar {
-            background-color: #ff3333;
+        .header-banner {
+            background-color: #e11d48;
             color: #ffffff;
             text-align: center;
-            padding: 12px;
-            font-weight: 900;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            font-size: 0.95rem;
+            padding: 12px 10px;
+            font-weight: bold;
+            font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            animation: pulse 1.5s infinite;
+            border-bottom: 3px solid #be123c;
         }
-
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.8; }
-            100% { opacity: 1; }
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 30px 20px 80px 20px;
         }
-
+        .step-indicator {
+            color: #fbbf24;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
         h1 {
-            font-size: 1.9rem;
-            text-align: center;
-            margin-bottom: 20px;
             color: #ffffff;
+            font-size: 28px;
             line-height: 1.3;
-            font-weight: 800;
-        }
-
-        .highlight-accent {
-            color: var(--primary-color);
-            text-shadow: 0 0 10px rgba(255, 0, 127, 0.3);
-        }
-
-        .intro-text {
-            font-size: 1.1rem;
             text-align: center;
-            margin-bottom: 30px;
-            color: #d1d1db;
-            font-weight: 500;
-        }
-
-        .danger-box {
-            background-color: rgba(255, 51, 51, 0.1);
-            border-left: 5px solid var(--accent-red);
-            padding: 22px;
-            margin-bottom: 30px;
-            border-radius: 0 10px 10px 0;
-        }
-
-        .danger-box h3 {
-            color: #ff5555;
-            margin-bottom: 10px;
-            font-size: 1.25rem;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        .danger-box p {
-            color: #f1f1f5;
-            font-size: 1rem;
-        }
-
-        p.strong-message {
-            font-size: 1.15rem;
+            margin-top: 0;
             margin-bottom: 25px;
-            color: #ffffff;
-            border-bottom: 1px dashed #3a3a4a;
-            padding-bottom: 20px;
-        }
-
-        ul {
-            list-style: none;
-            margin-bottom: 35px;
-        }
-
-        li {
-            position: relative;
-            padding-left: 32px;
-            margin-bottom: 20px;
-            font-size: 1.05rem;
-            color: #e2e2e8;
-        }
-
-        li strong {
-            color: #ffffff;
-        }
-
-        li::before {
-            content: "✦";
-            position: absolute;
-            left: 0;
-            top: 0;
-            color: var(--primary-color);
-            font-weight: bold;
-            font-size: 1.3rem;
-        }
-
-        .price-box {
-            text-align: center;
-            background: rgba(255, 0, 127, 0.05);
-            padding: 30px 20px;
-            border-radius: 12px;
-            margin-bottom: 35px;
-            border: 2px dashed var(--primary-color);
-        }
-
-        .old-price {
-            text-decoration: line-through;
-            color: #8f8f9e;
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-
-        .new-price {
-            font-size: 2.5rem;
             font-weight: 900;
-            color: #2ed573;
-            text-shadow: 0 0 15px rgba(46, 213, 115, 0.2);
-            margin: 8px 0;
         }
-
-        .price-info {
-            font-size: 0.9rem;
-            color: #a4a4b5;
-            font-weight: bold;
+        h1 span.highlight-red {
+            color: #f43f5e;
+            background-color: rgba(244, 63, 94, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
         }
-
-        .btn-container {
+        p {
+            font-size: 16px;
+            color: #d1d5db;
+            margin-bottom: 20px;
+        }
+        p strong {
+            color: #ffffff;
+        }
+        .warning-box {
+            background-color: rgba(225, 29, 72, 0.08);
+            border: 1px solid #e11d48;
+            border-left: 5px solid #e11d48;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 25px 0;
+        }
+        .warning-box h3 {
+            color: #f43f5e;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+        
+        /* CTA Button Styling */
+        .cta-container {
+            margin: 40px 0;
             text-align: center;
         }
-
         .btn-accept {
-            display: block;
-            width: 100%;
-            background: linear-gradient(135deg, var(--primary-color) 0%, #c1005f 100%);
+            display: inline-block;
+            background: linear-gradient(180deg, #22c55e 0%, #16a34a 100%);
             color: #ffffff;
-            border: none;
-            padding: 20px 30px;
-            font-size: 1.3rem;
+            font-size: 22px;
+            font-weight: 800;
+            text-decoration: none;
+            padding: 22px 30px;
+            border-radius: 8px;
+            border-bottom: 4px solid #15803d;
+            box-shadow: 0px 10px 25px rgba(34, 197, 94, 0.3);
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.2s ease;
+        }
+        .btn-accept:hover {
+            transform: translateY(-2px);
+            box-shadow: 0px 12px 30px rgba(34, 197, 94, 0.5);
+        }
+        .price-notice {
+            font-size: 13px;
+            color: #9ca3af;
+            margin-top: 12px;
+            display: block;
+        }
+
+        /* Section Headlines */
+        .section-title {
+            color: #fbbf24;
+            font-size: 20px;
             font-weight: 800;
             text-transform: uppercase;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(255, 0, 127, 0.4);
-            text-decoration: none;
-            letter-spacing: 0.5px;
+            border-bottom: 2px solid #374151;
+            padding-bottom: 8px;
+            margin-top: 50px;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
         }
 
-        .btn-accept:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(255, 0, 127, 0.6);
-            background: linear-gradient(135deg, #ff1a8c 0%, var(--primary-hover) 100%);
+        /* Steps / Modules */
+        .step-block {
+            background-color: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
         }
-
-        .btn-accept:active {
-            transform: translateY(-1px);
-        }
-
-        .btn-decline {
+        .step-num {
+            background-color: #fbbf24;
+            color: #000000;
+            font-weight: 900;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            text-transform: uppercase;
             display: inline-block;
-            margin-top: 25px;
-            color: #8f8f9e;
-            text-decoration: underline;
-            font-size: 0.85rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            transition: color 0.2s;
+            margin-bottom: 10px;
+        }
+        .step-block h4 {
+            margin: 0 0 10px 0;
+            color: #ffffff;
+            font-size: 18px;
         }
 
-        .btn-decline:hover {
-            color: #ff5555;
+        /* Testimonial */
+        .testimonial-card {
+            background-color: #1f2937;
+            border-radius: 8px;
+            padding: 25px;
+            position: relative;
+            margin-bottom: 30px;
+            border: 1px dashed #4b5563;
+        }
+        .testimonial-text {
+            font-style: italic;
+            font-size: 15px;
+            color: #f3f4f6;
+            margin-bottom: 15px;
+        }
+        .testimonial-author {
+            font-weight: bold;
+            color: #fbbf24;
+            font-size: 14px;
+        }
+        .testimonial-age {
+            color: #9ca3af;
+            font-size: 13px;
         }
 
-        @media (max-width: 480px) {
-            .container {
-                padding: 30px 15px;
-            }
-            h1 {
-                font-size: 1.55rem;
-            }
-            .new-price {
-                font-size: 2rem;
-            }
-            .btn-accept {
-                font-size: 1.1rem;
-                padding: 18px 20px;
-            }
+        /* Bonuses */
+        .bonus-card {
+            background: linear-gradient(145deg, #111827 0%, #1f2937 100%);
+            border: 1px solid #fbbf24;
+            border-radius: 8px;
+            padding: 22px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .bonus-badge {
+            position: absolute;
+            top: -12px;
+            right: 15px;
+            background-color: #fbbf24;
+            color: #000000;
+            font-weight: 900;
+            font-size: 11px;
+            padding: 3px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+        .bonus-card h4 {
+            margin: 0 0 8px 0;
+            color: #ffffff;
+            font-size: 17px;
+        }
+        .bonus-value {
+            color: #ef4444;
+            font-weight: bold;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+
+        /* Guarantee */
+        .guarantee-box {
+            background-color: #0f172a;
+            border: 2px solid #334155;
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .guarantee-box h3 {
+            color: #ffffff;
+            margin-top: 0;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        
-        <!-- Barra de progresso ultra urgente -->
-        <div class="step-bar">
-            ¡ALERTA CRÍTICO! Tu pedido está en riesgo si ignoras esto
-        </div>
+<div class="header-banner">
+    ⚠️ CONFIGURACIÓN INCOMPLETA: Tu proceso de pérdida de grasa está en riesgo. No salgas.
+</div>
 
-        <!-- Encabezado hiper-agresivo -->
-        <h1>¿De qué sirve tener un cuerpo delgado si tu piel va a quedar <span class="highlight-accent">colgada, arrugada y flácida como un "globo desinflado"</span>?</h1>
+<div class="container">
+    <div class="step-indicator">ATENCIÓN: SISTEMA DE BLOQUEO REBOTE OBLIGATORIO</div>
+    
+    <h1>¡ALERTA! Vas a derretir grasa tan rápido que tu cuerpo activará su <span class="highlight-red">Efecto rebote instantáneo</span></h1>
+    
+    <p>Tu acceso al acelerador ya está listo. Vas a bajar de peso a una velocidad extrema, <strong>pero estás cometiendo el error que destruye al 99% de las mujeres.</strong></p>
 
-        <p class="intro-text">
-            Vas a perder peso extremadamente rápido con el Acelerador. Pero cuidado: la grasa desaparecerá, dejando un vacío gigante debajo de tu piel...
-        </p>
+    <p>Al perder kilos masivamente en días, tu cerebro entra en pánico de supervivencia. La orden biológica es clara: <strong>ralentizar tu metabolismo a cero y almacenar el triple de grasa de lo que comas.</strong></p>
 
-        <!-- Caja de Impacto/Dolor -->
-        <div class="danger-box">
-            <h3>El "Efecto Maracuyá Murcho"</h3>
-            <p>
-                Si no actúas HOY, la piel de tu abdomen, de tus brazos (las famosas alas de murciélago) y de tu rostro se caerá por completo por la falta de soporte. Terminarás con un cuerpo delgado, pero tan flácido y arrugado que <strong>te dará vergüenza desvestirte ante tu pareja o mirarte al espejo con la luz encendida</strong>. ¡Parecerás 15 años mayor!
-            </p>
-        </div>
+    <p>Si sales de esta página sin bloquear esto, vas a tirar tu dinero. En pocas semanas recuperarás todo lo perdido, <strong>más 5 kilos extra de grasa nueva y deforme.</strong> Es pura biología de defensa.</p>
 
-        <p class="strong-message">
-            No permitas que tu victoria contra la báscula se convierta en una pesadilla estética. Necesitas rellenar ese espacio con <strong>colágeno puro y elastina activa</strong> mientras la grasa se quema.
-        </p>
+    
 
-        <!-- Beneficios en deseos profundos de la mujer -->
-        <ul>
-            <li><strong>Efecto Corsé Invisible:</strong> Pega tu piel firmemente al músculo a medida que la grasa se evapora, logrando un abdomen plano y ultra tenso.</li>
-            <li><strong>Brazos y Rostro de 20 Años:</strong> Elimina para siempre la piel flácida que cuelga al saludar y redefine el contorno de tu cuello y mandíbula.</li>
-            <li><strong>Borrador de Estrías y Celulitis:</strong> Tensa y alisa las capas profundas de la piel, haciendo desaparecer la textura de piel de naranja en glúteos y piernas.</li>
-        </ul>
-
-        <!-- Caja de Precio Destructivo -->
-        <div class="price-box">
-            <div class="old-price">Precio regular en clínicas: $120 USD</div>
-            <div class="new-price">Solo por esta única vez: $19 USD</div>
-            <div class="price-info">Pago único. No se te volverá a cobrar jamás.</div>
-        </div>
-
-        <!-- Botones de Acción -->
-        <div class="btn-container">
-            <!-- Link de pago del Upsell 2 -->
-            <a href="#" class="btn-accept">
-                SÍ, QUIERO UN CUERPO DELGADO, FIRME Y REJUVENECIDO
-            </a>
-            
-            <!-- Link de rechazo que lleva a la página de gracias o checkout final -->
-            <a href="#" class="btn-decline">
-                No, prefiero quedarme con la piel colgada, flácida y arriesgarme a lucir un cuerpo envejecido.
-            </a>
-        </div>
-
+    <!-- MAIN CTA BUTTON -->
+    <div class="cta-container">
+        <a href="#" class="btn-accept">SÍ, QUIERO ACTIVAR EL BLINDAJE Y ASEGURAR MIS RESULTADOS</a>
+        <span class="price-notice">🟢 Añádelo automáticamente a tu pedido por solo un pago único de [PRECIO]</span>
     </div>
+
+<div class="warning-box">
+        <h3>🚨 BLINDAJE INMEDIATO (ÚNICA OPORTUNIDAD)</h3>
+        <p style="margin:0; font-size: 15px;">Añade el <strong>Blindaje Antirrebote</strong> ahora mismo. Bloquea químicamente los receptores de grasa, congela tu nuevo peso ideal bajo llave y asegura que los kilos perdidos <strong>NUNCA MÁS REGRESEN.</strong> Si cierras esta pantalla, el sistema borrará esta oferta para siempre.</p>
+    </div>
+
+
+    <!-- PROGRAM STEP BY STEP -->
+    <div class="section-title">¿Cómo funciona el Sistema de Blindaje paso a paso?</div>
+    <p>Esto es exactamente lo que vas a descubrir dentro de la guía de contingencia inmediata:</p>
+    
+    <div class="step-block">
+        <span class="step-num">Fase 1 - Día 1 al 7</span>
+        <h4>Desactivación de la Alarma de Supervivencia</h4>
+        <p style="margin:0; font-size:14px; color:#9ca3af;">Aprenderás el hack nutricional exacto para engañar a tu cerebro. Él pensará que sigues comiendo lo mismo, impidiendo que active la orden de ralentizar tu metabolismo.</p>
+    </div>
+
+    <div class="step-block">
+        <span class="step-num">Fase 2 - Día 8 al 21</span>
+        <h4>Fijación del Nuevo Peso (Set-Point Reset)</h4>
+        <p style="margin:0; font-size:14px; color:#9ca3af;">El paso a paso para obligar a tus células adiposas a "olvidar" su tamaño anterior. Esto destruye la memoria de la grasa para que no intente rellenarse de nuevo.</p>
+    </div>
+
+    <div class="step-block">
+        <span class="step-num">Fase 3 - Continuo</span>
+        <h4>Inmunidad Calórica Automática</h4>
+        <p style="margin:0; font-size:14px; color:#9ca3af;">El protocolo para introducir "comidas trampa" semanales (pizzas, postres, carbohidratos) utilizándolas como combustible térmico para acelerar el motor, en lugar de acumularlas.</p>
+    </div>
+
+    <!-- TESTIMONIAL FROM A 50-YEAR-OLD WOMAN -->
+    <div class="section-title">Esto es lo que dicen las mujeres que lo usaron:</div>
+    <div class="testimonial-card">
+        <p class="testimonial-text">"Tengo 52 años y toda mi vida fui víctima del maldito efecto yo-yo. Bajaba 5 kilos y subía 8. Cuando compré el acelerador me dio un miedo terrible volver a pasar por lo mismo. Gracias a Dios añadí este blindaje en el último segundo. Bajé 14 kilos en tiempo récord y por primera vez en mi vida, llevo 8 meses comiendo normal y mi peso no ha subido ni un solo gramo. A mis 50 y tantos, tengo el cuerpo que no tuve a los 30."</p>
+        <div class="testimonial-author">Marta Elena Rodríguez</div>
+        <div class="testimonial-age">52 años — Medellín, Colombia</div>
+    </div>
+
+    <!-- EXCLUSIVE BONUSES -->
+    <div class="section-title">Si aseguras tu blindaje hoy, te llevas estos 3 Bonos Gratis:</div>
+    
+    <div class="bonus-card">
+        <span class="bonus-badge">Gratis Hoy</span>
+        <h4>Bono #1: El Escudo Anti-Cortisol</h4>
+        <p style="margin:0 0 10px 0; font-size:14px; color:#d1d5db;">El estrés y la ansiedad por comer dulce destruyen el metabolismo de las mujeres. Con esta guía sabrás cómo apagar la hormona del estrés en 3 minutos para eliminar la ansiedad nocturna.</p>
+        <span class="bonus-value">Valor normal: $47.00 — HOY: $0</span>
+    </div>
+
+    <div class="bonus-card">
+        <span class="bonus-badge">Gratis Hoy</span>
+        <h4>Bono #2: Menú "Come de Todo" en Restaurantes</h4>
+        <p style="margin:0 0 10px 0; font-size:14px; color:#d1d5db;">La lista secreta de combinaciones que puedes pedir en cualquier restaurante (italiano, mexicano, sushi) que bloquea la absorción instantánea de carbohidratos pesados.</p>
+        <span class="bonus-value">Valor normal: $35.00 — HOY: $0</span>
+    </div>
+
+    <div class="bonus-card">
+        <span class="bonus-badge">Gratis Hoy</span>
+        <h4>Bono #3: Calculadora Científica del Punto de Fijación</h4>
+        <p style="margin:0 0 10px 0; font-size:14px; color:#d1d5db;">Una herramienta interactiva simple donde colocas tu edad y tu peso deseado, y te dice exactamente cuántas semanas necesita tu cuerpo para blindarse por completo.</p>
+        <span class="bonus-value">Valor normal: $29.00 — HOY: $0</span>
+    </div>
+
+    <!-- RISK-FREE GUARANTEE -->
+    <div class="guarantee-box">
+        <h3>🛡️ Garantía Incondicional de Riesgo Cero</h3>
+        <p style="font-size: 14px; color: #9ca3af; margin-bottom: 0;">Prueba el Blindaje Metabólico por un periodo de 7 días completos. Si aplicas el paso a paso y sientes que tu metabolismo no está más fuerte y protegido, o simplemente no estás conforme con lo que ves, solicita el reembolso total de esta adición inmediatamente. No tienes absolutamente nada que perder y una vida de tranquilidad que ganar.</p>
+    </div>
+</div>
 
 </body>
 </html>
