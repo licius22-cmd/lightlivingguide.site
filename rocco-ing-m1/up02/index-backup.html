@@ -1,0 +1,307 @@
+<!DOCTYPE html><html lang="es"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Upsell – Protocolo de Resistencia</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  
+  <script src="https://upsell.mundpay.com/script-v2.js" defer async></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: #f8f8f8;
+      color: #222;
+      line-height: 1.6;
+      /* espaço para não ficar escondido atrás do botão fixo */
+      padding-bottom: 140px;
+    }
+
+    .container {
+      max-width: 950px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .urgency {
+      background: #ff3b3b;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 12px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    h1, h2 {
+      font-family: 'Playfair Display', serif;
+      color: #111;
+    }
+
+    h1 {
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 26px;
+      margin-top: 30px;
+      color: #c48f00;
+    }
+
+    .highlight {
+      background: #fff9d9;
+      padding: 10px;
+      border-left: 4px solid #c48f00;
+      margin: 20px 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .testimonial {
+      background: #fff;
+      border-left: 4px solid #c48f00;
+      padding: 15px;
+      font-style: italic;
+      margin-bottom: 15px;
+    }
+
+    .price {
+      text-align: center;
+      background: #fff;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+
+    .price .old {
+      text-decoration: line-through;
+      color: #888;
+    }
+
+    .cta-btn {
+      background: linear-gradient(135deg, #28a745, #1e7d34);
+      color: #fff;
+      padding: 18px 25px;
+      font-size: 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 100%;
+      text-align: center;
+      display: inline-block;
+      text-decoration: none;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background: linear-gradient(135deg, #1e7d34, #145523);
+      transform: scale(1.03);
+    }
+
+    .bonus {
+      background: #f0f0f0;
+      padding: 12px;
+      border-radius: 8px;
+      margin: 10px 0;
+    }
+
+    .guarantee {
+      background: #fff3cd;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+      border-left: 4px solid #ff9900;
+    }
+
+    footer {
+      font-size: 13px;
+      color: #777;
+      text-align: center;
+      margin-top: 40px;
+      padding: 15px 0;
+    }
+
+    /* 🔥 BOTÃO FLUTUANTE YES / NO ALINHADO AO CONTEÚDO */
+    .floating-cta-wrapper {
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      width: 100%;
+      max-width: 950px;
+      padding: 10px 16px 16px 16px;
+      box-sizing: border-box;
+      z-index: 9999;
+      background: transparent;
+    }
+
+    .floating-cta-inner {
+      background: #ffffff;
+      border-radius: 18px;
+      box-shadow: 0 -4px 14px rgba(0, 0, 0, 0.25);
+      padding: 12px 12px 14px 12px;
+      box-sizing: border-box;
+    }
+
+    .floating-cta-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      background: #11b312;
+      padding: 16px 20px;
+      border-radius: 999px; /* bem redondo */
+      font-weight: 700;
+      font-size: 16px;
+      text-transform: uppercase;
+      color: #ffffff;
+      border: none;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      box-sizing: border-box;
+    }
+
+    .floating-cta-btn:hover {
+      background: #0d9710;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+    }
+
+    .floating-cta-no {
+      margin-top: 10px;
+      font-size: 14px;
+      text-align: center;
+      color: #d00000;
+      font-weight: 600;
+    }
+
+    .floating-cta-no span {
+      cursor: default;
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 26px; }
+      h2 { font-size: 22px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="urgency">HAGA CLIC EN EL BOTÓN VERDE PARA ACCEDER AL SECRETO PARA DURAR 2-3 HORAS SIN PARAR CON SOLO 2 EJERCICIOS ESTA MISMA NOCHE</div>
+    <div class="urgency">Quedan 2 plazas para recibir acceso ⚠️</div>
+
+    <div class="highlight">
+      ¡Felicidades! Acabas de dar el primer paso hacia una erección dura como una roca que durará toda la vida. Pero antes de acceder al Protocolo Natural, tengo algo <strong>EXTREMADAMENTE IMPORTANTE</strong> que decirte...
+    </div>
+
+    <p>En los últimos 6 meses, he recibido más de 2,847 mensajes de hombres que usaron el Protocolo Natural con un problema muy específico: “Dr. Carlos, el protocolo funcionó perfectamente... pero sigo terminando demasiado rápido.”</p>
+
+    <h2>🔥 EL MÉTODO QUE USAN LOS ACTORES PORNO PARA DURAR 2-3 HORAS</h2>
+
+    <ul>
+      <li><strong>Técnica del Pulso Inverso:</strong> Retrasa el orgasmo indefinidamente usando un punto de presión secreto</li>
+      <li><strong>Método de 3 Niveles:</strong> Controla tu excitación como si fuera un termostato</li>
+      <li><strong>Respiración de Toro:</strong> Técnica tántrica que multiplica tu resistencia por 10</li>
+      <li><strong>Truco de los 7 Segundos:</strong> Úsalo justo antes del clímax y continúa durante horas</li>
+      <li><strong>Fórmula de Recuperación Instantánea:</strong> Prepárate para la segunda ronda en menos de 2 minutos</li>
+      <li><strong>Protocolo Multi-Orgásmico:</strong> Experimenta 3-5 orgasmos sin eyacular</li>
+    </ul>
+
+    <div class="testimonial">
+      "Usando el Protocolo de Resistencia junto al Natural, duré 2 horas y 40 minutos la primera noche. ¡Cambió mi matrimonio!" – Roberto M., EE.UU.
+    </div>
+
+
+    <h2>🎁 BONOS EXCLUSIVOS</h2>
+    <div class="bonus">BONO #1: Guía de Audio – Entrenamiento mental para control total</div>
+    <div class="bonus">BONO #2: Manual – 15 posiciones de máxima resistencia</div>
+    <div class="bonus">BONO #3: Clase en Video – Secretos del punto G y punto P</div>
+
+    <div class="guarantee">
+      🛡️ Garantía Doble de 180 Días: Si no logras durar al menos 30-45 minutos, te devolvemos el DOBLE de lo que pagaste.
+    </div>
+
+    <p style="text-align:center;">
+      🚨 SOLO QUEDAN 27 COPIAS A ESTE PRECIO 🚨<br><br>
+    </p>
+
+    <footer>
+      Encriptación SSL 256-bit<br>
+      � 2024 Protocolo Natural. Todos los derechos reservados.
+    </footer>
+  </div>
+
+  <!-- 🔥 BOTÃO FLUTUANTE YES / NO -->
+   <style>
+
+/* 1. Colocamos o CSS no topo para carregar IMEDIATAMENTE */
+    .upsell-wrapper {
+        position: relative;
+        display: block; 
+        margin: 0 auto;
+        width: 100%;
+        max-width: 500px;
+        /* Define um espaço reservado para o conteúdo não "pular" */
+        min-height: 250px; 
+        background-color: #ffffff; /* Fundo branco preventivo */
+    }
+
+    .mask {
+        position: absolute;
+        left: 0;
+        right: 0;
+        background-color: #ffffff !important; /* !important garante a cor */
+        z-index: 9999; /* Valor altíssimo para cobrir qualquer coisa */
+        pointer-events: auto;
+    }
+
+    /* Estilo Geral das Máscaras */
+    .mask {
+        position: absolute;
+        left: 0;
+        right: 0;
+        background-color: #ffffff; /* Cor branca */
+        z-index: 10; /* Garante que fique por cima do botão da Mundpay */
+    }
+
+    /* Ajuste de altura da caixa de cima */
+    .mask-top {
+        top: 0;
+        height: 32%; /* Aumente ou diminua conforme necessário para cobrir o topo */
+    }
+
+    /* Ajuste de altura da caixa de baixo */
+    .mask-bottom {
+        bottom: 0;
+        height: 41%; /* Aumente ou diminua conforme necessário para cobrir o botão */
+    }
+</style>
+
+<div class="upsell-container-geral">
+ <div class="upsell-wrapper">
+    
+    <div class="mask mask-top"></div>
+
+    <div data-mndpay-render="019f394f-c3c8-720c-80d9-0249fa37b0df"></div>
+
+    <div class="mask mask-bottom"></div>
+
+</div>
+
+</body></html>

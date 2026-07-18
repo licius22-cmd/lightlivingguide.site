@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado Diagnóstico</title>
+    
+<script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+<link rel="preload" href="https://scripts.converteai.net/6e3ae2f6-ad64-483b-9bc5-bafc50ec8005/players/6a4af679add639b68590cf55/v4/player.js" as="script">
+<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+<link rel="preload" href="https://cdn.converteai.net/6e3ae2f6-ad64-483b-9bc5-bafc50ec8005/68acd108def35b4ab941b94e/main.m3u8" as="fetch">
+<link rel="dns-prefetch" href="https://cdn.converteai.net">
+<link rel="dns-prefetch" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="dns-prefetch" href="https://license.vturb.com">
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1051035697444581');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1051035697444581&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+        }
+
+        /* Topo */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+            border-bottom: 1px solid #2a2a2a;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .doctor-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .doctor-thumb {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .doctor-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .diag-label {
+            font-size: 13px;
+            font-weight: 700;
+            margin: 0;
+            color: #ccc;
+        }
+
+        .doctor-name-top {
+            font-size: 11px;
+            color: #888;
+        }
+
+        .status-badge {
+            background-color: #0a2a1a;
+            color: #4ade80;
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Conteúdo Principal */
+        .main-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .headline {
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .headline span {
+            color: #c71423;
+        }
+
+        /* VSL - Formato Vertical */
+        .vsl-box {
+            width: 100%;
+            max-width: 380px;
+            margin: 0 auto 40px auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            background: #000;
+        }
+
+        .vsl-box img {
+            width: 100%;
+            display: block;
+        }
+
+        /* Comentários */
+        .comments-container {
+            text-align: left;
+            max-width: 750px;
+            margin: 0 auto;
+            border-top: 1px solid #2a2a2a;
+            padding-top: 20px;
+        }
+
+        .comments-header {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+
+        .comment-item {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .user-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .comment-content {
+            font-size: 13px;
+        }
+
+        .user-name {
+            color: #5b9bd5;
+            font-weight: bold;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .comment-text {
+            line-height: 1.35;
+            margin-bottom: 6px;
+            color: #e0e0e0;
+        }
+
+        .comment-meta {
+            color: #666;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .meta-link {
+            color: #5b9bd5;
+            cursor: pointer;
+        }
+
+        .meta-link:hover { text-decoration: underline; }
+
+        .likes-badge {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        @media (max-width: 600px) {
+            .headline { font-size: 20px; }
+            header { padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+
+
+  
+
+    <div class="main-content">
+        <h1 class="headline">Protocolo Natural<span> Curo mi disfuncion</span> en solo 7 dias</h1>
+
+        <div class="vsl-box">
+          <vturb-smartplayer id="vid-6a4af679add639b68590cf55" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 160% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/6e3ae2f6-ad64-483b-9bc5-bafc50ec8005/players/6a4af679add639b68590cf55/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
+        </div>
+
+        <div class="comments-container">
+            <div class="comments-header">Comentarios de Usuarios</div>
+
+            <!-- Comentário 1 -->
+            <div class="comment-item">
+                <img src="images/antonio-garcia.jpeg" class="user-avatar" alt="António García">
+                <div class="comment-content">
+                    <span class="user-name">António García</span>
+                    <p class="comment-text">Honestamente pensé que este tipo de cosas eran una estafa, pero maldita sea... ¡esta cosa realmente funciona! En menos de 1 semana me convertí en un toro en la cama y debo decir que estoy MUY feliz con los resultados. Mi esposa también.</p>
+                    <div class="comment-meta">
+                        <span class="meta-link">Me gusta</span> · <span class="meta-link">Responder</span> · <span class="likes-badge">👍 13</span> · 1 h
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comentário 2 -->
+            <div class="comment-item">
+                <img src="images/manuel-rodrigues.jpeg" class="user-avatar" alt="Manuel Rodriguez">
+                <div class="comment-content">
+                    <span class="user-name">Manuel Rodriguez</span>
+                    <p class="comment-text">Hombre, al principio era escéptico, pero después de dos semanas, ¡la diferencia es increíble! Mi confianza se disparó por las nubes y mi chica definitivamente se dio cuenta. ¡Ojalá hubiera encontrado esto antes!</p>
+                    <div class="comment-meta">
+                        <span class="meta-link">Me gusta</span> · <span class="meta-link">Responder</span> · <span class="likes-badge">👍 66</span> · 1 h
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comentário 3 -->
+            <div class="comment-item">
+                <img src="images/jose-gonzales.jpeg" class="user-avatar" alt="José González">
+                <div class="comment-content">
+                    <span class="user-name">José González</span>
+                    <p class="comment-text">No voy a mentir, estuve inseguro durante años. ¿Ahora? No más ansiedad cuando llega el momento de actuar. Si estás indeciso, inténtalo. Te lo agradecerás más tarde.</p>
+                    <div class="comment-meta">
+                        <span class="meta-link">Me gusta</span> · <span class="meta-link">Responder</span> · <span class="likes-badge">👍 25</span> · 1 h
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comentário 4 -->
+            <div class="comment-item">
+                <img src="images/francisco-fernandez.jpeg" class="user-avatar" alt="Francisco Fernandez">
+                <div class="comment-content">
+                    <span class="user-name">Francisco Fernandez</span>
+                    <p class="comment-text">Estaba a punto de gastar $$$ en algo loco, pero primero le di una oportunidad a esto... me alegro de haberlo hecho. Me tomó algunas semanas, pero mi tamaño y resistencia ahora están en otro nivel. Confianza = 1000%.</p>
+                    <div class="comment-meta">
+                        <span class="meta-link">Me gusta</span> · <span class="meta-link">Responder</span> · <span class="likes-badge">👍 71</span> · 1 h
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comentário 5 -->
+            <div class="comment-item">
+                <img src="images/david-lopez.jpeg" class="user-avatar" alt="David Lopez">
+                <div class="comment-content">
+                    <span class="user-name">David Lopez</span>
+                    <p class="comment-text">Nunca pensé que estaría escribiendo algo como esto, pero allá vamos. De hecho, veo la diferencia, y no soy solo yo: mi chica me dijo directamente que ella también lo sentía. ¡Un cambio de juego!</p>
+                    <div class="comment-meta">
+                        <span class="meta-link">Me gusta</span> · <span class="meta-link">Responder</span> · <span class="likes-badge">👍 19</span> · 1 h
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

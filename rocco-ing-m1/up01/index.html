@@ -1,0 +1,354 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bull's Trick – Exclusive Offer</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght=700&family=Poppins:wght=400;600&display=swap" rel="stylesheet">
+  <script src="https://upsell.mundpay.com/script-v2.js" defer async></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f8f8;
+      color: #222;
+      line-height: 1.6;
+      /* space to avoid hiding content behind the fixed button */
+      padding-bottom: 140px;
+    }
+
+    /* ✅ Only this container will be delayed (if you want to use it) */
+    #container-delay {
+      max-width: 950px;
+      margin: auto;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      animation: showContainer 0s ease forwards;
+      animation-delay: 570s; /* 9 minutes and 45 seconds */
+    }
+
+    @keyframes showContainer {
+      to {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    .urgency {
+      max-width: 950px;
+      margin: 0 auto 20px auto;
+      background: linear-gradient(90deg, #e60000, #b30000);
+      color: #fff;
+      padding: 18px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 12px;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0 { transform: scale(1); }
+      50 { transform: scale(1.05); }
+      100 { transform: scale(1); }
+    }
+
+    h1, h2 {
+      font-family: 'Playfair Display', serif;
+      color: #111;
+    }
+
+    h1 {
+      font-size: 34px;
+      text-align: center;
+      margin: 0 auto 0px auto;
+      max-width: 950px;
+    }
+
+    h2 {
+      font-size: 26px;
+      margin-top: 30px;
+      color: #c48f00;
+    }
+
+    .content-wrapper {
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .highlight {
+      background: #fff9d9;
+      padding: 10px;
+      border-left: 4px solid #c48f00;
+      margin: 20px 0;
+    }
+
+    .testimonial {
+      background: #fff;
+      border-left: 4px solid #c48f00;
+      padding: 15px;
+      font-style: italic;
+      margin-bottom: 15px;
+    }
+
+    .bonus {
+      background: #f0f0f0;
+      padding: 12px;
+      border-radius: 8px;
+      margin: 10px 0;
+    }
+
+    .price {
+      text-align: center;
+      background: #fff;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+
+    .price p {
+      margin: 8px 0;
+      font-size: 18px;
+    }
+
+    .price .old {
+      text-decoration: line-through;
+      color: #888;
+    }
+
+    .cta-btn {
+      background: linear-gradient(135deg, #28a745, #1e7d34);
+      color: #fff;
+      padding: 18px 25px;
+      font-size: 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 100%;
+      text-align: center;
+      display: inline-block;
+      text-decoration: none;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    .cta-btn:hover {
+      background: linear-gradient(135deg, #1e7d34, #145523);
+      transform: scale(1.03);
+    }
+
+    .guarantee {
+      background: #fff3cd;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+      border-left: 4px solid #ff9900;
+    }
+
+    footer {
+      font-size: 13px;
+      color: #777;
+      text-align: center;
+      margin-top: 40px;
+      padding: 15px 0;
+    }
+
+    /* 🔥 FLOATING CTA BUTTON YES/NO ALIGNED TO CONTENT */
+    .floating-cta-wrapper {
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      width: 100%;
+      max-width: 950px;
+      padding: 10px 16px 16px 16px;
+      box-sizing: border-box;
+      z-index: 9999;
+      background: transparent;
+    }
+
+    .floating-cta-inner {
+      background: #ffffff;
+      border-radius: 18px;
+      box-shadow: 0 -4px 14px rgba(0, 0, 0, 0.25);
+      padding: 12px 12px 14px 12px;
+      box-sizing: border-box;
+    }
+
+    .floating-cta-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      background: #11b312;
+      padding: 16px 20px;
+      border-radius: 999px; /* very round */
+      font-weight: 700;
+      font-size: 16px;
+      text-transform: uppercase;
+      color: #ffffff;
+      border: none;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      box-sizing: border-box;
+    }
+
+    .floating-cta-btn:hover {
+      background: #0d9710;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+    }
+
+    .floating-cta-no {
+      margin-top: 10px;
+      font-size: 14px;
+      text-align: center;
+      color: #d00000;
+      font-weight: 600;
+    }
+
+    .floating-cta-no a {
+      color: #d00000;
+      text-decoration: none;
+    }
+
+    .floating-cta-no a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 26px;
+      }
+      h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+    
+    <script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+  <!-- Red headlines -->
+  
+  <div class="content-wrapper">
+    <div class="highlight">
+      Congratulations! You made the right decision and took the first step toward reclaiming your firm erections. But let's be honest, from man to man.
+    </div>
+
+    <p>You know that women talk among themselves, and a man's worst nightmare is becoming the topic of conversation among her friends because of size. They might pretend it doesn't matter in front of you, but size determines who they respect and who they forget.<br><br>
+
+There's no point in having firm erections if you don't have enough volume to make the impact they truly desire. What drives a woman crazy and leaves her breathless is fullness.<br><br>
+
+Don't stop halfway. The Bull's Trick is here to <strong>increase your size by 5-8 cm per week</strong> and dominate in bed. Be the man she won't be able to forget, and make sure that if she talks about you with her friends, it's only to praise your size.</p>
+
+    
+
+<style>
+
+/* 1. We place the CSS at the top to load IMMEDIATELY */
+    .upsell-wrapper {
+        position: relative;
+        display: block; 
+        margin: 0 auto;
+        width: 100%;
+        max-width: 500px;
+        /* Defines a placeholder space so the content doesn't "jump" */
+        min-height: 250px; 
+        background-color: #f8f8f8; /* Preventive white background */
+    }
+
+    .mask {
+        position: absolute;
+        left: 0;
+        right: 0;
+        background-color: #f8f8f8 !important; /* !important guarantees the color */
+        z-index: 9999; /* Very high value to cover anything */
+        pointer-events: auto;
+    }
+
+    /* General Mask Style */
+    .mask {
+        position: absolute;
+        left: 0;
+        right: 0;
+        background-color: #f8f8f8; /* White color */
+        z-index: 10; /* Ensures it stays on top of the Mundpay button */
+    }
+
+    /* Height adjustment for the top box */
+    .mask-top {
+        top: 0;
+        height: 32%; /* Increase or decrease as needed to cover the top */
+    }
+
+    /* Height adjustment for the bottom box */
+    .mask-bottom {
+        bottom: 0;
+        height: 41%; /* Increase or decrease as needed to cover the button */
+    }
+</style>
+
+
+ <div class="upsell-wrapper">
+    
+    <div class="mask mask-top"></div>
+
+    <div data-mndpay-render="019f3941-4e6b-7126-8f96-f238c12be4be"></div>
+
+    <div class="mask mask-bottom"></div>
+
+</div>
+
+<div class="upsell-container-geral">
+
+<div class="testimonial">
+      “Using the <strong>Bull's Trick</strong> along with the Natural Protocol, I grew from 14 cm to 21 cm in 4 weeks. My wife couldn't believe it. This saved my marriage!” – Juan M., 55 years old, Mexico 🇲🇽
+    </div>
+
+    <h2>🎁 INCLUDED BONUSES</h2>
+    <div class="bonus">
+      <strong>🎥 Bonus #1: Wild Seduction – How to turn her on with words and dominate her in bed (Value $500)</strong><br>
+      An uncensored program with phrases, gestures, and commands that activate the most animal desire in your partner. She will beg you for sex like never before.
+    </div>
+    <div class="bonus">
+      📘 <strong>Bonus #2: Iron Male Health Guide</strong> – natural secrets for prostate, diabetes, and perfect vision (Value $297)
+    </div>
+    <div class="bonus">
+      🎁 <strong>Bonus #3: Premium Surprise Gift</strong> – a secret that will make your woman beg you for more (Value $1,000)
+    </div>
+
+    <div class="guarantee">
+      🛡️ <strong>180-Day Double Guarantee:</strong> If your penis doesn't reach at least 19 cm in 6 months, we will return <strong>double</strong> your money back. No questions asked. No risks.
+    </div>
+
+    <div class="testimonial">
+      “My marriage was on the verge of divorce. With the Bull's Trick, I went from 16 to 22 cm. Now my wife says I'm a god in bed.” – Miguel A., 52 years old, Spain 🇪🇸
+    </div>
+
+    <p style="text-align:center;">🚨 Only <strong>23 copies</strong> left at this price. Act before it disappears. 🚨</p>
+
+   
+
+    <footer>
+      © 2026 Natural Protocol. All rights reserved. 256-bit SSL Encryption. This offer is not available anywhere else.
+    </footer>
+  </div>
+
+  
+
+</body></html>
