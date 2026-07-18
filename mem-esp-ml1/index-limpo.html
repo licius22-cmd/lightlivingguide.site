@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Honey Protocol – VSL1 – ESP</title>
+<meta name="robots" content="max-image-preview:large">
+
+<!-- Fontes usadas no design -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Source+Sans+Pro:wght@400;600;700&display=swap">
+
+<!-- Acelera o carregamento do player de vídeo (VTurb) -->
+<link rel="dns-prefetch" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://cdn.converteai.net">
+<link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="preconnect" href="https://scripts.converteai.net" crossorigin>
+<link rel="dns-prefetch" href="https://go.centerpag.com">
+
+<style>
+  /* Base */
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background-color: #0A0A0A;
+    font-family: 'Source Sans Pro', -apple-system, sans-serif;
+    color: #3d5a6a;
+  }
+  .nhp-page-wrapper { background-color: #fff; width: 100%; margin: 0 auto; overflow-x: hidden; }
+
+  /* Classe de delay nativa da VTurb */
+  .esconder { display: none; }
+
+  /* Cabeçalho */
+  .nhp-top-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 20px; background: #fff; border-bottom: 2px solid #eaeaea;
+  }
+  .nhp-logo { max-height: 30px; }
+
+  /* Headline + Vídeo */
+  .nhp-main-headline {
+    font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 800;
+    text-align: center; color: #1a3a4a; line-height: 1.3;
+    padding: 25px 15px; margin: 0 auto; max-width: 800px;
+  }
+  .nhp-video-container { width: 100%; background: #000; padding-bottom: 5px; }
+
+  /* Secções gerais */
+  .nhp-section-container { padding: 40px 15px; text-align: center; background: #fff; max-width: 900px; margin: 0 auto; }
+  .nhp-title { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: #1a3a4a; margin: 0 0 15px; line-height: 1.2; }
+  .nhp-subtitle { font-size: 18px; font-weight: 600; color: #3d5a6a; margin: 0 0 30px; line-height: 1.5; }
+  .nhp-product-img { max-width: 100%; height: auto; border-radius: 10px; }
+
+  /* Caixa de oferta */
+  .nhp-offer-box {
+    border: 2px solid #90f; border-radius: 12px; padding: 30px 20px;
+    margin: 0 auto 40px; max-width: 450px; background: #fff;
+    position: relative; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,.08);
+  }
+  .nhp-offer-tag {
+    background: #bf1515; color: #fff; font-size: 13px; font-weight: 800; letter-spacing: 1.5px;
+    padding: 8px 20px; border-radius: 6px; position: absolute; top: -16px; left: 50%; transform: translateX(-50%);
+  }
+  .nhp-price-row { display: flex; justify-content: center; align-items: center; gap: 15px; margin-top: 10px; }
+  .nhp-discount { color: #bf1515; font-size: 32px; font-weight: 800; }
+  .nhp-price { color: #1a3a4a; font-size: 42px; font-weight: 800; line-height: 1; }
+  .nhp-price small { font-size: 20px; font-weight: 700; }
+  .nhp-list-price { color: #6b8a9a; font-size: 16px; font-weight: 600; margin: 15px 0 25px; }
+
+  /* Botão de compra */
+  .nhp-btn-gold {
+    display: block; background: linear-gradient(135deg, #e8b44d 0%, #d4a03d 100%); color: #1a3a4a;
+    text-decoration: none; font-size: 20px; font-weight: 800; padding: 18px 20px; border-radius: 50px;
+    text-transform: uppercase; box-shadow: 0 8px 20px rgba(212,160,61,.4); transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .nhp-btn-gold:active { transform: scale(.97); box-shadow: 0 4px 10px rgba(212,160,61,.4); }
+
+  /* Garantia */
+  .nhp-guarantee-section {
+    background: #0e941a; padding: 50px 20px; color: #fff; border-radius: 20px;
+    margin: 0 auto 40px; max-width: 800px; text-align: center;
+  }
+  .nhp-seal-img { max-width: 160px; margin-bottom: 25px; }
+  .nhp-trust-badges { max-width: 100%; margin-bottom: 30px; }
+  .nhp-guarantee-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 800; margin: 0 0 10px; line-height: 1.2; }
+  .nhp-guarantee-highlight { color: #ffc107; font-size: 22px; font-weight: 700; text-decoration: underline; margin: 0 0 25px; }
+  .nhp-guarantee-text { font-size: 16px; line-height: 1.6; text-align: left; margin-bottom: 30px; }
+  .nhp-disclaimer-box { background: rgba(0,0,0,.15); padding: 20px; border-radius: 10px; font-size: 12px; text-align: left; line-height: 1.5; color: #e0e0e0; }
+  .nhp-disclaimer-box p { margin: 0 0 10px; }
+  .nhp-disclaimer-box p:last-child { margin: 0; }
+
+  /* Benefícios */
+  .nhp-benefits-section { padding: 40px 15px; max-width: 800px; margin: 0 auto; text-align: center; }
+  .nhp-title-small { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: #1a3a4a; margin: 0 0 15px; }
+  .nhp-subtitle-small { font-size: 17px; color: #6b8a9a; margin: 0 0 30px; line-height: 1.5; }
+  .nhp-check-list { list-style: none; padding: 0; margin: 40px 0 0; text-align: left; }
+  .nhp-check-list li { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; font-size: 16px; font-weight: 600; color: #3d5a6a; line-height: 1.4; }
+  .nhp-check-icon { width: 12px; height: 12px; border-radius: 50%; background: #fff; border: 3px solid #1a3a4a; flex-shrink: 0; margin-top: 5px; }
+
+  /* Testemunhos */
+  .nhp-reviews-section { background: #fffcfa; padding: 50px 15px; box-shadow: inset 0 5px 15px rgba(0,0,0,.03); }
+  .nhp-title-reviews { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: #1a3a4a; text-align: center; margin-bottom: 40px; }
+  .nhp-review-card { background: #fff; padding: 30px; border-radius: 16px; margin: 0 auto 25px; max-width: 600px; box-shadow: 0 5px 20px rgba(0,0,0,.05); text-align: left; }
+  .nhp-review-text { font-size: 16px; color: #3d5a6a; font-style: italic; font-weight: 600; line-height: 1.5; margin: 0 0 20px; }
+  .nhp-review-author { display: flex; align-items: center; gap: 15px; }
+  .nhp-review-author img { width: 65px; height: 65px; border-radius: 50%; object-fit: cover; }
+  .nhp-author-info h4 { margin: 0 0 5px; color: #1a3a4a; font-size: 17px; font-weight: 800; }
+  .nhp-author-info span { background: #faf8f5; color: #6b8a9a; font-size: 13px; font-weight: 700; padding: 4px 8px; border-radius: 6px; }
+
+  /* Cronômetro e oferta final */
+  .nhp-final-offer-section { padding: 50px 15px; text-align: center; max-width: 900px; margin: 0 auto; }
+  .nhp-timer-wrapper { display: flex; justify-content: center; gap: 20px; margin: 30px 0; }
+  .nhp-timer-box { display: flex; flex-direction: column; align-items: center; }
+  .nhp-timer-box span { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 800; color: #1a3a4a; line-height: 1; }
+  .nhp-timer-box p { font-size: 13px; font-weight: 700; color: #6b8a9a; margin: 5px 0 0; }
+  .nhp-product-img-small { max-width: 250px; height: auto; margin: 0 auto 30px; display: block; }
+
+  /* FAQ */
+  .nhp-faq-wrapper { padding: 50px 15px; max-width: 700px; margin: 0 auto; }
+  .nhp-faq-item { border-bottom: 1px solid #eaeaea; margin-bottom: 10px; }
+  .nhp-faq-btn {
+    width: 100%; background: transparent; border: none; text-align: left; padding: 20px 0;
+    font-size: 18px; font-weight: 700; color: #1a3a4a; cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center; font-family: 'Source Sans Pro', sans-serif;
+  }
+  .nhp-arrow { font-size: 14px; transition: transform .3s ease; }
+  .nhp-faq-content { display: none; padding: 0 0 20px; color: #6b8a9a; font-size: 16px; line-height: 1.5; font-weight: 600; }
+  .nhp-faq-item.active .nhp-faq-content { display: block; }
+
+  /* Rodapé */
+  .nhp-footer { padding: 40px 20px; text-align: center; background: #fff; border-top: 1px solid #eaeaea; }
+  .nhp-footer p { color: #6b8a9a; font-size: 14px; font-weight: 600; margin: 0 0 10px; }
+
+  /* Desktop */
+  @media (min-width: 768px) {
+    .nhp-main-headline { font-size: 38px; }
+    .nhp-title { font-size: 42px; }
+    .nhp-subtitle { font-size: 20px; }
+    .nhp-guarantee-section { padding: 60px 40px; }
+    .nhp-guarantee-text { text-align: center; }
+    .nhp-check-list { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .nhp-check-list li { margin-bottom: 0; }
+  }
+</style>
+</head>
+
+<body>
+<div class="nhp-page-wrapper">
+
+  <header class="nhp-top-header">
+    <div class="nhp-menu-icon">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+    </div>
+    <img decoding="async" src="images/BDxHmM7752713.png" alt="The New York Times" class="nhp-logo">
+    <div class="nhp-user-icon">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path></svg>
+    </div>
+  </header>
+
+  <h1 class="nhp-main-headline">URGENTE: Científicos descubren una solución natural contra la pérdida de memoria que puedes preparar en casa.</h1>
+
+  <div class="nhp-video-container">
+    <vturb-smartplayer id="vid-6a2d7eec9eeeea38939c08fb" style="display:block;margin:0 auto;width:100%;max-width:400px;"></vturb-smartplayer>
+    <script>
+      var s=document.createElement("script");
+      s.src="https://scripts.converteai.net/8b0d142a-59e8-4885-8c14-c38ab24c2c5b/players/6a2d7eec9eeeea38939c08fb/v4/player.js";
+      s.async=true;document.head.appendChild(s);
+    </script>
+  </div>
+
+  <div class="esconder">
+
+    <div class="nhp-offer-box">
+      <div class="nhp-offer-tag">OFERTA</div>
+      <div class="nhp-price-row">
+        <span class="nhp-discount">-70%</span>
+        <span class="nhp-price">US$ 29<small>.00</small></span>
+      </div>
+      <p class="nhp-list-price">Precio habitual: <s>97 $</s></p>
+      <a href="https://go.centerpag.com/PPU38CQD4S5" class="nhp-btn-gold">ACCEDER AHORA</a>
+    </div>
+
+    <div class="nhp-section-container">
+      <h2 class="nhp-title">Comienza hoy tu camino hacia una mente más ágil</h2>
+      <p class="nhp-subtitle">Accede de inmediato al Protocolo Neuro-Honey y comienza a recuperar tus capacidades cognitivas, incluso si nada más ha funcionado hasta ahora.</p>
+      <img decoding="async" src="images/qxFpQB4967266.png" class="nhp-product-img" alt="Neuro-Honey Protocol">
+    </div>
+
+    <div class="nhp-offer-box">
+      <div class="nhp-offer-tag">OFERTA</div>
+      <div class="nhp-price-row">
+        <span class="nhp-discount">-70%</span>
+        <span class="nhp-price">US$ 29<small>.00</small></span>
+      </div>
+      <p class="nhp-list-price">Precio habitual: <s>97 $</s></p>
+      <a href="https://go.centerpag.com/PPU38CQD4S5" class="nhp-btn-gold">ACCEDER AHORA</a>
+    </div>
+
+    <div class="nhp-guarantee-section">
+      <img decoding="async" src="images/ecBAKC9332659.webp" class="nhp-seal-img" alt="Guarantee Seal">
+      <img decoding="async" src="images/Qkbdih9411504.webp" class="nhp-trust-badges" alt="Trust Badges">
+      <h3 class="nhp-guarantee-title">100 % satisfecho o reembolsado</h3>
+      <p class="nhp-guarantee-highlight">Garantía de 180 días</p>
+      <p class="nhp-guarantee-text">Estamos tan seguros de que obtendrás resultados increíbles que respaldamos el Protocolo Neuro-Honey con una garantía de satisfacción del 100 % durante 180 días. Comienza a usarlo en cuanto lo recibas y, en pocos días, podrías notar más energía, una mente más clara y menos antojos. A medida que avances, comenzarás a ver resultados progresivos, haciendo de este el momento ideal para registrar tu progreso. Si después de varias semanas o incluso meses no estás completamente satisfecho, te devolveremos tu dinero en su totalidad. Con el Protocolo Neuro-Honey, tú tienes el control de tu camino.</p>
+      <div class="nhp-disclaimer-box">
+        <p>Las declaraciones en este sitio web no han sido evaluadas por la Administración de Alimentos y Medicamentos (FDA). Los productos no están destinados a diagnosticar, tratar, curar ni prevenir ninguna enfermedad.</p>
+        <p>El contenido de este sitio web y el producto a la venta se basan en la opinión del autor y se proporcionan únicamente en la base «TAL COMO ESTÁ» y «TAL COMO ESTÁ DISPONIBLE». Debes realizar tu propia investigación y confirmar la información con otras fuentes cuando busques información sobre temas de salud...</p>
+        <p>© MindHero Research 2026. Todos los derechos reservados.</p>
+      </div>
+    </div>
+
+    <div class="nhp-benefits-section">
+      <h2 class="nhp-title-small">Recupera una mente clara, sin niebla mental</h2>
+      <p class="nhp-subtitle-small">El Protocolo Neuro-Honey te brinda todo lo que necesitas para revertir la diabetes cerebral y eliminar las toxinas, sin ciencia complicada ni suplementos costosos, solo a través de un enfoque natural.</p>
+      <a href="https://go.centerpag.com/PPU38CQD4S5" class="nhp-btn-gold">ACCEDER AHORA</a>
+      <ul class="nhp-check-list">
+        <li><span class="nhp-check-icon"></span> Descubre la verdadera causa de la pérdida de memoria que los médicos nunca te revelan.</li>
+        <li><span class="nhp-check-icon"></span> Recetas simples para preparar en casa con ingredientes disponibles en cualquier supermercado.</li>
+        <li><span class="nhp-check-icon"></span> Accede al protocolo donde quieras, en cualquier momento, sin citas ni esperas.</li>
+        <li><span class="nhp-check-icon"></span> Basado en investigaciones realizadas en Harvard, el MIT y entre poblaciones centenarias.</li>
+        <li><span class="nhp-check-icon"></span> Sigue un programa de aplicación de 90 días y mide tu progreso cognitivo.</li>
+        <li><span class="nhp-check-icon"></span> Únete a más de 22.000 personas que ya han mejorado sus capacidades de memoria.</li>
+      </ul>
+    </div>
+
+    <div class="nhp-reviews-section">
+      <h2 class="nhp-title-reviews">Lo que los usuarios dicen del protocolo</h2>
+
+      <div class="nhp-review-card">
+        <p class="nhp-review-text"><em>«Al principio era escéptica, pero el Protocolo Neuro-Honey lo cambió todo. La niebla mental desapareció en pocas semanas y por fin puedo recordar nombres y conversaciones. Fue como recuperar mi vida.»</em></p>
+        <div class="nhp-review-author">
+          <img decoding="async" src="images/FelXhb5572401.jpeg" alt="Donna Martinez">
+          <div class="nhp-author-info">
+            <h4>Donna Martinez</h4>
+            <span>Houston, TX — Age 67</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="nhp-review-card">
+        <p class="nhp-review-text"><em>«Mi niebla mental prácticamente ha desaparecido. Ahora resuelvo crucigramas en un abrir y cerrar de ojos. ¡Mi hija también está siguiendo el protocolo!»</em></p>
+        <div class="nhp-review-author">
+          <img decoding="async" src="images/oWYYxk5572401.jpeg" alt="Vicky Nelson">
+          <div class="nhp-author-info">
+            <h4>Vicky Nelson, 58</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="nhp-review-card">
+        <p class="nhp-review-text"><em>«Mi cerebro solía sentirse como un ático desordenado. Ahora se siente como una biblioteca bien organizada. Todas las personas de mi edad deberían tener acceso a esto.»</em></p>
+        <div class="nhp-review-author">
+          <img decoding="async" src="images/NsvFhr5572401.jpeg" alt="Ronnie Lambert">
+          <div class="nhp-author-info">
+            <h4>Ronnie Lambert, 65</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="nhp-review-card">
+        <p class="nhp-review-text"><em>«En 34 años de matrimonio, fue la primera vez que mi esposa elogió mi capacidad de concentración. Soy como un nuevo abuelo para mis nietos.»</em></p>
+        <div class="nhp-review-author">
+          <img decoding="async" src="images/NbwYPq5572401.jpeg" alt="Richard Barlow">
+          <div class="nhp-author-info">
+            <h4>Richard Barlow, 71</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nhp-final-offer-section">
+      <h2 class="nhp-title-reviews">Obtén tu Protocolo Neuro-Honey ahora mismo</h2>
+      <p class="nhp-subtitle-small">No dejes pasar esta oportunidad</p>
+
+      <div class="nhp-timer-wrapper">
+        <div class="nhp-timer-box"><span id="nhp-hrs">00</span><p>HORAS</p></div>
+        <div class="nhp-timer-box"><span id="nhp-min">15</span><p>MINUTOS</p></div>
+        <div class="nhp-timer-box"><span id="nhp-sec">00</span><p>SEGUNDOS</p></div>
+      </div>
+
+      <img decoding="async" src="images/dPHeAn4967265.png" class="nhp-product-img-small" alt="Protocol">
+
+      <div class="nhp-offer-box">
+        <div class="nhp-offer-tag">OFERTA</div>
+        <div class="nhp-price-row">
+          <span class="nhp-discount">-70%</span>
+          <span class="nhp-price">US$ 29<small>.00</small></span>
+        </div>
+        <p class="nhp-list-price">Precio habitual: <s>97 $</s></p>
+        <a href="https://go.centerpag.com/PPU38CQD4S5" class="nhp-btn-gold">ACCEDER AHORA</a>
+      </div>
+    </div>
+
+    <div class="nhp-faq-wrapper">
+      <h2 class="nhp-title-reviews" style="text-align:left;">Preguntas frecuentes</h2>
+
+      <div class="nhp-faq-item">
+        <button class="nhp-faq-btn">¿Cómo recibiré el protocolo? <span class="nhp-arrow">▼</span></button>
+        <div class="nhp-faq-content"><p>Recibirás un correo electrónico inmediatamente después de tu compra, con un enlace seguro para acceder al protocolo completo y a todo el contenido extra. Al ser digital, no hay espera de envío.</p></div>
+      </div>
+      <div class="nhp-faq-item">
+        <button class="nhp-faq-btn">¿Cuándo podré ver los primeros resultados? <span class="nhp-arrow">▼</span></button>
+        <div class="nhp-faq-content"><p>Muchos usuarios reportan mayor claridad y agudeza mental en las primeras semanas. Los resultados varían según la persona, pero el protocolo está diseñado para ayudar desde el primer día. Las mejoras más significativas ocurren entre las semanas 3 y 8.</p></div>
+      </div>
+      <div class="nhp-faq-item">
+        <button class="nhp-faq-btn">¿Y si no funciona para mí? <span class="nhp-arrow">▼</span></button>
+        <div class="nhp-faq-content"><p>Sin problema: tienes una garantía de devolución de dinero incondicional de 180 días. Si no es para ti, simplemente solicita un reembolso. Sin preguntas, sin complicaciones.</p></div>
+      </div>
+      <div class="nhp-faq-item">
+        <button class="nhp-faq-btn">¿Los ingredientes son fáciles de encontrar? <span class="nhp-arrow">▼</span></button>
+        <div class="nhp-faq-content"><p>¡Sí! El protocolo fue diseñado específicamente con ingredientes disponibles en cualquier supermercado o tienda de productos naturales. La Guía de Ingredientes Certificados te indica exactamente dónde encontrar todo.</p></div>
+      </div>
+      <div class="nhp-faq-item">
+        <button class="nhp-faq-btn">¿Es compatible con otros medicamentos? <span class="nhp-arrow">▼</span></button>
+        <div class="nhp-faq-content"><p>El Protocolo Neuro-Honey utiliza ingredientes naturales que son generalmente compatibles con la mayoría de los tratamientos. Sin embargo, siempre recomendamos consultar a tu médico si estás tomando medicamentos para condiciones neurológicas.</p></div>
+      </div>
+    </div>
+
+    <footer class="nhp-footer">
+      <p>© 2026 Neuro-Honey Protocol. Todos los derechos reservados.</p>
+      <p>Este producto no está destinado a diagnosticar, tratar, curar ni prevenir ninguna enfermedad. Consulta a un profesional de la salud antes de comenzar cualquier nuevo protocolo de salud.</p>
+    </footer>
+
+  </div>
+</div>
+
+<script>
+  // 1. Delay da VTurb: revela o conteúdo (.esconder) aos 54:55 (3295s)
+  var player = document.querySelector("vturb-smartplayer");
+  if (player) {
+    player.addEventListener("player:ready", function () {
+      player.displayHiddenElements(3295, [".esconder"], { persist: true });
+    });
+  }
+
+  // 2. Accordion do FAQ
+  document.querySelectorAll('.nhp-faq-btn').forEach(function (button) {
+    button.addEventListener('click', function () {
+      var item = button.parentElement;
+      var isActive = item.classList.contains('active');
+      document.querySelectorAll('.nhp-faq-item').forEach(function (i) {
+        i.classList.remove('active');
+        i.querySelector('.nhp-arrow').style.transform = 'rotate(0deg)';
+      });
+      if (!isActive) {
+        item.classList.add('active');
+        button.querySelector('.nhp-arrow').style.transform = 'rotate(180deg)';
+      }
+    });
+  });
+
+  // 3. Cronômetro de 15 minutos (escassez)
+  var timeInSecs = 15 * 60;
+  setInterval(function () {
+    var m = Math.floor(timeInSecs / 60), s = timeInSecs % 60;
+    document.getElementById('nhp-min').innerText = m < 10 ? '0' + m : m;
+    document.getElementById('nhp-sec').innerText = s < 10 ? '0' + s : s;
+    if (timeInSecs > 0) timeInSecs--;
+  }, 1000);
+</script>
+</body>
+</html>
