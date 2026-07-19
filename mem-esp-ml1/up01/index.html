@@ -170,14 +170,14 @@
         max-width: 500px;
         /* Defines a placeholder space so the content doesn't "jump" */
         min-height: 250px; 
-        background-color: #0b0f19; /* Preventive white background */
+        background-color: #f3f4f6; /* Preventive white background */
     }
 
     .mask {
         position: absolute;
         left: 0;
         right: 0;
-        background-color: #0b0f19 !important; /* !important guarantees the color */
+        background-color: #f3f4f6 !important; /* !important guarantees the color */
         z-index: 9999; /* Very high value to cover anything */
         pointer-events: auto;
     }
@@ -187,7 +187,7 @@
         position: absolute;
         left: 0;
         right: 0;
-        background-color: #0b0f19; /* White color */
+        background-color: #f3f4f6; /* White color */
         z-index: 10; /* Ensures it stays on top of the Mundpay button */
     }
 
@@ -265,19 +265,61 @@
             Si decides asegurar esta aceleración intensiva hoy, solo cubrirás un costo mínimo de procesamiento para mantener activo el servidor de descarga inmediata. Esta página no volverá a mostrarse jamás, por lo que es tu única oportunidad de complementar tu orden.
         </p>
 
-        <div class="price-container">
-            <p class="old-price">Valor habitual: $97</p>
-            <p class="new-price">Aporte único: $27</p>
-            <p class="main-text" style="font-size: 13px; color: #9ca3af; margin: 5px 0 0 0; text-align: center;">Sin cargos mensuales ni sorpresas en tu tarjeta.</p>
-        </div>
+          <style>
 
-        <a href="#añadir-al-pedido" class="cta-button">
-            Sí, incluir el protocolo acelerado y proteger a mi familia
-        </a>
+/* 1. We place the CSS at the top to load IMMEDIATELY */
+    .upsell-wrapper {
+        position: relative;
+        display: block; 
+        margin: 0 auto;
+        width: 100%;
+        max-width: 500px;
+        /* Defines a placeholder space so the content doesn't "jump" */
+        min-height: 250px; 
+        background-color: #f3f4f6; /* Preventive white background */
+    }
 
-        <a href="#rechazar" class="reject-link">
-            No, prefiero continuar únicamente con el ritmo lento de 60 días, asumiendo el riesgo de que mis olvidos cotidianos y la neblina mental tarden más tiempo en corregirse de forma definitiva.
-        </a>
+    .mask {
+        position: absolute;
+        left: 0;
+        right: 0;
+        background-color: #f3f4f6 !important; /* !important guarantees the color */
+        z-index: 9999; /* Very high value to cover anything */
+        pointer-events: auto;
+    }
+
+    /* General Mask Style */
+    .mask {
+        position: absolute;
+        left: 0;
+        right: 0;
+        background-color: #f3f4f6; /* White color */
+        z-index: 10; /* Ensures it stays on top of the Mundpay button */
+    }
+
+    /* Height adjustment for the top box */
+    .mask-top {
+        top: 0;
+        height: 32%; /* Increase or decrease as needed to cover the top */
+    }
+
+    /* Height adjustment for the bottom box */
+    .mask-bottom {
+        bottom: 0;
+        height: 41%; /* Increase or decrease as needed to cover the button */
+    }
+</style>
+
+
+ <div class="upsell-wrapper">
+    
+    <div class="mask mask-top"></div>
+
+   <div data-mndpay-render="019f782c-cb42-726d-916f-80bcfff88135"></div>
+
+    <div class="mask mask-bottom"></div>
+
+</div>
     </div>
 
 </body>
