@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Configuración Final Obligatoria</title>
+
+    <script src="https://upsell.mundpay.com/script-v2.js" defer async></script>
+    
     <style>
         * {
             box-sizing: border-box;
@@ -163,9 +166,7 @@
     <div class="container">
         <p class="alert-text">⚠️ CONFIGURACIÓN FINAL: PASO OBLIGATORIO ANTES DE TU ÁREA DE MIEMBROS</p>
 
-        <h1 class="headline">
-            Has asegurado el truco del mel y su protocolo de choque. Pero si cometes el error de ignorar esta última advertencia, podrías estar <span class="danger">tirando a la basura todo tu dinero</span> en las próximas 24 horas.
-        </h1>
+    
 
         <!-- Parágrafo 1 -->
         <p class="main-text">
@@ -176,7 +177,61 @@
         <p class="main-text">
             Para blindar tus resultados para siempre y garantizar que jamás vuelvas al estado de olvidos y neblina mental anterior, he decidido incluir de forma gratuita como un **Bono de Protección Vitalicia** el acceso al <strong>Sistema de Blindaje Cognitivo Nocturno</strong> junto con el plan de acompañamiento guiado de 90 días. Este protocolo de desactivación celular natural es la única pieza que amarra el tratamiento, forzando a tu cerebro a fijar los recuerdos de forma permanente en lugar de eliminarlos al apagar la luz.
         </p>
+<style>
 
+/* 1. We place the CSS at the top to load IMMEDIATELY */
+    .upsell-wrapper {
+        position: relative;
+        display: block; 
+        margin: 0 auto;
+        width: 100%;
+        max-width: 500px;
+        /* Defines a placeholder space so the content doesn't "jump" */
+        min-height: 250px; 
+        background-color: #0d1224; /* Preventive white background */
+    }
+
+    .mask {
+        position: absolute;
+        left: 0;
+        right: 0;
+        background-color: #0d1224 !important; /* !important guarantees the color */
+        z-index: 9999; /* Very high value to cover anything */
+        pointer-events: auto;
+    }
+
+    /* General Mask Style */
+    .mask {
+        position: absolute;
+        left: 0;
+        right: 0;
+        background-color: #0d1224; /* White color */
+        z-index: 10; /* Ensures it stays on top of the Mundpay button */
+    }
+
+    /* Height adjustment for the top box */
+    .mask-top {
+        top: 0;
+        height: 32%; /* Increase or decrease as needed to cover the top */
+    }
+
+    /* Height adjustment for the bottom box */
+    .mask-bottom {
+        bottom: 0;
+        height: 41%; /* Increase or decrease as needed to cover the button */
+    }
+</style>
+
+
+ <div class="upsell-wrapper">
+    
+    <div class="mask mask-top"></div>
+
+    <div data-mndpay-render="019f782d-d8ae-72c5-b46b-7208e90b2ea7"></div>
+
+    <div class="mask mask-bottom"></div>
+
+</div>
         <!-- Parágrafo 3 -->
         <p class="main-text">
             Con este escudo vitalicio, no solo aseguras que el truco del mel se multiplique mientras descansas. Recibirás el mapa exacto para limpiar la neblina mental acumulada por años de estrés y fatiga. Es una biblioteca de mantenimiento continuo diseñada para que tu mente no vuelva a experimentar ese "vacío" aterrador cuando intentas recordar un dato importante frente a tus conocidos o familiares.
@@ -219,19 +274,61 @@
             Por lo tanto, solo por este momento y al ser tu último paso en el sistema, puedes asegurar esta protección total y vitalicia cubriendo una tarifa única de soporte técnico. Al salir de esta ventana, el acceso se cerrará de forma permanente.
         </p>
 
-        <div class="price-container">
-            <p class="old-price">Costo regular: $147</p>
-            <p class="new-price">Aporte único: $47</p>
-            <p class="main-text" style="font-size: 13px; color: #475569; margin: 5px 0 0 0; text-align: center;">Acceso de por vida. Sin mensualidades.</p>
-        </div>
+        <style>
 
-        <a href="#añadir-blindaje" class="cta-button">
-            Sí, blindar mi memoria para siempre y asegurar la guía de 90 días
-        </a>
+/* 1. We place the CSS at the top to load IMMEDIATELY */
+    .upsell-wrapper {
+        position: relative;
+        display: block; 
+        margin: 0 auto;
+        width: 100%;
+        max-width: 500px;
+        /* Defines a placeholder space so the content doesn't "jump" */
+        min-height: 250px; 
+        background-color: #0d1224; /* Preventive white background */
+    }
 
-        <a href="#rechazar-blindaje" class="reject-link">
-            No, prefiero correr el riesgo de que mi falta de sueño profundo neutralice el efecto del mel, asumiendo que mi cerebro pueda volver a perder la claridad alcanzada.
-        </a>
+    .mask {
+        position: absolute;
+        left: 0;
+        right: 0;
+        background-color: #0d1224 !important; /* !important guarantees the color */
+        z-index: 9999; /* Very high value to cover anything */
+        pointer-events: auto;
+    }
+
+    /* General Mask Style */
+    .mask {
+        position: absolute;
+        left: 0;
+        right: 0;
+        background-color: #0d1224; /* White color */
+        z-index: 10; /* Ensures it stays on top of the Mundpay button */
+    }
+
+    /* Height adjustment for the top box */
+    .mask-top {
+        top: 0;
+        height: 32%; /* Increase or decrease as needed to cover the top */
+    }
+
+    /* Height adjustment for the bottom box */
+    .mask-bottom {
+        bottom: 0;
+        height: 41%; /* Increase or decrease as needed to cover the button */
+    }
+</style>
+
+
+ <div class="upsell-wrapper">
+    
+    <div class="mask mask-top"></div>
+
+    <div data-mndpay-render="019f782d-d8ae-72c5-b46b-7208e90b2ea7"></div>
+
+    <div class="mask mask-bottom"></div>
+
+</div>
     </div>
 
 </body>
