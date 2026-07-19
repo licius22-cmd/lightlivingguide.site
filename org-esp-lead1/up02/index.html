@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modo Semental Ilimitado - Upsell 2</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0b0d13; /* Tom ainda mais escuro para o Upsell 2 */
+            color: #f3f4f6;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.6;
+        }
+
+        @page {
+            size: A4;
+            margin: 15mm 12mm;
+            background-color: #0b0d13;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 20px 15px;
+        }
+
+        /* Banner de Progresso */
+        .progress-banner {
+            background-color: #1e293b;
+            color: #94a3b8;
+            text-align: center;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+            font-size: 9.5pt;
+            border: 1px solid #334155;
+        }
+
+        .progress-bar {
+            background-color: #22c55e;
+            height: 6px;
+            width: 85%; /* Indica que está quase no fim */
+            border-radius: 3px;
+            margin-top: 8px;
+        }
+
+        h1 {
+            font-size: 24pt;
+            font-weight: 800;
+            text-align: center;
+            color: #ffffff;
+            line-height: 1.3;
+            margin-bottom: 15px;
+        }
+
+        h1 span {
+            color: #facc15;
+        }
+
+        h2 {
+            font-size: 15pt;
+            font-weight: 700;
+            color: #facc15;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-left: 4px solid #facc15;
+            padding-left: 10px;
+        }
+
+        h3 {
+            font-size: 12pt;
+            font-weight: 700;
+            color: #ffffff;
+            margin-top: 20px;
+            margin-bottom: 5px;
+        }
+
+        .highlight-text {
+            color: #f87171;
+            font-weight: bold;
+        }
+
+        .accent-box {
+            background-color: #161b26;
+            border-left: 4px solid #facc15;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .testimonial-card {
+            background-color: #161b26;
+            border: 1px solid #242f41;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            page-break-inside: avoid;
+        }
+
+        .testimonial-header {
+            display: table;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-name {
+            display: table-cell;
+            font-weight: bold;
+            color: #facc15;
+        }
+
+        .testimonial-meta {
+            display: table-cell;
+            text-align: right;
+            font-size: 9.5pt;
+            color: #9ca3af;
+        }
+
+        .bonus-container {
+            background-color: #111827;
+            border: 2px dashed #eab308;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+            page-break-inside: avoid;
+        }
+
+        .bonus-tag {
+            background-color: #eab308;
+            color: #000000;
+            padding: 3px 8px;
+            font-size: 8.5pt;
+            font-weight: bold;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .cta-container {
+            text-align: center;
+            margin: 35px 0;
+            page-break-inside: avoid;
+        }
+
+        .cta-button {
+            display: block;
+            background: linear-gradient(180deg, #eab308 0%, #ca8a04 100%);
+            color: #000000;
+            text-align: center;
+            padding: 18px 24px;
+            font-size: 14pt;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            border-bottom: 4px solid #854d0e;
+            box-shadow: 0 4px 15px rgba(234, 179, 8, 0.3);
+            margin: 0 auto 15px auto;
+            max-width: 90%;
+        }
+
+        .cta-subtext {
+            font-size: 9.5pt;
+            color: #9ca3af;
+        }
+
+        .decline-link {
+            display: inline-block;
+            color: #4b5563;
+            text-decoration: underline;
+            font-size: 10pt;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        .decline-link:hover {
+            color: #6b7280;
+        }
+
+        .guarantee-box {
+            display: table;
+            width: 100%;
+            background-color: #161b26;
+            border: 1px solid #242f41;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        .guarantee-cell {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Banner de Progresso da Compra -->
+        <div class="progress-banner">
+            PASO 2 DE 3: Configurando tu cuenta... 85% COMPLETADO
+            <div style="width: 100%; background-color: #334155; border-radius: 3px; margin-top: 5px;">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+
+        <!-- Título Principal -->
+        <h1>De nada sirve tener un arma de acero... <br><span>Si te vienes en los primeros 2 minutos.</span></h1>
+
+        <p>Tu orden casi está lista. Pero mira esta cruda realidad cara a cara.</p>
+
+        <p>Vas a activar la lívido oculta de tu mujer[cite: 1]. Ella se va a convertir en una máquina hambrienta de sexo[cite: 1]. Te va a pedir que la cojas con fuerza, que la domines y que no pares[cite: 1].</p>
+        
+        <p class="highlight-text">¿Qué vas a hacer cuando ella esté en su pico de excitación más alto y tú sientas esa punzada en la base del miembro que te obliga a venirte? Si te corres rápido, la dejarás a medias, frustrada y con el deseo encendido. Eso es peor que no hacer nada.</p>
+
+        <div class="accent-box">
+            <strong>El peligro de la hipersensibilidade:</strong><br>
+            Cuando un hombre recupera su potencia y su rigidez, el cerebro se inunda de dopamina. El resultado es devastador: **Ejaculación precoz por sobreestimulación**. Si no bloqueas el reflejo eyaculatorio involuntário, tu esposa se quedará con las ganas y buscará terminar sola... o pensando en otro[cite: 1].
+        </div>
+
+        <h2>Desbloquea el "Modo Semental Ilimitado"</h2>
+        <p>Este es el secreto mejor guardado de los actores porno y de los hombres con genética privilegiada. No es un truco mental de "pensar en fútbol" mientras lo haces. Eso apaga tu erección.</p>
+        
+        <p>El **Modo Semental Ilimitado** es un entrenamiento neuro-muscular de reflejo inverso. Aprenderás a desconectar el nervio hipogástrico (el interruptor que le avisa a tu cuerpo que debe eyacular) mientras mantienes el 100% de la dureza y el placer.</p>
+        
+        <p>Podrás durar 30, 45 o 60 minutos seguidos cambiando de posición a tu antojo, ignorando el cansancio y obligándola a tener orgasmos múltiples consecutivos hasta que te pida por favor que pares[cite: 1].</p>
+
+        <!-- Seção de Prova Social / Depoimentos -->
+        <h2>Hombres que dejaron de ser "amantes de 3 minutos":</h2>
+
+        <div class="testimonial-card">
+            <div class="testimonial-header">
+                <div class="testimonial-name">Alejandro T. (42 años) — Buenos Aires</div>
+                <div class="testimonial-meta">⭐⭐⭐⭐⭐</div>
+            </div>
+            <p>"Cuando mi mujer empezó a pedirme más sexo con el protocolo, me asusté porque yo siempre fui de durar 3 minutos como mucho. Activé el Modo Semental y mi vida cambió. La primera noche duré 40 minutos seguidos sin parar. Ella terminó temblando, llorando de placer[cite: 1]. No me creía capaz de algo así. Te da una confianza de hierro."</p>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="testimonial-header">
+                <div class="testimonial-name">Mauricio V. (51 años) — Santiago</div>
+                <div class="testimonial-meta">⭐⭐⭐⭐⭐</div>
+            </div>
+            <p>"Dudar más de media hora a los 50 años parecía imposible. Con los ejercicios de bloqueo de este módulo puedo controlar el orgasmo a mi antojo. Me vengo solo cuando yo decido. Además, el volumen del sêmen aumentó muchísimo, se lo traga todo y me dice que soy su semental. Vale cada centavo."</p>
+        </div>
+
+        <!-- Sección de Bónus Especial Incluido en el Upsell -->
+        <div class="bonus-container">
+            <span class="bonus-tag">Bono Ultra-Black Incluido</span>
+            <h3>Guía Semental: "Efecto Multiorgásmico Femenino"</h3>
+            <p>La fórmula exacta para reiniciar tu erección en solo 5 minutos después de haberte venido. Podrás duplicar la dosis y hacer una segunda ronda la misma noche sin que tu miembro se ponga blando. Ella quedará completamente domada.</p>
+        </div>
+
+        <!-- Caja de Garantía Incondicional -->
+        <div class="guarantee-box">
+            <div class="guarantee-cell" style="width: 80px; padding-right: 15px;">
+                <span style="font-size: 35pt;">⚙️</span>
+            </div>
+            <div class="guarantee-cell">
+                <strong>Garantía de Resistencia Blindada</strong><br>
+                Si en los próximos encuentros no duplicas ou triplicas tu tiempo en la cama, o si tu esposa no termina exhausta por tu resistencia, avísanos y te regresamos el dinero de este módulo avanzado inmediatamente.
+            </div>
+        </div>
+
+        <!-- Sección de Llamada a la Acción (CTA) -->
+        <div class="cta-container">
+            <p style="font-size: 13pt; text-align: center; font-weight: bold; color: #ffffff;">Desbloquea el Control Total hoy por solo <span style="color: #facc15;">$7.90 USD</span></p>
+            
+            <a href="#CONFIRMAR_UPSELL_2" class="cta-button">
+                ¡SÍ! ACTIVAR MODO SEMENTAL ILIMITADO
+            </a>
+            
+            <div class="cta-subtext">
+                ⚡ Acceso instantáneo en tu área de miembros junto con tu orden principal.
+            </div>
+
+            <!-- Enlace de Rechazo Agressivo -->
+            <a href="#RECHAZAR_UPSELL_2" class="decline-link">
+                No, prefiero arriesgarme a correrme rápido y dejar a mi esposa frustrada y con las ganas en la cama[cite: 1].
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>
