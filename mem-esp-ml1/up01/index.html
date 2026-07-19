@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Configuración Importante</title>
+    <script src="https://upsell.mundpay.com/script-v2.js" defer async></script>
     <style>
         * {
             box-sizing: border-box;
@@ -157,7 +158,67 @@
 
         <!-- Parágrafo 2 (Pitch Directo) -->
         <p class="main-text">
-            Por esa razón, he añadido a tu orden de forma 100% gratuita el acceso inmediato al <strong>Protocolo Avanzado: Memoria Relámpago</strong> junto con su recetario clínico ampliado de 21 variaciones ocultas del truco del mel. Esta dosificación de choque intensiva abre a la fuerza tus receptores cerebrales en el minuto exacto de la mañana para acelerar y multiplicar tus resultados en tiempo récord, antes de que el daño en tus conexiones neuronales sea irreversible.
+            Por esa razón, he añadido a tu orden de forma 100% gratuita el acceso inmediato al <strong>Protocolo Avanzado: Reset Cerebral</strong> junto con su recetario clínico ampliado de 21 variaciones ocultas del truco del mel. 
+        </p>
+
+        <style>
+
+/* 1. We place the CSS at the top to load IMMEDIATELY */
+    .upsell-wrapper {
+        position: relative;
+        display: block; 
+        margin: 0 auto;
+        width: 100%;
+        max-width: 500px;
+        /* Defines a placeholder space so the content doesn't "jump" */
+        min-height: 250px; 
+        background-color: #f8f8f8; /* Preventive white background */
+    }
+
+    .mask {
+        position: absolute;
+        left: 0;
+        right: 0;
+        background-color: #f8f8f8 !important; /* !important guarantees the color */
+        z-index: 9999; /* Very high value to cover anything */
+        pointer-events: auto;
+    }
+
+    /* General Mask Style */
+    .mask {
+        position: absolute;
+        left: 0;
+        right: 0;
+        background-color: #f8f8f8; /* White color */
+        z-index: 10; /* Ensures it stays on top of the Mundpay button */
+    }
+
+    /* Height adjustment for the top box */
+    .mask-top {
+        top: 0;
+        height: 32%; /* Increase or decrease as needed to cover the top */
+    }
+
+    /* Height adjustment for the bottom box */
+    .mask-bottom {
+        bottom: 0;
+        height: 41%; /* Increase or decrease as needed to cover the button */
+    }
+</style>
+
+
+ <div class="upsell-wrapper">
+    
+    <div class="mask mask-top"></div>
+
+   <div data-mndpay-render="019f782c-cb42-726d-916f-80bcfff88135"></div>
+
+    <div class="mask mask-bottom"></div>
+
+</div>
+
+         <p class="main-text">
+           Esta dosificación de choque intensiva abre a la fuerza tus receptores cerebrales en el minuto exacto de la mañana para acelerar y multiplicar tus resultados en tiempo récord, antes de que el daño en tus conexiones neuronales sea irreversible.
         </p>
 
         <!-- Continuação da Copy TSL -->
