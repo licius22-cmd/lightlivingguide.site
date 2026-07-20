@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz Salmo de la Prosperidad - Recibe Riqueza y Prosperidad</title>
+  
+  <!-- Font Styles: Google Fonts Outfit & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+
+  
+</head>
+<body>
+  
+
+  <!-- Mistic Background Grid / Glow -->
+  <div class="mistic-bg"></div>
+
+  <!-- Main Container -->
+  <main class="quiz-container">
+    
+    <!-- Top Progress Bar (Hidden on Screen 1 and 15) -->
+    <header id="progress-header" class="progress-header hidden">
+      <div class="progress-info">
+        <span>PROGRESO ESPIRITUAL</span>
+        <span id="progress-percentage">0%</span>
+      </div>
+      <div class="progress-track">
+        <div id="progress-fill" class="progress-fill"></div>
+      </div>
+    </header>
+
+    <!-- Screen 1: Gender -->
+    <section id="screen-1" class="quiz-screen active">
+      <h1 class="main-title">
+        Escucha el <span class="gold-wavy">Salmo Prohibido de la Prosperidad</span> y recibe riqueza como una avalancha.
+      </h1>
+      
+      <p class="quote-box">
+        “La última persona que superó la prueba y repitió este sencillo ritual durante 40 días se conectó con su ángel guardián y alcanzó su mayor deseo financiero.”
+      </p>
+
+      <div class="info-card">
+        <p class="info-card-title">
+          <svg class="icon-key" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.65 10C11.83 7.67 9.61 6 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.61 0 4.83-1.67 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+          </svg>
+          En 40 segundos vas a descubrir:
+        </p>
+        <ul class="info-list">
+          <li>
+            <span class="num-badge">1</span>
+            <span>Quién es tu <strong>ángel guardián</strong> ancestral</span>
+          </li>
+          <li>
+            <span class="num-badge">2</span>
+            <span>Qué bloqueo invisible sabotea tus oraciones</span>
+          </li>
+          <li>
+            <span class="num-badge">3</span>
+            <span>Si el Salmo Secreto funcionará en tu realidad actual</span>
+          </li>
+          <li>
+            <span class="num-badge">4</span>
+            <span>Cómo transformar tu situación financiera en <strong>45 días</strong></span>
+          </li>
+        </ul>
+      </div>
+
+      <p class="question-label">Tu ángel guardián necesita saber: ¿Tú eres...?</p>
+
+      <div class="gender-grid">
+        <button id="opt-hombre" class="gender-btn group">
+          <div class="avatar-container">
+            <img src="https://media.inlead.cloud/uploads/43285/2026-01-21/md-kedlH-md-mecb3-imagem-do-whatsapp-de-2025-10-27-as-005621-9af7b89d.jpg" alt="Hombre" class="avatar-img" />
+          </div>
+          <span class="gender-text">Hombre</span>
+        </button>
+
+        <button id="opt-mujer" class="gender-btn group">
+          <div class="avatar-container">
+            <img src="https://media.inlead.cloud/uploads/43285/2026-01-21/md-Dastq-md-lxcr3-imagem-do-whatsapp-de-2025-10-27-as-005622-b1d44492.jpg" alt="Mujer" class="avatar-img" />
+          </div>
+          <span class="gender-text">Mujer</span>
+        </button>
+      </div>
+
+      <div class="lock-notice">
+        <svg class="icon-lock" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+        </svg>
+        <span>Por tratarse de un contenido extremadamente sagrado y reservado, esta prueba está disponible para realizarse <span class="badge-once">solo una vez por persona</span>.</span>
+      </div>
+    </section>
+
+    <!-- Screen 2: Age -->
+    <section id="screen-2" class="quiz-screen">
+      <h2 class="screen-title">¿Cuál es tu edad actual?</h2>
+      <div class="options-vertical">
+        <button class="option-btn flex-between" data-value="18–24">
+          <span>18–24 años</span>
+          <span class="radio-dot"></span>
+        </button>
+        <button class="option-btn flex-between" data-value="25–34">
+          <span>25–34 años</span>
+          <span class="radio-dot"></span>
+        </button>
+        <button class="option-btn flex-between" data-value="35–44">
+          <span>35–44 años</span>
+          <span class="radio-dot"></span>
+        </button>
+        <button class="option-btn flex-between" data-value="45+">
+          <span>45+ años</span>
+          <span class="radio-dot"></span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Screen 3: Financial Flow -->
+    <section id="screen-3" class="quiz-screen">
+      <h2 class="screen-title">Cuando el dinero entra en tu vida, ¿qué sucede inmediatamente después?</h2>
+      <div class="options-vertical">
+        <button class="option-btn flex-start gap-4" data-value="gasto_inesperado">
+          <span class="option-emoji">📖</span>
+          <span class="option-text text-left">Siempre aparece una prueba o un gasto inesperado</span>
+        </button>
+        <button class="option-btn flex-start gap-4" data-value="desaparece">
+          <span class="option-emoji">🕯</span>
+          <span class="option-text text-left">Desaparece sin que logre entender cómo</span>
+        </button>
+        <button class="option-btn flex-start gap-4" data-value="miedo">
+          <span class="option-emoji">🙌🏻</span>
+          <span class="option-text text-left">Permanece intacto, pero siento miedo de usarlo</span>
+        </button>
+        <button class="option-btn flex-start gap-4" data-value="multiplica">
+          <span class="option-emoji">🙏</span>
+          <span class="option-text text-left">Se multiplica de manera natural y armoniosa</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Screen 4: Priest discovery -->
+    <section id="screen-4" class="quiz-screen">
+      <div class="screen-image-container">
+        <img src="https://media.inlead.cloud/uploads/43285/2026-03-09/lg-2vjRF-padre-pio-benedizione-large-large-e1611507142651.jpg" alt="Padre benedizione" class="screen-image" />
+      </div>
+      
+      <h2 class="screen-subtitle text-center">
+        ¿Sabías que en 1930, un sacerdote en Italia descubrió un salmo oculto que le <span class="highlight-badge">permitía conectarse con su ángel guardián</span> y manifestar milagros para miles de personas?
+      </h2>
+
+      <div class="options-vertical mt-4">
+        <button class="option-btn flex-start gap-4" data-value="no_idea">
+          <div class="emoji-box">🤯</div>
+          <span class="option-label-text">No tenía idea de eso</span>
+        </button>
+        <button class="option-btn flex-start gap-4" data-value="heard_something">
+          <div class="emoji-box">😬</div>
+          <span class="option-label-text">Ya había escuchado algo al respecto</span>
+        </button>
+        <button class="option-btn flex-start gap-4" data-value="why_hidden">
+          <div class="emoji-box">❓</div>
+          <span class="option-label-text">Me pregunto por qué lo ocultaron tanto tiempo</span>
+        </button>
+        <button class="option-btn flex-start gap-4" data-value="need_proof">
+          <div class="emoji-box">🧐</div>
+          <span class="option-label-text">Necesito ver pruebas de este milagro</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Screen 5: Prohibited Salmo -->
+    <section id="screen-5" class="quiz-screen">
+      <div class="screen-image-container">
+        <img src="https://media.inlead.cloud/uploads/43285/2026-03-09/md-jjkVR-chatgpt-image-9-de-mar-de-2026-08-55-32-1.png" alt="Salmo Sagrado" class="screen-image" />
+      </div>
+      
+      <h2 class="screen-title gold-text text-center">La Iglesia clasificó ese Salmo como “Prohibido”</h2>
+      <p class="description-text text-center">
+        Y lo ocultó de los fieles durante décadas para guardar el poder sagrado. Hoy fue redescubierto para devolver la fe y abundancia a aquellos bloqueados.
+      </p>
+      
+      <button class="next-btn uppercase mt-6" data-next>Continuar</button>
+    </section>
+
+    <!-- Screen 6: Manifestation experience -->
+    <section id="screen-6" class="quiz-screen">
+      <h2 class="screen-title">¿Ya has intentado la Ley de la Atracción, el pensamiento positivo o rituales de manifestación?</h2>
+      <div class="options-vertical">
+        <button class="option-btn padding-large text-left" data-value="tried_never_worked">
+          <span>Sí, varias veces y NUNCA funcionó bien</span>
+        </button>
+        <button class="option-btn padding-large text-left" data-value="tried_temporary">
+          <span>Lo intenté, pero los resultados fueron temporales</span>
+        </button>
+        <button class="option-btn padding-large text-left" data-value="never_tried">
+          <span>Nunca lo intenté seriamente en mi vida</span>
+        </button>
+        <button class="option-btn padding-large text-left" data-value="worked_perfectly">
+          <span>Funcionó de maravilla y creo plenamente en ello</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Screen 7: Why works less has more -->
+    <section id="screen-7" class="quiz-screen">
+      <h2 class="screen-title">¿Alguna vez te has preguntado seriamente:</h2>
+      <p class="highlight-quote text-center">“¿Por qué alguien que trabaja menos tiene tanto más que yo?”</p>
+      
+      <div class="options-vertical mt-6">
+        <button class="option-btn padding-large text-left" data-value="frustates_deeply">
+          <span>Sí, eso me frustra y duele profundamente</span>
+        </button>
+        <button class="option-btn padding-large text-left" data-value="sometimes_think">
+          <span>A veces me pongo a reflexionar en ello</span>
+        </button>
+        <button class="option-btn padding-large text-left" data-value="rarely">
+          <span>Rara vez pienso en la suerte ajena</span>
+        </button>
+        <button class="option-btn padding-large text-left" data-value="never">
+          <span>Nunca, cada quien cosecha su camino</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Screen 8: Ancestral block -->
+    <section id="screen-8" class="quiz-screen">
+      <div class="screen-image-container">
+        <img src="https://media.inlead.cloud/uploads/43285/2026-01-21/md-xlCPp-md-6qxvq-imagem-do-whatsapp-de-2025-09-30-as-023301-88aaac36.jpg" alt="Ángel desbloqueando" class="screen-image" />
+      </div>
+      
+      <h2 class="screen-title text-center">No se trata de una falta de fe.</h2>
+      <p class="description-text text-center">
+        Algo a nivel ancestral y sutil está <strong>bloqueando la conexión real y directa</strong> con tu ángel guardián. Romperemos ese obstáculo hoy.
+      </p>
+      
+      <button class="next-btn uppercase mt-6" data-next>Seguir Adelante</button>
+    </section>
+
+    <!-- Screen 9: Thoughts on wealth -->
+    <section id="screen-9" class="quiz-screen">
+      <h2 class="screen-title">Cuando pienso en poseer una riqueza inmensa, yo...</h2>
+      <div class="options-vertical">
+        <button class="option-btn flex-start gap-4" data-value="unworthy">
+          <span class="option-emoji">😕</span>
+          <span class="option-label-text">Siento que no lo merezco del todo o que no soy capaz</span>
+        </button>
+        <button class="option-btn flex-start gap-4" data-value="fearful">
+          <span class="option-emoji">🤨</span>
+          <span class="option-label-text">Me da un poco de miedo por desatar codicias u envidias</span>
+        </button>
+        <button class="option-btn flex-start gap-4" data-value="guilty">
+          <span class="option-emoji">😞</span>
+          <span class="option-label-text">Me siento culpable por desear bienes materiales</span>
+        </button>
+        <button class="option-btn flex-start gap-4" data-value="deserve_it">
+          <span class="option-emoji">😔</span>
+          <span class="option-label-text">Estoy convencido de que es mi derecho divino y natural</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Screen 10: Aura ready -->
+    <section id="screen-10" class="quiz-screen">
+      <div class="screen-image-container glow-pulse">
+        <img src="https://media.inlead.cloud/uploads/43285/2026-01-21/md-F5zYZ-md-8fmmg-imagem-do-whatsapp-de-2025-09-30-as-040532-262ad594.jpg" alt="Presencia Espiritual" class="screen-image" />
+      </div>
+      
+      <h2 class="aura-title text-center">
+        “Tu aura está lista para recibir el mensaje original del Salmo prohibido. Tu mente subconsciente está alineándose.”
+      </h2>
+      
+      <button class="next-btn rounded-full uppercase mt-6" data-next>Seguir</button>
+    </section>
+
+    <!-- Screen 11: 40 days oracion -->
+    <section id="screen-11" class="quiz-screen">
+      <h2 class="screen-title">¿Y si te dijera que una oración del Salmo Prohibido puede cambiar y acelerar tu prosperidad en 40 días? Tú...</h2>
+      <div class="options-vertical">
+        <button class="option-btn flex-start gap-4" data-value="immediate">
+          <span class="option-emoji">😅</span>
+          <span class="option-label-text">La intentarías e iniciarías de inmediato</span>
+        </button>
+        <button class="option-btn flex-start gap-4" data-value="curious">
+          <span class="option-emoji">🤨</span>
+          <span class="option-label-text">Sentirías enorme curiosidad por saber los secretos</span>
+        </button>
+        <button class="option-btn flex-start gap-4" data-value="understanding">
+          <span class="option-emoji">✨</span>
+          <span class="option-label-text">Necesitarías entender primero la ciencia divina detrás de ella</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Screen 12: Greatest desire -->
+    <section id="screen-12" class="quiz-screen">
+      <h2 class="screen-title">¿Cuál es tu mayor anhelo o deseo en este momento?</h2>
+      <div class="options-vertical">
+        <button class="option-btn flex-between" data-value="pay_debts">
+          <span class="option-text text-left">Pagar todas mis deudas de una vez por todas</span>
+          <svg class="icon-star" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+          </svg>
+        </button>
+        <button class="option-btn flex-between" data-value="emergency_fund">
+          <span class="option-text text-left">Tener un fondo de emergencia sólido para respirar en paz</span>
+          <svg class="icon-star" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+          </svg>
+        </button>
+        <button class="option-btn flex-between" data-value="financial_freedom">
+          <span class="option-text text-left">Alcanzar la total libertad financiera para vivir increíble</span>
+          <svg class="icon-star" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+          </svg>
+        </button>
+        <button class="option-btn flex-between" data-value="help_family">
+          <span class="option-text text-left">Ayudar a mi familia y seres queridos con total soltura</span>
+          <svg class="icon-star" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- Screen 13: Angel knows needs -->
+    <section id="screen-13" class="quiz-screen">
+      <div class="screen-image-container">
+        <img src="https://media.inlead.cloud/uploads/43285/2026-01-21/md-5UByV-md-wlki1-imagem-do-whatsapp-de-2025-09-30-as-014455-495903fe.jpg" alt="Ángel Guardián" class="screen-image" />
+      </div>
+      
+      <h2 class="screen-title gold-text text-center">Tu ángel guardián ya conoce tu necesidad</h2>
+      <p class="description-text text-center">
+        Y tiene grabado un dictamen espiritual para ti. Es momento de avanzar y preparar los canales de manifestación sagrada.
+      </p>
+      
+      <button class="next-btn rounded-full uppercase mt-6" data-next>Seguir</button>
+    </section>
+
+    <!-- Screen 14: Manifestation checklist -->
+    <section id="screen-14" class="quiz-screen">
+      <div class="text-center mb-4">
+        <h2 class="screen-title">Marca lo que más deseas manifestar en los próximos 30 días:</h2>
+        <p class="subtitle-checklist">(Selección múltiple — Elige todo lo que resuene contigo)</p>
+      </div>
+
+      <!-- Manifestation Items Grid -->
+      <div id="manifest-grid" class="checklist-grid mb-6">
+        <!-- Generado por JS -->
+      </div>
+
+      <button id="btn-reveal" class="reveal-btn uppercase flex-center gap-2">
+        <span>Generar Revelación</span>
+        <svg class="icon-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
+    </section>
+
+    <!-- Screen 15: Final result -->
+    <section id="screen-15" class="quiz-screen text-center">
+      <div class="badge-reveal mb-4 flex-center gap-2">
+        <svg class="icon-shield" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 15l-4-4 1.41-1.41L10 13.17l5.59-5.59L17 9l-7 7z"/>
+        </svg>
+        <span>Revelación Preparada y Enlazada</span>
+      </div>
+
+      <h2 class="screen-title-final mb-6">
+        Tu ángel guardián tiene un mensaje urgente para ti.<br>
+        <span class="gold-text">Dale play para escucharlo ahora.</span>
+      </h2>
+
+      <!-- Smartplayer Iframe Wrapper -->
+      <div class="player-wrapper mb-6">
+        <div class="player-aspect">
+          <iframe id="vturb-player" frameborder="0" allowfullscreen referrerpolicy="origin" class="player-iframe"></iframe>
+        </div>
+      </div>
+
+      <!-- Soul Answers Summary Card -->
+      <div class="summary-card mb-6 text-left">
+        <span class="summary-card-title">Tus Respuestas del Alma Registradas:</span>
+        <div class="summary-grid mt-2">
+          <div>• Género: <strong id="summary-gender" class="white-text">Devoto</strong></div>
+          <div>• Edad: <strong id="summary-age" class="white-text">No especificado</strong></div>
+          <div>• Deseo: <strong id="summary-desire" class="white-text">Paz / Abundancia</strong></div>
+          <div>• Manifestando: <strong id="summary-channels" class="white-text">0 canales</strong></div>
+        </div>
+      </div>
+
+      <!-- Hidden CTA Button (Redirige a Hotmart) -->
+      <div id="cta-container" class="cta-container hidden">
+        <a id="cta-button" href="https://pay.hotmart.com/S103549257S?off=56567fgj&checkoutMode=10" target="_blank" class="cta-btn uppercase pulsing">
+          ACCEDE AL SALMO OCULTO AHORA MISMO 🙏
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="quiz-footer">
+    <p>© 2026 - Conexión Sagrada • Salmo de la Prosperidad</p>
+    <p class="footer-sub">Diseñado con devoción. Amparado bajo protección espiritual y respeto teológico.</p>
+  </footer>
+
+  <!-- Script Controller -->
+  <script src="script.js"></script>
+</body>
+</html>
