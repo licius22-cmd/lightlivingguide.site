@@ -1,0 +1,51 @@
+/* ============================================================
+   Método Glúteos Brasileños — Quiz single-page layer
+   Controls which screen is visible + screen-to-screen transition.
+   The original per-screen fade/pulse/shimmer effects live in
+   styles.css (compiled Tailwind) and are preserved untouched.
+   ============================================================ */
+
+html, body { margin: 0; padding: 0; background: #1a0b2e; }
+
+/* Each saved page becomes a "screen". Only the active one renders. */
+.quiz-screen {
+  display: none;
+  width: 100%;
+}
+.quiz-screen.is-active {
+  display: block;
+  animation: screenIn 0.45s ease-out both;
+}
+.quiz-screen.is-leaving {
+  display: block;
+  animation: screenOut 0.22s ease-in both;
+  pointer-events: none;
+}
+
+/* Soft cross-fade layered on top of each screen's own internal
+   fadeIn animation, so navigation feels continuous. */
+@keyframes screenIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes screenOut {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-8px); }
+}
+
+/* Visible "selected" state on answer buttons for the brief moment
+   before the quiz advances to the next screen. */
+.quiz-screen button.qz-picked {
+  border-color: #f0629a !important;
+  box-shadow: 0 8px 22px -6px rgba(240, 98, 154, 0.45) !important;
+}
+.quiz-screen button.qz-picked .qz-dot,
+.quiz-screen button.qz-picked span.opacity-0 {
+  opacity: 1 !important;
+}
+
+/* Respect users who prefer no motion. */
+@media (prefers-reduced-motion: reduce) {
+  .quiz-screen.is-active,
+  .quiz-screen.is-leaving { animation: none; }
+}
