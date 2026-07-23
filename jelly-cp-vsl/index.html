@@ -132,6 +132,107 @@ src="https://www.facebook.com/tr?id=913222071821080&ev=PageView&noscript=1"
   });
 </script>
 
+<script>
+/* =====================================================================
+   SCROLL ATE .rolagem — VINCULADO AO SCRIPT DE DELAY ACIMA
+   Nao altera nada do displayHiddenElements. Apenas le a MESMA variavel
+   global "delaySeconds" e o MESMO player, e dispara o scroll quando o
+   tempo do video atinge esse ponto (mesmo instante do pitch).
+   ===================================================================== */
+(function () {
+  "use strict";
+
+  var TARGET = ".rolagem";  // bloco dos potes
+  var OFFSET = 20;          // px de folga acima do bloco
+  var SETTLE = 400;         // ms de espera pro layout assentar depois do reveal
+
+  var el = document.querySelector("vturb-smartplayer");
+  if (!el) return;
+
+  var fired = false;
+  var tick  = null;
+
+  // ---- instancia do smartplayer (mesma do script de delay) -------------
+  function getInstance() {
+    var sp = window.smartplayer;
+    if (!sp) return null;
+    var list = sp.instances || (sp.instance ? [sp.instance] : []);
+    if (!list || !list.length) return null;
+    var id = (el.id || "").replace(/^vid-/, "");
+    for (var i = 0; i < list.length; i++) {
+      var o = list[i] && list[i].options;
+      if (o && (o.id === id || o.id === el.id)) return list[i];
+    }
+    return list[0];
+  }
+
+  // ---- tempo atual do video (varios fallbacks) ------------------------
+  function getTime() {
+    var inst = getInstance();
+    if (inst) {
+      if (inst.video && typeof inst.video.currentTime === "number") return inst.video.currentTime;
+      if (typeof inst.currentTime === "number") return inst.currentTime;
+      if (typeof inst.getCurrentTime === "function") return inst.getCurrentTime();
+    }
+    if (typeof el.currentTime === "number") return el.currentTime;
+    if (typeof el.getCurrentTime === "function") return el.getCurrentTime();
+    var v = el.querySelector("video");
+    if (v && typeof v.currentTime === "number") return v.currentTime;
+    return null;
+  }
+
+  function isVisible(node) {
+    return !!(node && node.offsetParent !== null && node.getBoundingClientRect().height > 0);
+  }
+
+  function doScroll(tries) {
+    var node = document.querySelector(TARGET);
+
+    // ainda nao renderizou o reveal -> tenta de novo por ate ~2s
+    if (!isVisible(node)) {
+      if ((tries || 0) < 8) return setTimeout(function () { doScroll((tries || 0) + 1); }, 250);
+      return;
+    }
+
+    var rect = node.getBoundingClientRect();
+
+    // lead ja esta na altura da oferta -> nao sequestra a tela dele
+    if (rect.top < window.innerHeight * 0.6) return;
+
+    var y = rect.top + window.pageYOffset - OFFSET;
+    try {
+      window.scrollTo({ top: y, behavior: "smooth" });
+    } catch (e) {
+      window.scrollTo(0, y); // fallback iOS / in-app browser
+    }
+  }
+
+  function fire() {
+    if (fired) return;
+    fired = true;
+    if (tick) clearInterval(tick);
+    setTimeout(function () { doScroll(0); }, SETTLE);
+  }
+
+  // ---- gatilho: mesmo delaySeconds do script de delay ------------------
+  function watch() {
+    var alvo = (typeof delaySeconds !== "undefined") ? Number(delaySeconds) : null;
+    if (alvo === null || isNaN(alvo)) return;
+
+    tick = setInterval(function () {
+      var t = getTime();
+      if (t !== null && t >= alvo) fire();
+    }, 250);
+  }
+
+  // segundo listener no MESMO player (nao substitui o do script de delay)
+  el.addEventListener("player:ready", watch);
+
+  // caso o player:ready ja tenha ocorrido antes deste script
+  setTimeout(function () { if (!tick && !fired) watch(); }, 3000);
+})();
+</script>
+
         <div class="esconder lp-s-d-a88ia2 lp-b-o-cont--legacy-margin-0slc4 lp-container-c8b1b9d lp-b-o-cont-71xjn">
             <div class="lp-cont-b lp-o-cont">
                 <div class="lp-s-d-xsklnz lp-cont lp-i-cont">
@@ -167,7 +268,7 @@ src="https://www.facebook.com/tr?id=913222071821080&ev=PageView&noscript=1"
                             </div>
                         </div>
                     </div>
-                    <div class="lp-s-d-2cmuo5 lp-c-cont-n5eou lp-r lp-c-cont-b400092">
+                    <div class="lp-s-d-2cmuo5 lp-c-cont-n5eou lp-r lp-c-cont-b400092 rolagem">
                         <div class="lp-e-cont lp-element-container-b400092 lp-r lp-html-b400092 lp-s-d-8ou6oj lp-html">
                             <!-- html - dnk5nx -->
                             <div class="lp-i-e-cont">
