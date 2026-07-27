@@ -61,8 +61,8 @@ function renderProducts() {
 	}
 
 	// Show different cards for promo and regular offers
-	if ( offer == 'promo') cards = "assets/cards-dark.webp";
-	else cards = "assets/cards.webp";
+	if ( offer == 'promo') cards = "img/cards-dark.webp";
+	else cards = "img/cards.webp";
 
 	// Render only when attribute exists (avoid "undefined" in output)
 	const headerDescription = typeof description !== 'undefined' && description !== ''
@@ -74,7 +74,7 @@ function renderProducts() {
 	const cardHeaderBlock = (headerHeadline || headerDescription || itemMobileTitle)
 		? `<div class="card-header">${headerHeadline}${headerDescription}${itemMobileTitle}</div>` : '';
 	const imgBlock = typeof image !== 'undefined' && image !== ''
-		? `<img src="${assetsPath}assets/${image}" alt="${bottles}">` : '';
+		? `<img src="${assetsPath}img/${image}" alt="${bottles}">` : '';
 	const guaranteeBlock = typeof guarantee !== 'undefined' && guarantee !== ''
 		? `<div><span>${guarantee} DAYS GUARANTEE</span></div>` : '';
 	const itemClass = typeof offer !== 'undefined' && offer !== '' ? offer : '';
@@ -86,7 +86,7 @@ function renderProducts() {
 				${cardHeaderBlock}
 				<div class="item-img">
 					${imgBlock}
-					<img src="${assetsPath}assets/guarantee-badge.png" alt="100% Money Back Guaranteed" class="guarantee-badge" onerror="this.style.display='none'">
+					<img src="${assetsPath}img/guarantee-badge.png" alt="100% Money Back Guaranteed" class="guarantee-badge" onerror="this.style.display='none'">
 				</div>
 				<div class="item-info">
 					<div class="price">
