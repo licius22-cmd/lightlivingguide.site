@@ -712,46 +712,58 @@ src="https://www.facebook.com/tr?id=1769229850906824&ev=PageView&noscript=1"
 
       <script src="../pote.js"></script>
 
-     <script>
-(function() {
-  var urlParams = new URLSearchParams(window.location.search);
+  <script>
+(function () {
+  var KEY = 'trk_params';
 
-  // Se não há nenhum parâmetro na URL, não faz nada
-  if (!urlParams.toString()) return;
+  // 1) Salva os parâmetros da URL na sessão (sobrevive a refresh/quiz)
+  try {
+    var cur = new URLSearchParams(window.location.search);
+    var saved = JSON.parse(sessionStorage.getItem(KEY) || '{}');
+    var changed = false;
+    cur.forEach(function (v, k) { saved[k] = v; changed = true; });
+    if (changed) sessionStorage.setItem(KEY, JSON.stringify(saved));
+  } catch (e) {}
 
-  function updateLinks() {
-    var links = document.querySelectorAll('a[href*="buygoods.com"]');
-    links.forEach(function(link) {
-      try {
-        var url = new URL(link.href);
-        urlParams.forEach(function(value, key) {
-          url.searchParams.set(key, value);
-        });
-        link.href = url.toString();
-      } catch (e) {
-        // ignora links malformados, sem travar o restante
-      }
-    });
+  function getParams() {
+    try { return JSON.parse(sessionStorage.getItem(KEY) || '{}'); }
+    catch (e) { return {}; }
   }
 
-  // Roda assim que o DOM estiver pronto
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', updateLinks);
-  } else {
-    updateLinks();
+  // 2) Clickid gerado pelo script do RedTrack (rt.lightlivingguide.site)
+  function getRtkClickId() {
+    try {
+      var ls = localStorage.getItem('rtkclickid-store');
+      if (ls) return ls;
+    } catch (e) {}
+    var m = document.cookie.match(/(?:^|;\s*)rtkclickid-store=([^;]+)/);
+    return m ? decodeURIComponent(m[1]) : '';
   }
 
-  // Reforços para builders como Elementor, que podem renderizar
-  // elementos um pouco depois do DOMContentLoaded
-  setTimeout(updateLinks, 800);
-  setTimeout(updateLinks, 2000);
+  // 3) Reescreve o href no momento do clique (pega links clonados do template)
+  document.addEventListener('click', function (ev) {
+    var t = ev.target;
+    var a = t && t.closest ? t.closest('a[href*="buygoods.com"]') : null;
+    if (!a) return;
 
-  // Observa mudanças no DOM (ex: popups, elementos carregados via AJAX,
-  // sliders, abas) e reaplica os parâmetros automaticamente
-  var observer = new MutationObserver(function() {
-    updateLinks();
-  });
-  observer.observe(document.body, { childList: true, subtree: true });
+    try {
+      var url = new URL(a.href);
+      var p = getParams();
+
+      Object.keys(p).forEach(function (k) {
+        url.searchParams.set(k, p[k]);
+      });
+
+      var clickid = getRtkClickId();
+      var subid = clickid || p.subid || p.utm_content || '';
+      if (subid)          url.searchParams.set('subid',  subid);
+      if (p.utm_content)  url.searchParams.set('subid2', p.utm_content);
+      if (p.utm_medium)   url.searchParams.set('subid3', p.utm_medium);
+      if (p.utm_campaign) url.searchParams.set('subid4', p.utm_campaign);
+
+      a.href = url.toString();
+    } catch (e) {}
+  }, true);
 })();
 </script>
 
