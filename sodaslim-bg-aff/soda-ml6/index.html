@@ -710,9 +710,9 @@ src="https://www.facebook.com/tr?id=1769229850906824&ev=PageView&noscript=1"
   </section>
 </template>
 
-      <script src="../pote.js"></script>
+      <script src="https://lp.lightlivingguide.site/pote.js"></script>
 
-  <script>
+ <script>
 (function () {
   var KEY = 'trk_params';
 
@@ -756,7 +756,10 @@ src="https://www.facebook.com/tr?id=1769229850906824&ev=PageView&noscript=1"
 
       var clickid = getRtkClickId();
       var subid = clickid || p.subid || p.utm_content || '';
-      if (subid)          url.searchParams.set('subid',  subid);
+      if (subid) {
+        url.searchParams.set('subid', subid);
+        url.searchParams.set('sid',   subid);   // ← sid = mesmo valor do subid
+      }
       if (p.utm_content)  url.searchParams.set('subid2', p.utm_content);
       if (p.utm_medium)   url.searchParams.set('subid3', p.utm_medium);
       if (p.utm_campaign) url.searchParams.set('subid4', p.utm_campaign);
