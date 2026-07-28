@@ -9,11 +9,8 @@
 /* ==========================================================================
    ⚙️  CONFIGURAÇÃO — EDITE SÓ ESTE BLOCO
    ========================================================================== */
-const CHECKOUT_LINKS = {
-  2: 'https://buygoods.com/secure/checkout.html?account_id=12899&product_codename=PP_SDS2UNITS_AFF&redirect=aHR0cHM6Ly9pbXByb3ZpbmdvdXJoZWFsdGguY29tL3Nkcy1hZmYtYnV5LXVwMS8%3D&aff_id=40086',   // kit 2 potes
-  3: 'https://buygoods.com/secure/checkout.html?account_id=12899&product_codename=PP_SDS3UNITS_AFF&redirect=aHR0cHM6Ly9pbXByb3ZpbmdvdXJoZWFsdGguY29tL3Nkcy1hZmYtYnV5LXVwMS8%3D&aff_id=40086',   // kit 2+1 potes
-  6: 'https://buygoods.com/secure/checkout.html?account_id=12899&product_codename=PP_SDS6UNITS_AFF&redirect=aHR0cHM6Ly9pbXByb3ZpbmdvdXJoZWFsdGguY29tL3Nkcy1hZmYtYnV5LXVwMS8%3D&aff_id=40086'    // kit 3+3 potes
-};
+/* Os links de checkout ficam direto no index.html, no href de cada
+   <a class="buylink">, dentro do <template id="tpl-offer">.        */
 const VSL_DELAY   = 3;    // segundos de vídeo antes de liberar o quiz
 const FALLBACK    = 0;    // segurança: libera o quiz sozinho após N segundos se o
                           // player não carregar (0 = desligado, igual ao original)
@@ -35,12 +32,13 @@ $$('[data-tpl]').forEach(slot => {
   slot.replaceWith(frag);
 });
 
-/* --- 2. Links de checkout + propagação dos parâmetros da URL -------------- */
+/* --- 2. Propaga os parâmetros da URL (utm, sub_id, etc) p/ o checkout ----- */
+/*        O link em si está no href de cada <a class="buylink"> no HTML.      */
 const qs = location.search.slice(1);
-$$('a.buylink').forEach(a => {
-  const base = CHECKOUT_LINKS[a.dataset.kit];
-  if (!base) return;
-  a.href = qs ? base + (base.includes('?') ? '&' : '?') + qs : base;
+if (qs) $$('a.buylink').forEach(a => {
+  const base = a.getAttribute('href');
+  if (!base || base === '#') return;
+  a.setAttribute('href', base + (base.includes('?') ? '&' : '?') + qs);
 });
 
 /* --- 3. Quiz ------------------------------------------------------------- */
