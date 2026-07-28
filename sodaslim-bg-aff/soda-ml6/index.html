@@ -26,7 +26,7 @@
 <link rel="stylesheet" href="css/style.css">
 <script defer src="js/main.js"></script>
 
-     <script type="text/javascript" src="https://rt.lightlivingguide.site/track.js"></script>
+      <script type="text/javascript" src="https://rt.lightlivingguide.site/track.js"></script>
 
   <!-- Meta Pixel Code -->
 <script>
@@ -80,6 +80,7 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=1769229850906824&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
+
 
      
 </head>
@@ -574,6 +575,11 @@ src="https://www.facebook.com/tr?id=1769229850906824&ev=PageView&noscript=1"
   </div>
 </template>
 
+<!-- ============================================================
+     LINKS DE CHECKOUT — troque os 3 href="" abaixo pelos seus links.
+     Os parâmetros da URL (utm_source, sub_id...) são repassados
+     automaticamente pelo js/main.js.
+     ============================================================ -->
 <template id="tpl-offer">
   <section class="pb-4 products">
     <div class="container">
@@ -585,7 +591,9 @@ src="https://www.facebook.com/tr?id=1769229850906824&ev=PageView&noscript=1"
       <div class="row align-items-center">
 
         <div class="col-12 col-md-4 mb-3 order-md-2">
-          <a class="item promo buylink" href="#" data-kit="6" title="3 + 3 Bottles">
+          <!-- KIT 3+3 POTES -->
+          <a class="item promo buylink smartplayer-click-event" title="3 + 3 Bottles"
+             href="https://buygoods.com/secure/checkout.html?account_id=12899&product_codename=PP_SDS6UNITS_AFF&redirect=aHR0cHM6Ly9pbXByb3ZpbmdvdXJoZWFsdGguY29tL3Nkcy1hZmYtYnV5LXVwMS8%3D">
             <div class="wrapper">
               <div class="item-header">BEST VALUE!</div>
               <div class="item-img">
@@ -613,7 +621,9 @@ src="https://www.facebook.com/tr?id=1769229850906824&ev=PageView&noscript=1"
         </div>
 
         <div class="col-12 col-md-4 mb-3 order-md-3">
-          <a class="item buylink" href="#" data-kit="3">
+          <!-- KIT 2+1 POTES -->
+          <a class="item buylink smartplayer-click-event"
+             href="https://buygoods.com/secure/checkout.html?account_id=12899&product_codename=PP_SDS3UNITS_AFF&redirect=aHR0cHM6Ly9pbXByb3ZpbmdvdXJoZWFsdGguY29tL3Nkcy1hZmYtYnV5LXVwMS8%3D">
             <div class="wrapper">
               <div class="item-header text-white">Most Popular</div>
               <div class="item-img">
@@ -641,7 +651,9 @@ src="https://www.facebook.com/tr?id=1769229850906824&ev=PageView&noscript=1"
         </div>
 
         <div class="col-12 col-md-4 mb-3 order-md-1">
-          <a class="item buylink" href="#" data-kit="2">
+          <!-- KIT 2 POTES -->
+          <a class="item buylink smartplayer-click-event"
+             href="https://buygoods.com/secure/checkout.html?account_id=12899&product_codename=PP_SDS2UNITS_AFF&redirect=aHR0cHM6Ly9pbXByb3ZpbmdvdXJoZWFsdGguY29tL3Nkcy1hZmYtYnV5LXVwMS8%3D">
             <div class="wrapper">
               <div class="item-header text-white">Basic</div>
               <div class="item-img">
@@ -697,7 +709,7 @@ src="https://www.facebook.com/tr?id=1769229850906824&ev=PageView&noscript=1"
   </section>
 </template>
 
-      <script src="/pote.js"></script>
+      <script src="../pote.js"></script>
 
 </body>
 </html>
