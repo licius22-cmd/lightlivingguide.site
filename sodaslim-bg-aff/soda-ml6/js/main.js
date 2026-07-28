@@ -32,14 +32,7 @@ $$('[data-tpl]').forEach(slot => {
   slot.replaceWith(frag);
 });
 
-/* --- 2. Propaga os parâmetros da URL (utm, sub_id, etc) p/ o checkout ----- */
-/*        O link em si está no href de cada <a class="buylink"> no HTML.      */
-const qs = location.search.slice(1);
-if (qs) $$('a.buylink').forEach(a => {
-  const base = a.getAttribute('href');
-  if (!base || base === '#') return;
-  a.setAttribute('href', base + (base.includes('?') ? '&' : '?') + qs);
-});
+
 
 /* --- 3. Quiz ------------------------------------------------------------- */
 const TOTAL = 5;
