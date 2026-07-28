@@ -10,9 +10,9 @@
    ⚙️  CONFIGURAÇÃO — EDITE SÓ ESTE BLOCO
    ========================================================================== */
 const CHECKOUT_LINKS = {
-  2: 'https://www.yourlink.com/2bottles',   // kit 2 potes
-  3: 'https://www.yourlink.com/3bottles',   // kit 2+1 potes
-  6: 'https://www.yourlink.com/6bottles'    // kit 3+3 potes
+  2: 'https://buygoods.com/secure/checkout.html?account_id=12899&product_codename=PP_SDS2UNITS_AFF&redirect=aHR0cHM6Ly9pbXByb3ZpbmdvdXJoZWFsdGguY29tL3Nkcy1hZmYtYnV5LXVwMS8%3D',   // kit 2 potes
+  3: 'https://buygoods.com/secure/checkout.html?account_id=12899&product_codename=PP_SDS3UNITS_AFF&redirect=aHR0cHM6Ly9pbXByb3ZpbmdvdXJoZWFsdGguY29tL3Nkcy1hZmYtYnV5LXVwMS8%3D',   // kit 2+1 potes
+  6: 'https://buygoods.com/secure/checkout.html?account_id=12899&product_codename=PP_SDS6UNITS_AFF&redirect=aHR0cHM6Ly9pbXByb3ZpbmdvdXJoZWFsdGguY29tL3Nkcy1hZmYtYnV5LXVwMS8%3D'    // kit 3+3 potes
 };
 const VSL_DELAY   = 3;    // segundos de vídeo antes de liberar o quiz
 const FALLBACK    = 0;    // segurança: libera o quiz sozinho após N segundos se o
