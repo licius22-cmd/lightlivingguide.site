@@ -415,6 +415,65 @@ src="https://www.facebook.com/tr?id=1769229850906824&ev=PageView&noscript=1"
     <script src="js/38_utm-transfer.js"></script>
     <script src="https://lp.lightlivingguide.site/pote.js"></script>
   </main>
+
+  <script>
+(function () {
+  var KEY = 'trk_params';
+
+  // 1) Salva os parâmetros da URL na sessão (sobrevive a refresh/quiz)
+  try {
+    var cur = new URLSearchParams(window.location.search);
+    var saved = JSON.parse(sessionStorage.getItem(KEY) || '{}');
+    var changed = false;
+    cur.forEach(function (v, k) { saved[k] = v; changed = true; });
+    if (changed) sessionStorage.setItem(KEY, JSON.stringify(saved));
+  } catch (e) {}
+
+  function getParams() {
+    try { return JSON.parse(sessionStorage.getItem(KEY) || '{}'); }
+    catch (e) { return {}; }
+  }
+
+  // 2) Clickid gerado pelo script do RedTrack (rt.lightlivingguide.site)
+  function getRtkClickId() {
+    try {
+      var ls = localStorage.getItem('rtkclickid-store');
+      if (ls) return ls;
+    } catch (e) {}
+    var m = document.cookie.match(/(?:^|;\s*)rtkclickid-store=([^;]+)/);
+    return m ? decodeURIComponent(m[1]) : '';
+  }
+
+  // 3) Reescreve o href no momento do clique (pega links clonados do template)
+  document.addEventListener('click', function (ev) {
+    var t = ev.target;
+    var a = t && t.closest ? t.closest('a[href*="buygoods.com"]') : null;
+    if (!a) return;
+
+    try {
+      var url = new URL(a.href);
+      var p = getParams();
+
+      Object.keys(p).forEach(function (k) {
+        url.searchParams.set(k, p[k]);
+      });
+
+      var clickid = getRtkClickId();
+      var subid = clickid || p.subid || p.utm_content || '';
+      if (subid) {
+        url.searchParams.set('subid', subid);
+        url.searchParams.set('sid',   subid);   // ← sid = mesmo valor do subid
+      }
+      if (p.utm_content)  url.searchParams.set('subid2', p.utm_content);
+      if (p.utm_medium)   url.searchParams.set('subid3', p.utm_medium);
+      if (p.utm_campaign) url.searchParams.set('subid4', p.utm_campaign);
+
+      a.href = url.toString();
+    } catch (e) {}
+  }, true);
+})();
+</script>
+  
 </body>
 
 </html>
