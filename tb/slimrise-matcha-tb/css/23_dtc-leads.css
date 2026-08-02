@@ -1,0 +1,149 @@
+/* DTC-style sections for the lead pages (l1ml01, l2ml01).
+   Scoped to #headline / #guarantee so it does NOT touch shared css used by other pages.
+   The product cards are styled by assets/main/products/css/cards.css (Leaftide green palette). */
+
+/* ===== Header Headline ===== */
+#headline {
+  background: linear-gradient(135deg, var(--primary-color-light), var(--primary-color-dark));
+  color: #fff;
+  padding: 60px 0 50px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#headline .title {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 25px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #fff;
+  font-size: 56px;
+}
+
+#headline .title .span-title {
+  color: #be37b5; /* Leaftide lime accent (was gold) */
+}
+
+#headline::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(182, 190, 55, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+#headline .rating {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: hsla(0, 0%, 100%, 0.12);
+  padding: 8px 20px;
+  border-radius: 30px;
+  backdrop-filter: blur(10px);
+}
+
+#headline .rating .rating-text {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+#headline .stars {
+  color: #fcd34d; /* conventional gold rating stars */
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+/* ===== Guarantee (rendered by guarantee.js into #guarantee) ===== */
+#guarantee {
+  display: block;
+  background-image: none !important;
+  background-color: #fff !important;
+  padding: 20px 0 40px;
+}
+
+#guarantee h2 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  font-size: 40px;
+  color: #1f2937;
+}
+
+#guarantee h2 span.text-green {
+  display: inline-block;
+  color: #52164e; /* Leaftide green (was #b910ae) */
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+#guarantee p {
+  color: #000;
+  font-size: 16px;
+  margin-bottom: 15px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+#guarantee img {
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+  background-color: transparent;
+}
+
+#guarantee .guarantee-content {
+  max-width: 930px;
+  margin: 0 auto;
+}
+
+#guarantee .badges img {
+  max-width: 70px;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  transition: transform 0.2s ease;
+}
+
+#guarantee .badges img:hover {
+  transform: rotate(5deg) scale(1.1);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 599px) {
+  #headline {
+    padding: 30px 0 20px;
+  }
+  #headline .title {
+    font-size: 26px;
+    margin-bottom: 15px;
+  }
+  #headline .rating {
+    padding: 6px 15px;
+  }
+  #headline .stars {
+    font-size: 18px;
+  }
+  #guarantee h2 {
+    font-size: 24px;
+  }
+  #guarantee h2 span.text-green {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 767px) {
+  #headline {
+    padding: 40px 0 30px;
+  }
+  #headline .title {
+    font-size: 34px;
+  }
+  #guarantee h2 {
+    font-size: 28px;
+  }
+}
