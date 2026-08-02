@@ -558,49 +558,6 @@ a{color:inherit;text-decoration:none}
   if (v) v.textContent = wd[d.getDay()] + ', ' + mo[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
 })();
 
-/* RedTrack pretrack */
-var campaignID = "6a6784c74acc2c4306e9c0e2";
-var cachebuster = Math.round(new Date().getTime() / 1000);
-var rtkClickID;
-var urlParams = new URLSearchParams(window.location.search);
-var pixelParams = "&" + window.location.search.substr(1);
-if (campaignID == "") { campaignID = urlParams.get('rtkcmpid'); }
-var initialSrc = "https://track.healthforlifis2.online/" + campaignID + "?format=json";
-function stripTrailingSlash(str){ return str.replace(/\/$/, ""); }
-function tagLinks(clickid){
-  document.querySelectorAll('a').forEach(function(el){
-    if (el.href.indexOf("track.healthforlifis2.online/preclick") > -1) {
-      el.href = stripTrailingSlash(el.href) + (el.href.indexOf('?') > -1 ? "&" : "?") + "clickid=" + clickid + "&rtkck=" + cachebuster;
-    }
-    if (el.href.indexOf("clickid={clickid}") > -1) {
-      el.href = el.href.replace(/{clickid}/, clickid) + "&rtkck=" + cachebuster;
-    }
-  });
-}
-setTimeout(function(){
-  if (!urlParams.get('rtkcid')) {
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function(){
-      if (xhr.readyState == 4 && xhr.status == 200) {
-        var rawData = JSON.parse(xhr.responseText);
-        rtkClickID = rawData.clickid;
-        tagLinks(rtkClickID);
-        var xhrr = new XMLHttpRequest();
-        xhrr.open("GET", "https://track.healthforlifis2.online/preview?clickid=" + rtkClickID);
-        xhrr.send();
-      }
-    };
-    xhr.open("GET", initialSrc + pixelParams);
-    xhr.send();
-  } else {
-    rtkClickID = urlParams.get('rtkcid');
-    var xhrTrack = new XMLHttpRequest();
-    xhrTrack.open("GET", "https://track.healthforlifis2.online/preview?clickid=" + rtkClickID);
-    xhrTrack.send();
-    tagLinks(rtkClickID);
-  }
-}, 50);
-</script>
 
 </body>
 </html>
