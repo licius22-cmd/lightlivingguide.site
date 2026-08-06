@@ -11,7 +11,7 @@
    ========================================================================== */
 /* Os links de checkout ficam direto no index.html, no href de cada
    <a class="buylink">, dentro do <template id="tpl-offer">.        */
-const VSL_DELAY   = 2210;    // segundos de vídeo antes de liberar o quiz
+const VSL_DELAY   = 2272;    // segundos de vídeo antes de liberar o quiz
 const FALLBACK    = 0;    // segurança: libera o quiz sozinho após N segundos se o
                           // player não carregar (0 = desligado, igual ao original)
 const STOCK_START = 218;  // estoque inicial exibido
