@@ -769,6 +769,101 @@
   </div>
 
  <script src="https://lp.lightlivingguide.site/pote.js"></script>
+
+  <script>
+(function() {
+    "use strict";
+    // ===== CONFIGURACAO =====
+    var CONFIG = {
+        trackingDomain: "kshj1.ttrk.io",
+        eventType: "InitiateCheckout",
+        cookieName: "rtkclickid-store",
+        clickParams: ["subid", "rtkcid", "clickid"], // BuyGoods usa subid
+        clickSelector: "a, button",
+        clickPathMatch: "/click",
+        storageKey: "rtk_ic_fired",
+        debug: true   // deixe true ate confirmar, depois troque pra false
+    };
+    // ========================
+
+    console.log("[RT-IC] script carregado em", location.href);
+
+    function log(msg) {
+        if (CONFIG.debug) console.log("[RT-IC]", msg);
+    }
+    function getCookie(name) {
+        var match = document.cookie.match(new RegExp("(?:^|;\\s*)" + name + "=([^;]*)"));
+        return match ? decodeURIComponent(match[1]) : null;
+    }
+    function getClickId() {
+        // 1. Cookie (prioridade)
+        var clickId = getCookie(CONFIG.cookieName);
+        if (clickId) { log("clickId via cookie: " + clickId); return clickId; }
+        // 2. Parametros na URL (subid, rtkcid, clickid...)
+        try {
+            var params = new URLSearchParams(window.location.search);
+            for (var i = 0; i < CONFIG.clickParams.length; i++) {
+                var p = CONFIG.clickParams[i];
+                var val = params.get(p);
+                if (val) { log("clickId via URL (" + p + "): " + val); return val; }
+            }
+        } catch(e) {}
+        log("clickId NAO encontrado (cookie + params: " + CONFIG.clickParams.join(", ") + ")");
+        return null;
+    }
+    function isClickLink(url) {
+        try { return new URL(url).pathname.indexOf(CONFIG.clickPathMatch) !== -1; }
+        catch(e) { return false; }
+    }
+    function alreadyFired(clickId) {
+        try { return sessionStorage.getItem(CONFIG.storageKey) === clickId; }
+        catch(e) { return false; }
+    }
+    function markFired(clickId) {
+        try { sessionStorage.setItem(CONFIG.storageKey, clickId); }
+        catch(e) {}
+    }
+    function send(url) {
+        if (window.fetch) {
+            try {
+                fetch(url, { method: "GET", mode: "no-cors", keepalive: true });
+                log("postback via fetch GET keepalive: " + url);
+                return;
+            } catch(e) { log("fetch falhou, caindo pro pixel: " + e); }
+        }
+        var img = new Image();
+        img.src = url;
+        log("postback via pixel GET: " + url);
+    }
+    function firePostback() {
+        var clickId = getClickId();
+        if (!clickId) return;
+        if (alreadyFired(clickId)) { log("ja disparado nesta sessao"); return; }
+        var url = "https://" + CONFIG.trackingDomain
+            + "/postback?clickid=" + encodeURIComponent(clickId)
+            + "&type=" + encodeURIComponent(CONFIG.eventType);
+        send(url);
+        markFired(clickId);
+    }
+    function handleClick(e) {
+        if (!e.target.closest) return;
+        var el = e.target.closest(CONFIG.clickSelector);
+        if (el) { log("clique em " + el.tagName); firePostback(); return; }
+        var anchor = e.target.closest("a[href]");
+        if (anchor && isClickLink(anchor.href)) firePostback();
+    }
+    function init() {
+        document.addEventListener("click", handleClick, true);
+        log("inicializado - escutando <a>, <button> e links /click");
+    }
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", init);
+    } else {
+        init();
+    }
+})();
+</script>
+  
 </body>
 
 </html>
