@@ -807,7 +807,7 @@ src="https://www.facebook.com/tr?id=1240048684890361&ev=PageView&noscript=1"
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('[RedTrack Tracker] Script de captura do LP Click iniciado.');
+  console.log('[RedTrack Tracker] Script de clique encadeado (/click -> Postback IC) inicializado.');
 
   function getCookie(name) {
     const value = `; ${document.cookie}`;
@@ -816,66 +816,63 @@ document.addEventListener('DOMContentLoaded', function() {
     return null;
   }
 
+  // Captura os links apontando para /click
   const checkoutLinks = document.querySelectorAll('a[href*="/click"]');
+  console.log(`[RedTrack Tracker] ${checkoutLinks.length} link(s) com /click localizado(s).`);
 
   checkoutLinks.forEach(function(link) {
     link.addEventListener('click', async function(event) {
       event.preventDefault();
-      const targetUrl = this.href;
+      const targetUrl = this.href; // Ex: https://rt.lightlivingguide.site/click/1?...
+
+      const clickId = getCookie('rtkclickid-store') || getCookie('rtkcid');
       const redtrackDomain = 'kshj1.ttrk.io';
       const eventType = 'InitiateCheckout';
 
-      console.log('[1/4] Disparando /click para gerar o ClickID da Offer...');
-
-      let lpClickId = null;
+      console.log('[Step 1] Registrando o clique na oferta no RedTrack (/click)...');
 
       try {
-        // 1. Faz a requisição para o /click permitindo seguir o redirect para pegar a URL final
-        const response = await fetch(targetUrl, { 
-          method: 'GET',
-          redirect: 'follow' 
+        // STEP 1: Chama a rota /click primeiro de forma síncrona/esperada
+        // Isso força o RedTrack a vincular o clickid com o Offer ID no banco de dados dele
+        await fetch(targetUrl, { 
+          method: 'GET', 
+          mode: 'no-cors',
+          keepalive: true 
         });
 
-        // 2. Tenta extrair o novo clickid da URL de destino retornada (ex: Digistore URL)
-        if (response.url) {
-          const finalUrl = new URL(response.url);
-          lpClickId = finalUrl.searchParams.get('clickid') || 
-                     finalUrl.searchParams.get('cid') || 
-                     finalUrl.searchParams.get('aff_sub') || 
-                     finalUrl.searchParams.get('custom');
+        console.log('[Step 2] Oferta registrada no RedTrack. Disparando Postback IC...');
+
+        // STEP 2: Agora que a oferta foi registrada, dispara o Postback de InitiateCheckout
+        if (clickId) {
+          const postbackUrl = `https://${redtrackDomain}/postback?clickid=${encodeURIComponent(clickId)}&type=${encodeURIComponent(eventType)}`;
+          
+          console.info(`[RedTrack Postback] Disparando: ${postbackUrl}`);
+
+          await fetch(postbackUrl, {
+            method: 'POST',
+            mode: 'no-cors',
+            keepalive: true
+          });
+
+          console.log('[Step 3] Postback de InitiateCheckout enviado com sucesso!');
+        } else {
+          console.warn('[RedTrack] Cookie com clickid não localizado.');
         }
+
       } catch (err) {
-        console.warn('[RedTrack] Erro ao buscar URL final do /click:', err);
+        console.error('[RedTrack] Erro durante a sequência de requisições:', err);
       }
 
-      // 3. Fallback: Se não encontrou na URL, lê novamente o cookie atualizado do RedTrack
-      if (!lpClickId) {
-        lpClickId = getCookie('rtkclickid-store') || getCookie('rtkcid');
+      // Meta Pixel (opcional)
+      if (typeof fbq === 'function') {
+        fbq('track', 'InitiateCheckout');
       }
 
-      console.log('[2/4] ClickID capturado para o LP Click:', lpClickId);
-
-      // 4. Dispara o Postback usando o NOVO clickid do LP Click
-      if (lpClickId) {
-        const postbackUrl = `https://${redtrackDomain}/postback?clickid=${encodeURIComponent(lpClickId)}&type=${encodeURIComponent(eventType)}`;
-        
-        console.info(`[3/4] Disparando Postback POST com LP Click ID: ${postbackUrl}`);
-
-        fetch(postbackUrl, {
-          method: 'POST',
-          mode: 'no-cors',
-          keepalive: true
-        })
-        .then(() => console.log('[RedTrack Postback] Postback enviado com sucesso.'))
-        .catch(err => console.error('[RedTrack Postback] Erro:', err));
-      } else {
-        console.warn('[RedTrack Postback] Não foi possível capturar o clickid do LP Click.');
-      }
-      // 5. Redireciona o usuário para o checkout
-      console.log('[4/4] Redirecionando usuário...');
+      // STEP 3: Redireciona para o destino do checkout (/click -> Digistore)
+      console.log('[Step 4] Redirecionando usuário para o checkout final...');
       setTimeout(function() {
         window.location.href = targetUrl;
-      }, 200);
+      }, 150);
     });
   });
 });
