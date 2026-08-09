@@ -792,9 +792,8 @@ src="https://www.facebook.com/tr?id=1240048684890361&ev=PageView&noscript=1"
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('[RedTrack Tracker] Script de clique inicializado.');
+  console.log('[RedTrack Tracker] Script carregado.');
 
-  // Função para capturar cookie por nome
   function getCookie(name) {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
@@ -802,53 +801,42 @@ document.addEventListener('DOMContentLoaded', function() {
     return null;
   }
 
-  // Seleciona os links de checkout apontando para /click
   const checkoutLinks = document.querySelectorAll('a[href*="/click"]');
-  console.log(`[RedTrack Tracker] Encontrados ${checkoutLinks.length} link(s) com '/click'.`);
 
-  checkoutLinks.forEach(function(link, index) {
+  checkoutLinks.forEach(function(link) {
     link.addEventListener('click', function(event) {
       event.preventDefault();
       const targetUrl = this.href;
-      console.log(`[RedTrack Tracker] Clique detectado no link #${index + 1}:`, targetUrl);
 
-      // Recupera o clickid salvo no cookie pelo script do RedTrack na LP
       const clickId = getCookie('rtkclickid-store') || getCookie('rtkcid');
-
-      // DOMÍNIO DO REDTRACK (Substitua pelo seu domínio/subdomínio de tracking)
-      const redtrackDomain = 'rt.lightlivingguide.site';
-      
-      // TIPO DE EVENTO (Altere para o nome exato configurado no RedTrack)
+      const redtrackDomain = 'kshj1.ttrk.io'; // Altere para seu domínio
       const eventType = 'InitiateCheckout';
 
+      // METODO 1: Via Tag nativa do RedTrack (RedTrack Web API)
+      if (typeof rt === 'function') {
+        console.log('[RedTrack Tracker] Disparando evento via rt() JS API...');
+        rt('event', eventType);
+      } else if (typeof rtk === 'function') {
+        rtk('event', eventType);
+      }
+
+      // METODO 2: Postback S2S Fallback (Ajustado parâmetro cid)
       if (clickId) {
-        const postbackUrl = `https://${redtrackDomain}/postback?clickid=${encodeURIComponent(clickId)}&type=${encodeURIComponent(eventType)}`;
-        
-        console.info(`[RedTrack Tracker] ClickID encontrado: ${clickId}`);
-        console.info(`[RedTrack Tracker] Disparando postback para: ${postbackUrl}`);
+        // Usando cid em vez de clickid para compatibilidade de rotas S2S
+        const postbackUrl = `https://${redtrackDomain}/postback?cid=${encodeURIComponent(clickId)}&type=${encodeURIComponent(eventType)}`;
+        console.info(`[RedTrack Tracker] Disparando Postback S2S: ${postbackUrl}`);
 
         fetch(postbackUrl, { method: 'GET', mode: 'no-cors', keepalive: true })
-          .then(function() {
-            console.log('[RedTrack Tracker] Requisição de postback enviada com sucesso.');
-          })
-          .catch(function(err) {
-            console.error('[RedTrack Tracker] Erro ao enviar postback:', err);
-          });
+          .then(res => console.log('[RedTrack Tracker] Resposta Postback enviada.'))
+          .catch(err => console.error('[RedTrack Tracker] Erro Postback:', err));
       } else {
-        console.warn('[RedTrack Tracker] Cookie de clickid não encontrado (rtkclickid-store / rtkcid). O postback não foi enviado.');
+        console.warn('[RedTrack Tracker] NENHUM clickid encontrado nos cookies.');
       }
 
-      // Dispara o Meta Pixel (opcional)
-      if (typeof fbq === 'function') {
-        fbq('track', 'InitiateCheckout');
-        console.log('[Meta Pixel] Evento InitiateCheckout disparado.');
-      }
-
-      // Redireciona para a URL de destino (/click)
-      console.log('[RedTrack Tracker] Redirecionando para o checkout...');
+      // Redirecionamento
       setTimeout(function() {
         window.location.href = targetUrl;
-      }, 250);
+      }, 300);
     });
   });
 });
