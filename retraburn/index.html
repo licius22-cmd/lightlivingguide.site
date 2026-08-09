@@ -792,7 +792,7 @@ src="https://www.facebook.com/tr?id=1240048684890361&ev=PageView&noscript=1"
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('[RedTrack Tracker] Script carregado.');
+  console.log('[RedTrack Tracker] Script de checkout iniciado.');
 
   function getCookie(name) {
     const value = `; ${document.cookie}`;
@@ -809,31 +809,34 @@ document.addEventListener('DOMContentLoaded', function() {
       const targetUrl = this.href;
 
       const clickId = getCookie('rtkclickid-store') || getCookie('rtkcid');
-      const redtrackDomain = 'kshj1.ttrk.io'; // Altere para seu domínio
+      const redtrackDomain = 'kshj1.ttrk.io';
       const eventType = 'InitiateCheckout';
 
-      // METODO 1: Via Tag nativa do RedTrack (RedTrack Web API)
+      // 1. MÉTODO NATIVO REDTRACK (Recomendado - Evita HTTP 400)
       if (typeof rt === 'function') {
-        console.log('[RedTrack Tracker] Disparando evento via rt() JS API...');
+        console.log('[RedTrack JS API] Enviando evento de conversão...');
         rt('event', eventType);
       } else if (typeof rtk === 'function') {
         rtk('event', eventType);
       }
 
-      // METODO 2: Postback S2S Fallback (Ajustado parâmetro cid)
+      // 2. MÉTODO S2S POSTBACK (Com formato corrigido: cid + sum=0)
       if (clickId) {
-        // Usando cid em vez de clickid para compatibilidade de rotas S2S
-        const postbackUrl = `https://${redtrackDomain}/postback?clickid=${encodeURIComponent(clickId)}&type=${encodeURIComponent(eventType)}`;
-        console.info(`[RedTrack Tracker] Disparando Postback S2S: ${postbackUrl}`);
+        const postbackUrl = `https://${redtrackDomain}/postback?cid=${encodeURIComponent(clickId)}&clickid=${encodeURIComponent(clickId)}&type=${encodeURIComponent(eventType)}&sum=0`;
+        console.info(`[RedTrack Postback S2S] Enviando: ${postbackUrl}`);
 
         fetch(postbackUrl, { method: 'GET', mode: 'no-cors', keepalive: true })
-          .then(res => console.log('[RedTrack Tracker] Resposta Postback enviada.'))
-          .catch(err => console.error('[RedTrack Tracker] Erro Postback:', err));
+          .then(function() {
+            console.log('[RedTrack Postback S2S] Postback enviado.');
+          })
+          .catch(function(err) {
+            console.error('[RedTrack Postback S2S] Erro no postback:', err);
+          });
       } else {
-        console.warn('[RedTrack Tracker] NENHUM clickid encontrado nos cookies.');
+        console.warn('[RedTrack] Cookie com clickid não localizado.');
       }
 
-      // Redirecionamento
+      // Redireciona para o checkout (/click -> Digistore)
       setTimeout(function() {
         window.location.href = targetUrl;
       }, 300);
