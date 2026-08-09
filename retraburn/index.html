@@ -792,81 +792,35 @@ src="https://www.facebook.com/tr?id=1240048684890361&ev=PageView&noscript=1"
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('[RedTrack Tracker] Script de captura do LP Click iniciado.');
+  console.log('[RedTrack Tracker] Script de Initiate Checkout iniciado.');
 
-  function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
-    return null;
-  }
-
+  // Captura todos os links apontando para /click
   const checkoutLinks = document.querySelectorAll('a[href*="/click"]');
+  console.log(`[RedTrack Tracker] Encontrados ${checkoutLinks.length} link(s) com '/click'.`);
 
   checkoutLinks.forEach(function(link) {
-    link.addEventListener('click', async function(event) {
+    link.addEventListener('click', function(event) {
       event.preventDefault();
       const targetUrl = this.href;
-      const redtrackDomain = 'kshj1.ttrk.io';
-      const eventType = 'InitiateCheckout';
 
-      console.log('[1/4] Disparando /click para gerar o ClickID da Offer...');
+      console.log('[RedTrack Tracker] Clique no botão detectado.');
 
-      let lpClickId = null;
-
-      try {
-        // 1. Faz a requisição para o /click permitindo seguir o redirect para pegar a URL final
-        const response = await fetch(targetUrl, { 
-          method: 'GET',
-          redirect: 'follow' 
-        });
-
-        // 2. Tenta extrair o novo clickid da URL de destino retornada (ex: Digistore URL)
-        if (response.url) {
-          const finalUrl = new URL(response.url);
-          lpClickId = finalUrl.searchParams.get('clickid') || 
-                     finalUrl.searchParams.get('cid') || 
-                     finalUrl.searchParams.get('aff_sub') || 
-                     finalUrl.searchParams.get('custom');
-        }
-      } catch (err) {
-        console.warn('[RedTrack] Erro ao buscar URL final do /click:', err);
-      }
-
-      // 3. Fallback: Se não encontrou na URL, lê novamente o cookie atualizado do RedTrack
-      if (!lpClickId) {
-        lpClickId = getCookie('rtkclickid-store') || getCookie('rtkcid');
-      }
-
-      console.log('[2/4] ClickID capturado para o LP Click:', lpClickId);
-
-      // 4. Dispara o Postback usando o NOVO clickid do LP Click
-      if (lpClickId) {
-        const postbackUrl = `https://${redtrackDomain}/postback?clickid=${encodeURIComponent(lpClickId)}&type=${encodeURIComponent(eventType)}`;
-        
-        console.info(`[3/4] Disparando Postback POST com LP Click ID: ${postbackUrl}`);
-
-        fetch(postbackUrl, {
-          method: 'POST',
-          mode: 'no-cors',
-          keepalive: true
-        })
-        .then(() => console.log('[RedTrack Postback] Postback enviado com sucesso.'))
-        .catch(err => console.error('[RedTrack Postback] Erro:', err));
+      // 1. Dispara o evento de InitiateCheckout via API Nativa do RedTrack
+      if (typeof rt === 'function') {
+        rt('event', 'InitiateCheckout');
+        console.log('[RedTrack JS API] Evento InitiateCheckout enviado via rt().');
+      } else if (typeof rtk === 'function') {
+        rtk('event', 'InitiateCheckout');
+        console.log('[RedTrack JS API] Evento InitiateCheckout enviado via rtk().');
       } else {
-        console.warn('[RedTrack Postback] Não foi possível capturar o clickid do LP Click.');
+        console.warn('[RedTrack JS API] Atenção: A tag do RedTrack (rtk.js / universal script) não foi encontrada na página.');
       }
 
-      // Meta Pixel (opcional)
-      if (typeof fbq === 'function') {
-        fbq('track', 'InitiateCheckout');
-      }
-
-      // 5. Redireciona o usuário para o checkout
-      console.log('[4/4] Redirecionando usuário...');
+      // 3. Aguarda 300ms para a requisição ser enviada em background e redireciona para o /click -> Digistore
+      console.log('[RedTrack Tracker] Redirecionando para a Digistore...');
       setTimeout(function() {
         window.location.href = targetUrl;
-      }, 200);
+      }, 300);
     });
   });
 });
