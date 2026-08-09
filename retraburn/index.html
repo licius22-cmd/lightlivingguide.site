@@ -792,9 +792,8 @@ src="https://www.facebook.com/tr?id=1240048684890361&ev=PageView&noscript=1"
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('[RedTrack Tracker] Script de checkout iniciado (Método POST com Query String).');
+  console.log('[RedTrack] Script de captura de clickid do /click iniciado.');
 
-  // Função para ler cookies da página
   function getCookie(name) {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
@@ -802,58 +801,60 @@ document.addEventListener('DOMContentLoaded', function() {
     return null;
   }
 
-  // Captura os links de checkout apontando para /click
   const checkoutLinks = document.querySelectorAll('a[href*="/click"]');
-  console.log(`[RedTrack Tracker] ${checkoutLinks.length} link(s) /click localizado(s).`);
 
   checkoutLinks.forEach(function(link) {
-    link.addEventListener('click', function(event) {
+    link.addEventListener('click', async function(event) {
       event.preventDefault();
       const targetUrl = this.href;
 
-      // 1. Lê o clickid gerado pelo RedTrack no cookie da landing page
-      const clickId = getCookie('rtkclickid-store') || getCookie('rtkcid');
+      // 1. Pega o clickid original do cookie (fallback)
+      let clickId = getCookie('rtkclickid-store') || getCookie('rtkcid');
       const redtrackDomain = 'kshj1.ttrk.io';
       const eventType = 'InitiateCheckout';
 
+      try {
+        // 2. Faz o disparo no endpoint /click em background para resolver o redirecionamento
+        console.log('[RedTrack] Disparando requisição em background para /click...');
+        const response = await fetch(targetUrl, { method: 'GET', redirect: 'follow' });
+
+        // 3. Tenta extrair um parâmetro de clickid/cid da URL final de destino da Digistore (caso o RedTrack anexe na URL)
+        const finalUrl = new URL(response.url);
+        const extractedClickId = finalUrl.searchParams.get('clickid') || 
+                                 finalUrl.searchParams.get('cid') || 
+                                 finalUrl.searchParams.get('aff_sub') ||
+                                 finalUrl.searchParams.get('custom');
+
+        if (extractedClickId) {
+          clickId = extractedClickId;
+          console.info('[RedTrack] Novo clickid capturado do /click:', clickId);
+        }
+      } catch (err) {
+        console.warn('[RedTrack] Não foi possível ler o retorno do /click (CORS/Redirect), utilizando o clickid do cookie:', err);
+      }
+
+      // 4. Se tivermos o clickid (seja do cookie ou capturado no /click), envia o Postback
       if (clickId) {
-        // 2. Monta a URL do Postback contendo o clickid e o type diretamente na Query String
         const postbackUrl = `https://${redtrackDomain}/postback?clickid=${encodeURIComponent(clickId)}&type=${encodeURIComponent(eventType)}`;
+        
+        console.info(`[RedTrack Postback POST] Enviando evento de IC para: ${postbackUrl}`);
 
-        console.info(`[RedTrack Postback POST] Disparando requisição POST para: ${postbackUrl}`);
-
-        // 3. Dispara a requisição via método POST
         fetch(postbackUrl, {
           method: 'POST',
           mode: 'no-cors',
           keepalive: true
-        })
-        .then(function() {
-          console.log('[RedTrack Postback POST] Requisição POST enviada com sucesso.');
-        })
-        .catch(function(err) {
-          console.error('[RedTrack Postback POST] Erro na requisição POST:', err);
         });
-      } else {
-        console.warn('[RedTrack Postback POST] Cookie rtkclickid-store/rtkcid não localizado.');
       }
 
-      // Suporte adicional via Tag nativa (se ativa na LP)
-      if (typeof rt === 'function') {
-        rt('event', eventType);
-      } else if (typeof rtk === 'function') {
-        rtk('event', eventType);
-      }
-
-      // Meta Pixel (opcional)
+      // Meta Pixel
       if (typeof fbq === 'function') {
         fbq('track', 'InitiateCheckout');
       }
 
-      // 4. Redireciona o usuário para o /click -> Digistore após 250ms
+      // 5. Redireciona a página para o destino final (/click -> Digistore)
       setTimeout(function() {
         window.location.href = targetUrl;
-      }, 250);
+      }, 200);
     });
   });
 });
