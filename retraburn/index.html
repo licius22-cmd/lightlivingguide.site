@@ -792,9 +792,9 @@ src="https://www.facebook.com/tr?id=1240048684890361&ev=PageView&noscript=1"
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('[RedTrack Tracker] Script de checkout iniciado (Método POST).');
+  console.log('[RedTrack Tracker] Script de checkout iniciado (Método POST com Query String).');
 
-  // Função para ler cookies
+  // Função para ler cookies da página
   function getCookie(name) {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
@@ -804,62 +804,56 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Captura os links de checkout apontando para /click
   const checkoutLinks = document.querySelectorAll('a[href*="/click"]');
+  console.log(`[RedTrack Tracker] ${checkoutLinks.length} link(s) /click localizado(s).`);
 
   checkoutLinks.forEach(function(link) {
     link.addEventListener('click', function(event) {
       event.preventDefault();
       const targetUrl = this.href;
 
-      // Busca o ID do clique no cookie do RedTrack
+      // 1. Lê o clickid gerado pelo RedTrack no cookie da landing page
       const clickId = getCookie('rtkclickid-store') || getCookie('rtkcid');
-      const redtrackDomain = 'kshj1.ttrk.io'; // Seu subdomínio no RedTrack
+      const redtrackDomain = 'kshj1.ttrk.io';
       const eventType = 'InitiateCheckout';
 
       if (clickId) {
-        const postbackUrl = `https://${redtrackDomain}/postback`;
+        // 2. Monta a URL do Postback contendo o clickid e o type diretamente na Query String
+        const postbackUrl = `https://${redtrackDomain}/postback?clickid=${encodeURIComponent(clickId)}&type=${encodeURIComponent(eventType)}`;
 
-        // Payload enviado via POST
-        const payload = {
-          cid: clickId,
-          clickid: clickId,
-          type: eventType,
-          sum: 0
-        };
+        console.info(`[RedTrack Postback POST] Disparando requisição POST para: ${postbackUrl}`);
 
-        console.info(`[RedTrack Postback S2S] Enviando via POST para ${postbackUrl}:`, payload);
-
-        // Disparo do POST via fetch com keepalive
+        // 3. Dispara a requisição via método POST
         fetch(postbackUrl, {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(payload),
           mode: 'no-cors',
           keepalive: true
         })
         .then(function() {
-          console.log('[RedTrack Postback S2S] Requisição POST enviada com sucesso.');
+          console.log('[RedTrack Postback POST] Requisição POST enviada com sucesso.');
         })
         .catch(function(err) {
-          console.error('[RedTrack Postback S2S] Erro na requisição POST:', err);
+          console.error('[RedTrack Postback POST] Erro na requisição POST:', err);
         });
       } else {
-        console.warn('[RedTrack] Cookie com clickid não localizado.');
+        console.warn('[RedTrack Postback POST] Cookie rtkclickid-store/rtkcid não localizado.');
       }
 
-      // Método Nativo do RedTrack JS (redundância recomendada)
+      // Suporte adicional via Tag nativa (se ativa na LP)
       if (typeof rt === 'function') {
         rt('event', eventType);
       } else if (typeof rtk === 'function') {
         rtk('event', eventType);
       }
 
-    
-      // Redirecionamento para a Digistore (/click)
+      // Meta Pixel (opcional)
+      if (typeof fbq === 'function') {
+        fbq('track', 'InitiateCheckout');
+      }
+
+      // 4. Redireciona o usuário para o /click -> Digistore após 250ms
       setTimeout(function() {
         window.location.href = targetUrl;
-      }, 300);
+      }, 250);
     });
   });
 });
