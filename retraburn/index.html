@@ -823,7 +823,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // METODO 2: Postback S2S Fallback (Ajustado parâmetro cid)
       if (clickId) {
         // Usando cid em vez de clickid para compatibilidade de rotas S2S
-        const postbackUrl = `https://${redtrackDomain}/postback?cid=${encodeURIComponent(clickId)}&type=${encodeURIComponent(eventType)}`;
+        const postbackUrl = `https://${redtrackDomain}/postback?clickid=${encodeURIComponent(clickId)}&type=${encodeURIComponent(eventType)}`;
         console.info(`[RedTrack Tracker] Disparando Postback S2S: ${postbackUrl}`);
 
         fetch(postbackUrl, { method: 'GET', mode: 'no-cors', keepalive: true })
