@@ -1,0 +1,90 @@
+<!DOCTYPE html><html lang="pt-br"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/img/favicon.webp">
+    <link rel="preload" href="./assets/img/icons.webp" as="image">
+    <title>Wait a moment!</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <section class="top py-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="mb-0">WAIT A MOMENT!</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content py-3 py-xxl-5 py-xl-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="mb-3">This presentation will start in <span id="timer">00:30</span></h3>
+                    <h3 style="color: #fff;">Please, confirm your age to watch the presentation...</h3>
+                    <div class="text-center">
+                        <a href="https://fb.mens-tip.online/click"><img width="332" height="100" class="img-fluid" src="images/image1.webp" alt="Image - 1"></a>
+                    </div>
+                    <a href="https://fb.mens-tip.online/click" style="display: block;">
+                        <div class="btn-cta">
+                            YES, I'M OVER 40 &gt;&gt;
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="marquee-container mt-2 mt-xxl-5 mt-xl-5">
+            <div class="marquee-text">
+                <span>Last spots available &nbsp; Last spots available &nbsp; Last spots available</span>
+                <span>Last spots available &nbsp; Last spots available &nbsp; Last spots available</span>
+                <span>Last spots available &nbsp; Last spots available &nbsp; Last spots available</span>
+            </div>
+        </div>
+    </section>
+    <script>
+        function setCookie(name, value, seconds) {
+            const d = new Date();
+            d.setTime(d.getTime() + (seconds * 1000));
+            document.cookie = name + "=" + value + ";expires=" + d.toUTCString() + ";path=/";
+        }
+        function getCookie(name) {
+            const cookies = document.cookie.split(";");
+            for (let c of cookies) {
+                let [key, val] = c.trim().split("=");
+                if (key === name) return val;
+            }
+            return null;
+        }
+        let totalSeconds = parseInt(getCookie("timer")) || 30;
+        const el = document.getElementById("timer");
+        function updateDisplay() {
+            const minutes = Math.floor(totalSeconds / 60);
+            const seconds = totalSeconds % 60;
+            el.textContent = String(minutes).padStart(2, "0") + ":" + String(seconds).padStart(2, "0");
+        }
+        updateDisplay();
+        const interval = setInterval(() => {
+            if (totalSeconds <= 0) {
+                clearInterval(interval);
+                setCookie("timer", 0, 60);
+                return;
+            }
+            totalSeconds--;
+            updateDisplay();
+            setCookie("timer", totalSeconds, 60);
+        }, 1000);
+    </script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    
+    <script type="text/javascript" src="js/track.js"></script>
+
+
+
+
+</body></html>

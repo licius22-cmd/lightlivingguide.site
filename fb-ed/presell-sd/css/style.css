@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Open Sans", sans-serif;
+}
+
+a,
+a:hover,
+a:active,
+a:visited,
+a:focus {
+  text-decoration: none;
+}
+
+.link {
+  cursor: pointer;
+}
+
+.esconder {
+  display: none;
+}
+
+.top {
+  background-color: #ef0e08;
+}
+
+.top h2 {
+  text-align: center;
+  font-weight: 400;
+  font-size: 32px;
+  background-image: unset;
+  color: #fff;
+}
+
+.content {
+  background-color: #000;
+  height: 96vh;
+}
+
+.content h3 {
+  font-weight: 600;
+  font-size: 26px;
+  text-align: center;
+  color: #de2800;
+}
+
+.btn-cta {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  background: #ffcc01;
+  font-size: 30px;
+  font-weight: 800;
+  color: #000;
+  padding: 12px;
+  transition: background-color .3s ease-in-out, color .3s ease-in-out;
+  border-radius: 15px;
+  width: 355px;
+  margin: 30px auto;
+  animation: zoomInOut 1s 1 linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes zoomInOut {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #ef0e08;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.marquee-text {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-text span {
+  margin-right: 150px;
+  display: inline-block;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@media(max-width:1366px) {
+  .content {
+    background-color: #000;
+    height: 100vh;
+  }
+}
+
+@media(max-width: 821px) {
+  .btn-cta {
+    font-size: 20px;
+    width: 75%;
+  }
+
+  .content {
+    background-color: #000;
+    height: unset;
+  }
+}
