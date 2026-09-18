@@ -275,15 +275,33 @@ src="https://www.facebook.com/tr?id=854914857494750&ev=PageView&noscript=1"
     </script>
     <script>
         var delaySeconds = 3406; // alterar o tempo aqui | pitch vsl
-        var player = document.querySelector("vturb-smartplayer");
-        player.addEventListener("player:ready", function () {
-            player.displayHiddenElements(delaySeconds, [".esconder"], {
-                persist: true
-            });
-            setTimeout(function () {
-                iniciarContador15Minutos();
-            }, (delaySeconds * 1000) + 100);
+    var player = document.querySelector("vturb-smartplayer");
+    var jaRevelou = false;
+
+    player.addEventListener("player:ready", function () {
+        player.displayHiddenElements(delaySeconds, [".esconder"], {
+            persist: true
         });
+
+        var alvo = document.querySelector(".esconder");
+
+        function checarRevelacao() {
+            if (jaRevelou) return;
+            if (getComputedStyle(alvo).display !== "none") {
+                jaRevelou = true;
+                observer.disconnect();
+                iniciarContador15Minutos();
+                // pequeno atraso para o layout renderizar antes do scroll
+                setTimeout(function () {
+                    alvo.scrollIntoView({ behavior: "smooth", block: "start" });
+                }, 300);
+            }
+        }
+
+        var observer = new MutationObserver(checarRevelacao);
+        observer.observe(alvo, { attributes: true, attributeFilter: ["style", "class"] });
+        checarRevelacao(); // cobre quem volta à página (persist: true)
+    });
         function iniciarContador15Minutos() {
             var tempoTotal = 15 * 60; // 15 minutos em segundos
             var tempoRestante = tempoTotal;
