@@ -1,0 +1,138 @@
+/* ===== Fontes (variáveis, só latin) ===== */
+@font-face{font-family:Inter;src:url(../fonts/inter.woff2) format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:Sora;src:url(../fonts/sora.woff2) format("woff2");font-weight:100 800;font-display:swap}
+@font-face{font-family:Roboto;src:url(../fonts/roboto.woff2) format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:Nunito;src:url(../fonts/nunito.woff2) format("woff2");font-weight:200 900;font-display:swap}
+@font-face{font-family:"Nunito Sans";src:url(../fonts/nunito-sans.woff2) format("woff2");font-weight:200 900;font-display:swap}
+
+/* ===== Base ===== */
+:root{--wine:#61101A;--brown:#3F372B;--yellow:#FF0}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;overflow-x:hidden}
+body{font:16px/1.5 Nunito,sans-serif;color:#000;background:#fff;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,p,ul{margin:0;padding:0}
+ul{list-style:none}
+img{max-width:100%;height:auto;vertical-align:middle}
+a{text-decoration:none}
+.hl{color:var(--yellow)}
+.ic{width:1em;height:1em;fill:currentColor;flex:none}
+
+/* ===== Barra de aviso ===== */
+.topbar{background:#DC2626;padding:8px 16px;text-align:center;font:600 14px/20px Inter,sans-serif;color:#fff}
+
+/* ===== VSL ===== */
+.vsl{background:#000;padding:40px 16px 64px;display:flex;flex-direction:column;align-items:center;gap:24px;text-align:center}
+.vsl h1{font:800 30px/1.375 Inter,sans-serif;color:#fff}
+.vsl h1 span{color:#FBBF24}
+.player{width:100%;max-width:400px}
+.player vturb-smartplayer{display:block;margin:0 auto;width:100%;max-width:400px}
+.player .ph{position:relative;width:100%;padding-top:178.2178%;background:#000}
+.last{font:900 italic 23px/1.5 Sora,sans-serif;color:#fff;margin-bottom:20px}
+.last span{font-style:normal;font-weight:400}
+
+/* ===== Step 1 ===== */
+.step{background:radial-gradient(#61101A,#000);padding:66px 15px 33px;display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center}
+.step h2{max-width:1050px;font:900 46px/1 "Nunito Sans",sans-serif;color:#fff}
+.dots{width:112px;height:6px;background:radial-gradient(circle,#C9A45B 2.9px,transparent 3.3px) 0 0/12.5px 6px repeat-x}
+
+/* ===== Ofertas ===== */
+.offers{background:#fff;padding:20px 10px}
+.grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:25px;align-items:center}
+.card{border:3px solid var(--brown);border-radius:25px;padding:3px;box-shadow:0 5px 20px 1px rgba(0,0,0,.5);transition:transform .3s}
+.card:hover{transform:scale(1.05)}
+.card>h3{background:var(--wine);border-radius:20px 20px 0 0;padding:10px 30px;font:800 20px/1 Nunito,sans-serif;color:#fff;text-align:center}
+.body{background:#fff;padding:10px;display:flex;flex-direction:column;text-align:center}
+.foot{background:#fff;padding:10px 10px 25px;border-radius:0 0 20px 20px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.col-l,.col-r{display:flex;flex-direction:column;gap:10px}
+.qty{font:900 35px/35px Nunito,sans-serif;margin:5px 0 -9px}
+.supply{font:400 20px/20px Nunito,sans-serif}
+.col-l img{width:84%;margin:-17px auto}
+
+.price{display:flex;justify-content:center;align-items:flex-end}
+.price .cur{font:600 25.6px/1 Roboto,sans-serif}
+.price .val{font:900 90px/90px Nunito,sans-serif;margin-bottom:-10px}
+.price .per{font:700 20px/20px Nunito,sans-serif;text-align:left}
+
+.feats{font:800 14px/30px Nunito,sans-serif;align-self:stretch}
+.feats li{display:flex;justify-content:center;align-items:center;gap:5px}
+.feats li+li{border-top:2px dotted;margin-top:10px;padding-top:3px}
+.feats .ic{font-size:20px}
+.feats .save{color:#4D330A}
+.feats .save .ic{color:#C0811D}
+
+.btn{display:flex;justify-content:center;align-items:center;gap:5px;width:100%;margin-bottom:5px;padding:15px 20px;border-radius:5px;font:800 22px/39px Nunito,sans-serif;color:#000;background:linear-gradient(#D1D1D1 49%,#BDBDBD 50%)}
+.btn:hover,.btn:focus{color:#000;background:linear-gradient(#B6B6B6 50%,#D1D1D1 50%)}
+.btn .ic{font-size:22px}
+.cards{max-width:75%;padding:5px 0}
+.total{font-weight:500;line-height:1.2}
+.total b{font-weight:700}
+.ship{font-weight:700;line-height:1.2}
+.basic .ship{font-weight:800}
+
+/* Card destaque (6 frascos) */
+.best>h3{background:#fff;color:var(--brown)}
+.best .body{color:#fff;background:radial-gradient(#61101A 50%,#1F1111);border-radius:0 0 22px 22px;padding-bottom:25px}
+.best .foot{background:none;padding:0}
+.best .feats .save{color:#FFEB9A}
+.best .feats .save .ic{color:#FC0}
+.best .btn{background:linear-gradient(#FC0 49%,#E7B900 50%)}
+.best .btn:hover,.best .btn:focus{background:linear-gradient(#E7B900 50%,#FC0 50%)}
+
+/* ===== Garantia ===== */
+.guarantee{background:var(--wine);color:#fff;padding:44px 15px}
+.guarantee .wrap{max-width:1140px;margin:0 auto;display:flex;align-items:center;gap:20px}
+.badge{flex:0 0 calc(30% - 6px);padding:10px;text-align:center}
+.g-text{flex:1;padding:10px;display:flex;flex-direction:column;gap:20px}
+.g-text>div{max-width:93%}
+.g-text h3{font:900 35px/1.2 Nunito,sans-serif;margin-top:-29px}
+.g-text p{font-size:20px;line-height:30px;margin-top:6px}
+.seals{display:flex;flex-wrap:wrap;gap:20px}
+.seals img{width:109px;padding:2px;background:#fff;border-radius:50%}
+
+/* ===== Tablet ===== */
+@media (max-width:1024px){
+  .card:hover{transform:scale(1.03)}
+  .step{padding-inline:85px}
+  .offers{padding:90px 10px 60px}
+  .grid{grid-template-columns:1fr;gap:30px;max-width:791px}
+  .best{order:-2}.popular{order:-1}
+  .card>h3{font-size:35px;line-height:1}
+  .body{flex-direction:row;padding:10px 20px}
+  .col-l,.col-r{flex:1;justify-content:center;align-items:center}
+  .foot{padding:10px 20px 25px}
+  .best .foot{padding:0;align-self:stretch}
+  .badge{flex-basis:240px}
+  .seals img{width:73px}
+}
+
+/* ===== Mobile ===== */
+@media (max-width:767px){
+  .step{padding-inline:15px}
+  .step h2{font-size:26px;max-width:360px}
+  .offers{padding:20px 5px}
+  .grid{gap:30px}
+  .card>h3{font-size:22px;padding:10px 0}
+  .body{flex-wrap:wrap;padding:10px 5px 0}
+  .best .body{padding-bottom:5px}
+  .col-l,.col-r{flex:0 0 50%}
+  .col-r{gap:5px}
+  .qty,.supply{font-size:18px;line-height:18px}
+  .qty{margin:0}
+  .price .val{font-size:75px;line-height:75px;margin-bottom:-5px}
+  .price .per{margin-bottom:5px}
+  .feats{font-size:12px;line-height:23px;align-self:center}
+  .feats .ic{font-size:15px}
+  .feats li+li{margin-top:5px}
+  .foot{padding:10px 5px 5px;gap:5px}
+  .btn{width:95%;padding:0;font-size:20px;line-height:50px;margin-bottom:10px}
+  .btn .ic{font-size:20px}
+  .cards{display:none}
+  .guarantee{padding:35px 15px}
+  .guarantee .wrap{flex-direction:column;max-width:360px}
+  .badge{flex:none;width:100%}
+  .g-text>div{max-width:93%}
+.g-text h3{font-size:28px}
+  .g-text p{font-size:18px;line-height:1.2}
+  .seals{justify-content:center;align-self:stretch}
+  .seals img{width:55px}
+}
