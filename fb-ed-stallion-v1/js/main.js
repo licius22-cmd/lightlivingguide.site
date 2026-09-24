@@ -21,21 +21,38 @@
   document.addEventListener('touchstart', tap);
   document.addEventListener('click', tap);
 
-  // Libera as ofertas no tempo do pitch
-  function show() {
+  // Rola suavemente até o STEP 1
+  function scrollToStep() {
+    // Se o vídeo estiver em tela cheia, sai dela antes de rolar
+    if (document.fullscreenElement && document.exitFullscreen) {
+      document.exitFullscreen().catch(function () {});
+    }
+    // Espera o navegador renderizar as ofertas antes de rolar
+    setTimeout(function () {
+      var step = document.querySelector('.step');
+      if (step) step.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 150);
+  }
+
+  // Libera as ofertas (scroll = true só quando dispara pelo pitch)
+  function show(scroll) {
     offer.hidden = false;
     try { localStorage.setItem(KEY, 'true'); } catch (e) {}
+    if (scroll) scrollToStep();
   }
+
+  // Quem já viu as ofertas antes: mostra direto, sem rolar
   var seen = false;
   try { seen = localStorage.getItem(KEY) === 'true'; } catch (e) {}
-  if (seen) return show();
+  if (seen) return show(false);
 
+  // Observa o vídeo e dispara no tempo do pitch
   var tries = 0;
   (function watch() {
     var sp = window.smartplayer, pl = sp && sp.instances && sp.instances[0];
     if (!pl) return ++tries <= 10 && setTimeout(watch, 1000);
     pl.on('timeupdate', function () {
-      if (offer.hidden && !pl.smartAutoPlay && pl.video.currentTime >= PITCH) show();
+      if (offer.hidden && !pl.smartAutoPlay && pl.video.currentTime >= PITCH) show(true);
     });
   })();
 })();
