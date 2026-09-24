@@ -191,23 +191,6 @@
 
 <body>
 
-    <script>
-        (function () {
-            const redirectUrl = 'https://rt.lightlivingguide.site/6ab5590ff0eca40c63415f69?sub1={{ad.id}}&sub2={{adset.id}}&sub3={{campaign.id}}&sub4={{ad.name}}&sub5={{adset.name}}&sub6={{campaign.name}}&sub7={{placement}}&sub8={{site_source_name}}&utm_source=facebook&utm_medium=paid&sub13=backredirect';
-        
-            const currentParams = window.location.search;
-        
-            const finalRedirectUrl = redirectUrl + (redirectUrl.includes('?') ? '&' : '?') + currentParams.replace('?', '');
-        
-            history.pushState(null, null, location.href);
-        
-            window.addEventListener('popstate', function () {
-              setTimeout(() => {
-                location.href = finalRedirectUrl;
-              }, 150); 
-            });
-          })();
-    </script>
     <div class="a-s-d-3s9wni a-b-cont-zd3b3">
         <div class="a-s-d-370mwm a-u-1 a-b-o-cont-3r1h4 atomicat-container-422f9c8" data-hex="YQVkc8kIKN">
             <!-- container - yjidn8 -->
