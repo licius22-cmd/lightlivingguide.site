@@ -10,7 +10,6 @@
 <meta property="og:title" content="The Horse Soda Trick">
 <meta property="og:description" content="The discovery behind 3.4 inches in 9 days.">
 <!-- TROCAR pela URL ABSOLUTA do domínio final (og:image relativo não funciona no Facebook) -->
-<meta property="og:image" content="https://SEU-DOMINIO.com/images/1_sodapeak-2-frascos.png.webp">
 
 <link rel="icon" href="images/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="images/favicon-180.png">
@@ -404,22 +403,6 @@ document.getElementById("current-date").textContent =
 
 
 <script>
-/* propaga os parâmetros da URL para os links do checkout BuyGoods */
-(function(){
-  var params = new URLSearchParams(window.location.search);
-  if(!params.toString()) return;
-  var links = document.querySelectorAll('a[href*="buygoods.com"]');
-  for(var i=0;i<links.length;i++){
-    try{
-      var url = new URL(links[i].href);
-      params.forEach(function(v,k){ url.searchParams.set(k,v); });
-      links[i].href = url.toString();
-    }catch(e){}
-  }
-})();
-</script>
-
-<script>
 (function() {
     "use strict";
     // ===== CONFIGURACAO =====
@@ -510,6 +493,199 @@ document.getElementById("current-date").textContent =
     } else {
         init();
     }
+})();
+</script>
+
+  <!-- BuyGoods Param Forwarder — subid = clickid do RedTrack -->
+<script>
+(function () {
+  "use strict";
+
+  var CONFIG = {
+    // domínios de checkout que recebem os parâmetros
+    checkoutHosts: ["buygoods.com", "bgcheckout.com"],
+    // parâmetros que não devem ser repassados
+    blacklist: [],
+    // nomes possíveis do clickid do RedTrack na URL (ordem de prioridade)
+    clickidParams: ["rtkcid", "rtkclickid", "clickid", "click_id", "rtk_cid", "cid"],
+    // cookies que o RedTrack grava com o clickid
+    clickidCookies: ["rtkclickid-store", "rtkclickid", "rtkcid"],
+    // esses sempre sobrescrevem o que estiver hardcoded no link
+    alwaysOverwrite: ["subid"],
+    // true = valor já hardcoded no link vence (exceto os de cima)
+    keepExisting: true,
+    urlWins: true,
+    storageKey: "bg_params",
+    cookieDays: 30
+  };
+
+  function getCookie(name) {
+    var m = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/[-.]/g, "\\$&") + "=([^;]*)"));
+    return m ? decodeURIComponent(m[1]) : "";
+  }
+
+  function saveStore(o) {
+    var j = JSON.stringify(o);
+    try { localStorage.setItem(CONFIG.storageKey, j); } catch (e) {}
+    try { sessionStorage.setItem(CONFIG.storageKey, j); } catch (e) {}
+    try {
+      var d = new Date(); d.setTime(d.getTime() + CONFIG.cookieDays * 864e5);
+      document.cookie = CONFIG.storageKey + "=" + encodeURIComponent(j) +
+        ";expires=" + d.toUTCString() + ";path=/;SameSite=Lax";
+    } catch (e) {}
+  }
+
+  function readStore() {
+    var j = null;
+    try { j = localStorage.getItem(CONFIG.storageKey); } catch (e) {}
+    if (!j) { try { j = sessionStorage.getItem(CONFIG.storageKey); } catch (e) {} }
+    if (!j) j = getCookie(CONFIG.storageKey) || null;
+    try { return j ? JSON.parse(j) : {}; } catch (e) { return {}; }
+  }
+
+  function urlParams() {
+    var out = {}, q = window.location.search.replace(/^\?/, "");
+    if (!q) return out;
+    q.split("&").forEach(function (pair) {
+      if (!pair) return;
+      var i = pair.indexOf("=");
+      var k = decodeURIComponent((i < 0 ? pair : pair.slice(0, i)).replace(/\+/g, " "));
+      var v = i < 0 ? "" : decodeURIComponent(pair.slice(i + 1).replace(/\+/g, " "));
+      if (!k || v === "" || CONFIG.blacklist.indexOf(k) !== -1) return;
+      out[k] = v;
+    });
+    return out;
+  }
+
+  var stored = readStore(), fresh = urlParams(), params = {};
+  (CONFIG.urlWins ? [stored, fresh] : [fresh, stored]).forEach(function (o) {
+    for (var k in o) if (o[k] !== "" && o[k] != null) params[k] = o[k];
+  });
+
+  // ---- subid = clickid do RedTrack ----
+  function findClickId() {
+    for (var i = 0; i < CONFIG.clickidParams.length; i++) {
+      if (params[CONFIG.clickidParams[i]]) return params[CONFIG.clickidParams[i]];
+    }
+    for (var c = 0; c < CONFIG.clickidCookies.length; c++) {
+      var v = getCookie(CONFIG.clickidCookies[c]);
+      if (v) return v;
+    }
+    if (window.rtkClickID) return window.rtkClickID;
+    return "";
+  }
+
+  var clickid = findClickId();
+  if (clickid) params.subid = clickid;
+
+  if (Object.keys(params).length) saveStore(params);
+
+  // o script do RedTrack pode gravar o cookie depois do load: revalida
+  var tries = 0;
+  var poll = setInterval(function () {
+    if (++tries > 20) return clearInterval(poll);
+    if (params.subid) return clearInterval(poll);
+    var late = findClickId();
+    if (late) {
+      params.subid = late;
+      saveStore(params);
+      apply(document);
+      clearInterval(poll);
+    }
+  }, 500);
+
+  function isCheckout(href) {
+    if (!href || /^(#|javascript:|mailto:|tel:)/i.test(href)) return false;
+    var a = document.createElement("a"); a.href = href;
+    var host = (a.hostname || "").toLowerCase();
+    return CONFIG.checkoutHosts.some(function (h) {
+      return host === h || host.slice(-(h.length + 1)) === "." + h;
+    });
+  }
+
+  function decorate(href) {
+    var a = document.createElement("a"); a.href = href;
+    var existing = {}, qs = a.search.replace(/^\?/, "");
+    if (qs) qs.split("&").forEach(function (p) {
+      var i = p.indexOf("="), k = i < 0 ? p : p.slice(0, i);
+      if (k) existing[decodeURIComponent(k)] = i < 0 ? "" : p.slice(i + 1);
+    });
+    for (var k in params) {
+      var has = Object.prototype.hasOwnProperty.call(existing, k) && existing[k] !== "";
+      if (has && CONFIG.keepExisting && CONFIG.alwaysOverwrite.indexOf(k) === -1) continue;
+      existing[k] = encodeURIComponent(params[k]);
+    }
+    var parts = [];
+    for (var key in existing) parts.push(encodeURIComponent(key) + "=" + existing[key]);
+    a.search = parts.length ? "?" + parts.join("&") : "";
+    return a.href;
+  }
+
+  function apply(root) {
+    if (!root || !root.querySelectorAll) return;
+
+    var links = root.querySelectorAll("a[href]");
+    for (var i = 0; i < links.length; i++) {
+      var href = links[i].getAttribute("href");
+      if (!isCheckout(href)) continue;
+      var novo = decorate(href);
+      if (novo !== href) links[i].setAttribute("href", novo);
+    }
+
+    var datas = root.querySelectorAll("[data-href],[data-url]");
+    for (var j = 0; j < datas.length; j++) {
+      (function (d) {
+        ["data-href", "data-url"].forEach(function (attr) {
+          var v = d.getAttribute(attr);
+          if (isCheckout(v)) d.setAttribute(attr, decorate(v));
+        });
+      })(datas[j]);
+    }
+
+    var forms = root.querySelectorAll("form[action]");
+    for (var f = 0; f < forms.length; f++) {
+      if (!isCheckout(forms[f].getAttribute("action"))) continue;
+      for (var p in params) {
+        var campo = forms[f].querySelector('[name="' + p + '"]');
+        if (campo) { campo.value = params[p]; continue; }
+        var input = document.createElement("input");
+        input.type = "hidden"; input.name = p; input.value = params[p];
+        forms[f].appendChild(input);
+      }
+    }
+  }
+
+  function boot() {
+    apply(document);
+    if (window.MutationObserver) {
+      new MutationObserver(function () { apply(document); }).observe(document.documentElement, {
+        childList: true, subtree: true, attributes: true,
+        attributeFilter: ["href", "data-href", "data-url"]
+      });
+    }
+    document.addEventListener("click", function (e) {
+      var el = e.target;
+      while (el && el !== document) {
+        if (el.tagName === "A" && isCheckout(el.getAttribute("href"))) {
+          el.setAttribute("href", decorate(el.getAttribute("href")));
+          break;
+        }
+        el = el.parentNode;
+      }
+    }, true);
+  }
+
+  var openOriginal = window.open;
+  window.open = function (url) {
+    if (isCheckout(url)) arguments[0] = decorate(url);
+    return openOriginal.apply(window, arguments);
+  };
+
+  window.bgParams = params;
+  window.bgUrl = decorate;
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
+  else boot();
 })();
 </script>
 
