@@ -1,6 +1,6 @@
 /* =============================================================
  * SlimRise matcha VSL — page script
- * 1. VSL reveal   2. offer countdown   3. comment wall
+ * 1. VSL reveal   2. offer countdown   3. comment wall + auto-scroll
  * No tracking of any kind. The checkout links are plain hrefs.
  * ============================================================= */
 (function () {
@@ -36,18 +36,37 @@
 		io.observe(el);
 	})();
 
-	/* ---------- 3. hide the comment wall once the offer is showing ---------- */
-	(function comments() {
+	/* ---------- 3. when the offer appears: hide the comment wall and
+	 *              scroll the kits into view.
+	 *              The scroll only fires on a reveal that happens while the
+	 *              visitor is on the page — never on a reload where the
+	 *              player's "persist" flag shows the offer immediately.
+	 * ------------------------------------------------------------------ */
+	(function onReveal() {
 		var offer = document.querySelector('.esconder');
+		if (!offer) return;
 		var wall = document.getElementById('fb-comments');
-		if (!offer || !wall) return;
-		var hide = function () {
-			if (getComputedStyle(offer).display === 'none') return false;
-			wall.style.display = 'none';
+		var kits = document.getElementById('scrolldown') || offer;
+		var visible = function () { return getComputedStyle(offer).display !== 'none'; };
+		var wasHidden = !visible();
+
+		var run = function () {
+			if (!visible()) return false;
+			if (wall) wall.style.display = 'none';
+			if (wasHidden) {
+				// let the cards lay out before measuring the target
+				requestAnimationFrame(function () {
+					setTimeout(function () {
+						try { kits.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+						catch (e) { kits.scrollIntoView(true); }
+					}, 120);
+				});
+			}
 			return true;
 		};
-		if (hide()) return;
-		var mo = new MutationObserver(function () { if (hide()) mo.disconnect(); });
+
+		if (run()) return;
+		var mo = new MutationObserver(function () { if (run()) mo.disconnect(); });
 		mo.observe(offer, { attributes: true, attributeFilter: ['style', 'class'] });
 	})();
 })();
