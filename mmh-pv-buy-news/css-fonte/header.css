@@ -1,0 +1,158 @@
+/* ==========================================================================
+   Topo do artigo (barra de navegacao + manchete) e area do player.
+   Reescrito a partir do markup gerado pelo Elementor — mesmos valores
+   computados, sem o framework.
+   Breakpoints originais do Elementor: 767px (mobile) e 1024px (tablet).
+   ========================================================================== */
+
+.topbar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: #fff;
+}
+
+.topbar__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 95%;
+  margin-inline: auto;
+}
+
+.topbar__left,
+.topbar__right {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+}
+
+.topbar__left  { justify-content: flex-start; }
+.topbar__right { justify-content: flex-end; }
+
+/* icones avulsos (menu / busca) */
+.topbar__icon {
+  display: inline-block;
+  color: #000;
+  text-align: center;
+  line-height: 1;
+}
+.topbar__icon svg { display: block; width: 1em; height: 1em; fill: currentColor; }
+.topbar__icon--menu   { font-size: 24px; }
+.topbar__icon--search { font-size: 18px; }
+
+/* marca: logo CNN + "Health" */
+.brand {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 10px;
+  padding: 10px;
+}
+.brand__logo { display: block; width: 46px; height: 22px; }
+.brand__name {
+  margin: 0;
+  font: 700 18px/1 Helvetica, Arial, sans-serif;
+  color: #000;
+}
+
+/* menus */
+/* visibilidade padrao (equivalente a elementor-hidden-tablet / -mobile);
+   as media queries abaixo reexibem cada um no seu breakpoint */
+.topbar__nav--primary   { display: none; }
+.topbar__nav--secondary { display: none; }
+
+.topbar__nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -12px;
+  padding: 0;
+  list-style: none;
+}
+.topbar__nav li {
+  display: flex;
+  align-items: center;
+  margin: 0 12px;
+}
+.topbar__nav-icon { display: flex; align-items: center; }
+.topbar__nav-icon svg { display: block; }
+
+/* cada icone tem tamanho e cor proprios, como no original */
+.topbar__nav-icon--chevron        { order: 2; padding-left: 3.5px; }   /* fica depois do texto */
+.topbar__nav-icon--chevron svg    { width: 14px; height: 14px; fill: #8c8c8c; }
+.topbar__nav-icon--dot svg        { width: 8px;  height: 8px;  fill: #f00; }
+.topbar__nav-icon--phones svg     { width: 16px; height: 16px; fill: #000; }
+
+.topbar__nav--primary a,
+.topbar__nav--primary span:not(.topbar__nav-icon) {
+  font: 600 15px/1.5 Helvetica, Arial, sans-serif;
+  color: #0c0c0c;
+}
+.topbar__nav--secondary span:not(.topbar__nav-icon) {
+  padding-left: 5px;
+  font: 600 14px/1.5 Helvetica, Arial, sans-serif;
+  color: #000;
+}
+
+/* botao Sign In */
+.btn-signin {
+  display: block;
+  padding: 10px;
+  border: 1px solid #c4c4c4;
+  border-radius: 10px;
+  background: #fff;
+  font: 700 14px/1 Sora, Helvetica, Arial, sans-serif;
+  color: #000;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* regua e manchete ocupam a linha inteira do flex */
+.topbar__rule {
+  width: 100%;
+  margin: 0 0 22px;
+  border: 0;
+  border-top: 2px solid #000;
+}
+
+.article-headline {
+  width: 100%;
+  margin: -8px 0 16px;
+  font: 700 30px/33px "Nunito Sans", Helvetica, Arial, sans-serif;
+  color: #000;
+  text-align: left;
+}
+
+/* area do player */
+.player { padding-inline: 10px; }
+.player__inner {
+  width: 100%;
+  max-width: 800px;
+  margin-inline: auto;
+  padding: 10px 0 30px;
+}
+
+/* --- tablet para cima (Watch/Listen aparecem) --- */
+@media (min-width: 768px) {
+  .topbar__inner   { align-items: normal; max-width: 650px; width: 100%; }
+  .topbar__nav--secondary { display: block; }
+  .topbar__right   { width: 50%; }
+  .topbar__left,
+  .topbar__right   { flex-wrap: nowrap; }
+  .brand           { flex-wrap: nowrap; }
+  .btn-signin      { padding: 12px 24px; }
+  .article-headline{ font-size: 37px; line-height: 55.5px; }
+  .player          { padding-inline: 20px; }
+  .player__inner   { padding: 20px 0 40px; }
+}
+
+/* --- desktop (menu principal aparece) --- */
+@media (min-width: 1025px) {
+  .topbar__inner        { max-width: 1050px; justify-content: center; }
+  .topbar__nav--primary { display: block; }
+  .topbar__left         { width: 69%; }
+  .topbar__right        { width: 30%; }
+  .player               { padding-inline: 0; }
+  .player__inner        { padding: 20px 0; }
+}
