@@ -19,7 +19,7 @@ if (CONFIG.backRedirect) {
   var player = $('vturb-smartplayer');
   if (player) {
     player.addEventListener('player:ready', function () {
-      player.displayHiddenElements(player.config.pitchTime, ['.esconder'], { persist: true });
+      player.displayHiddenElements(1, ['.esconder'], { persist: true });
     });
   }
   // Quando o quiz aparecer: esconde comentários e rola até ele
