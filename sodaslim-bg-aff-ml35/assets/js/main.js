@@ -1,7 +1,12 @@
 /* =========================================================
    CONFIG — edite aqui
    ========================================================= */
-
+var CONFIG = {
+  // Segundo do vídeo em que o pitch (quiz) é liberado. Ex.: 450 = 7min30s.
+  // Deixe null para usar o tempo configurado no painel da VTurb.
+  pitchSeconds: 2271,
+  // Back-redirect (botão voltar). Deixe '' para desativar.
+};
 
 var $ = function (sel, ctx) { return (ctx || document).querySelector(sel); };
 var $$ = function (sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); };
@@ -19,7 +24,8 @@ if (CONFIG.backRedirect) {
   var player = $('vturb-smartplayer');
   if (player) {
     player.addEventListener('player:ready', function () {
-      player.displayHiddenElements(1, ['.esconder'], { persist: true });
+      var pitch = CONFIG.pitchSeconds != null ? CONFIG.pitchSeconds : player.config.pitchTime;
+      player.displayHiddenElements(pitch, ['.esconder'], { persist: true });
     });
   }
   // Quando o quiz aparecer: esconde comentários e rola até ele
