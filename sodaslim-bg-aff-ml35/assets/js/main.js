@@ -1,10 +1,7 @@
 /* =========================================================
    CONFIG — edite aqui
    ========================================================= */
-var CONFIG = {
-  // Back-redirect (botão voltar). Deixe '' para desativar.
-  backRedirect: 'https://1vuyt.ttrk.io/6a4037a20d3c62193090d3ea'
-};
+
 
 var $ = function (sel, ctx) { return (ctx || document).querySelector(sel); };
 var $$ = function (sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); };
