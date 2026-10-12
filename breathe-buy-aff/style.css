@@ -3,7 +3,7 @@
 body{font:16px/1.5 Arial,sans-serif;background:#fff;color:#000}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%;height:auto}
-[hidden],.js-delay{display:none!important}
+[hidden]{display:none!important}
 /* Cabecalho */
 .site-header,.logos{max-width:1140px;margin:auto}
 .site-header{border-bottom:1px solid #e2e2e2}
@@ -19,11 +19,7 @@ img{display:block;max-width:100%;height:auto}
 .sub-nav-right-box{display:flex;align-items:center;gap:8px;height:100%;margin-left:auto;padding:0 24px;border-left:1px solid #e2e2e2;font-weight:600}
 /* Video */
 .video-section{padding:16px 0}
-.player{position:relative;max-width:400px;margin:auto;background:#000;border-radius:20px;overflow:hidden;aspect-ratio:4/5}
-#site-video{display:block;width:100%;height:100%;object-fit:contain}
-.video-start{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);padding:14px 24px;border:2px solid #fff;border-radius:8px;background:#d00;color:#fff;font:bold 18px Arial;cursor:pointer}
-.video-start:disabled{opacity:.75;cursor:wait}
-.video-status{position:absolute;bottom:54px;left:12px;right:12px;padding:8px;background:#000c;color:#fff;text-align:center;font-size:14px}
+.player{max-width:400px;margin:auto}
 /* Logos */
 .logos{padding:40px 20px;text-align:center}
 .logos-title{font-size:14px;font-weight:800;letter-spacing:2px;margin-bottom:25px}
