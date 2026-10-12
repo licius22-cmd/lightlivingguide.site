@@ -59,6 +59,7 @@ img{display:block;max-width:100%;height:auto}
 .btn:hover{filter:brightness(.95)}
 .pay{width:78%;max-width:230px;margin:10px auto 0}
 .only-desktop{display:none}
+/* Celular: 6, 3 e 2 potes */
 .featured{order:1}
 .good{order:2}
 .basic{order:3}
@@ -98,7 +99,10 @@ img{display:block;max-width:100%;height:auto}
 /* Computador: 2, 6 e 3 potes lado a lado */
 @media(min-width:769px){
 .offers{display:grid;grid-template-columns:repeat(3,minmax(0,330px));align-items:start;justify-content:center;gap:16px;max-width:1140px;padding-bottom:40px}
-.card{order:0;min-width:0}
+.card{min-width:0}
+.basic{order:1}
+.featured{order:2}
+.good{order:3}
 .featured{margin-top:-28px}
 .body{display:flex;flex-direction:column;padding:0 0 14px}
 .grid,.left,.right{display:contents}
