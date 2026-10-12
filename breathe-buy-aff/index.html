@@ -63,7 +63,7 @@
             <div class="logo-item" title="CBS"><img alt="CBS" class="logo" src="assets/cbs.webp" width="64" height="64" decoding="async" loading="lazy"></div>
         </div>
     </div>
-    <section class="offers" id="potes">
+    <section class="offers esconder" id="potes">
         <article class="card basic">
             <div class="bar only-desktop">Basic</div>
             <div class="body">
@@ -147,6 +147,21 @@
         <div class="comments-title">3,158 Comments</div>
     </div>
 
+    <style>
+  .esconder {
+    display: none;
+  }
+</style>
+
+<script>
+  var delaySeconds = 2913;
+  var player = document.querySelector("vturb-smartplayer");
+  player.addEventListener("player:ready", function() {
+    player.displayHiddenElements(delaySeconds, [".esconder"], {
+      persist: true
+    });
+  });
+</script>
 
     <script>
 (function() {
