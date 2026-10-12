@@ -63,6 +63,9 @@ img{display:block;max-width:100%;height:auto}
 .btn:hover{filter:brightness(.95)}
 .pay{width:78%;max-width:230px;margin:10px auto 0}
 .only-desktop{display:none}
+.featured{order:1}
+.good{order:2}
+.basic{order:3}
 /* Comentarios */
 .comments{max-width:800px;margin:auto;padding:20px;color:#333;font-family:Helvetica,Arial,sans-serif}
 .comments-header{border-bottom:1px solid #ddd;padding-bottom:12px;margin-bottom:15px}
@@ -96,13 +99,11 @@ img{display:block;max-width:100%;height:auto}
 .logos-list{gap:25px}
 .logo{height:26px}
 }
-/* Ofertas em telas grandes */
-@media(min-width:900px){
-.offers{flex-direction:row;align-items:flex-start;justify-content:center;gap:16px;max-width:1140px;padding-bottom:40px}
-.card{flex:1;max-width:330px}
-.basic{order:1}
-.featured{order:2;margin-top:-28px}
-.good{order:3}
+/* Computador: 2, 6 e 3 potes lado a lado */
+@media(min-width:769px){
+.offers{display:grid;grid-template-columns:repeat(3,minmax(0,330px));align-items:start;justify-content:center;gap:16px;max-width:1140px;padding-bottom:40px}
+.card{order:0;min-width:0}
+.featured{margin-top:-28px}
 .body{display:flex;flex-direction:column;padding:0 0 14px}
 .grid,.left,.right{display:contents}
 .qty{order:1;font-size:32px;margin-top:10px}
