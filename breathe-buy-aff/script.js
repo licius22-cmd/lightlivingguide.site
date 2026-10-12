@@ -1,5 +1,4 @@
 'use strict';
-const kits = [{"quantity":"6","variant":"featured","heading":"BEST VALUE","headingClass":"badge","label":"","supply":"6-month supply","price":"49","save":"YOU SAVE $780!","oldTotal":"$1074","total":"$294","shipping":"+FREE SHIPPING"},{"quantity":"3","variant":"good","heading":"Good Value","headingClass":"bar only-desktop","label":"Most Popular","supply":"3-month supply","price":"69","save":"YOU SAVE 330!","oldTotal":"$537","total":"$207","shipping":"+FREE SHIPPING"},{"quantity":"2","variant":"basic","heading":"Basic","headingClass":"bar only-desktop","label":"Basic","supply":"2-month supply","price":"79","save":"YOU SAVE $200!","oldTotal":"$358","total":"$158","shipping":"+$9.99 SHIPPING"}];
 // Nome, comentario, tempo, curtidas, resposta.
 const comments = [
 ["Robert Martinez","I swear I thought this was just another one of those long boring scam videos... But hearing about the real Vick VaporRub trick actually made me stay and watch. When he showed why expensive inhalers never worked I was like omg that's literally me","2h","42",""],
@@ -19,12 +18,6 @@ const comments = [
 ];
 const escape = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const fill = (template, item) => template.replace(/{{(\w+)}}/g, (_, key) => escape(item[key]));
-
-document.querySelector('.offers').innerHTML = kits.map(kit => fill(`
-<article class="card {{variant}}"><div class="{{headingClass}}">{{heading}}</div><div class="body">
-<div class="grid"><div class="left"><span class="label">{{label}}</span><h3 class="qty">{{quantity}} BOTTLE${kit.quantity === "2" ? "S" : ""}</h3><p class="supply">{{supply}}</p><img class="bottles" src="assets/kit-{{quantity}}-300.webp" srcset="assets/kit-{{quantity}}-300.webp 300w, assets/kit-{{quantity}}-600.webp 600w" sizes="(min-width:900px) 271px,210px" width="600" height="600" alt="{{quantity}} bottles of Breathizen" loading="lazy" decoding="async"></div>
-<div class="right"><div class="price"><span class="price__cur">$</span><span class="price__num">{{price}}</span><span class="price__per">PER<br>BOTTLE</span></div><ul class="benefits"><li class="save">{{save}}</li>${kit.variant === "featured" ? "<li>BIGGEST DISCOUNT</li>" : ""}<li>MONEY-BACK GUARANTEE</li></ul><p class="total">total: <s>{{oldTotal}}</s> <b>{{total}}</b><span class="ship">{{shipping}}</span></p></div></div>
-<a class="btn {{button}}" href="{{href}}">BUY NOW</a><img class="pay only-desktop" src="assets/payment-06.webp" width="391" height="57" alt="" loading="lazy" decoding="async"></div></article>`, {...kit, href: "https://buygoods.com/secure/checkout.html?account_id=13186&product_codename=" + 'PP_BTZ' + kit.quantity + 'UNITS_AFF' + "&redirect=aHR0cHM6Ly9pbXByb3ZpbmdvdXJoZWFsdGguY29tL2J0ei1hZmYtYnV5LXVwMS8=", button:kit.variant === 'featured' ? 'btn--yellow' : 'btn--grey'})).join('');
 
 const commentTemplate = `<div class="comment {{reply}}"><img class="avatar" src="assets/{{image}}" width="80" height="80" alt="{{name}}" loading="lazy" decoding="async"><div class="bubble"><span class="author">{{name}}</span><div class="message">{{text}}</div><div class="actions"><span>Like</span> · <span>Reply</span> · <span>{{time}}</span></div><div class="reactions"><img src="assets/reactions.webp" width="80" height="52" alt="Reactions" loading="lazy" decoding="async"><span>{{likes}}</span></div></div></div>`;
 document.querySelector('.comments').insertAdjacentHTML('beforeend', comments.map(([name,text,time,likes,reply]) => fill(commentTemplate, {name,text,time,likes,reply,image:name.toLowerCase().replaceAll(' ','-')+'.webp'})).join(''));
