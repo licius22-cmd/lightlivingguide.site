@@ -1,0 +1,6 @@
+# Coloque este arquivo na raiz de saída do Cloudflare Pages.
+/assets/*
+  Cache-Control: public, max-age=86400, must-revalidate
+
+/breathe-buy-aff/assets/*
+  Cache-Control: public, max-age=86400, must-revalidate
