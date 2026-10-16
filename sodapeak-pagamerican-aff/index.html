@@ -396,7 +396,83 @@ document.getElementById("current-date").textContent =
 })();
 </script>
 
+<!-- BackRedirect -->
+<script>
+(function () {
+  // ===== CONFIG =====
+  var BACK_URL   = "https://rt.lightlivingguide.site/6ab5590ff0eca40c63415f69";
+  var DELAY_MS   = 0;      // ex.: 15000 = só arma após 15s na página
+  var ONLY_ONCE  = true;   // dispara no máximo 1x por sessão
+  var PASS_CLICKID_AS = "sub9"; // repassa o clickid original; "" para desativar
+  // ==================
 
+  var KEY = "br_fired";
+  try { if (ONLY_ONCE && sessionStorage.getItem(KEY)) return; } catch (e) {}
+
+  // Monta a URL final com os parâmetros reais que chegaram na VSL
+  var params = new URLSearchParams(window.location.search);
+  var clickid = params.get("rtkcid") || params.get("clickid");
+
+  ["rtkcid", "rtkcmpid", "clickid", "cmpid"].forEach(function (p) { params.delete(p); });
+
+  // Remove macros não resolvidas ({{ad.id}}, {sub1}, vazias)
+  Array.from(params.keys()).forEach(function (k) {
+    var v = params.get(k);
+    if (!v || /[{}]/.test(v)) params.delete(k);
+  });
+
+  if (PASS_CLICKID_AS && clickid) params.set(PASS_CLICKID_AS, clickid);
+  if (!params.get("utm_source")) params.set("utm_source", "facebook");
+  if (!params.get("utm_medium")) params.set("utm_medium", "paid");
+
+  var finalUrl = BACK_URL + "?" + params.toString();
+  var startHash = location.hash;
+
+  var pushedOnLoad = false, pushedOnGesture = false, ready = false;
+
+  function push() {
+    history.pushState({ br: 1 }, "", location.href);
+  }
+
+  function armOnLoad() {
+    if (pushedOnLoad) return;
+    pushedOnLoad = true;
+    push();
+  }
+
+  // Uma única entrada extra criada com gesto do usuário (o Chrome respeita esta)
+  function onGesture() {
+    if (pushedOnGesture || !ready) return;
+    pushedOnGesture = true;
+    push();
+    ["click", "touchstart", "keydown"].forEach(function (ev) {
+      window.removeEventListener(ev, onGesture, true);
+    });
+  }
+
+  function start() {
+    ready = true;
+    armOnLoad();
+    ["click", "touchstart", "keydown"].forEach(function (ev) {
+      window.addEventListener(ev, onGesture, { capture: true, passive: true });
+    });
+  }
+
+  window.addEventListener("popstate", function () {
+    if (!ready) return;
+    if (location.hash !== startHash) return; // ignora navegação por âncora
+    try { if (ONLY_ONCE) sessionStorage.setItem(KEY, "1"); } catch (e) {}
+    window.location.replace(finalUrl);
+  });
+
+  // Rearma quando a página volta do cache (Safari/mobile)
+  window.addEventListener("pageshow", function (e) {
+    if (e.persisted && ready) { pushedOnLoad = false; pushedOnGesture = false; armOnLoad(); }
+  });
+
+  if (DELAY_MS > 0) setTimeout(start, DELAY_MS); else start();
+})();
+</script>
 
 
 </body>
