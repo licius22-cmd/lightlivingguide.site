@@ -61,9 +61,9 @@
 (function () {
   var INTERVAL_BETWEEN = 10, VISIBLE_TIME = 6;
   var IMAGES = {
-    2: "https://media.atomicatmedia.net/u/YQVkc8kIKNg1FqNBs118YfB2XUC3/Pictures/FhwevH2819502.png",
-    3: "https://media.atomicatmedia.net/u/YQVkc8kIKNg1FqNBs118YfB2XUC3/Pictures/fCesxM2819502.png",
-    6: "https://media.atomicatmedia.net/u/YQVkc8kIKNg1FqNBs118YfB2XUC3/Pictures/vvcWfX2819502.png"
+    2: "images/2_sodapeak-2-frascos-300x300.png.webp",
+    3: "images/15_sodapeak-3-frascos-300x300.png.webp",
+    6: "images/8_sodapeak-6-frascos-300x300.png.webp"
   };
   var PEOPLE = ["Benjamin","Michael","James","William","Daniel","Christopher","David","Henry","John","Robert","Thomas","Joseph","Matthew","Anthony","Mark","Richard","Charles","Paul","Steven","Andrew"];
   var CITIES = ["St. Louis, MO","Austin, TX","Denver, CO","Tampa, FL","Columbus, OH","Portland, OR","Tulsa, OK","Phoenix, AZ","Dallas, TX","Miami, FL"];
