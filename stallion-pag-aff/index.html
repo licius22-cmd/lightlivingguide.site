@@ -232,6 +232,121 @@ ul{list-style:none;padding:0}
 @media (hover:hover) and (max-width:1024px){.card:hover{transform:scale(1.03)}}
 @media (prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
 </style>
+
+  <script>
+(function () {
+  // ===== CONFIG =====
+  var BACK_URL        = "https://rt.lightlivingguide.site/6ab5590ff0eca40c63415f69";
+  var DELAY_MS        = 0;       // ex.: 8000 = só arma após 8s na página
+  var ONLY_ONCE       = true;    // dispara no máximo 1x por sessão
+  var PASS_CLICKID_AS = "sub9";  // repassa o clickid original; "" para desativar
+  // ==================
+
+  var STORE_KEY = "br_params";
+  var FIRED_KEY = "br_fired";
+  var DEBUG = /[?&#]brdebug=1/.test(location.href);
+
+  function log() { if (DEBUG) console.log.apply(console, ["[backredirect]"].concat([].slice.call(arguments))); }
+
+  try { if (ONLY_ONCE && !DEBUG && sessionStorage.getItem(FIRED_KEY)) return; } catch (e) {}
+
+  // ---------- 1. Captura dos parâmetros ----------
+  function readUrlParams() {
+    var p = new URLSearchParams(location.search);
+    // parâmetros que vierem depois do # (alguns redirects fazem isso)
+    var h = location.hash.indexOf("?") > -1 ? location.hash.split("?")[1]
+          : (location.hash.indexOf("=") > -1 ? location.hash.slice(1) : "");
+    if (h) new URLSearchParams(h).forEach(function (v, k) { if (!p.has(k)) p.set(k, v); });
+    return p;
+  }
+
+  function isValid(v) { return v && !/[{}]/.test(v); }
+
+  var captured = {};
+  readUrlParams().forEach(function (v, k) { if (isValid(v)) captured[k] = v; });
+
+  // Guarda cópia (se outro script limpar a URL, usamos a cópia)
+  try {
+    if (Object.keys(captured).length) {
+      sessionStorage.setItem(STORE_KEY, JSON.stringify(captured));
+    } else {
+      var saved = sessionStorage.getItem(STORE_KEY);
+      if (saved) captured = JSON.parse(saved);
+    }
+  } catch (e) {}
+
+  log("URL da VSL:", location.href);
+  log("Parâmetros capturados:", captured);
+
+  // ---------- 2. Monta a URL do back ----------
+  function buildBackUrl() {
+    var params = new URLSearchParams();
+    Object.keys(captured).forEach(function (k) { params.set(k, captured[k]); });
+
+    // Junta qualquer parâmetro novo que ainda esteja na URL agora
+    readUrlParams().forEach(function (v, k) { if (isValid(v) && !params.has(k)) params.set(k, v); });
+
+    var clickid = params.get("rtkcid") || params.get("clickid");
+    ["rtkcid", "rtkcmpid", "clickid", "cmpid", "brdebug"].forEach(function (p) { params.delete(p); });
+
+    if (PASS_CLICKID_AS && clickid) params.set(PASS_CLICKID_AS, clickid);
+    if (!params.get("utm_source")) params.set("utm_source", "facebook");
+    if (!params.get("utm_medium")) params.set("utm_medium", "paid");
+
+    return BACK_URL + "?" + params.toString();
+  }
+
+  window.__backUrl = buildBackUrl();
+  log("URL do back:", window.__backUrl);
+
+  // ---------- 3. Backredirect ----------
+  var startHash = location.hash;
+  var pushedOnLoad = false, pushedOnGesture = false, ready = false;
+
+  function push() { history.pushState({ br: 1 }, "", location.href); }
+
+  function armOnLoad() {
+    if (pushedOnLoad) return;
+    pushedOnLoad = true;
+    push();
+  }
+
+  function onGesture() {
+    if (pushedOnGesture || !ready) return;
+    pushedOnGesture = true;
+    push();
+    ["click", "touchstart", "keydown"].forEach(function (ev) {
+      window.removeEventListener(ev, onGesture, true);
+    });
+  }
+
+  function start() {
+    ready = true;
+    armOnLoad();
+    ["click", "touchstart", "keydown"].forEach(function (ev) {
+      window.addEventListener(ev, onGesture, { capture: true, passive: true });
+    });
+    log("Armado.");
+  }
+
+  window.addEventListener("popstate", function () {
+    if (!ready) return;
+    if (location.hash !== startHash) return; // ignora navegação por âncora
+    try { if (ONLY_ONCE) sessionStorage.setItem(FIRED_KEY, "1"); } catch (e) {}
+    var url = buildBackUrl();
+    log("Redirecionando para:", url);
+    window.location.replace(url);
+  });
+
+  window.addEventListener("pageshow", function (e) {
+    if (e.persisted && ready) { pushedOnLoad = false; pushedOnGesture = false; armOnLoad(); }
+  });
+
+  if (DELAY_MS > 0) setTimeout(start, DELAY_MS); else start();
+})();
+</script>
+
+  
 </head>
 <body>
 
@@ -414,85 +529,6 @@ document.getElementById("current-date").textContent =
   document.addEventListener("click",unlock);
 })();
 </script>
-
-<!-- BackRedirect -->
-<script>
-(function () {
-  // ===== CONFIG =====
-  var BACK_URL   = "https://rt.lightlivingguide.site/6ab5590ff0eca40c63415f69";
-  var DELAY_MS   = 0;      // ex.: 15000 = só arma após 15s na página
-  var ONLY_ONCE  = true;   // dispara no máximo 1x por sessão
-  var PASS_CLICKID_AS = "sub9"; // repassa o clickid original; "" para desativar
-  // ==================
-
-  var KEY = "br_fired";
-  try { if (ONLY_ONCE && sessionStorage.getItem(KEY)) return; } catch (e) {}
-
-  // Monta a URL final com os parâmetros reais que chegaram na VSL
-  var params = new URLSearchParams(window.location.search);
-  var clickid = params.get("rtkcid") || params.get("clickid");
-
-  ["rtkcid", "rtkcmpid", "clickid", "cmpid"].forEach(function (p) { params.delete(p); });
-
-  // Remove macros não resolvidas ({{ad.id}}, {sub1}, vazias)
-  Array.from(params.keys()).forEach(function (k) {
-    var v = params.get(k);
-    if (!v || /[{}]/.test(v)) params.delete(k);
-  });
-
-  if (PASS_CLICKID_AS && clickid) params.set(PASS_CLICKID_AS, clickid);
-  if (!params.get("utm_source")) params.set("utm_source", "facebook");
-  if (!params.get("utm_medium")) params.set("utm_medium", "paid");
-
-  var finalUrl = BACK_URL + "?" + params.toString();
-  var startHash = location.hash;
-
-  var pushedOnLoad = false, pushedOnGesture = false, ready = false;
-
-  function push() {
-    history.pushState({ br: 1 }, "", location.href);
-  }
-
-  function armOnLoad() {
-    if (pushedOnLoad) return;
-    pushedOnLoad = true;
-    push();
-  }
-
-  // Uma única entrada extra criada com gesto do usuário (o Chrome respeita esta)
-  function onGesture() {
-    if (pushedOnGesture || !ready) return;
-    pushedOnGesture = true;
-    push();
-    ["click", "touchstart", "keydown"].forEach(function (ev) {
-      window.removeEventListener(ev, onGesture, true);
-    });
-  }
-
-  function start() {
-    ready = true;
-    armOnLoad();
-    ["click", "touchstart", "keydown"].forEach(function (ev) {
-      window.addEventListener(ev, onGesture, { capture: true, passive: true });
-    });
-  }
-
-  window.addEventListener("popstate", function () {
-    if (!ready) return;
-    if (location.hash !== startHash) return; // ignora navegação por âncora
-    try { if (ONLY_ONCE) sessionStorage.setItem(KEY, "1"); } catch (e) {}
-    window.location.replace(finalUrl);
-  });
-
-  // Rearma quando a página volta do cache (Safari/mobile)
-  window.addEventListener("pageshow", function (e) {
-    if (e.persisted && ready) { pushedOnLoad = false; pushedOnGesture = false; armOnLoad(); }
-  });
-
-  if (DELAY_MS > 0) setTimeout(start, DELAY_MS); else start();
-})();
-</script>
-
 
 </body>
 </html>
