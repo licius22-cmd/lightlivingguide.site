@@ -240,6 +240,14 @@ ul{list-style:none;padding:0}
   var DELAY_MS        = 0;       // ex.: 8000 = só arma após 8s na página
   var ONLY_ONCE       = true;    // dispara no máximo 1x por sessão
   var PASS_CLICKID_AS = "sub9";  // repassa o clickid original; "" para desativar
+
+  // Se o sub não vier na URL, usa a UTM equivalente
+  var UTM_TO_SUB = {
+    sub4: "utm_content",   // nome do anúncio
+    sub5: "utm_medium",    // nome do conjunto
+    sub6: "utm_campaign",  // nome da campanha
+    sub7: "utm_term"       // posicionamento
+  };
   // ==================
 
   var STORE_KEY = "br_params";
@@ -253,7 +261,6 @@ ul{list-style:none;padding:0}
   // ---------- 1. Captura dos parâmetros ----------
   function readUrlParams() {
     var p = new URLSearchParams(location.search);
-    // parâmetros que vierem depois do # (alguns redirects fazem isso)
     var h = location.hash.indexOf("?") > -1 ? location.hash.split("?")[1]
           : (location.hash.indexOf("=") > -1 ? location.hash.slice(1) : "");
     if (h) new URLSearchParams(h).forEach(function (v, k) { if (!p.has(k)) p.set(k, v); });
@@ -265,7 +272,6 @@ ul{list-style:none;padding:0}
   var captured = {};
   readUrlParams().forEach(function (v, k) { if (isValid(v)) captured[k] = v; });
 
-  // Guarda cópia (se outro script limpar a URL, usamos a cópia)
   try {
     if (Object.keys(captured).length) {
       sessionStorage.setItem(STORE_KEY, JSON.stringify(captured));
@@ -282,9 +288,13 @@ ul{list-style:none;padding:0}
   function buildBackUrl() {
     var params = new URLSearchParams();
     Object.keys(captured).forEach(function (k) { params.set(k, captured[k]); });
-
-    // Junta qualquer parâmetro novo que ainda esteja na URL agora
     readUrlParams().forEach(function (v, k) { if (isValid(v) && !params.has(k)) params.set(k, v); });
+
+    // Preenche subs faltantes a partir das UTMs
+    Object.keys(UTM_TO_SUB).forEach(function (sub) {
+      var utm = UTM_TO_SUB[sub];
+      if (!params.get(sub) && params.get(utm)) params.set(sub, params.get(utm));
+    });
 
     var clickid = params.get("rtkcid") || params.get("clickid");
     ["rtkcid", "rtkcmpid", "clickid", "cmpid", "brdebug"].forEach(function (p) { params.delete(p); });
@@ -331,7 +341,7 @@ ul{list-style:none;padding:0}
 
   window.addEventListener("popstate", function () {
     if (!ready) return;
-    if (location.hash !== startHash) return; // ignora navegação por âncora
+    if (location.hash !== startHash) return;
     try { if (ONLY_ONCE) sessionStorage.setItem(FIRED_KEY, "1"); } catch (e) {}
     var url = buildBackUrl();
     log("Redirecionando para:", url);
