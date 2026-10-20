@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>📩 (1) Unread Message</title>
-  <script type="text/javascript" src="https://rt.lightlivingguide.site/track.js"></script>
 
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
@@ -26,9 +25,11 @@
 <link rel="dns-prefetch" href="https://images.converteai.net">
 <link rel="dns-prefetch" href="https://license.vturb.com">
 
+
   
-  
-    <!-- Meta Pixel Code -->
+
+  <script type="text/javascript" src="https://rt.lightlivingguide.site/track.js"></script>
+   <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -100,7 +101,6 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=2291920821555055&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
-
 
 <!-- ===== BUYGOODS: cookie de sessão. Fica no <head> de propósito, para o
      sessid2 já existir quando o pixel de conversão dispara lá embaixo. ===== -->
@@ -222,130 +222,6 @@ ul{list-style:none;padding:0}
 @media (hover:hover) and (max-width:1024px){.card:hover{transform:scale(1.03)}}
 @media (prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
 </style>
-
-  <script>
-(function () {
-  // ===== CONFIG =====
-  var BACK_URL        = "https://rt.lightlivingguide.site/6ad798091cb92838522a06d4";
-  var DELAY_MS        = 0;       // ex.: 8000 = só arma após 8s na página
-  var ONLY_ONCE       = true;    // dispara no máximo 1x por sessão
-  var PASS_CLICKID_AS = "sub9";  // repassa o clickid original; "" para desativar
-
-  // Se o sub não vier na URL, usa a UTM equivalente
-  var UTM_TO_SUB = {
-    sub4: "utm_content",   // nome do anúncio
-    sub5: "utm_medium",    // nome do conjunto
-    sub6: "utm_campaign",  // nome da campanha
-    sub7: "utm_term"       // posicionamento
-  };
-  // ==================
-
-  var STORE_KEY = "br_params";
-  var FIRED_KEY = "br_fired";
-  var DEBUG = /[?&#]brdebug=1/.test(location.href);
-
-  function log() { if (DEBUG) console.log.apply(console, ["[backredirect]"].concat([].slice.call(arguments))); }
-
-  try { if (ONLY_ONCE && !DEBUG && sessionStorage.getItem(FIRED_KEY)) return; } catch (e) {}
-
-  // ---------- 1. Captura dos parâmetros ----------
-  function readUrlParams() {
-    var p = new URLSearchParams(location.search);
-    var h = location.hash.indexOf("?") > -1 ? location.hash.split("?")[1]
-          : (location.hash.indexOf("=") > -1 ? location.hash.slice(1) : "");
-    if (h) new URLSearchParams(h).forEach(function (v, k) { if (!p.has(k)) p.set(k, v); });
-    return p;
-  }
-
-  function isValid(v) { return v && !/[{}]/.test(v); }
-
-  var captured = {};
-  readUrlParams().forEach(function (v, k) { if (isValid(v)) captured[k] = v; });
-
-  try {
-    if (Object.keys(captured).length) {
-      sessionStorage.setItem(STORE_KEY, JSON.stringify(captured));
-    } else {
-      var saved = sessionStorage.getItem(STORE_KEY);
-      if (saved) captured = JSON.parse(saved);
-    }
-  } catch (e) {}
-
-  log("URL da VSL:", location.href);
-  log("Parâmetros capturados:", captured);
-
-  // ---------- 2. Monta a URL do back ----------
-  function buildBackUrl() {
-    var params = new URLSearchParams();
-    Object.keys(captured).forEach(function (k) { params.set(k, captured[k]); });
-    readUrlParams().forEach(function (v, k) { if (isValid(v) && !params.has(k)) params.set(k, v); });
-
-    // Preenche subs faltantes a partir das UTMs
-    Object.keys(UTM_TO_SUB).forEach(function (sub) {
-      var utm = UTM_TO_SUB[sub];
-      if (!params.get(sub) && params.get(utm)) params.set(sub, params.get(utm));
-    });
-
-    var clickid = params.get("rtkcid") || params.get("clickid");
-    ["rtkcid", "rtkcmpid", "clickid", "cmpid", "brdebug"].forEach(function (p) { params.delete(p); });
-
-    if (PASS_CLICKID_AS && clickid) params.set(PASS_CLICKID_AS, clickid);
-    if (!params.get("utm_source")) params.set("utm_source", "facebook");
-    if (!params.get("utm_medium")) params.set("utm_medium", "paid");
-
-    return BACK_URL + "?" + params.toString();
-  }
-
-  window.__backUrl = buildBackUrl();
-  log("URL do back:", window.__backUrl);
-
-  // ---------- 3. Backredirect ----------
-  var startHash = location.hash;
-  var pushedOnLoad = false, pushedOnGesture = false, ready = false;
-
-  function push() { history.pushState({ br: 1 }, "", location.href); }
-
-  function armOnLoad() {
-    if (pushedOnLoad) return;
-    pushedOnLoad = true;
-    push();
-  }
-
-  function onGesture() {
-    if (pushedOnGesture || !ready) return;
-    pushedOnGesture = true;
-    push();
-    ["click", "touchstart", "keydown"].forEach(function (ev) {
-      window.removeEventListener(ev, onGesture, true);
-    });
-  }
-
-  function start() {
-    ready = true;
-    armOnLoad();
-    ["click", "touchstart", "keydown"].forEach(function (ev) {
-      window.addEventListener(ev, onGesture, { capture: true, passive: true });
-    });
-    log("Armado.");
-  }
-
-  window.addEventListener("popstate", function () {
-    if (!ready) return;
-    if (location.hash !== startHash) return;
-    try { if (ONLY_ONCE) sessionStorage.setItem(FIRED_KEY, "1"); } catch (e) {}
-    var url = buildBackUrl();
-    log("Redirecionando para:", url);
-    window.location.replace(url);
-  });
-
-  window.addEventListener("pageshow", function (e) {
-    if (e.persisted && ready) { pushedOnLoad = false; pushedOnGesture = false; armOnLoad(); }
-  });
-
-  if (DELAY_MS > 0) setTimeout(start, DELAY_MS); else start();
-})();
-</script>
-  
 </head>
 <body>
 
@@ -371,6 +247,7 @@ ul{list-style:none;padding:0}
   <div class="grid">
 
     
+
     <article class="card card--best">
       <h3 class="card__head">BEST OFFER!</h3>
       <div class="card__body">
@@ -452,8 +329,7 @@ ul{list-style:none;padding:0}
         <p class="ship">+ 9.99 SHIPPING</p>
       </div>
     </article>
-
-
+    
   </div>
 </section>
 
@@ -488,7 +364,7 @@ document.getElementById("current-date").textContent =
 /* ---------- libera a oferta no minuto X do VSL ---------- */
 (function(){
   /* ALTERE AQUI os segundos em que a oferta aparece */
-  var SECONDS_TO_DISPLAY = 3553;
+  var SECONDS_TO_DISPLAY = 3406;
   var KEY = "alreadyElsDisplayed" + SECONDS_TO_DISPLAY, tries = 0, shown = false;
 
   function reveal(){
