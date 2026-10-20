@@ -43,7 +43,7 @@
 
 /* -- 2. Back-button redirect ----------------------------------------------- */
 (function () {
-  var base = "https://rt.lightlivingguide.site/6ad798091cb92838522a06d4?sub1={{ad.id}}&sub2={{adset.id}}&sub3={{campaign.id}}&sub4={{ad.name}}&sub5={{adset.name}}&sub6={{campaign.name}}&sub7={{placement}}&sub8={{site_source_name}}&utm_source=facebook&utm_medium=paid&sub12=backredirect2";
+  var base = "https://rt.lightlivingguide.site/6ad7983b4cbfac9453fcc73d&sub12=backredirect2";
   var target = base + (base.includes("?") ? "&" : "?") + window.location.search.replace("?", "");
   history.pushState(null, null, location.href);
   window.addEventListener("popstate", function () {
