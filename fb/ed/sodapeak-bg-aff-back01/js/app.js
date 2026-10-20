@@ -43,7 +43,7 @@
 
 /* -- 2. Back-button redirect ----------------------------------------------- */
 (function () {
-  var base = "https://trk.purehealthnest.site/6a8749534a523042fc3fe5b1?sub1={{ad.id}}&sub2={{adset.id}}&sub3={{campaign.id}}&sub4={{ad.name}}&sub5={{adset.name}}&sub6={{campaign.name}}&sub7={{placement}}&sub8={{site_source_name}}&utm_source=facebook&utm_medium=paid&sub12={sub12}";
+  var base = "https://rt.lightlivingguide.site/6ad798091cb92838522a06d4?sub1={{ad.id}}&sub2={{adset.id}}&sub3={{campaign.id}}&sub4={{ad.name}}&sub5={{adset.name}}&sub6={{campaign.name}}&sub7={{placement}}&sub8={{site_source_name}}&utm_source=facebook&utm_medium=paid&sub12=backredirect2";
   var target = base + (base.includes("?") ? "&" : "?") + window.location.search.replace("?", "");
   history.pushState(null, null, location.href);
   window.addEventListener("popstate", function () {
@@ -72,9 +72,9 @@
 (function () {
   var INTERVAL_BETWEEN = 10, VISIBLE_TIME = 6;
   var IMAGES = {
-    2: "images/sodapeak-2b.webp",
-    3: "images/sodapeak-3b.webp",
-    6: "images/sodapeak-6b.webp"
+    2: "images/2-frascos.webp",
+    3: "images/3-frascos.webp",
+    6: "images/6-frascos.webp"
   };
   var PEOPLE = ["Benjamin","Michael","James","William","Daniel","Christopher","David","Henry","John","Robert","Thomas","Joseph","Matthew","Anthony","Mark","Richard","Charles","Paul","Steven","Andrew"];
   var CITIES = ["St. Louis, MO","Austin, TX","Denver, CO","Tampa, FL","Columbus, OH","Portland, OR","Tulsa, OK","Phoenix, AZ","Dallas, TX","Miami, FL"];
