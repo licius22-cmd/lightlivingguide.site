@@ -72,9 +72,9 @@
 (function () {
   var INTERVAL_BETWEEN = 10, VISIBLE_TIME = 6;
   var IMAGES = {
-    2: "images/2-frascos.webp",
-    3: "images/3-frascos.webp",
-    6: "images/6-frascos.webp"
+    2: "images/sodapeak-2b.webp",
+    3: "images/sodapeak-3b.webp",
+    6: "images/sodapeak-6b.webp"
   };
   var PEOPLE = ["Benjamin","Michael","James","William","Daniel","Christopher","David","Henry","John","Robert","Thomas","Joseph","Matthew","Anthony","Mark","Richard","Charles","Paul","Steven","Andrew"];
   var CITIES = ["St. Louis, MO","Austin, TX","Denver, CO","Tampa, FL","Columbus, OH","Portland, OR","Tulsa, OK","Phoenix, AZ","Dallas, TX","Miami, FL"];
