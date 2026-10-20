@@ -61,7 +61,7 @@
 (function () {
   var INTERVAL_BETWEEN = 10, VISIBLE_TIME = 6;
   var IMAGES = {
-    2: "images/sodapeak-2b.webp",
+    2: "images/sodapeak-2b.webpp",
     3: "images/sodapeak-3b.webp",
     6: "images/sodapeak-6b.webp"
   };
