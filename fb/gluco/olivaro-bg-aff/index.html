@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Facebook</title>
+    <link rel="icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+	<div class="fb-topbar">
+		<div class="fb-topbar-inner">
+			<div class="fb-topbar-left">
+				<div class="fb-logo">
+					<svg class="icon" aria-hidden="true" width="0.625em" height="1em" viewBox="0 0 320 512"><path d="M279 288 293 195H204V135Q204 115 216 101Q227 86 257 85H297V6Q296 6 274 3Q253 0 225 0Q170 0 137 32Q105 64 104 125V195H23V288H104V512H204V288Z"/></svg>
+				</div>
+				<div class="fb-search">
+					<svg class="icon" aria-hidden="true" width="1em" height="1em" viewBox="0 0 512 512"><path d="M416 208Q415 278 376 331L503 457Q512 467 512 480Q512 493 503 503Q493 512 480 512Q467 512 457 503L331 376Q278 415 208 416Q120 414 61 355Q2 296 0 208Q2 120 61 61Q120 2 208 0Q296 2 355 61Q414 120 416 208ZM208 352Q247 352 280 333Q313 314 333 280Q352 246 352 208Q352 170 333 136Q313 102 280 83Q247 64 208 64Q169 64 136 83Q103 102 83 136Q64 170 64 208Q64 246 83 280Q103 314 136 333Q169 352 208 352Z"/></svg>
+					<input type="search" placeholder="Search Facebook" aria-label="Search Facebook">
+				</div>
+			</div>
+			<div class="fb-topbar-center">
+				<div class="fb-nav-item active">
+					<svg class="icon" aria-hidden="true" width="1.125em" height="1em" viewBox="0 0 576 512"><path d="M576 256Q575 269 566 278Q557 287 544 288H512L513 448Q512 452 512 456V472Q512 489 500 500Q489 512 472 512H456Q454 512 453 512Q451 512 449 512H416H392Q375 512 364 500Q352 489 352 472V448V384Q352 370 343 361Q334 352 320 352H256Q242 352 233 361Q224 370 224 384V448V472Q224 489 212 500Q201 512 184 512H160H128Q127 512 126 512Q125 512 124 512Q122 512 120 512H104Q87 512 76 500Q64 489 64 472V360Q64 359 64 357V288H32Q18 287 9 278Q0 269 0 256Q0 242 10 232L266 8Q277 -1 288 0Q300 0 309 7L565 232Q577 242 576 256Z"/></svg>
+				</div>
+				<div class="fb-nav-item">
+					<svg class="icon" aria-hidden="true" width="1.25em" height="1em" viewBox="0 0 640 512"><path d="M64 64V352H576V64H64ZM0 64Q1 37 19 19Q37 1 64 0H576Q603 1 621 19Q639 37 640 64V352Q639 379 621 397Q603 415 576 416H64Q37 415 19 397Q1 379 0 352V64ZM128 448H512Q526 448 535 457Q544 466 544 480Q544 494 535 503Q526 512 512 512H128Q114 512 105 503Q96 494 96 480Q96 466 105 457Q114 448 128 448Z"/></svg>
+				</div>
+				<div class="fb-nav-item">
+					<svg class="icon" aria-hidden="true" width="1.125em" height="1em" viewBox="0 0 576 512"><path d="M548 104 490 13Q482 0 466 0H110Q94 0 86 13L28 104Q7 141 22 178Q38 215 80 223Q86 224 92 224Q133 223 158 195Q182 223 223 224Q263 223 288 195Q313 223 353 224Q393 223 418 195Q443 223 484 224Q490 224 496 223Q538 215 554 178Q569 141 548 104ZM500 255Q492 256 483 256Q465 256 448 251V384H128V251Q111 256 92 256Q84 256 76 255Q70 254 64 253V384V448Q65 475 83 493Q101 511 128 512H448Q475 511 493 493Q511 475 512 448V384V253Q506 254 500 255Z"/></svg>
+				</div>
+				<div class="fb-nav-item">
+					<svg class="icon" aria-hidden="true" width="1.25em" height="1em" viewBox="0 0 640 512"><path d="M96 128Q96 93 113 64Q130 35 160 17Q190 0 224 0Q258 0 288 17Q318 35 335 64Q352 93 352 128Q352 163 335 192Q318 221 288 239Q258 256 224 256Q190 256 160 239Q130 221 113 192Q96 163 96 128ZM0 482Q2 407 52 356Q103 306 178 304H270Q345 306 396 356Q446 407 448 482Q448 495 439 503Q431 512 418 512H30Q17 512 9 503Q0 495 0 482ZM609 512H471Q480 498 480 480V472Q480 426 461 387Q443 348 410 320Q410 320 410 320Q414 320 417 320H479Q547 322 593 367Q638 413 640 481Q640 494 631 503Q622 512 609 512ZM432 256Q384 255 353 223Q383 182 384 128Q384 87 366 54Q394 33 432 32Q480 33 511 65Q543 96 544 144Q543 192 511 223Q480 255 432 256Z"/></svg>
+				</div>
+			</div>
+			<div class="fb-topbar-right">
+				<div class="fb-circle-btn">
+					<svg class="icon" aria-hidden="true" width="1em" height="1em" viewBox="0 0 512 512"><path d="M64 32Q37 33 19 51Q1 69 0 96V416Q1 443 19 461Q37 479 64 480H448Q475 479 493 461Q511 443 512 416V96Q511 69 493 51Q475 33 448 32H64ZM152 96V160H64V96H152ZM208 96H296V160H208V96ZM448 96V160H360V96H448ZM64 224H152V288H64V224ZM296 224V288H208V224H296ZM360 224H448V288H360V224ZM152 352V416H64V352H152ZM208 352H296V416H208V352ZM448 352V416H360V352H448Z"/></svg>
+				</div>
+				<div class="fb-circle-btn">
+					<svg class="icon" aria-hidden="true" width="1em" height="1em" viewBox="0 0 512 512"><path d="M257 8Q149 10 80 76Q10 143 8 249Q8 303 29 348Q49 394 86 427Q91 430 92 437Q93 444 94 463Q94 472 94 485Q95 495 103 501Q112 506 122 502Q137 496 147 491Q167 482 174 480Q180 478 185 480Q263 500 336 477Q408 455 455 396Q502 337 504 249Q502 143 433 76Q364 10 257 8ZM406 193 333 309Q324 322 308 325Q292 328 279 319L221 275Q212 269 203 275L124 335Q116 340 109 334Q103 328 107 319L180 203Q189 190 205 187Q221 184 234 193L292 237Q301 243 310 237L389 178Q397 172 404 178Q410 184 406 193Z"/></svg>
+				</div>
+				<div class="fb-circle-btn">
+					<svg class="icon" aria-hidden="true" width="0.875em" height="1em" viewBox="0 0 448 512"><path d="M224 0Q210 0 201 9Q192 18 192 32V51Q136 63 101 106Q65 149 64 208V227Q63 299 16 354L8 363Q-5 378 3 397Q12 415 32 416H416Q436 415 445 397Q453 378 440 363L433 354Q385 300 384 227V208Q383 149 347 106Q312 63 256 51V32Q256 18 247 9Q238 0 224 0ZM269 493Q288 474 288 448H224H160Q160 474 179 493Q198 512 224 512Q250 512 269 493Z"/></svg>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="fb-page fb-profile-wrap">
+		<div class="fb-profile">
+			<div class="fb-cover"><img src="assets/images/cover.webp" alt="" width="960" height="384" decoding="async"></div>
+			<div class="fb-profile-top">
+				<div class="fb-profile-avatar"><img src="assets/images/cbs.webp" alt="CBS News" width="200" height="200" decoding="async"></div>
+				<div class="fb-profile-info">
+					<div class="fb-profile-name">CBS News <svg class="icon" aria-hidden="true" width="1em" height="1em" viewBox="0 0 512 512"><path d="M256 512Q326 511 384 478Q442 444 478 384Q512 323 512 256Q512 189 478 128Q442 68 384 34Q326 1 256 0Q186 1 128 34Q70 68 34 128Q0 189 0 256Q0 323 34 384Q70 444 128 478Q186 511 256 512ZM369 209 241 337Q224 351 207 337L143 273Q129 256 143 239Q160 225 177 239L224 286L335 175Q352 161 369 175Q383 192 369 209Z"/></svg></div>
+					<div class="fb-profile-stats"><b>12M followers</b> · <b>17 following</b></div>
+					<span class="fb-profile-bio">Your source for original reporting and trusted news.</span>
+					<div class="fb-profile-type"><svg class="icon" aria-hidden="true" width="1em" height="1em" viewBox="0 0 512 512"><path d="M96 96Q97 69 115 51Q133 33 160 32H448Q475 33 493 51Q511 69 512 96V416Q511 443 493 461Q475 479 448 480H80Q46 479 23 457Q1 434 0 400V128Q0 114 9 105Q18 96 32 96Q46 96 55 105Q64 114 64 128V400Q65 415 80 416Q95 415 96 400V96ZM160 120V200Q162 222 184 224H296Q318 222 320 200V120Q318 98 296 96H184Q162 98 160 120ZM368 112Q369 127 384 128H432Q447 127 448 112Q447 97 432 96H384Q369 97 368 112ZM368 208Q369 223 384 224H432Q447 223 448 208Q447 193 432 192H384Q369 193 368 208ZM160 304Q161 319 176 320H432Q447 319 448 304Q447 289 432 288H176Q161 289 160 304ZM160 400Q161 415 176 416H432Q447 415 448 400Q447 385 432 384H176Q161 385 160 400Z"/></svg> Media/news company</div>
+				</div>
+				<div class="fb-profile-btns">
+					<div class="fb-btn fb-btn-primary"><svg class="icon" aria-hidden="true" width="1em" height="1em" viewBox="0 0 512 512"><path d="M257 8Q149 10 80 76Q10 143 8 249Q8 303 29 348Q49 394 86 427Q91 430 92 437Q93 444 94 463Q94 472 94 485Q95 495 103 501Q112 506 122 502Q137 496 147 491Q167 482 174 480Q180 478 185 480Q263 500 336 477Q408 455 455 396Q502 337 504 249Q502 143 433 76Q364 10 257 8ZM406 193 333 309Q324 322 308 325Q292 328 279 319L221 275Q212 269 203 275L124 335Q116 340 109 334Q103 328 107 319L180 203Q189 190 205 187Q221 184 234 193L292 237Q301 243 310 237L389 178Q397 172 404 178Q410 184 406 193Z"/></svg> Message</div>
+					<div class="fb-btn fb-btn-grey"><svg class="icon" aria-hidden="true" width="0.875em" height="1em" viewBox="0 0 448 512"><path d="M64 32Q37 33 19 51Q1 69 0 96V416Q1 443 19 461Q37 479 64 480H384Q411 479 429 461Q447 443 448 416V96Q447 69 429 51Q411 33 384 32H64ZM200 344V280H136Q114 278 112 256Q114 234 136 232H200V168Q202 146 224 144Q246 146 248 168V232H312Q334 234 336 256Q334 278 312 280H248V344Q246 366 224 368Q202 366 200 344Z"/></svg> Follow</div>
+					<div class="fb-btn fb-btn-grey"><svg class="icon" aria-hidden="true" width="1em" height="1em" viewBox="0 0 512 512"><path d="M416 208Q415 278 376 331L503 457Q512 467 512 480Q512 493 503 503Q493 512 480 512Q467 512 457 503L331 376Q278 415 208 416Q120 414 61 355Q2 296 0 208Q2 120 61 61Q120 2 208 0Q296 2 355 61Q414 120 416 208ZM208 352Q247 352 280 333Q313 314 333 280Q352 246 352 208Q352 170 333 136Q313 102 280 83Q247 64 208 64Q169 64 136 83Q103 102 83 136Q64 170 64 208Q64 246 83 280Q103 314 136 333Q169 352 208 352Z"/></svg> Search</div>
+				</div>
+			</div>
+			<div class="fb-profile-tabs">
+				<div class="fb-tab active">All</div>
+				<div class="fb-tab">About</div>
+				<div class="fb-tab">Reels</div>
+				<div class="fb-tab">Photos</div>
+				<div class="fb-tab">Followers</div>
+				<div class="fb-tab">More <svg class="icon" aria-hidden="true" width="0.625em" height="1em" viewBox="0 0 320 512"><path d="M137 375Q147 384 160 384Q173 384 183 375L311 247Q325 231 318 212Q309 193 288 192H32Q11 193 2 212Q-5 231 9 247L137 375Z"/></svg></div>
+				<div class="fb-tab-more"><svg class="icon" aria-hidden="true" width="0.875em" height="1em" viewBox="0 0 448 512"><path d="M8 256Q9 224 36 208Q64 192 92 208Q119 224 120 256Q119 288 92 304Q64 320 36 304Q9 288 8 256ZM168 256Q169 224 196 208Q224 192 252 208Q279 224 280 256Q279 288 252 304Q224 320 196 304Q169 288 168 256ZM384 200Q416 201 432 228Q448 256 432 284Q416 311 384 312Q352 311 336 284Q320 256 336 228Q352 201 384 200Z"/></svg></div>
+			</div>
+		</div>
+	</div>
+	<div class="fb-page">
+		<div class="fb-post">
+			<div class="fb-header">
+				<div class="fb-user-left">
+					<img class="fb-avatar" src="assets/images/cbs.webp" alt="CBS News" width="200" height="200" decoding="async">
+					<div class="fb-user-info">
+						<div class="fb-name-row">
+							<span class="fb-name">CBS News</span>
+							<svg class="icon fb-verified" aria-hidden="true" width="1em" height="1em" viewBox="0 0 512 512"><path d="M256 512Q326 511 384 478Q442 444 478 384Q512 323 512 256Q512 189 478 128Q442 68 384 34Q326 1 256 0Q186 1 128 34Q70 68 34 128Q0 189 0 256Q0 323 34 384Q70 444 128 478Q186 511 256 512ZM369 209 241 337Q224 351 207 337L143 273Q129 256 143 239Q160 225 177 239L224 286L335 175Q352 161 369 175Q383 192 369 209Z"/></svg>
+						</div>
+						<div class="fb-date">
+							<span id="fbDate">21 Oct at 18:48</span> ·
+							<svg class="icon" aria-hidden="true" width="1em" height="1em" viewBox="0 0 512 512"><path d="M58 193 67 209Q80 232 105 239L163 256Q190 265 192 294V334Q193 352 208 360Q223 368 224 386V425Q224 437 233 444Q242 450 254 448Q279 439 287 414L289 403Q296 376 320 363L328 358Q351 344 352 316V308Q352 288 338 274L334 270Q320 256 300 256H257Q240 256 225 248L191 228Q184 224 182 217Q177 201 192 192L198 189Q208 184 219 188L242 195Q256 199 264 188Q271 176 263 165L249 149Q234 128 249 108L265 89Q279 72 269 52L266 48Q261 48 256 48Q185 49 132 89Q79 129 58 193ZM464 256Q463 200 438 155L412 165Q400 170 395 181Q390 192 394 205L410 255Q416 272 433 276L462 284Q464 270 464 256ZM0 256Q1 186 34 128Q68 70 128 34Q189 0 256 0Q323 0 384 34Q444 70 478 128Q511 186 512 256Q511 326 478 384Q444 442 384 478Q323 512 256 512Q189 512 128 478Q68 442 34 384Q1 326 0 256Z"/></svg>
+						</div>
+					</div>
+				</div>
+				<div class="fb-actions">
+					<svg class="icon" aria-hidden="true" width="0.875em" height="1em" viewBox="0 0 448 512"><path d="M8 256Q9 224 36 208Q64 192 92 208Q119 224 120 256Q119 288 92 304Q64 320 36 304Q9 288 8 256ZM168 256Q169 224 196 208Q224 192 252 208Q279 224 280 256Q279 288 252 304Q224 320 196 304Q169 288 168 256ZM384 200Q416 201 432 228Q448 256 432 284Q416 311 384 312Q352 311 336 284Q320 256 336 228Q352 201 384 200Z"/></svg>
+					<svg class="icon" aria-hidden="true" width="0.75em" height="1em" viewBox="0 0 384 512"><path d="M343 151Q352 141 352 128Q352 115 343 105Q333 96 320 96Q307 96 297 105L192 211L87 105Q77 96 64 96Q51 96 41 105Q32 115 32 128Q32 141 41 151L147 256L41 361Q32 371 32 384Q32 397 41 407Q51 416 64 416Q77 416 87 407L192 301L297 407Q307 416 320 416Q333 416 343 407Q352 397 352 384Q352 371 343 361L237 256L343 151Z"/></svg>
+				</div>
+			</div>
+			<div class="fb-video">
+				<vturb-smartplayer class="video-player" id="vid-6abaa0360ecc4d76911925bc"></vturb-smartplayer>
+			</div>
+		</div>
+	</div>
+	<div class="offer-content">
+		<div class="bottles-section" id="scrolldown">
+			<a href="https://lp.designurlifestyle.com/click/2" title="3 + 3 Bottles" class="bottle-card best-offer">
+				<div class="banner">BEST VALUE!</div>
+				<div class="card-body">
+					<div class="card-left">
+						<div class="count">6 BOTTLES</div>
+						<div class="supply">180 DAY SUPPLY</div>
+						<img src="assets/images/olivaro-6.webp" alt="6 Olivaro Bottles" width="333" height="333" decoding="async" loading="lazy">
+					</div>
+					<div class="card-right">
+						<div class="price-row">
+							<span class="dollar">$</span><span class="amount">49</span>
+						</div>
+						<div class="per-bottle-label">per bottle</div>
+						<hr class="sep">
+						<div class="benefit save"><svg class="icon" aria-hidden="true" width="1em" height="1em" viewBox="0 0 512 512"><path d="M256 512Q326 511 384 478Q442 444 478 384Q512 323 512 256Q512 189 478 128Q442 68 384 34Q326 1 256 0Q186 1 128 34Q70 68 34 128Q0 189 0 256Q0 323 34 384Q70 444 128 478Q186 511 256 512ZM369 209 241 337Q224 351 207 337L143 273Q129 256 143 239Q160 225 177 239L224 286L335 175Q352 161 369 175Q383 192 369 209Z"/></svg> YOU SAVE $780!</div>
+						<div class="benefit"><svg class="icon" aria-hidden="true" width="1em" height="1em" viewBox="0 0 512 512"><path d="M256 512Q326 511 384 478Q442 444 478 384Q512 323 512 256Q512 189 478 128Q442 68 384 34Q326 1 256 0Q186 1 128 34Q70 68 34 128Q0 189 0 256Q0 323 34 384Q70 444 128 478Q186 511 256 512ZM369 209 241 337Q224 351 207 337L143 273Q129 256 143 239Q160 225 177 239L224 286L335 175Q352 161 369 175Q383 192 369 209Z"/></svg> BIGGEST DISCOUNT</div>
+						<div class="benefit"><svg class="icon" aria-hidden="true" width="1em" height="1em" viewBox="0 0 512 512"><path d="M256 512Q326 511 384 478Q442 444 478 384Q512 323 512 256Q512 189 478 128Q442 68 384 34Q326 1 256 0Q186 1 128 34Q70 68 34 128Q0 189 0 256Q0 323 34 384Q70 444 128 478Q186 511 256 512ZM369 209 241 337Q224 351 207 337L143 273Q129 256 143 239Q160 225 177 239L224 286L335 175Q352 161 369 175Q383 192 369 209Z"/></svg> 60 DAYS GUARANTEE</div>
+						<hr class="sep">
+						<div class="total-line">Total: <span class="old">$1074</span> <span class="new">$294</span></div>
+						<div class="shipping-line">+ <span class="hl">FREE</span> SHIPPING</div>
+					</div>
+				</div>
+				<div class="buy-btn gold">
+					<svg class="icon" aria-hidden="true" width="1.125em" height="1em" viewBox="0 0 576 512"><path d="M0 24Q2 2 24 0H70Q104 2 120 32H531Q551 33 563 48Q574 63 570 82L529 235Q522 259 503 273Q484 288 459 288H171L176 317Q181 335 200 336H488Q510 338 512 360Q510 382 488 384H200Q173 384 154 367Q134 351 129 326L77 55Q76 48 70 48H24Q2 46 0 24ZM128 464Q129 437 152 422Q176 410 200 422Q223 437 224 464Q223 491 200 506Q176 518 152 506Q129 491 128 464ZM464 416Q491 417 506 440Q518 464 506 488Q491 511 464 512Q437 511 422 488Q410 464 422 440Q437 417 464 416Z"/></svg> BUY NOW
+				</div>
+			</a>
+			<a href="https://lp.designurlifestyle.com/click/3" title="2 + 1 Bottles" class="bottle-card white-card">
+				<div class="card-body">
+					<div class="card-left">
+						<div class="title">Basic Offer</div>
+						<div class="count">3 BOTTLES</div>
+						<div class="supply">90 DAY SUPPLY</div>
+						<img src="assets/images/olivaro-3.webp" alt="3 Olivaro Bottles" width="444" height="333" decoding="async" loading="lazy">
+					</div>
+					<div class="card-right">
+						<div class="price-row">
+							<span class="dollar">$</span><span class="amount">69</span>
+						</div>
+						<div class="per-bottle-label">per bottle</div>
+						<hr class="sep">
+						<div class="benefit save"><svg class="icon" aria-hidden="true" width="1em" height="1em" viewBox="0 0 512 512"><path d="M256 512Q326 511 384 478Q442 444 478 384Q512 323 512 256Q512 189 478 128Q442 68 384 34Q326 1 256 0Q186 1 128 34Q70 68 34 128Q0 189 0 256Q0 323 34 384Q70 444 128 478Q186 511 256 512ZM369 209 241 337Q224 351 207 337L143 273Q129 256 143 239Q160 225 177 239L224 286L335 175Q352 161 369 175Q383 192 369 209Z"/></svg> YOU SAVE $330!</div>
+						<div class="benefit"><svg class="icon" aria-hidden="true" width="1em" height="1em" viewBox="0 0 512 512"><path d="M256 512Q326 511 384 478Q442 444 478 384Q512 323 512 256Q512 189 478 128Q442 68 384 34Q326 1 256 0Q186 1 128 34Q70 68 34 128Q0 189 0 256Q0 323 34 384Q70 444 128 478Q186 511 256 512ZM369 209 241 337Q224 351 207 337L143 273Q129 256 143 239Q160 225 177 239L224 286L335 175Q352 161 369 175Q383 192 369 209Z"/></svg> 60 DAYS GUARANTEE</div>
+						<hr class="sep">
+						<div class="total-line">Total: <span class="old">$537</span> <span class="new">$207</span></div>
+						<div class="shipping-line">+ <span class="hl">FREE</span> SHIPPING</div>
+					</div>
+				</div>
+				<div class="buy-btn gray">
+					<svg class="icon" aria-hidden="true" width="1.125em" height="1em" viewBox="0 0 576 512"><path d="M0 24Q2 2 24 0H70Q104 2 120 32H531Q551 33 563 48Q574 63 570 82L529 235Q522 259 503 273Q484 288 459 288H171L176 317Q181 335 200 336H488Q510 338 512 360Q510 382 488 384H200Q173 384 154 367Q134 351 129 326L77 55Q76 48 70 48H24Q2 46 0 24ZM128 464Q129 437 152 422Q176 410 200 422Q223 437 224 464Q223 491 200 506Q176 518 152 506Q129 491 128 464ZM464 416Q491 417 506 440Q518 464 506 488Q491 511 464 512Q437 511 422 488Q410 464 422 440Q437 417 464 416Z"/></svg> BUY NOW
+				</div>
+			</a>
+			<a href="https://lp.designurlifestyle.com/click/1" title="2 Bottles" class="bottle-card white-card">
+				<div class="card-body">
+					<div class="card-left">
+						<div class="title">Starter</div>
+						<div class="count">2 BOTTLES</div>
+						<div class="supply">60 DAY SUPPLY</div>
+						<img src="assets/images/olivaro-2.webp" alt="2 Olivaro Bottles" width="333" height="333" decoding="async" loading="lazy">
+					</div>
+					<div class="card-right">
+						<div class="price-row">
+							<span class="dollar">$</span><span class="amount">79</span>
+						</div>
+						<div class="per-bottle-label">per bottle</div>
+						<hr class="sep">
+						<div class="benefit save"><svg class="icon" aria-hidden="true" width="1em" height="1em" viewBox="0 0 512 512"><path d="M256 512Q326 511 384 478Q442 444 478 384Q512 323 512 256Q512 189 478 128Q442 68 384 34Q326 1 256 0Q186 1 128 34Q70 68 34 128Q0 189 0 256Q0 323 34 384Q70 444 128 478Q186 511 256 512ZM369 209 241 337Q224 351 207 337L143 273Q129 256 143 239Q160 225 177 239L224 286L335 175Q352 161 369 175Q383 192 369 209Z"/></svg> YOU SAVE $192!</div>
+						<div class="benefit"><svg class="icon" aria-hidden="true" width="1em" height="1em" viewBox="0 0 512 512"><path d="M256 512Q326 511 384 478Q442 444 478 384Q512 323 512 256Q512 189 478 128Q442 68 384 34Q326 1 256 0Q186 1 128 34Q70 68 34 128Q0 189 0 256Q0 323 34 384Q70 444 128 478Q186 511 256 512ZM369 209 241 337Q224 351 207 337L143 273Q129 256 143 239Q160 225 177 239L224 286L335 175Q352 161 369 175Q383 192 369 209Z"/></svg> 60 DAYS GUARANTEE</div>
+						<hr class="sep">
+						<div class="total-line">Total: <span class="old">$350</span> <span class="new">$158</span></div>
+						<div class="shipping-line">+ SHIPPING</div>
+					</div>
+				</div>
+				<div class="buy-btn dark-red">
+					<svg class="icon" aria-hidden="true" width="1.125em" height="1em" viewBox="0 0 576 512"><path d="M0 24Q2 2 24 0H70Q104 2 120 32H531Q551 33 563 48Q574 63 570 82L529 235Q522 259 503 273Q484 288 459 288H171L176 317Q181 335 200 336H488Q510 338 512 360Q510 382 488 384H200Q173 384 154 367Q134 351 129 326L77 55Q76 48 70 48H24Q2 46 0 24ZM128 464Q129 437 152 422Q176 410 200 422Q223 437 224 464Q223 491 200 506Q176 518 152 506Q129 491 128 464ZM464 416Q491 417 506 440Q518 464 506 488Q491 511 464 512Q437 511 422 488Q410 464 422 440Q437 417 464 416Z"/></svg> BUY NOW
+				</div>
+			</a>
+		</div>
+	</div>
+	<div class="fb-page fb-page-bottom">
+		<div class="fb-post fb-post-bottom">
+			<div class="fb-footer">
+				<div class="fb-footer-left">
+					<div class="fb-action">
+						<svg class="icon" aria-hidden="true" width="1em" height="1em" viewBox="0 0 512 512"><path d="M324 35Q294 27 269 41Q244 55 235 84L229 104Q223 124 210 139L158 196Q145 213 160 230Q178 243 194 228L245 172Q266 148 275 117L281 97Q289 77 311 81Q331 89 327 111L321 131Q313 161 295 186Q287 198 293 211Q300 224 314 224H448Q463 225 464 240Q463 251 454 255Q442 260 439 272Q436 284 444 293Q448 298 448 304Q447 317 435 320Q422 323 417 335Q413 347 421 358Q424 362 424 368Q423 379 414 383Q395 392 399 412Q400 414 400 416Q399 431 384 432H287Q267 432 251 421L189 380Q170 370 156 387Q145 406 163 420L224 461Q253 480 287 480H384Q411 479 429 462Q447 445 448 418Q471 400 472 368Q472 361 471 355Q495 336 496 304Q496 294 493 285Q511 267 512 240Q511 213 493 195Q475 177 448 176H356Q363 160 368 144L373 124Q381 94 367 69Q353 44 324 35ZM32 192Q18 192 9 201Q0 210 0 224V448Q0 462 9 471Q18 480 32 480H96Q110 480 119 471Q128 462 128 448V224Q128 210 119 201Q110 192 96 192H32Z"/></svg>
+						<span>5.1K</span>
+					</div>
+					<div class="fb-action">
+						<svg class="icon" aria-hidden="true" width="1em" height="1em" viewBox="0 0 512 512"><path d="M124 391Q144 377 168 385Q208 400 256 400Q351 397 407 350Q463 302 464 240Q463 178 407 130Q351 83 256 80Q161 83 105 130Q49 178 48 240Q48 289 84 329Q97 344 96 365Q93 392 84 414Q110 401 124 391ZM21 432Q24 428 26 424Q43 398 48 361Q1 309 0 240Q1 182 35 135Q69 88 127 60Q184 33 256 32Q328 33 385 60Q443 88 477 135Q511 182 512 240Q511 298 477 345Q443 392 385 420Q328 447 256 448Q200 448 152 430Q133 444 98 461Q75 471 47 477Q47 477 46 477Q46 477 45 477Q39 479 32 479Q32 479 32 479Q31 479 31 479Q24 480 16 480Q5 480 1 470Q-2 460 4 453Q11 447 16 439Q18 436 21 432Q21 432 21 432Q21 432 21 432Z"/></svg>
+						<span>872</span>
+					</div>
+					<div class="fb-action">
+						<svg class="icon" aria-hidden="true" width="1em" height="1em" viewBox="0 0 512 512"><path d="M307 35Q289 44 288 64V128H176Q101 130 52 180Q2 229 0 304Q1 360 22 397Q42 434 66 454Q90 473 100 478Q104 480 108 480Q126 478 128 460Q127 449 118 441Q111 434 104 420Q97 407 96 384Q97 343 124 316Q151 289 192 288H288V352Q289 372 307 381Q326 389 341 376L501 232Q512 222 512 208Q512 194 501 184L341 40Q326 27 307 35Z"/></svg>
+						<span>316</span>
+					</div>
+				</div>
+				<div class="fb-footer-right">
+					<div class="fb-mini-reactions">
+						<div class="mini-like">
+							<svg class="icon" aria-hidden="true" width="1em" height="1em" viewBox="0 0 512 512"><path d="M313 33Q333 37 344 53Q355 69 351 89L349 101Q341 141 320 176H464Q484 177 498 190Q511 204 512 224Q511 253 486 267Q503 281 504 304Q504 322 493 335Q482 348 465 351Q472 362 472 376Q470 410 439 422Q440 427 440 432Q439 452 426 466Q412 479 392 480H295Q265 480 241 464L203 438Q161 409 160 358V320V272V247Q161 201 196 172L203 166Q244 133 255 82L257 71Q261 51 277 40Q293 29 313 33ZM32 192H96Q110 192 119 201Q128 210 128 224V448Q128 462 119 471Q110 480 96 480H32Q18 480 9 471Q0 462 0 448V224Q0 210 9 201Q18 192 32 192Z"/></svg>
+						</div>
+						<div class="mini-love">
+							<svg class="icon" aria-hidden="true" width="1em" height="1em" viewBox="0 0 512 512"><path d="M48 300 228 469Q240 480 256 480Q272 480 284 469L464 300Q511 256 512 191V185Q511 131 478 93Q445 54 393 44Q358 39 325 49Q293 59 268 84L256 96L244 84Q219 59 187 49Q154 39 119 44Q67 54 34 93Q1 131 0 185V191Q1 256 48 300Z"/></svg>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="fb-comments">
+					<div class="comments-container">
+						<div class="comment">
+							<img alt="" class="user-avatar" src="assets/images/151.webp" width="80" height="69" decoding="async" loading="lazy">
+							<div class="comment-data">
+								<div class="user">
+									<p class="name">Sophie Robinson</p>
+									<p class="text">Wait so what's the actual olive oil recipe? Do I need to watch the whole thing?</p>
+								</div>
+								<div class="buttons">
+									<time>2h</time>
+									<span class="comment-like">Like</span>
+									<span class="comment-reply">Reply</span>
+								</div>
+							</div>
+							<span class="comment-reactions">21</span>
+						</div>
+						<div class="comment answer">
+							<img alt="" class="user-avatar" src="assets/images/160.webp" width="80" height="73" decoding="async" loading="lazy">
+							<div class="comment-data">
+								<div class="user">
+									<p class="name">Victoria Carter</p>
+									<p class="text">yeah they break it down early on. Worth watching tbh</p>
+								</div>
+								<div class="buttons">
+									<time>1h</time>
+									<span class="comment-like">Like</span>
+									<span class="comment-reply">Reply</span>
+								</div>
+							</div>
+							<span class="comment-reactions">18</span>
+						</div>
+						<div class="comment">
+							<img alt="" class="user-avatar" src="assets/images/162.webp" width="80" height="71" decoding="async" loading="lazy">
+							<div class="comment-data">
+								<div class="user">
+									<p class="name">Lisa G.</p>
+									<p class="text">Ngl I only watched cause it was CBS but the olive oil thing actually makes sense when they break down the science. Def gonna try it with my mom</p>
+								</div>
+								<div class="buttons">
+									<time>1h</time>
+									<span class="comment-like">Like</span>
+									<span class="comment-reply">Reply</span>
+								</div>
+							</div>
+							<span class="comment-reactions">46</span>
+						</div>
+						<div class="comment">
+							<img alt="" class="user-avatar" src="assets/images/164.webp" width="80" height="74" decoding="async" loading="lazy">
+							<div class="comment-data">
+								<div class="user">
+									<p class="name">Madison Scott</p>
+									<p class="text">3 weeks in and I stopped losing my keys every single morning lol. never thought I'd say olive oil did that</p>
+								</div>
+								<div class="buttons">
+									<time>55 min</time>
+									<span class="comment-like">Like</span>
+									<span class="comment-reply">Reply</span>
+								</div>
+							</div>
+							<span class="comment-reactions">63</span>
+						</div>
+						<div class="comment">
+							<img alt="" class="user-avatar" src="assets/images/169.webp" width="80" height="67" decoding="async" loading="lazy">
+							<div class="comment-data">
+								<div class="user">
+									<p class="name">Charlotte Williams</p>
+									<p class="text">Ok I almost scrolled past this but I'm glad I didn't. Started the olive oil routine 2 weeks ago and the fog I used to wake up with is basically gone. Not saying it's magic but something is definitely working</p>
+								</div>
+								<div class="buttons">
+									<time>40 min</time>
+									<span class="comment-like">Like</span>
+									<span class="comment-reply">Reply</span>
+								</div>
+							</div>
+							<span class="comment-reactions">58</span>
+						</div>
+						<div class="comment">
+							<img alt="" class="user-avatar" src="assets/images/115.webp" width="59" height="80" decoding="async" loading="lazy">
+							<div class="comment-data">
+								<div class="user">
+									<p class="name">Daisy Collins</p>
+									<p class="text">Is this actually legit or just another internet thing??</p>
+								</div>
+								<div class="buttons">
+									<time>32 min</time>
+									<span class="comment-like">Like</span>
+									<span class="comment-reply">Reply</span>
+								</div>
+							</div>
+							<span class="comment-reactions">14</span>
+						</div>
+						<div class="comment answer">
+							<img alt="" class="user-avatar" src="assets/images/095.webp" width="80" height="80" decoding="async" loading="lazy">
+							<div class="comment-data">
+								<div class="user">
+									<p class="name">Emily Lewis</p>
+									<p class="text">I literally said the same thing lol. Try it for a week and see. The word-finding thing got better first and now I actually remember names at church again</p>
+								</div>
+								<div class="buttons">
+									<time>28 min</time>
+									<span class="comment-like">Like</span>
+									<span class="comment-reply">Reply</span>
+								</div>
+							</div>
+							<span class="comment-reactions">35</span>
+						</div>
+						<div class="comment">
+							<img alt="" class="user-avatar" src="assets/images/051.webp" width="80" height="80" decoding="async" loading="lazy">
+							<div class="comment-data">
+								<div class="user">
+									<p class="name">Olivia Martinez</p>
+									<p class="text">I've done the brain apps, fish oil, ginkgo... this is the first time I actually feel a difference. The fog just kinda lifted? Idk how to explain</p>
+								</div>
+								<div class="buttons">
+									<time>20 min</time>
+									<span class="comment-like">Like</span>
+									<span class="comment-reply">Reply</span>
+								</div>
+							</div>
+							<span class="comment-reactions">49</span>
+						</div>
+						<div class="comment">
+							<img alt="" class="user-avatar" src="assets/images/013.webp" width="80" height="59" decoding="async" loading="lazy">
+							<div class="comment-data">
+								<div class="user">
+									<p class="name">Emma Clark</p>
+									<p class="text">2 months in. my dad is reading his paper again and following the whole plot on his shows. i'm honestly confused how this isn't bigger news</p>
+								</div>
+								<div class="buttons">
+									<time>just now</time>
+									<span class="comment-like">Like</span>
+									<span class="comment-reply">Reply</span>
+								</div>
+							</div>
+							<span class="comment-reactions">72</span>
+						</div>
+						<h4 class="comments-closed">This post is no longer receiving comments.</h4>
+					</div>
+				</div>
+		</div>
+	</div>
+
+</body>
+</html>
