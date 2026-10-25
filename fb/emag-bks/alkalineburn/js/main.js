@@ -46,7 +46,7 @@
   };
   new MutationObserver(reveal).observe(hidden, { attributes: true });
   player.addEventListener('player:ready', () => {
-    player.displayHiddenElements(1, ['.esconder'], { persist: true });
+    player.displayHiddenElements(2445, ['.esconder'], { persist: true });
     reveal();
   });
   const s = document.createElement('script');
