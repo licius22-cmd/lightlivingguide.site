@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        if(window.NodeList && !NodeList.prototype.forEach)NodeList.prototype.forEach=Array.prototype.forEach;
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <title>SodaPeak — Black Friday</title>
+    <link rel="icon" href="favicon.png">
+    <!-- TROCAR O PRELOAD -->
+    <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+<link rel="preload" href="https://scripts.converteai.net/6e3ae2f6-ad64-483b-9bc5-bafc50ec8005/players/6aeb77be7268b3d104d87f77/v4/player.js" as="script">
+<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+<link rel="preload" href="https://cdn.converteai.net/6e3ae2f6-ad64-483b-9bc5-bafc50ec8005/6aeb75a507604e1f8dc252f2/main.m3u8" as="fetch">
+<link rel="dns-prefetch" href="https://cdn.converteai.net">
+<link rel="dns-prefetch" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="dns-prefetch" href="https://license.vturb.com">
+
+    <!-- CONFIGURAR PITCH TIME AQUI (segundos) -->
+    <script>
+        /* PITCH -- TROCAR PELO TEMPO REAL DA VSL. Valor em SEGUNDOS de video assistido. 3 = teste. */window.SECONDS_TO_DISPLAY=1;window.SALE_END="2026-11-30T23:59:59";
+    </script>
+    <style>
+        @font-face{font-family:'Roboto';font-style:normal;font-weight:400 900;font-display:swap;src:url('assets/roboto.woff2') format('woff2')}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:400 900;font-display:swap;src:url('assets/roboto-condensed.woff2') format('woff2')}
+        :root{--brand:#145897;--brand-tint:#e9f2fa;--ink:#142331;--muted:#667581;--line:#d7e1e8;--bg:#f6f8fa;--green:#249a4d;--red:#cc3542;--gold:#ffd814;--r-card:16px;--r-btn:12px;--sans:Roboto,Arial,sans-serif;--cond:'Roboto Condensed','Arial Narrow',sans-serif;--mono:var(--sans);--display:var(--cond)}
+        *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 var(--sans);overflow-x:hidden}a{color:inherit;text-decoration:none}img{display:block;max-width:100%;height:auto;-webkit-user-drag:none;-webkit-touch-callout:none}svg{vertical-align:middle}button,a{-webkit-tap-highlight-color:transparent}h2,h3,p{margin:0}html{scroll-behavior:smooth}
+        .cbs-header,.site-header{background:white;border-bottom:1px solid var(--line)}.header-top{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:17px 24px;max-width:1140px;margin:auto}.header-top-left{display:flex;gap:22px;font-size:13px;font-weight:700}.header-top-right{justify-self:end}.brand-logo,.logo-container{justify-self:center}.cbs-logo-img{height:24px;width:auto}.mobile-header-top{display:none!important}.icon-btn,.search-icon{display:block}.icon-btn svg,.search-icon svg{width:22px;height:22px}.sub-nav{display:flex;align-items:center;border-top:1px solid var(--line);height:46px;max-width:1140px;margin:auto;padding:0 24px;font-size:13px;font-weight:700;overflow-x:auto;white-space:nowrap}.sub-nav-items{display:flex;gap:26px}.sub-nav-right,.sub-nav-right-box{margin-left:auto;padding-left:24px}.mobile-only{display:none}.live-dot{display:inline-block;width:7px;height:7px;background:#ee3b45;border-radius:50%;margin-right:7px;animation:blink 1.6s infinite}.video-sec{padding:30px 16px 12px}
+        .bf-bar{padding:12px 100px 12px 16px;background:#101820;color:white;text-align:center;font-size:13px;letter-spacing:.06em}.bf-bar b,.bf-bar [data-countdown]{color:#ffd814}.bf-ribbon{position:absolute;top:0;right:0;width:115px;height:115px;overflow:hidden;z-index:35;pointer-events:none}.bf-ribbon span{position:absolute;top:25px;right:-50px;width:180px;transform:rotate(45deg);background:#ffd814;color:#101820;text-align:center;font-size:10px;font-weight:800;padding:6px}
+        .ticker{background:#ffc933;color:#100d06;overflow:hidden}.ticker__track{display:flex;width:max-content;animation:marquee 26s linear infinite;will-change:transform}.ticker__group{display:flex;flex:0 0 auto;align-items:center;justify-content:space-around;gap:24px;min-width:100vw;padding:10px 16px;font:800 14px var(--cond);text-transform:uppercase;white-space:nowrap}.ticker__group svg{width:12px;height:12px;flex:none}.ticker [data-countdown]{font-variant-numeric:tabular-nums;background:#17130a;color:#ffd814;border-radius:4px;padding:2px 8px}
+        .as-seen-section,.as-seen{text-align:center;padding:30px 16px 36px;overflow:hidden}.as-seen-title,.as-seen__title{display:flex;align-items:center;justify-content:center;gap:16px;font-size:11px;font-weight:800;letter-spacing:.22em;margin-bottom:22px;color:var(--muted)}.as-seen-title:before,.as-seen-title:after,.as-seen__title:before,.as-seen__title:after{content:'';height:1px;width:50px;background:var(--line)}.as-seen-logos,.as-seen__group{display:flex;align-items:center;justify-content:center;gap:35px}.as-seen__track{display:flex;width:max-content;animation:marquee 30s linear infinite}.as-seen__group{min-width:100vw;flex:none;padding:0 24px}.logo-item,.media-logo{position:relative;display:inline-block;flex:none}.as-logo-img{height:28px;width:auto;filter:grayscale(1);opacity:.45}.media-logo .on{position:absolute;top:0;left:0;filter:none;opacity:0;animation:colorwave 6s linear infinite}.media-logo:nth-child(4n+2) .on{animation-delay:1.5s}.media-logo:nth-child(4n+3) .on{animation-delay:3s}.media-logo:nth-child(4n) .on{animation-delay:4.5s}
+        .offers-head{text-align:center;padding:12px 16px 18px}.offers-head__kicker{font-size:11px;font-weight:800;letter-spacing:.2em;color:var(--brand)}.offers-head h2{font:800 42px/1.1 var(--cond);margin-top:10px}.offers-head h2 em{font-style:normal;color:var(--brand)}
+        .offers{display:flex;flex-direction:column;max-width:540px;margin:auto;padding:20px 16px 48px;gap:24px}.card{position:relative;display:block;background:#fff;color:#142331;border:1px solid var(--line);border-radius:16px;box-shadow:0 10px 30px #162b3c0c;min-width:0;transform:none!important}.card__badge,.card__bar{padding:12px;text-align:center;font:800 19px var(--cond);background:#eef3f7;border-radius:15px 15px 0 0}.card__body{padding:16px}.card__grid{display:flex;align-items:center;gap:10px}.card__left{width:45%;text-align:center;flex:none}.card__right{flex:1;min-width:0}.card__label{font:700 12px var(--cond);color:#466376}.card__qty{font:800 25px/1.1 var(--cond)}.card__supply{font-size:13px;color:#667581;margin:6px 0}.card__bottles{max-width:100%;width:auto;height:auto;max-height:170px;margin:8px auto;object-fit:contain}.price{display:flex;justify-content:center;align-items:flex-start;line-height:1}.price__cur{font:800 23px var(--sans);padding-top:7px}.price__num{font:800 54px/1 var(--sans);letter-spacing:-.045em}.price__per{font:600 10px/1.15 var(--sans);padding:9px 0 0 3px;white-space:nowrap}.benefits{list-style:none;padding:0;margin:12px 0}.benefits li{display:flex;align-items:center;justify-content:center;gap:5px;padding:7px 0;border-top:1px solid #d7e1e8;font-size:10px;font-weight:800;text-align:center}.benefits .ico{width:13px;height:13px;flex:none;color:#249a4d}.b-save{color:#145897}.total{text-align:center;font:500 15px/1.5 var(--sans)}.total b{font-weight:800}.total s{color:#71808c;margin-right:4px}.ship{display:block;font:700 11px var(--sans);color:#249a4d;margin-top:3px}.card--basic .ship{color:#cc3542}.bf-tag{display:table;padding:4px 9px;background:#101820;color:white;border-radius:99px;margin:0 auto 10px;font:800 10px var(--cond)}.bf-tag b{color:#ffd814}.only-desktop{display:none}.card--featured{background:radial-gradient(120% 90% at 50% 35%,#1f6ba8,#0c5590 45%,#06467a);border:2px solid #06467a;box-shadow:0 20px 40px #06467a33;color:white}.card--featured .card__badge{background:white;color:#145897}.card--featured .card__grid{display:block}.card--featured .card__left{width:100%}.card--featured .card__bottles{width:75%;max-height:230px;filter:drop-shadow(0 10px 20px #0003)}.card--featured .card__supply,.card--featured .price__per,.card--featured .total s{color:#ffffffb3}.card--featured .card__label{color:#ffffffb3}.card--featured .price__num{font-size:62px}.card--featured .total{font-size:19px}.card--featured .benefits{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}.card--featured .benefits li{border:1px solid #ffffff2e;background:#ffffff14;border-radius:99px;padding:7px 10px}.card--featured .b-save,.card--featured .ship{color:#ffd814}.card--featured .benefits .ico{color:#6ee79a}.pay{max-width:210px;width:78%;margin:14px auto 0}
+        .btn{position:relative;display:flex;align-items:center;justify-content:center;gap:9px;isolation:isolate;background:#249a4d;color:white!important;height:58px;padding:10px 14px;margin-top:15px;border-radius:12px;box-shadow:0 4px 0 #13702f;font:800 22px var(--cond);letter-spacing:.03em;overflow:hidden}.btn:before{content:'';position:absolute;z-index:-1;top:0;left:0;bottom:0;width:200%;background:linear-gradient(100deg,#1e9447,#45cf72,#1e9447,#45cf72,#1e9447);animation:flow 5s linear infinite;will-change:transform}.btn:after{content:'';position:absolute;top:0;bottom:0;left:0;width:35%;background:linear-gradient(100deg,transparent,#ffffff66,transparent);animation:shine 3.2s infinite;transform:translateX(-120%) skewX(-18deg)}.btn .cart{width:23px;height:23px;flex:none}.btn>*{position:relative;z-index:1}.card:active .btn{transform:translateY(3px);box-shadow:0 1px 0 #13702f}.card--featured .btn{padding-right:44px;animation:press 2.4s infinite}.clicker{position:absolute!important;z-index:3!important;right:8px;bottom:-1px;width:39px;height:39px;pointer-events:none;animation:click 2.4s infinite;transform-origin:45% 10%}.card--featured .btn span:after{content:'';position:absolute;right:-28px;top:2px;width:16px;height:16px;border:2px solid white;border-radius:50%;animation:ripple 2.4s infinite;pointer-events:none}
+        .stamp{position:absolute;right:-8px;top:-24px;width:76px;height:76px;pointer-events:none;z-index:2}.stamp__bg{position:absolute;top:0;right:0;bottom:0;left:0;background:#ffc933;border-radius:50%}.stamp__ring{position:relative;width:100%;height:100%;animation:rotate 12s linear infinite}.stamp__ring text{font-size:10px;font-weight:700;fill:#15110a;letter-spacing:1.8px}.stamp__core{position:absolute;top:19px;right:19px;bottom:19px;left:19px;border-radius:50%;background:#17130a;color:#ffd814;display:flex;align-items:center;justify-content:center;font:800 17px var(--cond)}
+        .comments,.fb-comments-section{max-width:800px;margin:0 auto 32px;padding:24px 18px 40px;border:1px solid var(--line);border-radius:16px;background:#fff;color:#050505;font-family:var(--sans)}.comments__head,.fb-header{border-bottom:1px solid #e4e6eb;margin-bottom:22px;padding-bottom:16px}.comments__head h3,.fb-title{font-size:23px;font-weight:800;margin-bottom:8px}.comments__head>span,.fb-header-top{display:flex;gap:8px;align-items:center;font-size:11px;color:#65676b}.fb-powered{font-size:12px;color:#65676b}.fb-plugin-title{font-size:15px;font-weight:700}.fb-logo{height:22px;width:22px}.comment-item{display:flex;gap:10px;margin-bottom:22px}.comment-reply{margin-left:48px}.comment-avatar{width:40px;height:40px;border-radius:50%;object-fit:cover;flex:none}.comment-reply .comment-avatar{width:32px;height:32px}.comment-body{position:relative;flex:1;min-width:0;background:#f0f2f5;border-radius:18px;padding:12px 14px 14px}.comment-author{display:block;color:#385898;font-size:13px;font-weight:700;margin-bottom:4px}.comment-text{color:#050505;font-size:15px;line-height:1.5;overflow-wrap:anywhere}.comment-actions{display:flex;gap:14px;margin-top:8px;font-size:12px;font-weight:600;color:#65676b}.comment-actions span{cursor:pointer;user-select:none}.comment-actions .liked{color:#0866ff}.like-counter{position:absolute;right:9px;bottom:-10px;border-radius:99px;background:white;box-shadow:0 2px 6px #0002;display:flex;align-items:center;gap:3px;padding:2px 6px;color:#65676b;font-size:11px}.reactions{display:block;width:28px;height:16px}.site-footer{padding:28px 16px 100px;text-align:center;background:#101820;color:#a9b8c7;font-size:11px;letter-spacing:.04em}.sticky-cta{position:fixed;z-index:50;bottom:16px;left:50%;width:calc(100% - 24px);max-width:640px;display:flex;align-items:center;gap:14px;padding:12px;background:#101820;color:white;border:1px solid #ffffff2e;border-radius:16px;box-shadow:0 14px 40px #0004;transform:translate(-50%,150%);transition:transform .4s}.sticky-cta.is-on{transform:translate(-50%,0)}.sticky-cta__txt{flex:1;min-width:0;font-size:12px}.sticky-cta__txt>b{display:block;font:800 17px var(--cond)}.sticky-cta__txt>span{font-size:10px;color:#ffd814}.sticky-cta .btn{width:auto;flex:none;margin:0;height:46px;font-size:18px}.js-delay{display:none!important}
+        @keyframes marquee{to{transform:translateX(-50%)}}@keyframes flow{to{transform:translateX(-50%)}}@keyframes shine{0%,55%{transform:translateX(-120%) skewX(-18deg)}100%{transform:translateX(400%) skewX(-18deg)}}@keyframes click{0%,100%{opacity:0;transform:translate(12px,12px)}20%,42%,70%{opacity:1;transform:translate(0,0) scale(1)}50%,60%{opacity:1;transform:translate(-2px,-3px) scale(.86)}85%{opacity:0;transform:translate(4px,8px)}}@keyframes press{50%,60%{transform:translateY(3px);box-shadow:0 1px 0 #13702f}}@keyframes ripple{0%,42%,72%,100%{opacity:0;transform:scale(.2)}50%{opacity:1;transform:scale(.3)}68%{opacity:0;transform:scale(2)}}@keyframes rotate{to{transform:rotate(360deg)}}@keyframes blink{50%{opacity:.4;transform:scale(.85)}}@keyframes colorwave{0%,4%{opacity:0}12%,24%{opacity:1}34%,100%{opacity:0}}
+        @media(max-width:768px){.desktop-header-top{display:none!important}.mobile-header-top{display:grid!important;grid-template-columns:auto 1fr auto;padding:12px 16px}.cbs-logo-img{height:24px}.sub-nav{padding:0 16px;height:43px;font-size:12px}.sub-nav-right,.sub-nav-right-box{display:none}.mobile-only{display:inline}.bf-hide-sm{display:none}.bf-bar{font-size:10px;text-align:left;white-space:nowrap}.as-seen-logos{gap:22px}.as-logo-img{height:24px}.comments__head>span{font-size:9px}.comment-reply{margin-left:32px}.comment-text{font-size:14px}.comments,.fb-comments-section{border-left:0;border-right:0;border-radius:0;margin:0 0 25px}.card--featured .card__bottles{max-height:240px}.stamp{right:2px}}
+        @media(min-width:900px){.offers{flex-direction:row;align-items:flex-start;justify-content:center;max-width:1140px;gap:20px;padding:48px 24px 65px}.card{flex:1;max-width:330px}.card--basic{order:1}.card--featured{order:2;flex:1.08;max-width:350px;margin-top:-20px}.card--good{order:3}.card__body{display:flex;flex-direction:column;padding:16px}.card__grid,.card__left,.card__right{display:contents!important}.card__qty{order:1;text-align:center;font-size:30px}.card__supply{order:2;text-align:center}.card__bottles{order:3;height:185px;width:100%;max-height:none!important;object-fit:contain;margin:10px auto 14px}.card--featured .card__bottles{height:225px;width:100%}.price{order:4}.benefits{order:5}.btn{order:6}.pay{order:7}.total{order:8;font-size:19px;margin-top:14px}.card--featured .total{font-size:21px}.only-desktop{display:block}.card__label{display:none}.bf-tag{order:0}.card__bar{font-size:19px}.card--featured .benefits{display:block}.card--featured .benefits li{background:transparent;border:0;border-top:1px solid #ffffff40;border-radius:0;padding:9px}.price__num{font-size:54px}.card--featured .price__num{font-size:62px}}
+        .no-fgap .comment-avatar{margin-right:10px}.no-fgap .sub-nav-items>a+a{margin-left:24px}.no-fgap .header-top-left>a+a{margin-left:22px}.no-fgap .card__right{margin-left:10px}.no-fgap .offers>.card+.card{margin-top:24px}.no-fgap .btn .cart{margin-right:8px}@media(min-width:900px){.no-fgap .offers>.card+.card{margin-top:0;margin-left:20px}.no-fgap .offers>.card--featured{margin-top:-20px}}
+        
+        .card--featured{background:repeating-linear-gradient(135deg,transparent 0,transparent 14px,rgba(255,207,71,.018) 14px,rgba(255,207,71,.018) 15px),radial-gradient(120% 75% at 50% 28%,#302718 0,#161411 56%,#090a0b 100%);border-color:#c89b39;box-shadow:0 18px 48px rgba(18,15,9,.22),0 0 0 1px rgba(255,218,122,.16);color:#fff}
+        .card--featured .card__badge{background:linear-gradient(110deg,#ffdf81,#edba43 48%,#ffe7a0);color:#17140e;border-bottom:1px solid #c89b39;letter-spacing:.06em}
+        .card--featured .bf-tag{background:#090a0b;color:#fff1c3;border:1px solid #8d7138;padding:6px 14px;font-size:12px;letter-spacing:.06em;margin-bottom:12px;box-shadow:0 3px 10px #0003}
+        .card--featured .bf-tag b{color:#ffda66}
+        .card--featured .card__qty{color:#fff8e8}.card--featured .card__supply,.card--featured .price__per{color:#d0c7b6}
+        .card--featured .card__bottles{filter:drop-shadow(0 10px 19px rgba(0,0,0,.6))}
+        .card--featured .price__num,.card--featured .price__cur{color:#ffe19a}
+        .card--featured .benefits li{background:rgba(255,209,107,.07);border-color:rgba(255,213,129,.24)}
+        .card--featured .benefits .ico{color:#f2d281}.card--featured .b-save,.card--featured .ship{color:#ffda66}
+        .card--featured .total s{color:#c5baaa;text-decoration-color:#efb967}
+        @media(min-width:900px){.card--featured .benefits li{background:transparent;border-top-color:rgba(255,213,129,.24)}}
+        
+        html body .bf-bar{position:sticky;top:0;z-index:60}html body .bf-ribbon{position:fixed;top:0;right:0;z-index:61}
+        
+        body{background:#fff}
+        .card.card--featured{background:linear-gradient(180deg,#fffaf0 0,#fffdf8 40%,#fff 78%);color:#17232d;border:2px solid #242522;box-shadow:0 18px 45px rgba(27,30,25,.12),0 0 0 1px rgba(211,165,62,.25)}
+        .card--featured .card__badge{display:flex;align-items:center;justify-content:center;gap:8px;min-height:66px;padding:13px 12px;background:linear-gradient(115deg,#141819,#292a25);color:#fff;border-bottom:3px solid #e7bf61;border-radius:13px 13px 0 0;font:800 30px/1 var(--cond);letter-spacing:.055em}
+        .card--featured .card__badge strong{color:#ffdc82;font-weight:900}.card--featured .card__badge:before,.card--featured .card__badge:after{content:'✦';color:#eac76f;font-size:13px;margin:0 4px}
+        .card--featured .card__body{padding:20px 16px 21px}
+        .card--featured .card__qty{color:#17232d;font:800 32px/1.08 var(--cond);letter-spacing:.01em}
+        .card--featured .card__supply{color:#65716e;font-size:13px;margin:6px 0 0}
+        .card--featured .kit-visual{position:relative;order:3;display:block;width:100%;max-width:300px;margin:22px auto 12px}
+        .card--featured .kit-visual .card__bottles{display:block;width:100%;height:auto;max-width:100%;max-height:240px;margin:0 auto;object-fit:contain;filter:drop-shadow(0 10px 12px rgba(40,32,17,.16));animation:none}
+        .bf-seal{position:absolute;top:-11px;right:-2px;display:flex;flex-direction:column;align-items:center;justify-content:center;width:82px;height:88px;padding:7px 5px;background:linear-gradient(145deg,#ffe6a2,#efbd4d);border:2px solid #fff1c9;border-radius:10px;box-shadow:0 4px 0 #b78827,0 7px 15px rgba(61,44,10,.2);transform:rotate(7deg);color:#19170f;pointer-events:none;z-index:2}
+        .bf-seal__top{font:800 8px/1.1 var(--sans);letter-spacing:.015em;white-space:nowrap}
+        .bf-seal__number{display:block;font:900 34px/1 var(--sans);letter-spacing:-.065em;margin:3px 0 1px}
+        .bf-seal__number>span{font-size:20px;letter-spacing:-.03em;vertical-align:5px}
+        .bf-seal__off{font:900 10px/1 var(--sans);letter-spacing:.15em}
+        .card--featured .price{color:#17232d;text-shadow:none;margin-top:6px}.card--featured .price__num{font:900 70px/.95 var(--sans);letter-spacing:-.055em;color:#17232d}.card--featured .price__cur{color:#17232d;font-size:24px;padding-top:9px}.card--featured .price__per{color:#59655f;font-size:10px;padding-top:11px;line-height:1.2;text-shadow:none}
+        .card--featured .benefits{display:grid;grid-template-columns:1fr;gap:7px;margin:17px 0 0;padding:0}
+        .card--featured .benefits li{display:flex;align-items:center;justify-content:center;gap:7px;padding:9px 7px;border:1px solid #dfe5de;border-radius:8px;background:#fff;color:#35433a;font:800 10px/1.2 var(--sans);letter-spacing:.025em;min-height:35px}
+        .card--featured .benefits .ico{color:#278e50;width:14px;height:14px}
+        .card--featured .benefits li.b-save{background:linear-gradient(110deg,#fff0bb,#fff8e4);border-color:#e3c878;color:#302813;min-height:44px}
+        .saving-copy{display:flex;align-items:center;gap:7px}.saving-copy strong{font:900 21px/1 var(--sans);letter-spacing:-.03em}
+        .card--featured .benefits li:nth-child(2){background:#222723;border-color:#222723;color:#fff}.card--featured .benefits li:nth-child(2) .ico{color:#f0cf7e}
+        .card--featured .total{color:#27352d;font:500 18px/1.5 var(--sans);text-shadow:none;margin-top:13px}.card--featured .total b{font-weight:900}.card--featured .total s{color:#788179;text-decoration-color:#8e816a}.card--featured .total .ship{color:#217d42;font:800 11px/1.3 var(--sans);margin-top:3px}
+        .card--featured .btn{margin-top:15px;box-shadow:0 4px 0 #13702f,0 8px 18px rgba(29,118,53,.14)}
+        @media(min-width:900px){.card--featured .card__qty{font-size:34px}.card--featured .kit-visual{max-width:290px;margin:24px auto 14px}.card--featured .kit-visual .card__bottles{height:225px;max-height:none;width:100%}.card--featured .bf-seal{right:-3px;top:-9px}.card--featured .benefits{padding:0}.card--featured .price{margin-top:3px}.card--featured .total{font-size:20px}}
+        @media(max-width:380px){.card--featured .card__badge{font-size:28px;gap:6px}.card--featured .card__badge:before,.card--featured .card__badge:after{margin:0 1px}.card--featured .bf-seal{right:0}}
+        
+        .card--featured .bf-seal{width:104px;height:104px;top:-24px;right:-2px;padding:18px 9px 15px;gap:1px;background:none;border:0;border-radius:50%;box-shadow:none;isolation:isolate;transform:rotate(-7deg);filter:drop-shadow(0 5px 6px rgba(52,34,9,.27));color:#ffe7a3}
+        .bf-seal:before{content:'';position:absolute;top:0;right:0;bottom:0;left:0;z-index:0;background:conic-gradient(from -25deg,#b88324,#ffe6a0 12%,#d6a43b 24%,#fff1b9 38%,#c18b28 52%,#ffe4a0 68%,#b98326 82%,#f6d67d);clip-path:polygon(50.00% 0.00%,54.56% 3.72%,59.75% 0.96%,63.50% 5.50%,69.13% 3.81%,71.92% 8.99%,77.78% 8.43%,79.50% 14.06%,85.36% 14.64%,85.94% 20.50%,91.57% 22.22%,91.01% 28.08%,96.19% 30.87%,94.50% 36.50%,99.04% 40.25%,96.28% 45.44%,100.00% 50.00%,96.28% 54.56%,99.04% 59.75%,94.50% 63.50%,96.19% 69.13%,91.01% 71.92%,91.57% 77.78%,85.94% 79.50%,85.36% 85.36%,79.50% 85.94%,77.78% 91.57%,71.92% 91.01%,69.13% 96.19%,63.50% 94.50%,59.75% 99.04%,54.56% 96.28%,50.00% 100.00%,45.44% 96.28%,40.25% 99.04%,36.50% 94.50%,30.87% 96.19%,28.08% 91.01%,22.22% 91.57%,20.50% 85.94%,14.64% 85.36%,14.06% 79.50%,8.43% 77.78%,8.99% 71.92%,3.81% 69.13%,5.50% 63.50%,0.96% 59.75%,3.72% 54.56%,0.00% 50.00%,3.72% 45.44%,0.96% 40.25%,5.50% 36.50%,3.81% 30.87%,8.99% 28.08%,8.43% 22.22%,14.06% 20.50%,14.64% 14.64%,20.50% 14.06%,22.22% 8.43%,28.08% 8.99%,30.87% 3.81%,36.50% 5.50%,40.25% 0.96%,45.44% 3.72%)}
+        .bf-seal:after{content:'';position:absolute;top:9px;right:9px;bottom:9px;left:9px;z-index:1;background:radial-gradient(circle at 35% 20%,#363128,#111412 70%);border:1px solid #f8dc91;border-radius:50%;box-shadow:inset 0 0 0 3px #1a1b16,inset 0 0 0 4px #8e712d}
+        .bf-seal__top,.bf-seal__number,.bf-seal__off{position:relative;z-index:2}
+        .bf-seal__top{color:#f6dda0;font:800 8px/1.2 var(--sans);letter-spacing:.04em;margin-top:1px}
+        .bf-seal__number{font:900 38px/1 var(--sans);color:#fff0ba;letter-spacing:-.065em;margin:2px 0 0;text-shadow:0 1px 0 #000}
+        .bf-seal__number>span{font-size:20px;vertical-align:7px;letter-spacing:-.03em}
+        .bf-seal__off{color:#f8dea0;font:800 9px/1 var(--sans);letter-spacing:.24em;margin-left:2px}
+        .bf-seal__ribbons{position:absolute;z-index:-1;top:78px;left:22px;right:22px;height:42px;pointer-events:none}
+        .bf-seal__ribbons:before,.bf-seal__ribbons:after{content:'';position:absolute;top:0;width:25px;height:40px;background:linear-gradient(90deg,#ba8628,#f5d47e 44%,#d09a36 80%);clip-path:polygon(0 0,100% 0,100% 100%,50% 78%,0 100%)}
+        .bf-seal__ribbons:before{left:1px;transform:rotate(15deg)}.bf-seal__ribbons:after{right:1px;transform:rotate(-15deg)}
+        
+        .card--featured .bf-seal{animation:bfMedalFloat 3.8s ease-in-out infinite;will-change:transform}
+        .bf-seal__top,.bf-seal__number,.bf-seal__off{z-index:3}
+        .bf-seal__sheen{position:absolute;top:0;right:0;bottom:0;left:0;border-radius:50%;overflow:hidden;clip-path:circle(49% at 50% 50%);z-index:2;pointer-events:none}
+        .bf-seal__sheen:before{content:'';position:absolute;top:-20%;bottom:-20%;left:0;width:32%;background:linear-gradient(90deg,transparent,rgba(255,245,204,.36),transparent);animation:bfMedalSheen 5.2s ease-in-out infinite;will-change:transform;transform:translateX(-180%) rotate(24deg)}
+        @keyframes bfMedalFloat{0%,100%{transform:translateY(0) rotate(-7deg)}50%{transform:translateY(-5px) rotate(-7deg)}}
+        @keyframes bfMedalSheen{0%,62%{transform:translateX(-180%) rotate(24deg);opacity:0}68%{opacity:.85}88%{transform:translateX(480%) rotate(24deg);opacity:.85}94%,100%{transform:translateX(480%) rotate(24deg);opacity:0}}
+        
+        .card--basic .btn,.card--good .btn{background:#60686c;color:#fff!important;box-shadow:0 4px 0 #42494d}
+        .card--basic .btn:before,.card--good .btn:before{background:linear-gradient(100deg,#596267,#879196,#596267,#879196,#596267)}
+        .card--basic:active .btn,.card--good:active .btn{box-shadow:0 1px 0 #42494d}
+        /* fundo Black Friday: do vídeo até o fim das ofertas, fade-in no pitch */.bf-stage{position:relative;isolation:isolate}.bf-stage::before{content:'';position:absolute;z-index:-1;top:0;right:0;bottom:0;left:0;opacity:0;transition:opacity 1.4s ease;pointer-events:none;background:var(--bf-bg,none) center top/100% auto no-repeat,var(--bf-tile,none) center top/100% auto repeat-y}@media(max-width:899px){.bf-stage::before{background:var(--bf-bg,none) left top/820px auto no-repeat,var(--bf-bg,none) right top/820px auto no-repeat,var(--bf-tile,none) left top/820px auto repeat-y,var(--bf-tile,none) right top/820px auto repeat-y}}.offer-on .bf-stage::before{opacity:1}
+        .card--featured .benefits li:nth-child(2){min-height:50px;font-size:13px;letter-spacing:.08em;background:linear-gradient(110deg,#0b0f0d,#2b2410 55%,#0b0f0d);border:2px solid #e3c24f;color:#ffe08a;box-shadow:0 0 0 3px rgba(227,194,79,.22),0 6px 16px rgba(16,24,32,.28);text-transform:uppercase}.card--featured .benefits li:nth-child(2) .ico{color:#ffd24a;width:18px;height:18px}
+    </style>
+    <link rel="preload" as="font" type="font/woff2" href="assets/roboto.woff2" crossorigin>
+
+   <script type="text/javascript" src="https://rt.lightlivingguide.site/track.js"></script>
+  
+    <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1473958814652094');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1473958814652094&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+
+<!-- ===== BUYGOODS: cookie de sessão. Fica no <head> de propósito, para o
+     sessid2 já existir quando o pixel de conversão dispara lá embaixo. ===== -->
+<script type="text/javascript" defer="" src="https://tracking.buygoods.com/track/?a=13326&amp;firstcookie=0&amp;tracking_redirect=&amp;referrer=https%3A%2F%2Fbackoffice.buygoods.com%2F&amp;sessid2=&amp;product=PP_SPK2UNITS_AFF,PP_SPK3UNITS_AFF,PP_SPK6UNITS_AFF&amp;vid1=&amp;vid2=&amp;vid3=&amp;caller_url=https%3A%2F%2Fsodapeak.com%2Fspk-aff-buy-dtc%2F%3Faff_id%3D1858"></script>
+
+<script>var mysrc = "https://tracking.buygoods.com/track/?a=13326&firstcookie=0"+"&tracking_redirect=&referrer="+encodeURIComponent(document.referrer)+"&sessid2="+ReadCookie('sessid2')+"&product=PP_SPK2UNITS_AFF,PP_SPK3UNITS_AFF,PP_SPK6UNITS_AFF&vid1=&vid2=&vid3=&caller_url="+encodeURIComponent(window.location.href); if(typeof add_to_cart !== 'undefined') { mysrc = mysrc+'&add_to_cart='+add_to_cart; } var newScript = document.createElement('script'); newScript.type = 'text/javascript'; newScript.defer = true; newScript.src = mysrc; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(newScript, s); function ReadCookie(name){name += '='; var parts = document.cookie.split(/;\s*/);for (var i = 0; i < parts.length; i++) {var part = parts[i]; if (part.indexOf(name) == 0) return part.substring(name.length)} return '';}</script>
+
+
+    <script>
+(function () {
+  // ===== CONFIG =====
+  var BACK_URL        = "https://rt.lightlivingguide.site/6ad798091cb92838522a06d4";
+  var DELAY_MS        = 0;       // ex.: 8000 = só arma após 8s na página
+  var ONLY_ONCE       = true;    // dispara no máximo 1x por sessão
+  var PASS_CLICKID_AS = "sub9";  // repassa o clickid original; "" para desativar
+
+  // Se o sub não vier na URL, usa a UTM equivalente
+  var UTM_TO_SUB = {
+    sub4: "utm_content",   // nome do anúncio
+    sub5: "utm_medium",    // nome do conjunto
+    sub6: "utm_campaign",  // nome da campanha
+    sub7: "utm_term"       // posicionamento
+  };
+  // ==================
+
+  var STORE_KEY = "br_params";
+  var FIRED_KEY = "br_fired";
+  var DEBUG = /[?&#]brdebug=1/.test(location.href);
+
+  function log() { if (DEBUG) console.log.apply(console, ["[backredirect]"].concat([].slice.call(arguments))); }
+
+  try { if (ONLY_ONCE && !DEBUG && sessionStorage.getItem(FIRED_KEY)) return; } catch (e) {}
+
+  // ---------- 1. Captura dos parâmetros ----------
+  function readUrlParams() {
+    var p = new URLSearchParams(location.search);
+    var h = location.hash.indexOf("?") > -1 ? location.hash.split("?")[1]
+          : (location.hash.indexOf("=") > -1 ? location.hash.slice(1) : "");
+    if (h) new URLSearchParams(h).forEach(function (v, k) { if (!p.has(k)) p.set(k, v); });
+    return p;
+  }
+
+  function isValid(v) { return v && !/[{}]/.test(v); }
+
+  var captured = {};
+  readUrlParams().forEach(function (v, k) { if (isValid(v)) captured[k] = v; });
+
+  try {
+    if (Object.keys(captured).length) {
+      sessionStorage.setItem(STORE_KEY, JSON.stringify(captured));
+    } else {
+      var saved = sessionStorage.getItem(STORE_KEY);
+      if (saved) captured = JSON.parse(saved);
+    }
+  } catch (e) {}
+
+  log("URL da VSL:", location.href);
+  log("Parâmetros capturados:", captured);
+
+  // ---------- 2. Monta a URL do back ----------
+  function buildBackUrl() {
+    var params = new URLSearchParams();
+    Object.keys(captured).forEach(function (k) { params.set(k, captured[k]); });
+    readUrlParams().forEach(function (v, k) { if (isValid(v) && !params.has(k)) params.set(k, v); });
+
+    // Preenche subs faltantes a partir das UTMs
+    Object.keys(UTM_TO_SUB).forEach(function (sub) {
+      var utm = UTM_TO_SUB[sub];
+      if (!params.get(sub) && params.get(utm)) params.set(sub, params.get(utm));
+    });
+
+    var clickid = params.get("rtkcid") || params.get("clickid");
+    ["rtkcid", "rtkcmpid", "clickid", "cmpid", "brdebug"].forEach(function (p) { params.delete(p); });
+
+    if (PASS_CLICKID_AS && clickid) params.set(PASS_CLICKID_AS, clickid);
+    if (!params.get("utm_source")) params.set("utm_source", "facebook");
+    if (!params.get("utm_medium")) params.set("utm_medium", "paid");
+
+    return BACK_URL + "?" + params.toString();
+  }
+
+  window.__backUrl = buildBackUrl();
+  log("URL do back:", window.__backUrl);
+
+  // ---------- 3. Backredirect ----------
+  var startHash = location.hash;
+  var pushedOnLoad = false, pushedOnGesture = false, ready = false;
+
+  function push() { history.pushState({ br: 1 }, "", location.href); }
+
+  function armOnLoad() {
+    if (pushedOnLoad) return;
+    pushedOnLoad = true;
+    push();
+  }
+
+  function onGesture() {
+    if (pushedOnGesture || !ready) return;
+    pushedOnGesture = true;
+    push();
+    ["click", "touchstart", "keydown"].forEach(function (ev) {
+      window.removeEventListener(ev, onGesture, true);
+    });
+  }
+
+  function start() {
+    ready = true;
+    armOnLoad();
+    ["click", "touchstart", "keydown"].forEach(function (ev) {
+      window.addEventListener(ev, onGesture, { capture: true, passive: true });
+    });
+    log("Armado.");
+  }
+
+  window.addEventListener("popstate", function () {
+    if (!ready) return;
+    if (location.hash !== startHash) return;
+    try { if (ONLY_ONCE) sessionStorage.setItem(FIRED_KEY, "1"); } catch (e) {}
+    var url = buildBackUrl();
+    log("Redirecionando para:", url);
+    window.location.replace(url);
+  });
+
+  window.addEventListener("pageshow", function (e) {
+    if (e.persisted && ready) { pushedOnLoad = false; pushedOnGesture = false; armOnLoad(); }
+  });
+
+  if (DELAY_MS > 0) setTimeout(start, DELAY_MS); else start();
+})();
+</script>
+  
+    
+</head>
+
+<body>
+
+
+    <div class="bf-ribbon js-delay" aria-hidden="true"><span>BLACK FRIDAY</span></div>
+
+    <div class="bf-bar js-delay">BLACK FRIDAY<span class="bf-hide-sm"> SALE</span> · <b>UP TO 73% OFF</b> · <span class="bf-hide-sm">ENDS IN </span><span data-countdown>--</span></div>
+
+    <header class="cbs-header">
+        <div class="desktop-header-top header-top">
+            <div class="header-top-left"><a href="javascript:void(0);">Latest ▾</a> <a href="javascript:void(0);">Local News ▾</a> <a href="javascript:void(0);"><span style="color:#ff3b30;font-size:13px;margin-right:6px;vertical-align:middle">●</span>Live ▾</a> <a href="javascript:void(0);">Shows ▾</a>                <a href="javascript:void(0);">...</a></div>
+            <div class="logo-container">
+                <a href="javascript:void(0);"><img decoding="async" alt="CBS News" class="cbs-logo-img" src="assets/2_fcPrMt6612133.webp" width="201" height="47"></a>
+            </div>
+            <div class="header-top-right">
+                <a class="search-icon" href="javascript:void(0);">
+                    <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="24">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" x2="16.65" y1="21" y2="16.65"></line>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="mobile-header-top header-top" style="display:none">
+            <a href="javascript:void(0);" style="display:flex;align-items:center">
+                <svg fill="#000000" height="24" viewbox="0 0 24 24" width="24">
+                    <circle cx="5" cy="5" r="2.5"></circle>
+                    <circle cx="12" cy="5" r="2.5"></circle>
+                    <circle cx="19" cy="5" r="2.5"></circle>
+                    <circle cx="5" cy="12" r="2.5"></circle>
+                    <circle cx="12" cy="12" r="2.5"></circle>
+                    <circle cx="19" cy="12" r="2.5"></circle>
+                    <circle cx="5" cy="19" r="2.5"></circle>
+                    <circle cx="12" cy="19" r="2.5"></circle>
+                    <circle cx="19" cy="19" r="2.5"></circle>
+                </svg>
+            </a>
+            <div class="logo-container">
+                <a href="javascript:void(0);"><img decoding="async" alt="CBS News" class="cbs-logo-img" src="assets/2_fcPrMt6612133.webp" width="201" height="47"></a>
+            </div>
+            <div class="header-top-right">
+                <a class="search-icon" href="javascript:void(0);">
+                    <svg fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="22">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" x2="16.65" y1="21" y2="16.65"></line>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="sub-nav">
+            <div class="sub-nav-items"><a href="javascript:void(0);">Fitness ▾</a> <a href="javascript:void(0);">Food ▾</a> <a class="mobile-only" href="javascript:void(0);"><span style="color:#f5c518;font-size:13px">☀️</span> 84° </a><a href="javascript:void(0);">Sleep</a>
+                <a
+                href="javascript:void(0);">More</a> <a href="javascript:void(0);">...</a></div>
+            <div class="sub-nav-right-box desktop-only"><span style="color:#f5c518;font-size:15px">☀️</span> 84°</div>
+        </div>
+    </header>
+
+    <div class="bf-stage">
+        <section class="video-sec">
+            <!-- TROCAR O VÍDEO -->
+           <vturb-smartplayer id="vid-6aeb77be7268b3d104d87f77" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 177.77777777777777% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/6e3ae2f6-ad64-483b-9bc5-bafc50ec8005/players/6aeb77be7268b3d104d87f77/v4/player.js", s.async=!0,document.head.appendChild(s); </script>6ae5634d135e42c5e6d4157f/v4/player.js", s.async=!0,document.head.appendChild(s);
+            </script>
+        </section>
+
+        <div class="as-seen-section">
+            <div class="as-seen-title">AS SEEN ON:</div>
+            <div class="as-seen-logos">
+                <div class="logo-item" title="ABC"><span class="media-logo"><img decoding="async" alt="ABC" class="as-logo-img" src="assets/1_dDIlpv4768548.webp" width="64" height="64"><img decoding="async" alt="" class="as-logo-img on" src="assets/1_dDIlpv4768548.webp" aria-hidden="true" width="64" height="64"></span></div>
+                <div
+                class="logo-item" title="CNN"><span class="media-logo"><img decoding="async" alt="CNN" class="as-logo-img" src="assets/5_hqtWQp4768548.webp" width="134" height="64"><img decoding="async" alt="" class="as-logo-img on" src="assets/5_hqtWQp4768548.webp" aria-hidden="true" width="134" height="64"></span></div>
+            <div
+            class="logo-item" title="NBC"><span class="media-logo"><img decoding="async" alt="NBC" class="as-logo-img" src="assets/3_msFdni4768548.webp" width="65" height="64"><img decoding="async" alt="" class="as-logo-img on" src="assets/3_msFdni4768548.webp" aria-hidden="true" width="65" height="64"></span></div>
+        <div
+        class="logo-item" title="CBS"><span class="media-logo"><img decoding="async" alt="CBS" class="as-logo-img" src="assets/4_DEGALa4938150.webp" width="64" height="64"><img decoding="async" alt="" class="as-logo-img on" src="assets/4_DEGALa4938150.webp" aria-hidden="true" width="64" height="64"></span></div>
+    </div>
+    </div>
+
+    <section class="offers js-delay" id="potes">
+        <a class="card card--featured smartplayer-click-event" href="https://buygoods.com/secure/checkout.html?account_id=13326&product_codename=PP_SPK6UNITS_AFF&redirect=aHR0cHM6Ly9pbXByb3ZpbmdvdXJoZWFsdGguY29tL3Nway1hZmYtYnV5LXVwMS8%3D&aff_id=1858" data-kit="kit6">
+            <div class="card__badge"><span>BLACK</span><strong>FRIDAY</strong></div>
+            <div class="card__body">
+
+                <div class="card__grid">
+                    <div class="card__left">
+                        <h3 class="card__qty">6 BOTTLE</h3>
+                        <p class="card__supply">6-month supply</p>
+                        <div class="kit-visual"><img alt="" class="card__bottles" decoding="async" data-src="assets/kit-6-sodapeak.webp" width="640" height="488"><span class="bf-seal" role="img" aria-label="Black Friday: 73% off"><span class="bf-seal__ribbons" aria-hidden="true"></span>
+                            <span
+                            class="bf-seal__sheen" aria-hidden="true"></span><span class="bf-seal__top">BLACK FRIDAY</span><strong class="bf-seal__number">73<span>%</span></strong><span class="bf-seal__off">OFF</span></span>
+                        </div>
+                    </div>
+                    <div class="card__right">
+                        <div class="price"><span class="price__cur">$</span><span class="price__num">49</span><span class="price__per">PER<br>BOTTLE</span></div>
+                        <ul class="benefits">
+                            <li class="b-save">
+                                <svg aria-hidden="true" class="ico" viewbox="0 0 512 512">
+                                    <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" fill="currentColor"></path>
+                                </svg><span class="saving-copy">YOU SAVE <strong>$780!</strong></span></li>
+                            <li>
+                                <svg aria-hidden="true" class="ico" viewbox="0 0 512 512">
+                                    <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" fill="currentColor"></path>
+                                </svg><span>BLACK FRIDAY OFFER</span></li>
+                            <li>
+                                <svg aria-hidden="true" class="ico" viewbox="0 0 512 512">
+                                    <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" fill="currentColor"></path>
+                                </svg><span>MONEY-BACK GUARANTEE</span></li>
+                        </ul>
+                        <p class="total">total: <s>$1074</s> <b>$294</b> <span class="ship">+FREE SHIPPING</span></p>
+                    </div>
+                </div>
+                <div class="btn btn--yellow" aria-hidden="true">
+                    <svg class="cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M3 4h2l2.4 11h10.8L21 7H6"></path>
+                        <circle cx="9" cy="20" r="1.5" fill="currentColor" stroke="none"></circle>
+                        <circle cx="18" cy="20" r="1.5" fill="currentColor" stroke="none"></circle>
+                    </svg><span>BUY NOW</span>
+                    <svg class="clicker" viewbox="0 0 297 297" aria-hidden="true">
+                        <path fill="#fff" d="M244.279,91.662c-4.198,0-8.195,0.876-11.825,2.45c-4.413-11.152-15.238-19.058-27.869-19.058
+	c-4.692,0-9.136,1.092-13.094,3.034c-5.009-9.657-15.048-16.27-26.598-16.27c-3.395,0-6.655,0.579-9.701,1.632V30.201
+	C155.193,13.549,141.738,0,125.198,0C108.66,0,95.206,13.549,95.206,30.201v119.643L73.604,125.13
+	c-0.151-0.169-0.305-0.335-0.465-0.494c-5.672-5.676-13.221-8.823-21.256-8.862c-0.052,0-0.101,0-0.153,0
+	c-8.016,0-15.521,3.095-21.146,8.724c-9.918,9.921-10.467,24.647-1.502,40.408c11.605,20.39,24.22,39.616,35.351,56.581
+	c8.134,12.398,15.818,24.108,21.435,33.79c4.871,8.402,17.801,35.651,17.933,35.926c1.678,3.541,5.247,5.798,9.163,5.798h128.27
+	c4.407,0,8.308-2.843,9.659-7.035c2.392-7.439,23.379-73.398,23.379-98.871v-69.229C274.27,105.21,260.817,91.662,244.279,91.662z"></path>
+                        <path fill="#16181b" d="M244.279,91.662c-4.198,0-8.195,0.876-11.825,2.45c-4.413-11.152-15.238-19.058-27.869-19.058
+	c-4.692,0-9.136,1.092-13.094,3.034c-5.009-9.657-15.048-16.27-26.598-16.27c-3.395,0-6.655,0.579-9.701,1.632V30.201
+	C155.193,13.549,141.738,0,125.198,0C108.66,0,95.206,13.549,95.206,30.201v119.643L73.604,125.13
+	c-0.151-0.169-0.305-0.335-0.465-0.494c-5.672-5.676-13.221-8.823-21.256-8.862c-0.052,0-0.101,0-0.153,0
+	c-8.016,0-15.521,3.095-21.146,8.724c-9.918,9.921-10.467,24.647-1.502,40.408c11.605,20.39,24.22,39.616,35.351,56.581
+	c8.134,12.398,15.818,24.108,21.435,33.79c4.871,8.402,17.801,35.651,17.933,35.926c1.678,3.541,5.247,5.798,9.163,5.798h128.27
+	c4.407,0,8.308-2.843,9.659-7.035c2.392-7.439,23.379-73.398,23.379-98.871v-69.229C274.27,105.21,260.817,91.662,244.279,91.662z
+	 M234.579,121.865c0-5.468,4.352-9.916,9.7-9.916c5.351,0,9.703,4.448,9.703,9.916v69.229c0,16.928-13.01,62.437-20.189,85.618
+	H119.361c-4.206-8.752-12.089-24.964-15.944-31.613c-5.897-10.168-13.73-22.105-22.022-34.744
+	c-10.966-16.71-23.393-35.652-34.681-55.482c-2.946-5.181-5.646-12.166-1.78-16.032c1.803-1.807,4.231-2.751,6.851-2.779
+	c2.557,0.013,4.962,0.977,6.805,2.721l39.124,44.755c2.78,3.183,7.248,4.306,11.202,2.821c3.958-1.486,6.579-5.271,6.579-9.497
+	V30.201c0-5.467,4.353-9.913,9.704-9.913c5.352,0,9.706,4.446,9.706,9.913v94.711c0,5.602,4.543,10.144,10.144,10.144
+	c5.601,0,10.144-4.542,10.144-10.144V92.016c0-5.464,4.352-9.909,9.701-9.909c5.351,0,9.703,4.445,9.703,9.909v46.127
+	c0,5.605,4.542,10.145,10.143,10.145c5.602,0,10.145-4.539,10.145-10.145v-32.888c0-5.467,4.352-9.914,9.701-9.914
+	c5.352,0,9.706,4.447,9.706,9.914v46.13c0,5.601,4.542,10.145,10.144,10.145c5.603,0,10.145-4.544,10.145-10.145V121.865z"></path>
+                    </svg>
+                </div>
+                <img alt="" class="pay only-desktop" decoding="async" data-src="assets/17_WatCdd7029656.webp" width="391" height="57">
+            </div>
+        </a>
+        <a class="card card--good smartplayer-click-event" href="https://buygoods.com/secure/checkout.html?account_id=13326&product_codename=PP_SPK2UNITS_AFF&redirect=aHR0cHM6Ly9pbXByb3ZpbmdvdXJoZWFsdGguY29tL3Nway1hZmYtYnV5LXVwMS8%3D&aff_id=1858" data-kit="kit3">
+            <div class="card__bar only-desktop">Good Value</div>
+            <div class="card__body">
+                <div class="bf-tag">BLACK FRIDAY<b>-61%</b></div>
+                <div class="card__grid">
+                    <div class="card__left"><span class="card__label">Most Popular</span>
+                        <h3 class="card__qty">3 BOTTLE</h3>
+                        <p class="card__supply">3-month supply</p>
+                        <img alt="" class="card__bottles" decoding="async" data-src="assets/kit-3-sodapeak.webp" width="623" height="585"></div>
+                    <div class="card__right">
+                        <div class="price"><span class="price__cur">$</span><span class="price__num">69</span><span class="price__per">PER<br>BOTTLE</span></div>
+                        <ul class="benefits">
+                            <li class="b-save">
+                                <svg aria-hidden="true" class="ico" viewbox="0 0 512 512">
+                                    <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" fill="currentColor"></path>
+                                </svg><span>YOU SAVE $330!</span></li>
+                            <li>
+                                <svg aria-hidden="true" class="ico" viewbox="0 0 512 512">
+                                    <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" fill="currentColor"></path>
+                                </svg><span>MONEY-BACK GUARANTEE</span></li>
+                        </ul>
+                        <p class="total">total: <s>$537</s> <b>$207</b> <span class="ship">+FREE SHIPPING</span></p>
+                    </div>
+                </div>
+                <div class="btn btn--grey" aria-hidden="true">
+                    <svg class="cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M3 4h2l2.4 11h10.8L21 7H6"></path>
+                        <circle cx="9" cy="20" r="1.5" fill="currentColor" stroke="none"></circle>
+                        <circle cx="18" cy="20" r="1.5" fill="currentColor" stroke="none"></circle>
+                    </svg><span>BUY NOW</span></div>
+                <img alt="" class="pay only-desktop" decoding="async" data-src="assets/10_WatCdd7029656.webp" width="391" height="57">
+            </div>
+        </a>
+        <a class="card card--basic smartplayer-click-event" href="https://buygoods.com/secure/checkout.html?account_id=13326&product_codename=PP_SPK3UNITS_AFF&redirect=aHR0cHM6Ly9pbXByb3ZpbmdvdXJoZWFsdGguY29tL3Nway1hZmYtYnV5LXVwMS8%3D&aff_id=1858" data-kit="kit2">
+            <div class="card__bar only-desktop">Basic</div>
+            <div class="card__body">
+                <div class="bf-tag">BLACK FRIDAY<b>-56%</b></div>
+                <div class="card__grid">
+                    <div class="card__left"><span class="card__label">Basic</span>
+                        <h3 class="card__qty">2 BOTTLES</h3>
+                        <p class="card__supply">2-month supply</p>
+                        <img alt="" class="card__bottles" decoding="async" data-src="assets/kit-2-sodapeak.webp" width="469" height="585"></div>
+                    <div class="card__right">
+                        <div class="price"><span class="price__cur">$</span><span class="price__num">79</span><span class="price__per">PER<br>BOTTLE</span></div>
+                        <ul class="benefits">
+                            <li class="b-save">
+                                <svg aria-hidden="true" class="ico" viewbox="0 0 512 512">
+                                    <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" fill="currentColor"></path>
+                                </svg><span>YOU SAVE $200!</span></li>
+                            <li>
+                                <svg aria-hidden="true" class="ico" viewbox="0 0 512 512">
+                                    <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" fill="currentColor"></path>
+                                </svg><span>MONEY-BACK GUARANTEE</span></li>
+                        </ul>
+                        <p class="total">total: <s>$358</s> <b>$158</b> <span class="ship">+SHIPPING</span></p>
+                    </div>
+                </div>
+                <div class="btn btn--grey" aria-hidden="true">
+                    <svg class="cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M3 4h2l2.4 11h10.8L21 7H6"></path>
+                        <circle cx="9" cy="20" r="1.5" fill="currentColor" stroke="none"></circle>
+                        <circle cx="18" cy="20" r="1.5" fill="currentColor" stroke="none"></circle>
+                    </svg><span>BUY NOW</span></div>
+                <img alt="" class="pay only-desktop" decoding="async" data-src="assets/10_WatCdd7029656.webp" width="391" height="57">
+            </div>
+        </a>
+    </section>
+    </div>
+
+    <script>
+        (function(){
+          var shown=false,attempts=0,retryTimer=null,boundPlayer=null,gateImgs=[],gates=[],key='vsl:'+location.pathname+':'+window.SECONDS_TO_DISPLAY+':6ae5634d135e42c5e6d4157f';
+          function each(items,fn){Array.prototype.forEach.call(items,fn);}
+          function emit(name){var e=document.createEvent('Event');e.initEvent(name,false,false);window.dispatchEvent(e);}
+          function loadOffer(){document.documentElement.style.setProperty('--bf-bg','url(assets/bf-offers-bg.webp)');document.documentElement.style.setProperty('--bf-tile','url(assets/bf-offers-tile.webp)');each(gateImgs,function(img){if(!img.getAttribute('src'))img.setAttribute('src',img.getAttribute('data-src'));});}
+          function reveal(){
+            if(shown)return;shown=true;loadOffer();document.documentElement.className+=' offer-on';each(gates,function(el){el.classList.remove('js-delay');});
+            try{localStorage.setItem(key,'1');}catch(e){}
+            emit('offer:shown');emit('scroll');
+          }
+          function check(t){if(typeof t==='number' && isFinite(t) && t>=window.SECONDS_TO_DISPLAY)reveal();}
+          function watch(){
+            clearTimeout(retryTimer);
+            if(shown)return;
+            var sp=window.smartplayer && window.smartplayer.instances && window.smartplayer.instances[0];
+            if(sp && typeof sp.on==='function' && sp!==boundPlayer){
+              boundPlayer=sp;sp.on('timeupdate',function(){if(!shown && !sp.smartAutoPlay && sp.video)check(sp.video.currentTime);});
+              if(!sp.smartAutoPlay && sp.video)check(sp.video.currentTime);
+            }
+            attempts++;retryTimer=setTimeout(watch,attempts<120?1000:3000);
+          }
+          function warm(){
+            var list=['assets/bf-offers-bg.webp','assets/bf-offers-tile.webp'];each(gateImgs,function(img){var s=img.getAttribute('data-src');if(s && list.indexOf(s)<0)list.push(s);});
+            function next(){var s=list.shift();if(!s)return;var img=new Image();if('fetchPriority' in img)img.fetchPriority='low';img.onload=img.onerror=function(){setTimeout(next,150);};img.src=s;}
+            next();
+          }
+          function init(){
+            gates=document.querySelectorAll('.js-delay');gateImgs=document.querySelectorAll('.js-delay img[data-src]');
+            var host=document.querySelector('vturb-smartplayer');
+            if(host){host.addEventListener('player:ready',watch);host.addEventListener('video:timeupdate',function(ev){var sp=window.smartplayer && window.smartplayer.instances && window.smartplayer.instances[0];if(host.smartAutoPlay || (sp && sp.smartAutoPlay))return;if(sp && sp.video)check(sp.video.currentTime);else if(ev.detail)check(typeof ev.detail.time==='number'?ev.detail.time:ev.detail.currentTime);});}
+            try{if(localStorage.getItem(key)==='1')setTimeout(reveal,100);}catch(e){}
+            watch();
+            var t=document.createElement('div');t.style.cssText='display:flex;flex-direction:column;row-gap:1px;position:absolute;visibility:hidden';t.appendChild(document.createElement('div'));t.appendChild(document.createElement('div'));document.body.appendChild(t);if(t.scrollHeight!==1)document.documentElement.classList.add('no-fgap');document.body.removeChild(t);
+          }
+          document.addEventListener('error',function(e){var img=e.target;if(!img || img.tagName!=='IMG' || !img.getAttribute('src'))return;var n=+(img.getAttribute('data-retry')||0);if(n>=3)return;img.setAttribute('data-retry',n+1);setTimeout(function(){img.src=img.getAttribute('src').split('?')[0]+'?r='+(n+1);},1500*(n+1));},true);
+          document.addEventListener('contextmenu',function(e){e.preventDefault();});
+          document.addEventListener('dragstart',function(e){if(e.target && e.target.tagName==='IMG')e.preventDefault();});
+          document.addEventListener('keydown',function(e){var c=e.code||'',k=(e.key||'').toLowerCase(),mod=e.ctrlKey||e.metaKey,key=c.indexOf('Key')===0?c.slice(3).toLowerCase():k;if(c==='F12'||k==='f12'||(mod&&(e.shiftKey||e.altKey)&&key&&'ijc'.indexOf(key)>-1)||(mod&&(key==='u'||key==='s')))e.preventDefault();});
+          function schedule(){setTimeout(warm,6000);}
+          if(document.readyState==='complete')schedule();else window.addEventListener('load',schedule);
+          if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+        })();
+        
+        (function(){
+         var cta=document.getElementById('stickyCta'),video=document.getElementById('video'),offers=document.getElementById('potes');
+         function update(){if(!cta||!video||!offers)return;var r=offers.getBoundingClientRect();cta.classList.toggle('is-on',video.getBoundingClientRect().bottom<0 && !(r.top<innerHeight && r.bottom>0));}
+         window.addEventListener('scroll',update);window.addEventListener('offer:shown',update);if(typeof window.IntersectionObserver==='function' && offers)new IntersectionObserver(update).observe(offers);update();
+         var end=new Date(window.SALE_END).getTime();function pad(n){return n<10?'0'+n:''+n;}function tick(){var t=Math.max(0,Math.floor((end-Date.now())/1000)),v=t?Math.floor(t/86400)+'d '+pad(Math.floor(t%86400/3600))+':'+pad(Math.floor(t%3600/60))+':'+pad(t%60):'TODAY';Array.prototype.forEach.call(document.querySelectorAll('[data-countdown]'),function(e){e.textContent=v;});}setInterval(tick,1000);tick();
+         Array.prototype.forEach.call(document.querySelectorAll('.comment-actions'),function(el){var like=el.querySelector('span');if(!like || like.textContent.trim()!=='Like')return;like.setAttribute('role','button');like.setAttribute('tabindex','0');like.setAttribute('aria-pressed','false');function toggle(){var liked=like.classList.toggle('liked');like.setAttribute('aria-pressed',String(liked));var counter=el.parentNode.querySelector('.like-counter');if(counter){for(var i=0;i<counter.childNodes.length;i++){var n=counter.childNodes[i];if(n.nodeType===3 && /\d/.test(n.textContent)){n.textContent=n.textContent.replace(/\d+/,function(x){return +x+(liked?1:-1);});break;}}if(counter.animate)counter.animate([{transform:'scale(1)'},{transform:'scale(1.12)'},{transform:'scale(1)'}],{duration:240});}}like.addEventListener('click',toggle);like.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}});});
+        })();
+        
+        (function(){
+         var nodes=Array.prototype.slice.call(document.querySelectorAll('.offers-head,[data-reveal]:not(.card):not(.player)')),timer;
+         function scan(){nodes=nodes.filter(function(el){if(el.offsetWidth && el.getBoundingClientRect().top<innerHeight){if(el.animate)el.animate([{opacity:0,transform:'translateY(22px)'},{opacity:1,transform:'translateY(0)'}],{duration:650,easing:'ease-out'});return false;}return true;});if(!nodes.length)clearInterval(timer);}
+         if(typeof window.IntersectionObserver==='function'){var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){scan();io.unobserve(e.target);}});});nodes.forEach(function(el){io.observe(el);});}
+         timer=setInterval(scan,800);window.addEventListener('offer:shown',scan);scan();
+        })();
+    </script>
+
+      <script>
+(function() {
+    "use strict";
+    // ===== CONFIGURACAO =====
+    var CONFIG = {
+        trackingDomain: "kshj1.ttrk.io",
+        eventType: "InitiateCheckout",
+        cookieName: "rtkclickid-store",
+        clickParams: ["cid", "sid1", "rtkcid", "clickid"], // Digistore24 usa cid (sid1-sid5 extras)
+        clickSelector: "a, button",
+        clickPathMatch: "/click",
+        storageKey: "rtk_ic_fired",
+        debug: true   // deixe true ate confirmar, depois troque pra false
+    };
+    // ========================
+
+    console.log("[RT-IC] script carregado em", location.href);
+
+    function log(msg) {
+        if (CONFIG.debug) console.log("[RT-IC]", msg);
+    }
+    function getCookie(name) {
+        var match = document.cookie.match(new RegExp("(?:^|;\\s*)" + name + "=([^;]*)"));
+        return match ? decodeURIComponent(match[1]) : null;
+    }
+    function getClickId() {
+        // 1. Cookie (prioridade)
+        var clickId = getCookie(CONFIG.cookieName);
+        if (clickId) { log("clickId via cookie: " + clickId); return clickId; }
+        // 2. Parametros na URL (cid, sid1, rtkcid, clickid...)
+        try {
+            var params = new URLSearchParams(window.location.search);
+            for (var i = 0; i < CONFIG.clickParams.length; i++) {
+                var p = CONFIG.clickParams[i];
+                var val = params.get(p);
+                if (val) { log("clickId via URL (" + p + "): " + val); return val; }
+            }
+        } catch(e) {}
+        log("clickId NAO encontrado (cookie + params: " + CONFIG.clickParams.join(", ") + ")");
+        return null;
+    }
+    function isClickLink(url) {
+        try { return new URL(url).pathname.indexOf(CONFIG.clickPathMatch) !== -1; }
+        catch(e) { return false; }
+    }
+    function alreadyFired(clickId) {
+        try { return sessionStorage.getItem(CONFIG.storageKey) === clickId; }
+        catch(e) { return false; }
+    }
+    function markFired(clickId) {
+        try { sessionStorage.setItem(CONFIG.storageKey, clickId); }
+        catch(e) {}
+    }
+    function send(url) {
+        if (window.fetch) {
+            try {
+                fetch(url, { method: "GET", mode: "no-cors", keepalive: true });
+                log("postback via fetch GET keepalive: " + url);
+                return;
+            } catch(e) { log("fetch falhou, caindo pro pixel: " + e); }
+        }
+        var img = new Image();
+        img.src = url;
+        log("postback via pixel GET: " + url);
+    }
+    function firePostback() {
+        var clickId = getClickId();
+        if (!clickId) return;
+        if (alreadyFired(clickId)) { log("ja disparado nesta sessao"); return; }
+        var url = "https://" + CONFIG.trackingDomain
+            + "/postback?clickid=" + encodeURIComponent(clickId)
+            + "&type=" + encodeURIComponent(CONFIG.eventType);
+        send(url);
+        markFired(clickId);
+    }
+    function handleClick(e) {
+        if (!e.target.closest) return;
+        var el = e.target.closest(CONFIG.clickSelector);
+        if (el) { log("clique em " + el.tagName); firePostback(); return; }
+        var anchor = e.target.closest("a[href]");
+        if (anchor && isClickLink(anchor.href)) firePostback();
+    }
+    function init() {
+        document.addEventListener("click", handleClick, true);
+        log("inicializado - escutando <a>, <button> e links /click");
+    }
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", init);
+    } else {
+        init();
+    }
+})();
+</script>
+
+  <!-- BuyGoods Param Forwarder — subid = clickid do RedTrack -->
+<script>
+(function () {
+  "use strict";
+
+  var CONFIG = {
+    // domínios de checkout que recebem os parâmetros
+    checkoutHosts: ["buygoods.com", "bgcheckout.com"],
+    // parâmetros que não devem ser repassados
+    blacklist: [],
+    // nomes possíveis do clickid do RedTrack na URL (ordem de prioridade)
+    clickidParams: ["rtkcid", "rtkclickid", "clickid", "click_id", "rtk_cid", "cid"],
+    // cookies que o RedTrack grava com o clickid
+    clickidCookies: ["rtkclickid-store", "rtkclickid", "rtkcid"],
+    // esses sempre sobrescrevem o que estiver hardcoded no link
+    alwaysOverwrite: ["subid"],
+    // true = valor já hardcoded no link vence (exceto os de cima)
+    keepExisting: true,
+    urlWins: true,
+    storageKey: "bg_params",
+    cookieDays: 30
+  };
+
+  function getCookie(name) {
+    var m = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/[-.]/g, "\\$&") + "=([^;]*)"));
+    return m ? decodeURIComponent(m[1]) : "";
+  }
+
+  function saveStore(o) {
+    var j = JSON.stringify(o);
+    try { localStorage.setItem(CONFIG.storageKey, j); } catch (e) {}
+    try { sessionStorage.setItem(CONFIG.storageKey, j); } catch (e) {}
+    try {
+      var d = new Date(); d.setTime(d.getTime() + CONFIG.cookieDays * 864e5);
+      document.cookie = CONFIG.storageKey + "=" + encodeURIComponent(j) +
+        ";expires=" + d.toUTCString() + ";path=/;SameSite=Lax";
+    } catch (e) {}
+  }
+
+  function readStore() {
+    var j = null;
+    try { j = localStorage.getItem(CONFIG.storageKey); } catch (e) {}
+    if (!j) { try { j = sessionStorage.getItem(CONFIG.storageKey); } catch (e) {} }
+    if (!j) j = getCookie(CONFIG.storageKey) || null;
+    try { return j ? JSON.parse(j) : {}; } catch (e) { return {}; }
+  }
+
+  function urlParams() {
+    var out = {}, q = window.location.search.replace(/^\?/, "");
+    if (!q) return out;
+    q.split("&").forEach(function (pair) {
+      if (!pair) return;
+      var i = pair.indexOf("=");
+      var k = decodeURIComponent((i < 0 ? pair : pair.slice(0, i)).replace(/\+/g, " "));
+      var v = i < 0 ? "" : decodeURIComponent(pair.slice(i + 1).replace(/\+/g, " "));
+      if (!k || v === "" || CONFIG.blacklist.indexOf(k) !== -1) return;
+      out[k] = v;
+    });
+    return out;
+  }
+
+  var stored = readStore(), fresh = urlParams(), params = {};
+  (CONFIG.urlWins ? [stored, fresh] : [fresh, stored]).forEach(function (o) {
+    for (var k in o) if (o[k] !== "" && o[k] != null) params[k] = o[k];
+  });
+
+  // ---- subid = clickid do RedTrack ----
+  function findClickId() {
+    for (var i = 0; i < CONFIG.clickidParams.length; i++) {
+      if (params[CONFIG.clickidParams[i]]) return params[CONFIG.clickidParams[i]];
+    }
+    for (var c = 0; c < CONFIG.clickidCookies.length; c++) {
+      var v = getCookie(CONFIG.clickidCookies[c]);
+      if (v) return v;
+    }
+    if (window.rtkClickID) return window.rtkClickID;
+    return "";
+  }
+
+  var clickid = findClickId();
+  if (clickid) params.subid = clickid;
+
+  if (Object.keys(params).length) saveStore(params);
+
+  // o script do RedTrack pode gravar o cookie depois do load: revalida
+  var tries = 0;
+  var poll = setInterval(function () {
+    if (++tries > 20) return clearInterval(poll);
+    if (params.subid) return clearInterval(poll);
+    var late = findClickId();
+    if (late) {
+      params.subid = late;
+      saveStore(params);
+      apply(document);
+      clearInterval(poll);
+    }
+  }, 500);
+  
+
+  function isCheckout(href) {
+    if (!href || /^(#|javascript:|mailto:|tel:)/i.test(href)) return false;
+    var a = document.createElement("a"); a.href = href;
+    var host = (a.hostname || "").toLowerCase();
+    return CONFIG.checkoutHosts.some(function (h) {
+      return host === h || host.slice(-(h.length + 1)) === "." + h;
+    });
+  }
+
+  function decorate(href) {
+    var a = document.createElement("a"); a.href = href;
+    var existing = {}, qs = a.search.replace(/^\?/, "");
+    if (qs) qs.split("&").forEach(function (p) {
+      var i = p.indexOf("="), k = i < 0 ? p : p.slice(0, i);
+      if (k) existing[decodeURIComponent(k)] = i < 0 ? "" : p.slice(i + 1);
+    });
+    for (var k in params) {
+      var has = Object.prototype.hasOwnProperty.call(existing, k) && existing[k] !== "";
+      if (has && CONFIG.keepExisting && CONFIG.alwaysOverwrite.indexOf(k) === -1) continue;
+      existing[k] = encodeURIComponent(params[k]);
+    }
+    var parts = [];
+    for (var key in existing) parts.push(encodeURIComponent(key) + "=" + existing[key]);
+    a.search = parts.length ? "?" + parts.join("&") : "";
+    return a.href;
+  }
+
+  function apply(root) {
+    if (!root || !root.querySelectorAll) return;
+
+    var links = root.querySelectorAll("a[href]");
+    for (var i = 0; i < links.length; i++) {
+      var href = links[i].getAttribute("href");
+      if (!isCheckout(href)) continue;
+      var novo = decorate(href);
+      if (novo !== href) links[i].setAttribute("href", novo);
+    }
+
+    var datas = root.querySelectorAll("[data-href],[data-url]");
+    for (var j = 0; j < datas.length; j++) {
+      (function (d) {
+        ["data-href", "data-url"].forEach(function (attr) {
+          var v = d.getAttribute(attr);
+          if (isCheckout(v)) d.setAttribute(attr, decorate(v));
+        });
+      })(datas[j]);
+    }
+
+    var forms = root.querySelectorAll("form[action]");
+    for (var f = 0; f < forms.length; f++) {
+      if (!isCheckout(forms[f].getAttribute("action"))) continue;
+      for (var p in params) {
+        var campo = forms[f].querySelector('[name="' + p + '"]');
+        if (campo) { campo.value = params[p]; continue; }
+        var input = document.createElement("input");
+        input.type = "hidden"; input.name = p; input.value = params[p];
+        forms[f].appendChild(input);
+      }
+    }
+  }
+
+  function boot() {
+    apply(document);
+    if (window.MutationObserver) {
+      new MutationObserver(function () { apply(document); }).observe(document.documentElement, {
+        childList: true, subtree: true, attributes: true,
+        attributeFilter: ["href", "data-href", "data-url"]
+      });
+    }
+    document.addEventListener("click", function (e) {
+      var el = e.target;
+      while (el && el !== document) {
+        if (el.tagName === "A" && isCheckout(el.getAttribute("href"))) {
+          el.setAttribute("href", decorate(el.getAttribute("href")));
+          break;
+        }
+        el = el.parentNode;
+      }
+    }, true);
+  }
+
+  var openOriginal = window.open;
+  window.open = function (url) {
+    if (isCheckout(url)) arguments[0] = decorate(url);
+    return openOriginal.apply(window, arguments);
+  };
+
+  window.bgParams = params;
+  window.bgUrl = decorate;
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
+  else boot();
+})();
+</script>
+</body>
+
+</html>
