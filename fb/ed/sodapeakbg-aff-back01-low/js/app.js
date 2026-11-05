@@ -43,11 +43,45 @@
 
 /* -- 2. Back-button redirect ----------------------------------------------- */
 (function () {
-  var base = "https://rt.lightlivingguide.site/6ad7983b4cbfac9453fcc73d?sub1={{ad.id}}&sub2={{adset.id}}&sub3={{campaign.id}}&sub4={{ad.name}}&sub5={{adset.name}}&sub6={{campaign.name}}&sub7={{placement}}&sub8={{site_source_name}}&utm_source=facebook&utm_medium=paidsub12=backredirect2";
-  var target = base + (base.includes("?") ? "&" : "?") + window.location.search.replace("?", "");
+  var base = "https://rt.lightlivingguide.site/6ad7983b4cbfac9453fcc73d";
+  var entryParams = new URLSearchParams(window.location.search);
+  var trackingKeys = [
+    "utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "utm_id",
+    "utm_source_platform", "utm_creative_format", "utm_marketing_tactic",
+    "fbclid", "gclid", "gbraid", "wbraid", "msclkid", "ttclid",
+    "rtkcid", "rtkclickid", "clickid", "click_id", "rtk_cid", "cid"
+  ];
+
+  function isTrackingKey(key) {
+    return /^(sub([1-9]|1[0-2])|sid[1-5])$/.test(key) ||
+      trackingKeys.indexOf(key) !== -1;
+  }
+
+  function buildTarget() {
+    var target = new URL(base);
+    target.searchParams.set("utm_source", "facebook");
+    target.searchParams.set("utm_medium", "paid");
+
+    function merge(params) {
+      // Replace each key before appending, preserving repeated incoming values.
+      params.forEach(function (value, key) {
+        if (isTrackingKey(key)) target.searchParams.delete(key);
+      });
+      params.forEach(function (value, key) {
+        if (isTrackingKey(key)) target.searchParams.append(key, value);
+      });
+    }
+
+    merge(entryParams);
+    merge(new URLSearchParams(window.location.search));
+    // This identifies the destination step, regardless of the incoming marker.
+    target.searchParams.set("sub12", "backredirect2");
+    return target.toString();
+  }
+
   history.pushState(null, null, location.href);
   window.addEventListener("popstate", function () {
-    setTimeout(function () { location.href = target; }, 150);
+    setTimeout(function () { location.href = buildTarget(); }, 150);
   });
 })();
 
