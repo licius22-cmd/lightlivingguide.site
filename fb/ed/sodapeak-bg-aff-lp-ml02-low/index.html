@@ -18,9 +18,9 @@
 
 <!-- VTurb: trocar ACCOUNT_ID / PLAYER_ID aqui e no <vturb-smartplayer> -->
 <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
-<link rel="preload" href="https://scripts.converteai.net/6e3ae2f6-ad64-483b-9bc5-bafc50ec8005/players/6ad78d6d51673b4795c33d71/v4/player.js" as="script">
+<link rel="preload" href="https://scripts.converteai.net/6e3ae2f6-ad64-483b-9bc5-bafc50ec8005/players/6aecd9a3a223219ded81c593/v4/player.js" as="script">
 <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
-<link rel="preload" href="https://cdn.converteai.net/6e3ae2f6-ad64-483b-9bc5-bafc50ec8005/6ab842f2567e6fbe44be9e46/main.m3u8" as="fetch">
+<link rel="preload" href="https://cdn.converteai.net/6e3ae2f6-ad64-483b-9bc5-bafc50ec8005/6aecd95e7caae7d5586d9061/main.m3u8" as="fetch">
 <link rel="dns-prefetch" href="https://cdn.converteai.net">
 <link rel="dns-prefetch" href="https://scripts.converteai.net">
 <link rel="dns-prefetch" href="https://images.converteai.net">
@@ -108,11 +108,10 @@ src="https://www.facebook.com/tr?id=2291920821555055&ev=PageView&noscript=1"
 
 <!-- ===== BUYGOODS: cookie de sessão. Fica no <head> de propósito, para o
      sessid2 já existir quando o pixel de conversão dispara lá embaixo. ===== -->
-<script type="text/javascript" defer="" src="https://tracking.buygoods.com/track/?a=13326&amp;firstcookie=0&amp;tracking_redirect=&amp;referrer=https%3A%2F%2Fbackoffice.buygoods.com%2F&amp;sessid2=&amp;product=PP_SPK2UNITS_AFF,PP_SPK3UNITS_AFF,PP_SPK6UNITS_AFF&amp;vid1=&amp;vid2=&amp;vid3=&amp;caller_url=https%3A%2F%2Fsodapeak.com%2Fspk-aff-buy-dtc%2F%3Faff_id%3D1858"></script>
+<script>var mysrc = "https://tracking.buygoods.com/track/?a=13821&firstcookie=0"+"&tracking_redirect=&referrer="+encodeURIComponent(document.referrer)+"&sessid2="+ReadCookie('sessid2')+"&product=PP_ESPK32UNITS_AFF,PP_ESPK33UNITS_AFF,PP_ESPK36UNITS_AFF&vid1=&vid2=&vid3=&caller_url="+encodeURIComponent(window.location.href); if(typeof add_to_cart !== 'undefined') { mysrc = mysrc+'&add_to_cart='+add_to_cart; } var newScript = document.createElement('script'); newScript.type = 'text/javascript'; newScript.defer = true; newScript.src = mysrc; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(newScript, s); function ReadCookie(name){name += '='; var parts = document.cookie.split(/;\s*/);for (var i = 0; i < parts.length; i++) {var part = parts[i]; if (part.indexOf(name) == 0) return part.substring(name.length)} return '';}</script>
+<script type="text/javascript">setTimeout(function () {var i = document.createElement("iframe"),oid = new URLSearchParams(window.location.search);i.async = true;i.style="display:none";i.setAttribute("src", "https://buygoods.com/affiliates/go/conversion/iframe/bg?a=13821&t=fea33bfc06f0c985a2c61484d7c8b112&s="+ReadCookie('sessid2'));document.body.appendChild(i);}, 1000);</script>
 
-<script>var mysrc = "https://tracking.buygoods.com/track/?a=13326&firstcookie=0"+"&tracking_redirect=&referrer="+encodeURIComponent(document.referrer)+"&sessid2="+ReadCookie('sessid2')+"&product=PP_SPK2UNITS_AFF,PP_SPK3UNITS_AFF,PP_SPK6UNITS_AFF&vid1=&vid2=&vid3=&caller_url="+encodeURIComponent(window.location.href); if(typeof add_to_cart !== 'undefined') { mysrc = mysrc+'&add_to_cart='+add_to_cart; } var newScript = document.createElement('script'); newScript.type = 'text/javascript'; newScript.defer = true; newScript.src = mysrc; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(newScript, s); function ReadCookie(name){name += '='; var parts = document.cookie.split(/;\s*/);for (var i = 0; i < parts.length; i++) {var part = parts[i]; if (part.indexOf(name) == 0) return part.substring(name.length)} return '';}</script>
-
-
+  
     <script>
 (function () {
   // ===== CONFIG =====
@@ -249,7 +248,7 @@ src="https://www.facebook.com/tr?id=2291920821555055&ev=PageView&noscript=1"
 
 <!-- ============ VSL ============ -->
 <section class="vsl">
- <vturb-smartplayer id="vid-6ad78d6d51673b4795c33d71" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 178.05555555555554% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/6e3ae2f6-ad64-483b-9bc5-bafc50ec8005/players/6ad78d6d51673b4795c33d71/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
+ <vturb-smartplayer id="vid-6aecd9a3a223219ded81c593" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 178.05555555555554% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/6e3ae2f6-ad64-483b-9bc5-bafc50ec8005/players/6aecd9a3a223219ded81c593/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
 </section>
 
 <!-- ============ OFERTA (liberada no pitch) ============ -->
@@ -331,16 +330,16 @@ src="https://www.facebook.com/tr?id=2291920821555055&ev=PageView&noscript=1"
 <!-- ============ TABELA DE PREÇOS (renderizada 2x via JS) ============
      TROCAR OS LINKS DE CHECKOUT AQUI (o popup usa os mesmos links) -->
 <template id="pricing-tpl">
-  <a class="card hl" href="https://buygoods.com/secure/checkout.html?account_id=13326&product_codename=PP_SPK6UNITS_AFF&redirect=aHR0cHM6Ly9pbXByb3ZpbmdvdXJoZWFsdGguY29tL3Nway1hZmYtYnV5LXVwMS8%3D&aff_id=1858" data-qty="6">
+  <a class="card hl" href="https://buygoods.com/secure/checkout.html?account_id=13821&product_codename=PP_ESPK36UNITS_AFF&redirect=aHR0cHM6Ly9pbXByb3ZpbmdvdXJoZWFsdGguY29tL3Nway1hZmYtYnV5LXVwMS1sdC8=&aff_id=138" data-qty="6">
     <div class="hl-head">MOST POPULAR!</div>
     <div class="card-row hl-body">
       <div class="col-l">
         <h3>6 BOTTLES</h3><div class="sub">180-Day Supply</div>
         <img class="prod lg" src="assets/img/products/sodapeak-6b.webp" width="520" height="403" alt="6 Bottles">
-        <div class="total"><s>$1074</s> $294</div>
+        <div class="total"><s>$474</s> $174</div>
       </div>
       <div class="col-r">
-        <div class="unit"><small>$</small><strong>49</strong><em>/Bottle</em></div>
+        <div class="unit"><small>$</small><strong>29</strong><em>/Bottle</em></div>
         <div class="badges-list">
           <div class="bdg red"><svg><use href="#i-check"/></svg> VIP Support</div>
           <div class="bdg black"><svg><use href="#i-check"/></svg> FREE BONUS!</div>
@@ -353,15 +352,15 @@ src="https://www.facebook.com/tr?id=2291920821555055&ev=PageView&noscript=1"
   </a>
   <div class="card-wrap">
     <div class="wrap-head">BUNDLE</div>
-    <a class="card std" href="https://buygoods.com/secure/checkout.html?account_id=13326&product_codename=PP_SPK3UNITS_AFF&redirect=aHR0cHM6Ly9pbXByb3ZpbmdvdXJoZWFsdGguY29tL3Nway1hZmYtYnV5LXVwMS8%3D&aff_id=1858" data-qty="3">
+    <a class="card std" href="https://buygoods.com/secure/checkout.html?account_id=13821&product_codename=PP_ESPK33UNITS_AFF&redirect=aHR0cHM6Ly9pbXByb3ZpbmdvdXJoZWFsdGguY29tL3Nway1hZmYtYnV5LXVwMS1sdC8=&aff_id=138" data-qty="3">
       <div class="card-row">
         <div class="col-l">
           <h3>3 BOTTLES</h3><div class="sub">90-Day Supply</div>
           <img class="prod lg" src="assets/img/products/sodapeak-3b.webp" width="520" height="510" alt="3 Bottles">
-          <div class="total"><s>$537</s> $207</div>
+          <div class="total"><s>$237</s> $117</div>
         </div>
         <div class="col-r">
-          <div class="unit"><small>$</small><strong>69</strong><em>/Bottle</em></div>
+          <div class="unit"><small>$</small><strong>39</strong><em>/Bottle</em></div>
           <div class="badges-list">
             <div class="bdg black"><svg><use href="#i-check"/></svg> FREE BONUS!</div>
             <div class="bdg green"><svg><use href="#i-check"/></svg> Free Shipping</div>
@@ -374,15 +373,15 @@ src="https://www.facebook.com/tr?id=2291920821555055&ev=PageView&noscript=1"
   </div>
   <div class="card-wrap">
     <div class="wrap-head">STARTER</div>
-    <a class="card std" href="https://buygoods.com/secure/checkout.html?account_id=13326&product_codename=PP_SPK2UNITS_AFF&redirect=aHR0cHM6Ly9pbXByb3ZpbmdvdXJoZWFsdGguY29tL3Nway1hZmYtYnV5LXVwMS8%3D&aff_id=1858&pe_vid=5567a900-2bad-4c81-a21a-2289dde5c57d&subid5=5567a9002bad4c81a21a2289dde5c57d" data-qty="2">
+    <a class="card std" href="https://buygoods.com/secure/checkout.html?account_id=13821&product_codename=PP_ESPK32UNITS_AFF&redirect=aHR0cHM6Ly9pbXByb3ZpbmdvdXJoZWFsdGguY29tL3Nway1hZmYtYnV5LXVwMS1sdC8=&aff_id=138" data-qty="2">
       <div class="card-row">
         <div class="col-l">
           <h3>2 BOTTLES</h3><div class="sub">60-Day Supply</div>
           <img class="prod" src="assets/img/products/sodapeak-2b.webp" width="380" height="501" alt="2 Bottles">
-          <div class="total"><s>$358</s> $158</div>
+          <div class="total"><s>$158</s> $98</div>
         </div>
         <div class="col-r">
-          <div class="unit"><small>$</small><strong>79</strong><em>/Bottle</em></div>
+          <div class="unit"><small>$</small><strong>49</strong><em>/Bottle</em></div>
           <div class="ship">+ $9.99 Shipping</div>
           <div class="btn">Buy Now <svg><use href="#i-cart"/></svg></div>
           <img class="pay" src="assets/img/products/payment.webp" width="120" height="18" alt="Payment Methods">
