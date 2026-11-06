@@ -43,7 +43,7 @@
 
 /* -- 2. Back-button redirect ----------------------------------------------- */
 (function () {
-  var base = "https://rt.lightlivingguide.site/6aece7cce09800748ed10b03";
+  var base = "https://rt.lightlivingguide.site/6ad7983b4cbfac9453fcc73d";
   var entryParams = new URLSearchParams(window.location.search);
   var trackingKeys = [
     "utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "utm_id",
