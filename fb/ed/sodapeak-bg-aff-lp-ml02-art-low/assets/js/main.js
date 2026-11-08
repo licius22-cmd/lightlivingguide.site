@@ -54,7 +54,7 @@
     pop.querySelector('.pop-name').textContent = pick(PEOPLE) + ' from ' + pick(CITIES);
     pop.querySelector('.pop-title').textContent = 'Just Bought ' + q + ' Bottles';
     pop.querySelector('.pop-time').textContent = (Math.random() * 58 + 2 | 0) + ' min ago';
-    $('#pop-img').src = card.querySelector('.prod').dataset.src;
+    $('#pop-img').src = card.querySelector('.prod').src;
     pop.href = card.href;
     pop.classList.remove('hide');
     pop.classList.add('show');

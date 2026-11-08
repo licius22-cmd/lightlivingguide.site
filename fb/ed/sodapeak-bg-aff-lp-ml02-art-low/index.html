@@ -401,8 +401,7 @@ src="https://www.facebook.com/tr?id=2291920821555055&ev=PageView&noscript=1"
         eventType: "InitiateCheckout",
         cookieName: "rtkclickid-store",
         clickParams: ["cid", "sid1", "rtkcid", "clickid"], // Digistore24 usa cid (sid1-sid5 extras)
-        clickSelector: "a, button",
-        clickPathMatch: "/click",
+        clickSelector: "#offer a.card[data-qty][href]",
         storageKey: "rtk_ic_fired",
         debug: true   // deixe true ate confirmar, depois troque pra false
     };
@@ -433,9 +432,10 @@ src="https://www.facebook.com/tr?id=2291920821555055&ev=PageView&noscript=1"
         log("clickId NAO encontrado (cookie + params: " + CONFIG.clickParams.join(", ") + ")");
         return null;
     }
-    function isClickLink(url) {
-        try { return new URL(url).pathname.indexOf(CONFIG.clickPathMatch) !== -1; }
-        catch(e) { return false; }
+    function isCheckoutLink(url) {
+        var checkout = new URL(url);
+        return checkout.origin === "https://buygoods.com" &&
+            checkout.pathname === "/secure/checkout.html";
     }
     function alreadyFired(clickId) {
         try { return sessionStorage.getItem(CONFIG.storageKey) === clickId; }
@@ -470,13 +470,11 @@ src="https://www.facebook.com/tr?id=2291920821555055&ev=PageView&noscript=1"
     function handleClick(e) {
         if (!e.target.closest) return;
         var el = e.target.closest(CONFIG.clickSelector);
-        if (el) { log("clique em " + el.tagName); firePostback(); return; }
-        var anchor = e.target.closest("a[href]");
-        if (anchor && isClickLink(anchor.href)) firePostback();
+        if (el && isCheckoutLink(el.href)) firePostback();
     }
     function init() {
         document.addEventListener("click", handleClick, true);
-        log("inicializado - escutando <a>, <button> e links /click");
+        log("inicializado - escutando os links de checkout dos kits");
     }
     if (document.readyState === "loading") {
         document.addEventListener("DOMContentLoaded", init);
