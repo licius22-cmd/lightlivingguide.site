@@ -7,7 +7,7 @@ document.querySelectorAll('[data-tpl]').forEach(function (el) {
 
 /* 3) VTurb: libera a oferta no segundo X do vídeo e esconde os comentários */
 (function () {
-  var DELAY = 3729; // segundos do pitch
+  var DELAY = 3900; // segundos do pitch
   var player = document.querySelector('vturb-smartplayer');
   var offer = document.querySelector('.esconder');
   var comments = document.getElementById('fb-comments');
