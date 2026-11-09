@@ -3,14 +3,7 @@ document.querySelectorAll('[data-tpl]').forEach(function (el) {
   el.replaceWith(document.getElementById(el.dataset.tpl).content.cloneNode(true));
 });
 
-/* 2) Repassa os parâmetros da URL (utm, src, etc.) para os links de checkout */
-(function () {
-  var qs = location.search.slice(1);
-  if (!qs) return;
-  document.querySelectorAll('a.buylink').forEach(function (a) {
-    a.href += (a.href.indexOf('?') > -1 ? '&' : '?') + qs;
-  });
-})();
+/* 2) Parâmetros da URL e subid para o checkout: feito pelo "BuyGoods Param Forwarder" no fim do index.html */
 
 /* 3) VTurb: libera a oferta no segundo X do vídeo e esconde os comentários */
 (function () {
