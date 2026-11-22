@@ -22,7 +22,7 @@
 
     <!-- CONFIGURAR PITCH TIME AQUI (segundos) -->
     <script>
-        /* PITCH -- TROCAR PELO TEMPO REAL DA VSL. Valor em SEGUNDOS de video assistido. 3 = teste. */window.SECONDS_TO_DISPLAY=3342;window.SALE_END="2026-11-30T23:59:59";
+        window.SALE_END="2026-11-30T23:59:59";
     </script>
     <style>
         @font-face{font-family:'Roboto';font-style:normal;font-weight:400 900;font-display:swap;src:url('assets/roboto.woff2') format('woff2')}@font-face{font-family:'Roboto Condensed';font-style:normal;font-weight:400 900;font-display:swap;src:url('assets/roboto-condensed.woff2') format('woff2')}
@@ -36,7 +36,7 @@
         .offers{display:flex;flex-direction:column;max-width:540px;margin:auto;padding:20px 16px 48px;gap:24px}.card{position:relative;display:block;background:#fff;color:#142331;border:1px solid var(--line);border-radius:16px;box-shadow:0 10px 30px #162b3c0c;min-width:0;transform:none!important}.card__badge,.card__bar{padding:12px;text-align:center;font:800 19px var(--cond);background:#eef3f7;border-radius:15px 15px 0 0}.card__body{padding:16px}.card__grid{display:flex;align-items:center;gap:10px}.card__left{width:45%;text-align:center;flex:none}.card__right{flex:1;min-width:0}.card__label{font:700 12px var(--cond);color:#466376}.card__qty{font:800 25px/1.1 var(--cond)}.card__supply{font-size:13px;color:#667581;margin:6px 0}.card__bottles{max-width:100%;width:auto;height:auto;max-height:170px;margin:8px auto;object-fit:contain}.price{display:flex;justify-content:center;align-items:flex-start;line-height:1}.price__cur{font:800 23px var(--sans);padding-top:7px}.price__num{font:800 54px/1 var(--sans);letter-spacing:-.045em}.price__per{font:600 10px/1.15 var(--sans);padding:9px 0 0 3px;white-space:nowrap}.benefits{list-style:none;padding:0;margin:12px 0}.benefits li{display:flex;align-items:center;justify-content:center;gap:5px;padding:7px 0;border-top:1px solid #d7e1e8;font-size:10px;font-weight:800;text-align:center}.benefits .ico{width:13px;height:13px;flex:none;color:#249a4d}.b-save{color:#145897}.total{text-align:center;font:500 15px/1.5 var(--sans)}.total b{font-weight:800}.total s{color:#71808c;margin-right:4px}.ship{display:block;font:700 11px var(--sans);color:#249a4d;margin-top:3px}.card--basic .ship{color:#cc3542}.bf-tag{display:table;padding:4px 9px;background:#101820;color:white;border-radius:99px;margin:0 auto 10px;font:800 10px var(--cond)}.bf-tag b{color:#ffd814}.only-desktop{display:none}.card--featured{background:radial-gradient(120% 90% at 50% 35%,#1f6ba8,#0c5590 45%,#06467a);border:2px solid #06467a;box-shadow:0 20px 40px #06467a33;color:white}.card--featured .card__badge{background:white;color:#145897}.card--featured .card__grid{display:block}.card--featured .card__left{width:100%}.card--featured .card__bottles{width:75%;max-height:230px;filter:drop-shadow(0 10px 20px #0003)}.card--featured .card__supply,.card--featured .price__per,.card--featured .total s{color:#ffffffb3}.card--featured .card__label{color:#ffffffb3}.card--featured .price__num{font-size:62px}.card--featured .total{font-size:19px}.card--featured .benefits{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}.card--featured .benefits li{border:1px solid #ffffff2e;background:#ffffff14;border-radius:99px;padding:7px 10px}.card--featured .b-save,.card--featured .ship{color:#ffd814}.card--featured .benefits .ico{color:#6ee79a}.pay{max-width:210px;width:78%;margin:14px auto 0}
         .btn{position:relative;display:flex;align-items:center;justify-content:center;gap:9px;isolation:isolate;background:#249a4d;color:white!important;height:58px;padding:10px 14px;margin-top:15px;border-radius:12px;box-shadow:0 4px 0 #13702f;font:800 22px var(--cond);letter-spacing:.03em;overflow:hidden}.btn:before{content:'';position:absolute;z-index:-1;top:0;left:0;bottom:0;width:200%;background:linear-gradient(100deg,#1e9447,#45cf72,#1e9447,#45cf72,#1e9447);animation:flow 5s linear infinite;will-change:transform}.btn:after{content:'';position:absolute;top:0;bottom:0;left:0;width:35%;background:linear-gradient(100deg,transparent,#ffffff66,transparent);animation:shine 3.2s infinite;transform:translateX(-120%) skewX(-18deg)}.btn .cart{width:23px;height:23px;flex:none}.btn>*{position:relative;z-index:1}.card:active .btn{transform:translateY(3px);box-shadow:0 1px 0 #13702f}.card--featured .btn{padding-right:44px;animation:press 2.4s infinite}.clicker{position:absolute!important;z-index:3!important;right:8px;bottom:-1px;width:39px;height:39px;pointer-events:none;animation:click 2.4s infinite;transform-origin:45% 10%}.card--featured .btn span:after{content:'';position:absolute;right:-28px;top:2px;width:16px;height:16px;border:2px solid white;border-radius:50%;animation:ripple 2.4s infinite;pointer-events:none}
         .stamp{position:absolute;right:-8px;top:-24px;width:76px;height:76px;pointer-events:none;z-index:2}.stamp__bg{position:absolute;top:0;right:0;bottom:0;left:0;background:#ffc933;border-radius:50%}.stamp__ring{position:relative;width:100%;height:100%;animation:rotate 12s linear infinite}.stamp__ring text{font-size:10px;font-weight:700;fill:#15110a;letter-spacing:1.8px}.stamp__core{position:absolute;top:19px;right:19px;bottom:19px;left:19px;border-radius:50%;background:#17130a;color:#ffd814;display:flex;align-items:center;justify-content:center;font:800 17px var(--cond)}
-        .comments,.fb-comments-section{max-width:800px;margin:0 auto 32px;padding:24px 18px 40px;border:1px solid var(--line);border-radius:16px;background:#fff;color:#050505;font-family:var(--sans)}.comments__head,.fb-header{border-bottom:1px solid #e4e6eb;margin-bottom:22px;padding-bottom:16px}.comments__head h3,.fb-title{font-size:23px;font-weight:800;margin-bottom:8px}.comments__head>span,.fb-header-top{display:flex;gap:8px;align-items:center;font-size:11px;color:#65676b}.fb-powered{font-size:12px;color:#65676b}.fb-plugin-title{font-size:15px;font-weight:700}.fb-logo{height:22px;width:22px}.comment-item{display:flex;gap:10px;margin-bottom:22px}.comment-reply{margin-left:48px}.comment-avatar{width:40px;height:40px;border-radius:50%;object-fit:cover;flex:none}.comment-reply .comment-avatar{width:32px;height:32px}.comment-body{position:relative;flex:1;min-width:0;background:#f0f2f5;border-radius:18px;padding:12px 14px 14px}.comment-author{display:block;color:#385898;font-size:13px;font-weight:700;margin-bottom:4px}.comment-text{color:#050505;font-size:15px;line-height:1.5;overflow-wrap:anywhere}.comment-actions{display:flex;gap:14px;margin-top:8px;font-size:12px;font-weight:600;color:#65676b}.comment-actions span{cursor:pointer;user-select:none}.comment-actions .liked{color:#0866ff}.like-counter{position:absolute;right:9px;bottom:-10px;border-radius:99px;background:white;box-shadow:0 2px 6px #0002;display:flex;align-items:center;gap:3px;padding:2px 6px;color:#65676b;font-size:11px}.reactions{display:block;width:28px;height:16px}.site-footer{padding:28px 16px 100px;text-align:center;background:#101820;color:#a9b8c7;font-size:11px;letter-spacing:.04em}.sticky-cta{position:fixed;z-index:50;bottom:16px;left:50%;width:calc(100% - 24px);max-width:640px;display:flex;align-items:center;gap:14px;padding:12px;background:#101820;color:white;border:1px solid #ffffff2e;border-radius:16px;box-shadow:0 14px 40px #0004;transform:translate(-50%,150%);transition:transform .4s}.sticky-cta.is-on{transform:translate(-50%,0)}.sticky-cta__txt{flex:1;min-width:0;font-size:12px}.sticky-cta__txt>b{display:block;font:800 17px var(--cond)}.sticky-cta__txt>span{font-size:10px;color:#ffd814}.sticky-cta .btn{width:auto;flex:none;margin:0;height:46px;font-size:18px}.js-delay{display:none!important}
+        .comments,.fb-comments-section{max-width:800px;margin:0 auto 32px;padding:24px 18px 40px;border:1px solid var(--line);border-radius:16px;background:#fff;color:#050505;font-family:var(--sans)}.comments__head,.fb-header{border-bottom:1px solid #e4e6eb;margin-bottom:22px;padding-bottom:16px}.comments__head h3,.fb-title{font-size:23px;font-weight:800;margin-bottom:8px}.comments__head>span,.fb-header-top{display:flex;gap:8px;align-items:center;font-size:11px;color:#65676b}.fb-powered{font-size:12px;color:#65676b}.fb-plugin-title{font-size:15px;font-weight:700}.fb-logo{height:22px;width:22px}.comment-item{display:flex;gap:10px;margin-bottom:22px}.comment-reply{margin-left:48px}.comment-avatar{width:40px;height:40px;border-radius:50%;object-fit:cover;flex:none}.comment-reply .comment-avatar{width:32px;height:32px}.comment-body{position:relative;flex:1;min-width:0;background:#f0f2f5;border-radius:18px;padding:12px 14px 14px}.comment-author{display:block;color:#385898;font-size:13px;font-weight:700;margin-bottom:4px}.comment-text{color:#050505;font-size:15px;line-height:1.5;overflow-wrap:anywhere}.comment-actions{display:flex;gap:14px;margin-top:8px;font-size:12px;font-weight:600;color:#65676b}.comment-actions span{cursor:pointer;user-select:none}.comment-actions .liked{color:#0866ff}.like-counter{position:absolute;right:9px;bottom:-10px;border-radius:99px;background:white;box-shadow:0 2px 6px #0002;display:flex;align-items:center;gap:3px;padding:2px 6px;color:#65676b;font-size:11px}.reactions{display:block;width:28px;height:16px}.site-footer{padding:28px 16px 100px;text-align:center;background:#101820;color:#a9b8c7;font-size:11px;letter-spacing:.04em}.esconder{display:none}
         @keyframes marquee{to{transform:translateX(-50%)}}@keyframes flow{to{transform:translateX(-50%)}}@keyframes shine{0%,55%{transform:translateX(-120%) skewX(-18deg)}100%{transform:translateX(400%) skewX(-18deg)}}@keyframes click{0%,100%{opacity:0;transform:translate(12px,12px)}20%,42%,70%{opacity:1;transform:translate(0,0) scale(1)}50%,60%{opacity:1;transform:translate(-2px,-3px) scale(.86)}85%{opacity:0;transform:translate(4px,8px)}}@keyframes press{50%,60%{transform:translateY(3px);box-shadow:0 1px 0 #13702f}}@keyframes ripple{0%,42%,72%,100%{opacity:0;transform:scale(.2)}50%{opacity:1;transform:scale(.3)}68%{opacity:0;transform:scale(2)}}@keyframes rotate{to{transform:rotate(360deg)}}@keyframes blink{50%{opacity:.4;transform:scale(.85)}}@keyframes colorwave{0%,4%{opacity:0}12%,24%{opacity:1}34%,100%{opacity:0}}
         @media(max-width:768px){.desktop-header-top{display:none!important}.mobile-header-top{display:grid!important;grid-template-columns:auto 1fr auto;padding:12px 16px}.cbs-logo-img{height:24px}.sub-nav{padding:0 16px;height:43px;font-size:12px}.sub-nav-right,.sub-nav-right-box{display:none}.mobile-only{display:inline}.bf-hide-sm{display:none}.bf-bar{font-size:10px;text-align:left;white-space:nowrap}.as-seen-logos{gap:22px}.as-logo-img{height:24px}.comments__head>span{font-size:9px}.comment-reply{margin-left:32px}.comment-text{font-size:14px}.comments,.fb-comments-section{border-left:0;border-right:0;border-radius:0;margin:0 0 25px}.card--featured .card__bottles{max-height:240px}.stamp{right:2px}}
         @media(min-width:900px){.offers{flex-direction:row;align-items:flex-start;justify-content:center;max-width:1140px;gap:20px;padding:48px 24px 65px}.card{flex:1;max-width:330px}.card--basic{order:1}.card--featured{order:2;flex:1.08;max-width:350px;margin-top:-20px}.card--good{order:3}.card__body{display:flex;flex-direction:column;padding:16px}.card__grid,.card__left,.card__right{display:contents!important}.card__qty{order:1;text-align:center;font-size:30px}.card__supply{order:2;text-align:center}.card__bottles{order:3;height:185px;width:100%;max-height:none!important;object-fit:contain;margin:10px auto 14px}.card--featured .card__bottles{height:225px;width:100%}.price{order:4}.benefits{order:5}.btn{order:6}.pay{order:7}.total{order:8;font-size:19px;margin-top:14px}.card--featured .total{font-size:21px}.only-desktop{display:block}.card__label{display:none}.bf-tag{order:0}.card__bar{font-size:19px}.card--featured .benefits{display:block}.card--featured .benefits li{background:transparent;border:0;border-top:1px solid #ffffff40;border-radius:0;padding:9px}.price__num{font-size:54px}.card--featured .price__num{font-size:62px}}
@@ -270,9 +270,9 @@ src="https://www.facebook.com/tr?id=988901483832743&ev=PageView&noscript=1"
 <body>
 
 
-    <div class="bf-ribbon js-delay" aria-hidden="true"><span>BLACK FRIDAY</span></div>
+    <div class="bf-ribbon esconder" aria-hidden="true"><span>BLACK FRIDAY</span></div>
 
-    <div class="bf-bar js-delay">BLACK FRIDAY<span class="bf-hide-sm"> OFERTAS</span> · <b>HASTA UN 73 % DE DESCUENTO</b> · <span class="bf-hide-sm">TERMINA EN </span><span data-countdown>--</span></div>
+    <div class="bf-bar esconder">BLACK FRIDAY<span class="bf-hide-sm"> OFERTAS</span> · <b>HASTA UN 73 % DE DESCUENTO</b> · <span class="bf-hide-sm">TERMINA EN </span><span data-countdown>--</span></div>
 
     <header class="cbs-header">
         <div class="desktop-header-top header-top">
@@ -327,23 +327,39 @@ src="https://www.facebook.com/tr?id=988901483832743&ev=PageView&noscript=1"
         <section class="video-sec">
             <!-- TROCAR O VÍDEO -->
            <vturb-smartplayer id="vid-6afc985338d5bc535d324598" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 177.77777777777777% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/6e3ae2f6-ad64-483b-9bc5-bafc50ec8005/players/6afc985338d5bc535d324598/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
-            </script>
         </section>
+
+        <!-- Delay oficial da VTurb: 3342 segundos (55:42). -->
+        <script>
+          var delaySeconds = 3342;
+          var player = document.querySelector("vturb-smartplayer");
+          player.addEventListener("player:ready", function() {
+            player.displayHiddenElements(delaySeconds, [".esconder"], {
+              persist: true,
+              callback: function() {
+                document.documentElement.style.setProperty("--bf-bg", "url(assets/bf-offers-bg.webp)");
+                document.documentElement.style.setProperty("--bf-tile", "url(assets/bf-offers-tile.webp)");
+                document.documentElement.classList.add("offer-on");
+              }
+            });
+          });
+        </script>
 
         <div class="as-seen-section">
             <div class="as-seen-title">VISTO EN:</div>
             <div class="as-seen-logos">
-                <div class="logo-item" title="ABC"><span class="media-logo"><img decoding="async" alt="ABC" class="as-logo-img" src="assets/1_dDIlpv4768548.webp" width="64" height="64"><img decoding="async" alt="" class="as-logo-img on" src="assets/1_dDIlpv4768548.webp" aria-hidden="true" width="64" height="64"></span></div>
+                <div class="logo-item" title="ABC"><span class="media-logo"><img decoding="async" loading="lazy" fetchpriority="low" alt="ABC" class="as-logo-img" src="assets/1_dDIlpv4768548.webp" width="64" height="64"><img decoding="async" loading="lazy" fetchpriority="low" alt="" class="as-logo-img on" src="assets/1_dDIlpv4768548.webp" aria-hidden="true" width="64" height="64"></span></div>
                 <div
-                class="logo-item" title="CNN"><span class="media-logo"><img decoding="async" alt="CNN" class="as-logo-img" src="assets/5_hqtWQp4768548.webp" width="134" height="64"><img decoding="async" alt="" class="as-logo-img on" src="assets/5_hqtWQp4768548.webp" aria-hidden="true" width="134" height="64"></span></div>
+                class="logo-item" title="CNN"><span class="media-logo"><img decoding="async" loading="lazy" fetchpriority="low" alt="CNN" class="as-logo-img" src="assets/5_hqtWQp4768548.webp" width="134" height="64"><img decoding="async" loading="lazy" fetchpriority="low" alt="" class="as-logo-img on" src="assets/5_hqtWQp4768548.webp" aria-hidden="true" width="134" height="64"></span></div>
             <div
-            class="logo-item" title="NBC"><span class="media-logo"><img decoding="async" alt="NBC" class="as-logo-img" src="assets/3_msFdni4768548.webp" width="65" height="64"><img decoding="async" alt="" class="as-logo-img on" src="assets/3_msFdni4768548.webp" aria-hidden="true" width="65" height="64"></span></div>
+            class="logo-item" title="NBC"><span class="media-logo"><img decoding="async" loading="lazy" fetchpriority="low" alt="NBC" class="as-logo-img" src="assets/3_msFdni4768548.webp" width="65" height="64"><img decoding="async" loading="lazy" fetchpriority="low" alt="" class="as-logo-img on" src="assets/3_msFdni4768548.webp" aria-hidden="true" width="65" height="64"></span></div>
         <div
-        class="logo-item" title="CBS"><span class="media-logo"><img decoding="async" alt="CBS" class="as-logo-img" src="assets/4_DEGALa4938150.webp" width="64" height="64"><img decoding="async" alt="" class="as-logo-img on" src="assets/4_DEGALa4938150.webp" aria-hidden="true" width="64" height="64"></span></div>
+        class="logo-item" title="CBS"><span class="media-logo"><img decoding="async" loading="lazy" fetchpriority="low" alt="CBS" class="as-logo-img" src="assets/4_DEGALa4938150.webp" width="64" height="64"><img decoding="async" loading="lazy" fetchpriority="low" alt="" class="as-logo-img on" src="assets/4_DEGALa4938150.webp" aria-hidden="true" width="64" height="64"></span></div>
     </div>
     </div>
 
-    <section class="offers js-delay" id="potes">
+    <div class="esconder">
+    <section class="offers" id="potes">
         <a class="card card--featured smartplayer-click-event" href="https://buygoods.com/secure/checkout.html?account_id=13326&product_codename=PP_SPK6UNITS_AFF&redirect=aHR0cHM6Ly9pbXByb3ZpbmdvdXJoZWFsdGguY29tL3Nway1hZmYtYnV5LXVwMS8%3D&aff_id=1858" data-kit="kit6">
             <div class="card__badge"><span>BLACK</span><strong>FRIDAY</strong></div>
             <div class="card__body">
@@ -352,7 +368,7 @@ src="https://www.facebook.com/tr?id=988901483832743&ev=PageView&noscript=1"
                     <div class="card__left">
                         <h3 class="card__qty">6 FRASCOS</h3>
                         <p class="card__supply">Suministro para 6 meses</p>
-                        <div class="kit-visual"><img alt="" class="card__bottles" decoding="async" loading="lazy" src="assets/kit-6-sodapeak.webp" width="640" height="488"><span class="bf-seal" role="img" aria-label="Black Friday: 73 % de descuento"><span class="bf-seal__ribbons" aria-hidden="true"></span>
+                        <div class="kit-visual"><img alt="" class="card__bottles" decoding="async" loading="lazy" fetchpriority="low" src="assets/kit-6-sodapeak.webp" width="640" height="488"><span class="bf-seal" role="img" aria-label="Black Friday: 73 % de descuento"><span class="bf-seal__ribbons" aria-hidden="true"></span>
                             <span
                             class="bf-seal__sheen" aria-hidden="true"></span><span class="bf-seal__top">BLACK FRIDAY</span><strong class="bf-seal__number">73<span>%</span></strong><span class="bf-seal__off">DTO.</span></span>
                         </div>
@@ -407,7 +423,7 @@ src="https://www.facebook.com/tr?id=988901483832743&ev=PageView&noscript=1"
 	c5.352,0,9.706,4.447,9.706,9.914v46.13c0,5.601,4.542,10.145,10.144,10.145c5.603,0,10.145-4.544,10.145-10.145V121.865z"></path>
                     </svg>
                 </div>
-                <img alt="" class="pay only-desktop" decoding="async" data-src="assets/17_WatCdd7029656.webp" width="391" height="57">
+                <img alt="Tarjetas de pago aceptadas" class="pay" decoding="async" loading="lazy" fetchpriority="low" src="assets/17_WatCdd7029656.webp" width="391" height="57">
             </div>
         </a>
         <a class="card card--good smartplayer-click-event" href="https://buygoods.com/secure/checkout.html?account_id=13326&product_codename=PP_SPK3UNITS_AFF&redirect=aHR0cHM6Ly9pbXByb3ZpbmdvdXJoZWFsdGguY29tL3Nway1hZmYtYnV5LXVwMS8%3D&aff_id=1858" data-kit="kit3">
@@ -418,7 +434,7 @@ src="https://www.facebook.com/tr?id=988901483832743&ev=PageView&noscript=1"
                     <div class="card__left"><span class="card__label">Más popular</span>
                         <h3 class="card__qty">3 FRASCOS</h3>
                         <p class="card__supply">Suministro para 3 meses</p>
-                        <img alt="" class="card__bottles" decoding="async" loading="lazy" src="assets/kit-3-sodapeak.webp" width="623" height="585"></div>
+                        <img alt="" class="card__bottles" decoding="async" loading="lazy" fetchpriority="low" src="assets/kit-3-sodapeak.webp" width="623" height="585"></div>
                     <div class="card__right">
                         <div class="price"><span class="price__cur">$</span><span class="price__num">69</span><span class="price__per">POR<br>FRASCO</span></div>
                         <ul class="benefits">
@@ -440,7 +456,7 @@ src="https://www.facebook.com/tr?id=988901483832743&ev=PageView&noscript=1"
                         <circle cx="9" cy="20" r="1.5" fill="currentColor" stroke="none"></circle>
                         <circle cx="18" cy="20" r="1.5" fill="currentColor" stroke="none"></circle>
                     </svg><span>COMPRAR AHORA</span></div>
-                <img alt="" class="pay only-desktop" decoding="async" data-src="assets/10_WatCdd7029656.webp" width="391" height="57">
+                <img alt="Tarjetas de pago aceptadas" class="pay" decoding="async" loading="lazy" fetchpriority="low" src="assets/10_WatCdd7029656.webp" width="391" height="57">
             </div>
         </a>
         <a class="card card--basic smartplayer-click-event" href="https://buygoods.com/secure/checkout.html?account_id=13326&product_codename=PP_SPK2UNITS_AFF&redirect=aHR0cHM6Ly9pbXByb3ZpbmdvdXJoZWFsdGguY29tL3Nway1hZmYtYnV5LXVwMS8%3D&aff_id=1858" data-kit="kit2">
@@ -451,7 +467,7 @@ src="https://www.facebook.com/tr?id=988901483832743&ev=PageView&noscript=1"
                     <div class="card__left"><span class="card__label">Básico</span>
                         <h3 class="card__qty">2 FRASCOS</h3>
                         <p class="card__supply">Suministro para 2 meses</p>
-                        <img alt="" class="card__bottles" decoding="async" loading="lazy" src="assets/kit-2-sodapeak.webp" width="469" height="585"></div>
+                        <img alt="" class="card__bottles" decoding="async" loading="lazy" fetchpriority="low" src="assets/kit-2-sodapeak.webp" width="469" height="585"></div>
                     <div class="card__right">
                         <div class="price"><span class="price__cur">$</span><span class="price__num">79</span><span class="price__per">POR<br>FRASCO</span></div>
                         <ul class="benefits">
@@ -473,70 +489,29 @@ src="https://www.facebook.com/tr?id=988901483832743&ev=PageView&noscript=1"
                         <circle cx="9" cy="20" r="1.5" fill="currentColor" stroke="none"></circle>
                         <circle cx="18" cy="20" r="1.5" fill="currentColor" stroke="none"></circle>
                     </svg><span>COMPRAR AHORA</span></div>
-                <img alt="" class="pay only-desktop" decoding="async" data-src="assets/10_WatCdd7029656.webp" width="391" height="57">
+                <img alt="Tarjetas de pago aceptadas" class="pay" decoding="async" loading="lazy" fetchpriority="low" src="assets/10_WatCdd7029656.webp" width="391" height="57">
             </div>
         </a>
     </section>
     </div>
+    </div>
 
     <script>
-        (function(){
-          var shown=false,attempts=0,retryTimer=null,boundPlayer=null,gateImgs=[],gates=[],key='vsl:'+location.pathname+':'+window.SECONDS_TO_DISPLAY+':6ae5634d135e42c5e6d4157f';
-          function each(items,fn){Array.prototype.forEach.call(items,fn);}
-          function emit(name){var e=document.createEvent('Event');e.initEvent(name,false,false);window.dispatchEvent(e);}
-          function loadOffer(){document.documentElement.style.setProperty('--bf-bg','url(assets/bf-offers-bg.webp)');document.documentElement.style.setProperty('--bf-tile','url(assets/bf-offers-tile.webp)');each(gateImgs,function(img){if(!img.getAttribute('src'))img.setAttribute('src',img.getAttribute('data-src'));});}
-          function reveal(){
-            if(shown)return;shown=true;loadOffer();document.documentElement.className+=' offer-on';each(gates,function(el){el.classList.remove('js-delay');});
-            try{localStorage.setItem(key,'1');}catch(e){}
-            emit('offer:shown');emit('scroll');
-          }
-          function check(t){if(typeof t==='number' && isFinite(t) && t>=window.SECONDS_TO_DISPLAY)reveal();}
-          function watch(){
-            clearTimeout(retryTimer);
-            if(shown)return;
-            var sp=window.smartplayer && window.smartplayer.instances && window.smartplayer.instances[0];
-            if(sp && typeof sp.on==='function' && sp!==boundPlayer){
-              boundPlayer=sp;sp.on('timeupdate',function(){if(!shown && !sp.smartAutoPlay && sp.video)check(sp.video.currentTime);});
-              if(!sp.smartAutoPlay && sp.video)check(sp.video.currentTime);
-            }
-            attempts++;retryTimer=setTimeout(watch,attempts<120?1000:3000);
-          }
-          function warm(){
-            var list=['assets/bf-offers-bg.webp','assets/bf-offers-tile.webp'];each(gateImgs,function(img){var s=img.getAttribute('data-src');if(s && list.indexOf(s)<0)list.push(s);});
-            function next(){var s=list.shift();if(!s)return;var img=new Image();if('fetchPriority' in img)img.fetchPriority='low';img.onload=img.onerror=function(){setTimeout(next,150);};img.src=s;}
-            next();
-          }
-          function init(){
-            gates=document.querySelectorAll('.js-delay');gateImgs=document.querySelectorAll('.js-delay img[data-src]');
-            var host=document.querySelector('vturb-smartplayer');
-            if(host){host.addEventListener('player:ready',watch);host.addEventListener('video:timeupdate',function(ev){var sp=window.smartplayer && window.smartplayer.instances && window.smartplayer.instances[0];if(host.smartAutoPlay || (sp && sp.smartAutoPlay))return;if(sp && sp.video)check(sp.video.currentTime);else if(ev.detail)check(typeof ev.detail.time==='number'?ev.detail.time:ev.detail.currentTime);});}
-            try{if(localStorage.getItem(key)==='1')setTimeout(reveal,100);}catch(e){}
-            watch();
-            var t=document.createElement('div');t.style.cssText='display:flex;flex-direction:column;row-gap:1px;position:absolute;visibility:hidden';t.appendChild(document.createElement('div'));t.appendChild(document.createElement('div'));document.body.appendChild(t);if(t.scrollHeight!==1)document.documentElement.classList.add('no-fgap');document.body.removeChild(t);
-          }
-          document.addEventListener('error',function(e){var img=e.target;if(!img || img.tagName!=='IMG' || !img.getAttribute('src'))return;var n=+(img.getAttribute('data-retry')||0);if(n>=3)return;img.setAttribute('data-retry',n+1);setTimeout(function(){img.src=img.getAttribute('src').split('?')[0]+'?r='+(n+1);},1500*(n+1));},true);
-          document.addEventListener('contextmenu',function(e){e.preventDefault();});
-          document.addEventListener('dragstart',function(e){if(e.target && e.target.tagName==='IMG')e.preventDefault();});
-          document.addEventListener('keydown',function(e){var c=e.code||'',k=(e.key||'').toLowerCase(),mod=e.ctrlKey||e.metaKey,key=c.indexOf('Key')===0?c.slice(3).toLowerCase():k;if(c==='F12'||k==='f12'||(mod&&(e.shiftKey||e.altKey)&&key&&'ijc'.indexOf(key)>-1)||(mod&&(key==='u'||key==='s')))e.preventDefault();});
-          function schedule(){setTimeout(warm,6000);}
-          if(document.readyState==='complete')schedule();else window.addEventListener('load',schedule);
-          if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
-        })();
-        
-        (function(){
-         var cta=document.getElementById('stickyCta'),video=document.getElementById('video'),offers=document.getElementById('potes');
-         function update(){if(!cta||!video||!offers)return;var r=offers.getBoundingClientRect();cta.classList.toggle('is-on',video.getBoundingClientRect().bottom<0 && !(r.top<innerHeight && r.bottom>0));}
-         window.addEventListener('scroll',update);window.addEventListener('offer:shown',update);if(typeof window.IntersectionObserver==='function' && offers)new IntersectionObserver(update).observe(offers);update();
-         var end=new Date(window.SALE_END).getTime();function pad(n){return n<10?'0'+n:''+n;}function tick(){var t=Math.max(0,Math.floor((end-Date.now())/1000)),v=t?Math.floor(t/86400)+'d '+pad(Math.floor(t%86400/3600))+':'+pad(Math.floor(t%3600/60))+':'+pad(t%60):'HOY';Array.prototype.forEach.call(document.querySelectorAll('[data-countdown]'),function(e){e.textContent=v;});}setInterval(tick,1000);tick();
-         Array.prototype.forEach.call(document.querySelectorAll('.comment-actions'),function(el){var like=el.querySelector('span');if(!like || like.textContent.trim()!=='Like')return;like.setAttribute('role','button');like.setAttribute('tabindex','0');like.setAttribute('aria-pressed','false');function toggle(){var liked=like.classList.toggle('liked');like.setAttribute('aria-pressed',String(liked));var counter=el.parentNode.querySelector('.like-counter');if(counter){for(var i=0;i<counter.childNodes.length;i++){var n=counter.childNodes[i];if(n.nodeType===3 && /\d/.test(n.textContent)){n.textContent=n.textContent.replace(/\d+/,function(x){return +x+(liked?1:-1);});break;}}if(counter.animate)counter.animate([{transform:'scale(1)'},{transform:'scale(1.12)'},{transform:'scale(1)'}],{duration:240});}}like.addEventListener('click',toggle);like.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}});});
-        })();
-        
-        (function(){
-         var nodes=Array.prototype.slice.call(document.querySelectorAll('.offers-head,[data-reveal]:not(.card):not(.player)')),timer;
-         function scan(){nodes=nodes.filter(function(el){if(el.offsetWidth && el.getBoundingClientRect().top<innerHeight){if(el.animate)el.animate([{opacity:0,transform:'translateY(22px)'},{opacity:1,transform:'translateY(0)'}],{duration:650,easing:'ease-out'});return false;}return true;});if(!nodes.length)clearInterval(timer);}
-         if(typeof window.IntersectionObserver==='function'){var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){scan();io.unobserve(e.target);}});});nodes.forEach(function(el){io.observe(el);});}
-         timer=setInterval(scan,800);window.addEventListener('offer:shown',scan);scan();
-        })();
+      (function() {
+        var end = new Date(window.SALE_END).getTime();
+        function pad(n) { return n < 10 ? "0" + n : String(n); }
+        function tick() {
+          var seconds = Math.max(0, Math.floor((end - Date.now()) / 1000));
+          var remaining = seconds
+            ? Math.floor(seconds / 86400) + "d " + pad(Math.floor(seconds % 86400 / 3600)) + ":" + pad(Math.floor(seconds % 3600 / 60)) + ":" + pad(seconds % 60)
+            : "HOY";
+          Array.prototype.forEach.call(document.querySelectorAll("[data-countdown]"), function(el) {
+            el.textContent = remaining;
+          });
+        }
+        tick();
+        setInterval(tick, 1000);
+      })();
     </script>
 
 
